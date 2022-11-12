@@ -40,6 +40,7 @@ you can use the ``lumache.get_random_ingredients()`` function:
 ```
 
 Which will render like this:
+
 ![renderExample][lumache_example]
 
 ## Steps for installation
