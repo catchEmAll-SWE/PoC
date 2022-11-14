@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    box-sizing: border-box;
+    border: 0;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1em;
+    font-weight: 500;
+}
+
+h1, h2, h3 {
+    display: inline-block;
+    margin: 1em 0;
+}
+
+a {
+    color: blue;
+}
+
+a:visited {
+    color: #bb0000;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto auto 100vh auto;
+    grid-template-areas:
+            "header header"
+            "breadcrumb breadcrumb"
+            "sidebar main"
+            "footer footer";
+}
+
+#sidebar, #content, #footer {
+    padding: 2em;
+}
+
+.button {
+    padding: 1em 1.5em;
+    border-radius: 1.6em;
+    font-weight: 600;
+    color: navy;
+    background-color: #EEF;
+    border: 1px solid navy;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color .5s, border-color .5s
+}
+
+input.button:disabled {
+    background-color: lightgray;
+    color: gray;
+    border-color: gray;
+}
+
+input.button:not(:disabled):hover, input.button:focus {
+  background-color: navy;
+  color: #EEF;
+  border-color: #EEF;
+}
+
+input.button.reverse:not(:disabled) {
+    background-color: navy;
+    color: #EEF;
+    border-color: #EEF;
+}
+
+input.button.reverse:not(:disabled):hover, input.button.reverse:focus {
+    background-color: #EEF;
+    color: navy;
+    border-color: navy;
+}
+
+.hamburger-icon {
+    width: 2em;
+    margin: auto;
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 100%;
+    height: .4em;
+    margin: .4em 0;
+    background-color: white;
+}
+
+.hamburger-icon span:nth-child(1) {
+    margin-top: 0;
+}
+
+.hamburger-icon span:nth-last-child(1) {
+    margin-bottom: 0;
+}
+
+input, select, textarea {
+    padding: .25em .5em;
+    border: 1px solid gray;
+    border-radius: .25em;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+textarea {
+    height: 4em;
+    border-radius: .5em;
+    resize: none;
+}
+
+/*------------STILE HEADER------------ */
+
+#header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    row-gap: 1em;
+    column-gap: 1em;
+    grid-area: header;
+    padding: 1em;
+    color: white;
+    background-color: blue;
+}
+
+#titolo_post {
+    width: 100%;
+    color:white;
+    background-color:blue;
+    padding:1em 2em;
+    border-radius:1em;
+}
+
+#title {
+    display: block;
+    margin: auto 0;
+    background-color: #EEF;
+    border: 1px solid navy;
+    padding: .5em;
+    border-radius: .5em;
+}
+
+#title h1 {
+    margin: 0;
+    text-decoration: underline;
+}
+
+#search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    padding-bottom: .5em;
+    border-bottom: 1px solid white;
+}
+
+#search-input {
+    border: 0;
+    background-color: blue;
+    color: white;
+    caret-color: white;
+}
+
+#search-input::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+#search-submit {
+    padding: .5em;
+    border-radius: .5em;
+}
+
+#menu-popup {
+    display: none;
+}
+
+#login, #signup, #logout, #profilo {
+    display: inline-block;
+    margin: 0.5em;
+}
+
+#login, #signup {
+    padding: 1em 2em;
+}
+
+/*------------FINE STILE HEADER------------*/
+
+/*------------STILE BREADCRUMB------------*/
+
+#breadcrumb {
+    grid-area: breadcrumb;
+    padding: 0 1em;
+    color: blue;
+}
+
+/*------------FINE STILE BREADCRUMB------------*/
+
+/*------------STILE SIDER------------*/
+
+#sidebar {
+    grid-area: sidebar;
+    border-image: linear-gradient(white 10%, blue 50%, white 90%) 1 100%;
+    border-right: 1px solid;
+}
+
+#sidebar > * {
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+#categories {
+    color: white;
+    background-color: blue;
+}
+
+#categories ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    color: blue;
+    font-weight: 600;
+}
+
+#categories li {
+    margin: 1em 0;
+    padding: 1em;
+    border-radius: .5em;
+    background-color: white;
+}
+
+#categories li * {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#categories li:hover {
+  background-color: #EEF;
+}
+
+/*------------FINE STILE SIDER------------*/
+
+/*------------STILE MAIN------------*/
+
+#content {
+    grid-area: main;
+    padding: 2em 4em;
+}
+
+#content > div {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+/*------------FINE STILE MAIN------------*/
+
+/*------------STILE FOOTER------------*/
+
+#footer {
+    grid-area: footer;
+    background-color: blue;
+    color: white;
+}
+
+/*------------FINE STILE FOOTER------------*/
+
+/*------------STILE LOGIN e SIGNUP------------*/
+form .submit {
+    width: 80%;
+    margin: 1rem auto;
+  }
+
+#signup form, #login form  {
+    height: 100%;
+    width: 480em;
+    padding: 3em;
+    background-color: white;
+    border-width: 1em;
+    border-radius: 1em;
+}
+/*------------FINE STILE LOGIN e SIGNUP------------*/
+
+/*------------ALERT MESSAGGES------------*/
+.alert{
+  padding: 1em;
+  background-color: navy;
+  color: white;
+  border-radius: 1em;
+  margin-bottom: 1em;
+}
+
+.alert-error{
+    padding: 1em;
+    background-color: #9e1107;
+    color: white;
+    border-radius: 1em;
+    margin-bottom: 1em;
+  }
+
+.closebtn{
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 1em;
+  line-height: 1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/*------------FINE ALERT MESSAGGES------------*/
+
+/*------------DELETE BUTTONS------------*/
+
+.delete-post {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.delete-button {
+    position: absolute;
+    top: 7em;
+    right: 1em;
+}
+
+.form-buttons {
+    display: inline-block;
+}
+
+/*------------FINE DELETE BUTTONS------------*/
+
+.visually-hidden { 
+    border: 0; 
+    clip: rect(0 0 0 0); 
+    height: 1px; 
+    margin: -1px; 
+    overflow: hidden; 
+    padding: 0; 
+    position: absolute; 
+    width: 1px; 
+}
+
+#error404 {
+    background-color: white;
+    overflow: hidden;
+    display: block;
+    text-align: center;
+}

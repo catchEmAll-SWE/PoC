@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta name="description" content="Accedi al tuo account"/>
+    <meta name="keywords" content="forumm, forum, blog, login."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Giacomo Orlandi, Matteo Vignaga, Michele Masetto, Zhen Wei Zheng."/>
+    <link href="../index.css" rel="stylesheet" type="text/css" />
+    <link href="login.css" rel="stylesheet" type="text/css" />
+    <link
+            media="screen and (max-width: 768px), only screen and (max-width: 768px)"
+            href="../mini.css"
+            rel="stylesheet"
+            type="text/css"
+    />
+    <link
+            media="print"
+            href="../print.css"
+            rel="stylesheet"
+            type="text/css"
+    />
+    <script src="../index.js"></script>
+    <title>Login - forumm</title>
+</head>
+<body>
+    <header id="header">
+        <div id="title">
+            <a href="../"><h1>forumm</h1></a>
+        </div>
+        <form id="search" method="get" action="../ricerca">
+            <label class="visually-hidden" for="search-input">Cerca un <span lang="en">post:</span></label>
+            <input id="search-input" type="text" name="title" placeholder="Cerca un post..." />
+            <input id="search-submit" class="button" type="submit" value="Invia" />
+        </form>
+        <div id="signup" class="button">
+            <a href="../signup/">Registrati</a>
+        </div>
+    </header>
+    <div id="breadcrumb">
+        <p>Ti trovi in: Login</p>
+    </div>
+        <main id="content">
+            <div id="login-container">
+
+              <style>
+                  .ohnohoney{
+                      opacity: 0;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      height: 0;
+                      width: 0;
+                      z-index: -1;
+                  }
+              </style>
+
+
+      <form id="myformid" action="/myformaction">
+    			<!-- Real fields -->
+    			<label for="nameaksljf">Your Name</label>
+    			<input type="text" id="nameksljf" name="nameksljf" placeholder="Your name here" required maxlength="100">
+    			<label for="emaillkjkl">Your E-mail</label>
+    			<input type="text" id="emaillkjkl" name="emaillkjkl" placeholder="Your e-mail here" required>
+    			<!-- H o n e y p o t -->
+    			<label class="ohnohoney" for="name"></label>
+    			<input class="ohnohoney" autocomplete="off" type="text" id="name" name="name" placeholder="Your name here">
+    			<label class="ohnohoney" for="email"></label>
+    			<input class="ohnohoney" autocomplete="off" type="email" id="email" name="email" placeholder="Your e-mail here">
+
+
+			    <input type="checkbox" name="contact_me_by_fax_only" value="1" tabindex="-1" autocomplete="off">
+
+		  </form>
+
+
+
+            </div>
+        </main>
+
+</body>
+</html>
