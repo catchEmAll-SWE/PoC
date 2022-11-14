@@ -65,6 +65,6 @@ Which will render like this:
    - Add "modules" indented as "toctree::"
 8. `sphinx-apidoc -o . ..` output path in current path and source modules in parent ("..") directory
 9. make html
-10. open _build/html/index.html too see documentation
+10. open _build/html/index.html too see documentation in a html page
 
 [lumache_example]: ./lumache-py-function.png
