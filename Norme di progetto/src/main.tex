@@ -1,0 +1,53 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[italian]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subfiles}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+
+\pagenumbering{arabic}
+
+\title{Norme di Progetto}
+\author{Catch em All}
+
+\begin{document}
+\date{}
+\maketitle
+
+\pagebreak
+
+Registro delle modifiche
+\begin{center}
+\begin{tabular}{ c | c | c } 
+ Versione & Descrizione & Data \\
+ \hline
+ 0.0.1 & Creazione del documento con prime informazioni & Da definire \\
+\end{tabular}
+\end{center}
+
+\pagebreak
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduzione}
+\subfile{sections/Introduzione}
+
+\section{Processi primari}
+\subfile{sections/Processi primari}
+
+\section{Processi di supporto}
+\subfile{sections/Processi di supporto}
+
+\end{document}
