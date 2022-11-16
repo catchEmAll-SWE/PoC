@@ -20,7 +20,6 @@
    - :rtype: list[str]
      - To specify the return type
 
-
 ### Example
 
 ```text
