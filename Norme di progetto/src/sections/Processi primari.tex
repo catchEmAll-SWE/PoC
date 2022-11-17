@@ -1,10 +1,12 @@
+\section{Processi primari}
+
 \subsection{Acquisizione}
 \textit{Zucchetti S.p.A.} richiede la realizzazione di un progetto creativo riguardante lo sviluppo di un sistema Captcha attraverso l'esposizione della lettera di presentazione \textit{"CAPTCHA: Umano o Sovrumano?"} in data 18 ottobre 2022.
 
 \subsection{Fornitura}
 \textit{CatchEmAll} in seguito alla presentazione dei capitolati si riunisce per valutare le proposte e le opinioni dei componenti del team: in seguito ad un processo di valutazione (inizialmente generico poi specifico, riassunto nella sezione \textit{Motivazione scelta capitolato} del documento \textit{Lettera di presentazione}) emerge la preferenza per il progetto proposto dal referente Dr. Gregorio Piccoli.  
 Successivamente viene schedulata una riunione con il proponente per approfondire le richieste e rispondere a domande. 
-In data 28 ottobre 2022 viene inviata al committente la \href{https://github.com/catchEmAll-SWE/catchEmAll-Docs/blob/main/Assegnazione appalti/LetteraCandidatura.pdf}{lettera di presentazione} il quale, in seguito ad una richiesta di modifica delle tempistiche di consegna, ci aggiudica l'appalto.
+In data 28 ottobre 2022 viene inviata al committente la \href{https://github.com/catchEmAll-SWE/catchEmAll-Docs/blob/main/Assegnazione%20appalti/LetteraCandidatura.pdf}{lettera di presentazione} il quale, in seguito ad una richiesta di modifica delle tempistiche di consegna, ci aggiudica l'appalto.
 
 \subsection{Sviluppo}
     \subsubsection{Versionamento}
@@ -32,16 +34,4 @@ In data 28 ottobre 2022 viene inviata al committente la \href{https://github.com
         \item stima del lavoro necessario al completamento
         \item utilizzo di ereditarietà (rapporti di parentela)
     \end{itemize}
-    Inoltre attraverso JIRA e l'integrazione JIRA su GitHub, permette di usare gli smart commit in modo da gestire le varie fasi di ogni issue direttamente attraverso i commit message di GitHub.
-    La forma utilizzata per la gestione del workflow delle issue su GitHub è la seguente:
-    \begin{lstlisting}
-    CEA-number #command <message body describing the commit>
-    \end{lstlisting}
-    Questo permette di spostarsi tra gli stadi del workflow con 4 semplici comandi:
-\begin{itemize}
-    \item \textbf{open}: permette di spostarsi da una issue nello stadio "to do" oppure "in review" allo stadio "in progress"
-    \item \textbf{review}: permette lo spostamento della issue dallo stadio "in progress" oppure "done" allo stadio "in review"
-    \item \textbf{close}: premette di spostarsi dallo stadio "in review" allo stadio "done"
-    \item \textbf{close-no-rev}: permette in casi eccezionali di passare direttamente dallo stadio "in progress" allo stadio "done"
-\end{itemize}
 
