@@ -14,7 +14,26 @@ In data 28 ottobre 2022 viene inviata al committente la \textit{lettera di prese
     Il team è identificato in tale piattaforma come organizzazione (\href{https://github.com/catchEmAll-SWE}{vedi}).
     Inoltre, al fine di documentare il più possibile, ogni commit che porta valore al progetto contiene il riferimento al ticket che completa (totalmente o anche solo parzialmente). 
     
-    
+    \subsubsection{GitHub Workflow}
+    Il Workflow viene gestito concorrentemente da GitHub e JIRA, in JIRA vengono create ed organizzate le issue, una volta fatto ciò si procede attraverso github alla creazione del branch relativo alla issude da risolvere.\\
+    Tale ramo ha nome codificato come:
+    \begin{lstlisting}
+        CEA-num-titolo-della-issue
+    \end{lstlisting}
+    Questo permette di identificare titolo e numero della issue di appartenenza. Una volta fatto ciò èviene creato un primo commit, nel cui messaggio è specificata l'avvenuta presa in carico della issue, la quale dovrà passare dallo stato "to do" allo stato "in progress"\\
+    Ciò è garantito dal suddetto commit message contenente la stringa:
+    \begin{lstlisting}
+        CEA-num #open <testo aggiuntivo>
+    \end{lstlisting}
+    Una volta fatto ciò è possibile lavorare liberamente sul proprio ramo di feature. Ogni aggiornamento dell'attività svolta dovrà fare riferimento alla issue e specificare il tempo impiegato per lo svolgimento di tale attività:
+    \begin{lstlisting}
+        CEA-num #time ww dd hh mm <testo aggiuntivo>
+    \end{lstlisting}
+    Così facendo è permesso specificare a scelta settimane, giorni, ore e minuti di lavoro, ad esempio:
+    \begin{lstlisting}
+        CEA-26 #time 1h aggiunto github Workflow
+    \end{lstlisting}
+    Ciò aggiunge 1h alle ore di lavoro impiegate per la issue con ID CEA-26.
 
     \subsubsection{Issues tracking}
     JIRA, piattaforma che offre un servizio di \textit{Issue Tracking} è il supporto scelto vista la qualità ed il numero dei servizi e delle estensioni che offre.
