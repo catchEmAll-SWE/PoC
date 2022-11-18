@@ -1,8 +1,10 @@
 #latex files
-*/src/*.pdf
 *.aux
 *.fdb_latexmk
 *.fls
 *.log
 *.out
 *.toc
+
+#ignore vscode settings
+*.vscode
