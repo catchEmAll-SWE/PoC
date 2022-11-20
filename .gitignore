@@ -5,6 +5,7 @@
 *.log
 *.out
 *.toc
+*.synctex.gz
 
 #ignore vscode settings
 *.vscode
