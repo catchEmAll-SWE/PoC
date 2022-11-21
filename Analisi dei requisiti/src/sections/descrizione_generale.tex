@@ -1,0 +1,45 @@
+\section{Descrizione generale}
+
+\subsection{Caratteristiche del prodotto}
+L’obiettivo di questo progetto è il riconoscimento tra un essere umano ed un bot in maniera efficace, per offrire un'alternativa valida ai sistemi già esistenti che oramai non sono più in grado di svolgere questa task in maniera ottimale.\\
+
+Di seguito vengono descritte le caratteristiche che dovrà avere il prodotto.
+
+\subsubsection{Task richiesta}
+Il test CAPTCHA pensato richiederà all’utente di svolgere una task di classificazione.\\
+In particolare verrà fornito un insieme di 9 immagini, ognuna con una propria classe di appartenenza, con un totale di classi, presenti nell’insieme fornito, che può variare tra 2 ad un massimale di 4.\\
+All’utente, come task, verrà richiesto di selezionare le immagini appartenenti ad una particolare classe presente nell’insieme.
+
+\subsubsection{Dataset di immagini}
+Verrà utilizzato il dataset pubblico Unsplash, un dataset di immagini senza copyright, il quale fornisce delle API che permettono il prelevamento di una immagine data una parola chiave, che corrisponderà poi alla classe di appartenenza nel nostro database.
+
+\subsubsection{Algoritmo di rielaborazione di un immagine}
+Il team si occuperà di generare un algoritmo ad hoc, in linguaggio Python, che presa un immagine normale dal dataset Unsplash, individua il soggetto dell’immagine per poi ridefinirne solo i contorni in bianco e lasciando tutto il resto dell’immagine in nero.  
+
+\subsubsection{Algoritmo di controllo sulla correttezza della soluzione generata dall’utente}
+Ricevuta la soluzione generata dall’utente in risposta al CAPTCHA fornitogli, vi è la necessità di creare un algoritmo che verifichi la correttezza o meno della soluzione proposta. In caso di correttezza, l’utente effettuerà il login, altrimenti gli verrà generato un altro CAPTCHA da risolvere, con immagini diverse e un'altra classe da individuare all’interno dell’insieme, diminuendo di un numero il numero di tentativi rimasti per autenticarsi. Al termine di questi tentativi, l’utente verrà bloccato per 20 minuti prima di poter riprovare ad accedere. \textbf{(Qui ho proprio sparato la prima soluzione pensata, si deciderà in futuro e si modificherà qui di conseguenza)}.
+
+Inoltre questo algoritmo se e solo se (\textbf{HO RAGIONATO SUL PERCHÉ NON TENERE CONTO DELLE SOLUZIONI SBAGLIATE, IN CASO VI SPIEGO IO PERCHÉ NON FUNZIONA ANALIZZARE ANCHE QUELLE SBAGLIATE}) la soluzione proposta dall’utente è corretta, richiamerà un algoritmo di valutazione del feedback ricevuto, descritto nel prossimo punto.
+
+\subsubsection{Algoritmo di valutazione dei feedback}
+Un obiettivo fondamentale che si è posto il team è di creare un sistema automatizzato che sia scalabile per ovviare al problema di utilizzare un numero fisso e limitato di immagini nei CAPTCHA generati alle diverse richieste. Come già descritto, per ogni CAPTCHA verranno utilizzate delle immagini, in parte, su cui non si ha un’affidabilità elevata che saranno generate dal sistema sopra descritto. Queste immagini in base all'interazione degli utenti, verranno categorizzate affidabili o non, al fine di ingrandire man mano il dataset di immagini affidabili da utilizzare.
+
+\subsection{Obblighi di Progettazione}
+\begin{itemize}
+    \item Sviluppare una applicazione web costituita da una pagina di login che presenti un sistema in grado di distinguere un utente umano da un robot;
+    \item Verifica che dimostri che il sistema CAPTCHA non è eludibile chiamando in modo diretto la componente server senza aver utilizzato la parte client;
+    \item Analisi sulle tecnologie utilizzate, al fine di indicare quali sviluppi futuri di diverse tecnologie possono con il tempo rendere inefficace il sistema di verifica;
+    \item Il sistema di CAPTCHA potrà essere una libreria Open Source, un servizio obbligatoriamente gratuito fruibile via web.
+\end{itemize}
+
+\subsection{Requisiti opzionali}
+\begin{itemize}
+    \item Form di registrazione di un nuovo utente;
+    \item Mini-forum che accetta contenuti prodotti dagli utenti dell’applicazione;
+    \item Pagina di ricerca sul forum con verifica CAPTCHA;
+\end{itemize}
+
+\subsection{Tecnologie utilizzate}
+Per sviluppare la piattaforma verranno utilizzate le seguenti tecnologie:
+
+\textbf{DA SCRIVERE DURANTE LO SVILUPPO}
