@@ -1,0 +1,183 @@
+\section{Requisiti}
+In questa sezione viene riportato l'elenco completo dei requisiti del progetto.
+I requisiti sono stati individuati e classificati durante l'attività di analisi dei requisiti, e a ciascuno è stato assegnato un codice identificativo univoco secondo quanto stabilito nelle Norme di progetto.
+
+\subsection{Requisiti funzionali}
+%\begin{tabular}{| C{3cm} | C{3cm} | C{9cm} | C{3cm} |} 
+\begin{tabular}{| p{0.2\textwidth} | p{0.2\textwidth} | p{0.4\textwidth} | p{0.2\textwidth} |} 
+ \hline
+ \textbf{ID Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
+ \hline
+ RF-1 & Obbligatorio &  L'utente deve poter raggiungere il sistema in cloud & Capitolato\\
+ \hline
+  RF-2 & Obbligatorio &  L'utente deve potersi autenticare all'interno del sistema tramite un form di login &  UC1, Capitolato\\
+ \hline
+ RF-3 & Obbligatorio &  L'utente deve poter inserire il proprio username &  UC1.1, Capitolato\\
+ \hline
+ RF-4 & Obbligatorio &  L'utente deve poter inserire la propria password &  UC1.2, Capitolato\\
+ \hline
+ RF-5 & Obbligatorio &  L'utente deve superare il captcha proposto dal sistema per poter effettuare il login &  UC1.3, Capitolato\\
+ \hline
+ RF-6 & Obbligatorio &  L'utente deve superare il captcha tipo 1 per poter effettuare il login &  UC1.3.1, VE-20221111\\
+ \hline
+ RF-7 & Obbligatorio & All'utente viene mostrato un messaggio di errore nel caso in cui non riesca a superare il captcha &  UC2\\
+ \hline
+ RF-8 & Obbligatorio &  All'utente viene mostrato un messaggio di errore nel caso in cui abbia superato il numero massimo di tentativi consentito &  UC3, VI-20221115\\
+ \hline
+ RF-9 & Obbligatorio &  L'utente deve poter richiedere la generazione di un altro captcha &  UC4, VI-20221115\\
+ \hline
+ RF-10 & Obbligatorio & All'utente viene mostrato un messaggio di errore nel caso in cui abbia inserito delle credenziali non valide &  UC5\\
+ \hline
+\end{tabular}
+
+\subsection{Requisiti di qualità}
+\begin{tabular}{| p{0.2\textwidth} | p{0.2\textwidth} | p{0.4\textwidth} | p{0.2\textwidth} |} 
+ \hline
+ \textbf{ID Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
+ \hline
+ RQ-1 & Obbligatorio &  Il captcha deve mitigare potenziali attacchi “brute force” & Capitolato\\
+ \hline
+  RQ-2 & Obbligatorio & Il server non deve accettare chiamate con dati falsificati & Capitolato\\
+ \hline
+ RQ-3 & Obbligatorio &  Dovrà essere prodotto un manuale utente del prodotto & Capitolato\\
+ \hline
+ RQ-4 & Obbligatorio &  Dovrà essere prodotto un manuale utente per l'estensione del prodotto &  Capitolato\\
+ \hline
+ RQ-5 & Obbligatorio & Il prodotto dovrà essere sviluppato rispettando quanto espresso nelle Norme di progetto & VI-20221115\\
+ \hline
+ RQ-6 & Obbligatorio &  La documentazione e il codice sorgente del prodotto saranno pubblicate su GitHub & VI-20221115\\
+ \hline
+ RQ-7 & Obbligatorio & Dovrà essere condotta un'analisi sulle tecnologie utilizzate & Capitolato\\
+ \hline
+ RQ-8 & Obbligatorio &  Il sistema dovrà essere distribuito con la licenza ??? & VI-202211??\\
+ \hline
+\end{tabular}
+
+\subsection{Requisiti di vincolo}
+\begin{tabular}{| p{0.2\textwidth} | p{0.2\textwidth} | p{0.4\textwidth} | p{0.2\textwidth} |} 
+ \hline
+ \textbf{ID Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
+ \hline
+ RV-1 & Obbligatorio &  Il sistema deve essere raggiungibile in cloud & Capitolato\\
+ \hline
+  RV-2 & Obbligatorio & Il sistema deve funzionare con la versione più recente del browser Chrome & VI-20221115\\
+ \hline
+ RV-3 & Obbligatorio &  Le librerie utilizzate devono essere open source & Capitolato\\
+ \hline
+ RV-4 & Obbligatorio & I servizi web utilizzati devono essere gratuiti &  Capitolato\\
+ \hline
+ RV-5 & Obbligatorio & La parte server deve essere sviluppata utilizzando il linguaggio Python & VE-20221021\\
+ \hline
+ RV-6 & Obbligatorio & La parte client deve essere sviluppata utilizzando i linguaggi HTML, CSS, JavaScript & VI-20221115\\
+ \hline
+\end{tabular}
+
+\subsection{Requisiti prestazionali}
+Non sono stati individuati requisiti prestazionali misurabili.
+
+
+\subsection{Tracciamento dei requisitii}
+
+\subsubsection{Requisito - Fonti}
+\begin{tabular}{| p{0.5\textwidth} | p{0.5\textwidth} |} 
+ \hline
+ \textbf{Requisito} & \textbf{Fonti} \\
+ \hline
+  RF-1 & Capitolato\\
+\hline
+  RF-2 & UC1, Capitolato\\
+\hline
+  RF-3 & UC1.1, Capitolato\\
+\hline
+  RF-4 & UC1.2, Capitolato\\
+\hline
+  RF-5 & UC1.3, Capitolato\\
+\hline
+  RF-6 & UC1.3.1, VE-20221111\\
+\hline
+  RF-7 & UC2\\
+\hline
+  RF-8 & UC3, VI-20221115\\
+\hline
+  RF-9 & UC4, VI-20221115\\
+\hline
+  RF-10 & UC5\\
+\hline
+  RQ-1 & Capitolato\\
+\hline
+  RQ-2 & Capitolato\\
+\hline
+  RQ-3 & Capitolato\\
+\hline
+  RQ-4 & Capitolato\\
+\hline
+  RQ-5 & VI-20221115\\
+\hline
+  RQ-6 & VI-20221115\\
+\hline
+  RQ-7 & Capitolato\\
+\hline
+  RQ-8 & VI-20221115\\
+\hline
+  RV-1 & Capitolato\\
+\hline
+  RV-2 & VI-20221115\\
+\hline
+  RV-3 & Capitolato\\
+\hline
+  RV-4 & Capitolato\\
+\hline
+  RV-5 & VE-20221021\\
+\hline
+  RV-6 & Capitolato\\
+\hline
+\end{tabular}
+
+\subsubsection{Fonte - Requisiti}
+\begin{tabular}{| p{0.5\textwidth} | p{0.5\textwidth} |} 
+ \hline
+ \textbf{Fonte} & \textbf{Requisiti} \\
+ \hline
+	UC1 & RF-2\\
+\hline
+	UC1.1 & RF-3\\
+\hline
+	UC1.2 & RF-4\\
+\hline
+	UC1.3 & RF-5\\
+\hline
+	UC1.3.1 & RF-6\\
+\hline
+	UC2 & RF-7\\
+\hline
+	UC3 & RF-8\\
+\hline
+	UC4 & RF-9\\
+\hline
+	UC5 & RF-10\\
+\hline
+	Capitolato & RF-1, RF-2, RF-3, RF-4, RF-5, RQ-1, RQ-2, RQ-3, RQ-4, RQ-7, RV-1, RV-3, RV-4, RV-6\\
+\hline
+	VE-20221111 & RF-6\\
+\hline
+	VE-20221021 & RV-5\\
+\hline
+	VI-20221115 & RF-8, RF-9, RQ-5, RQ-6, RQ-8, RV-2\\
+\hline
+\end{tabular}
+
+\subsection{Riepilogo dei requisiti}
+
+\begin{tabular}{| c | c | c | c |} 
+ \hline
+ \textbf{Classificazione} & \textbf{Obbligatorio} & \textbf{Facoltativo} & \textbf{Totale} \\
+ \hline
+ Funzionali & 10 &  0 & 10\\
+ \hline
+  Di qualità & 8 & 0 & 8\\
+ \hline
+ Di vincolo & 5 & 1 & 6\\
+ \hline
+ \textbf{Totale} & \textbf{23} &\textbf {1} &  \textbf{24}\\
+ \hline
+\end{tabular}
