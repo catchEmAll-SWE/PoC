@@ -16,35 +16,48 @@ In data 28 ottobre 2022 viene inviata al committente la \textit{lettera di prese
     Inoltre, al fine di documentare il più possibile, ogni commit che porta valore al progetto contiene il riferimento al ticket che completa (totalmente o anche solo parzialmente). 
     
     \subsubsection{GitHub Workflow}
+    Tutti i titoli e le descrizioni dei commit devono essere fatti in inglese per conformità tra essi.
     Il Workflow viene gestito concorrentemente da GitHub e JIRA, in JIRA vengono create ed organizzate le issue, una volta fatto ciò si procede attraverso github alla creazione del branch relativo alla issue da risolvere.\\
     Tale ramo ha nome codificato come:
     \begin{lstlisting}
-        CEA-num-titolo-della-issue
+    CEA-num-titolo-della-issue
     \end{lstlisting}
-    Questo permette di identificare titolo e numero della issue di appartenenza. Una volta fatto ciò èviene creato un primo commit, nel cui messaggio è specificata l'avvenuta presa in carico della issue, la quale dovrà passare dallo stato "to do" allo stato "in progress"\\
+    Questo permette di identificare titolo e numero della issue di appartenenza. Una volta fatto ciò viene creato un \textbf{primo commit}, nel cui messaggio è specificata l'avvenuta presa in carico della issue, la quale dovrà passare dallo stato "to do" allo stato "in progress"\\
     Ciò è garantito dal suddetto commit message contenente la stringa:
     \begin{lstlisting}
-        CEA-num #open <testo aggiuntivo>
+    CEA-num #open <testo aggiuntivo>
     \end{lstlisting}
-    Una volta fatto ciò è possibile lavorare liberamente sul proprio ramo di feature. Ogni aggiornamento dell'attività svolta dovrà fare riferimento alla issue e specificare il tempo impiegato per lo svolgimento di tale attività:
+    Una volta fatto ciò è possibile lavorare liberamente sul proprio ramo di feature. \textbf{Ad ogni} aggiornamento dell'attività svolta si dovrà fare riferimento alla issue e specificare il tempo impiegato per lo svolgimento di tale attività includendo nella descrizione:
+    \begin{itemize}
+        \item Visual Studio Code:
+        \begin{figure}[h!]
+            \includegraphics[scale=0.65]{img/visual_code_example.png}
+        \end{figure}
+        \item Git Bash:
+        \begin{lstlisting}[language=bash]
+        git commit -m "titolo del commit" -m "CEA-26 #time 32m ..."
+        \end{lstlisting}
+    \end{itemize}
+    Comando generico da aggiungere nel corpo del messaggio, non nel titolo:
     \begin{lstlisting}
-        CEA-num #time ww dd hh mm <testo aggiuntivo>
+    CEA-num #time ww dd hh mm <testo aggiuntivo>
     \end{lstlisting}
     Così facendo è permesso specificare a scelta settimane, giorni, ore e minuti di lavoro, ad esempio:
     \begin{lstlisting}
-        CEA-26 #time 1h aggiunto github Workflow
+    CEA-26 #time 1h aggiunto github Workflow
     \end{lstlisting}
     Ciò aggiunge 1h alle ore di lavoro impiegate per la issue con ID CEA-26, e come testo aggiuntivo per il commit "aggiunto github Workflow", ignorato da JIRA.\\
-    Una volta terminata l'attività, sarà necessario passare allo stato di revisione, il quale permette di verificare il corretto svolgimento del compito eseguito. Questo è permesso da un ultimo commit prima della revisione, con messaggio:
+    Una volta terminata l'attività, sarà necessario passare allo stato di revisione, il quale permette di verificare il corretto svolgimento del compito eseguito. Questo è permesso da un ultimo commit prima della revisione, con messaggio da includere nella descrizione(non titolo):
     \begin{lstlisting}
-        CEA-num #review #time ww dd hh mm <testo aggiuntivo>
+    CEA-num #review #time ww dd hh mm <testo aggiuntivo>
     \end{lstlisting}
     Questo permette lo spostamento della issue dallo stato "in progress" allo stato "in review".\\
-    Una volta revisionata la issue, se presenta qualche problema può essere spostata allo stato "in progress" dal pannello JIRA, altrimenti attraverso pull request nel ramo "main" e con comando posto nel titolo della pull request:
+    Per permettere la revisione è necessario aprire una pull request, il titolo deve corrispondere al nome del branch.
+    Una volta revisionata la issue, se presenta qualche problema può essere spostata allo stato "in progress" dal pannello JIRA. Altrimenti attraverso pull request nel ramo "main" e con comando posto \textbf{nella descrizione del commit di chiusura della pull request}:
     \begin{lstlisting}
-        CEA-num #close <testo aggiuntivo>
+    CEA-num #close <testo aggiuntivo>
     \end{lstlisting}
-    Viene chiusa. Una volta chiusa sempre dalla pul request su github, si elimina il ramo di feature creato precedentemente.
+    Viene chiusa. Una volta chiusa sempre dalla pul request su github, \textbf{si elimina il ramo di feature} creato precedentemente.
 
 
     \subsubsection{Issues tracking}
