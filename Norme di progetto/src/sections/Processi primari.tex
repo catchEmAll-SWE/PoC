@@ -11,6 +11,48 @@ In seguito viene schedulata una riunione con il proponente con l'obiettivo di ap
 In data 28 ottobre 2022 viene inviata al committente la \textit{lettera di presentazione} il quale, in seguito ad una richiesta di modifica delle tempistiche di consegna, ci aggiudica l'appalto.
 
 \subsection{Sviluppo}
+    \subsubsection{Analisi dei requisiti}
+    Il documento \textit{Analisi dei requisiti} contiene in maniera formale:
+    \begin{itemize}
+        \item descrizione generale del prodotto
+        \item casi d'uso
+        \item requisiti, i quali vengono estrapolati da:
+        \begin{itemize}
+            \item documento di presentazione del capitolato
+            \item confronto tra il gruppo e con il proponente
+        \end{itemize}
+    \end{itemize} 
+        
+    \paragraph{Struttura dei requisiti}: ogni requisito è identificato da un codice univoco così composto:
+    \newline
+    \verb|R<<tipologia di requisito>>-<<id>>|
+    \newline
+    Dove:
+    \begin{itemize}
+        \item <<tipologia di requisito>> identifica la classe tra le seguenti:
+        \begin{itemize}
+            \item funzionale
+            \item qualità
+            \item vincolo
+        \end{itemize}
+        \item <<id>> identifica il requisito nella classe di appartenza
+    \end{itemize}
+    Nel documento vengono raggruppati per categoria specificandone:
+    \begin{itemize}
+        \item grado di obbligatorietà
+        \item descrizione
+        \item fonte
+    \end{itemize}
+
+    \paragraph{Struttura dei casi d'uso}: ogni caso d'uso è identificato utilizzando la seguente convenzione di nomenclatura:
+    \newline
+    \verb|UC<<id>>|
+    \newline
+    Dove id identifica l'use case stesso.
+    
+
+    \paragraph{Struttura casi d'uso}
+
     \subsubsection{Versionamento}
     GitHub è lo strumento utilizzato dal gruppo per il versionamento del codice.
     \newline Il team è identificato in tale piattaforma come organizzazione (\href{https://github.com/catchEmAll-SWE}{vedi}).
