@@ -46,8 +46,8 @@ Which will render like this:
 ## Steps for installation
 
 1. `sudo apt install python-sphinx && sudo pip install sphinx_rtd_theme`
-2. Aprire progetto python con tutti i moduli
-3. Creare una directory "docs"
+2. Open python project with all modules
+3. Create "docs" directory
 4. `sphinx-quickstart`
 5. Default settings apart from:
    - Project name
