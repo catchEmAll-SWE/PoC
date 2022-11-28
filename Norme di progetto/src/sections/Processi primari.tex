@@ -2,6 +2,7 @@
 \subsection{Acquisizione}
 \textit{Zucchetti S.p.A.} richiede la realizzazione di un progetto creativo riguardante lo sviluppo di un sistema Captcha attraverso l'esposizione della lettera di presentazione \textit{"CAPTCHA: Umano o Sovrumano?"} in data 18 ottobre 2022.
 
+
 \subsection{Fornitura}
 Successivamente alla presentazione dei capitolati \textit{CatchEmAll} si riunisce per valutare le proposte e le opinioni dei componenti del team: attraverso un processo di valutazione (inizialmente generico poi specifico, riassunto nella sezione \textit{Motivazione scelta capitolato} del documento \href{https://github.com/catchEmAll-SWE/catchEmAll-Docs/blob/main/Assegnazione appalti/LetteraCandidatura.pdf}{lettera di presentazione}) emerge una preferenza per il progetto proposto dal referente Dr. Gregorio Piccoli.  
 \newline
@@ -10,6 +11,49 @@ In seguito viene schedulata una riunione con il proponente con l'obiettivo di ap
 In data 28 ottobre 2022 viene inviata al committente la \textit{lettera di presentazione} il quale, in seguito ad una richiesta di modifica delle tempistiche di consegna, ci aggiudica l'appalto.
 
 \subsection{Sviluppo}
+    \subsubsection{Analisi dei requisiti}
+    Il documento \textit{Analisi dei requisiti} contiene in maniera formale:
+    \begin{itemize}
+        \item descrizione generale del prodotto
+        \item casi d'uso
+        \item requisiti, i quali vengono estrapolati da:
+        \begin{itemize}
+            \item documento di presentazione del capitolato
+            \item confronto tra il gruppo e con il proponente
+        \end{itemize}
+    \end{itemize} 
+        
+    \paragraph{Struttura dei requisiti}: ogni requisito è identificato da un codice univoco così composto:
+    \newline
+    \verb|R<<tipologia di requisito>>-<<id>>|
+    \newline
+    Dove:
+    \begin{itemize}
+        \item <<tipologia di requisito>> identifica la classe tra le seguenti:
+        \begin{itemize}
+            \item funzionale
+            \item qualità
+            \item vincolo
+        \end{itemize}
+        \item <<id>> identifica il requisito nella classe di appartenza
+    \end{itemize}
+    Nel documento vengono raggruppati per categoria specificandone:
+    \begin{itemize}
+        \item grado di obbligatorietà
+        \item descrizione
+        \item fonte
+    \end{itemize}
+
+    \paragraph{Struttura dei casi d'uso}: ogni caso d'uso è identificato utilizzando la seguente convenzione di nomenclatura:
+    \newline
+    \verb|UC<<id>>.<<progressivo>>|
+    \newline
+    Dove 
+    \begin{itemize}
+        \item id identifica l'use classe
+        \item progressivo identifica eventuali sottocasi
+    \end{itemize}
+
     \subsubsection{Versionamento}
     GitHub è lo strumento utilizzato dal gruppo per il versionamento del codice.
     \newline Il team è identificato in tale piattaforma come organizzazione (\href{https://github.com/catchEmAll-SWE}{vedi}).
