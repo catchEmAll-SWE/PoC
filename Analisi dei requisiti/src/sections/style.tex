@@ -7,7 +7,7 @@
 	\fancyhead[L]{\textit{Gruppo Catch em All}}
 	\fancyhead[R]{\uppercase{\textbf{\leftmark}}}
 	% FOOTER
-	\fancyfoot[L]{\fontfamily{fvs}\selectfont Analisi dei requisiti v0.0.6}
+	\fancyfoot[L]{\fontfamily{qtm}\selectfont Analisi dei requisiti v0.0.6}
 	\fancyfoot[R]{Pagina \thepage~di~\pageref{LastPage}}
 	\setcounter{page}{0}
 	\pagenumbering{arabic}
@@ -19,3 +19,12 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}
+	{-2.5ex\@plus -1ex \@minus -.25ex}
+	{1.25ex \@plus .25ex}
+	{\normalfont\normalsize\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{4} 
+\setcounter{tocdepth}{4}
