@@ -74,16 +74,18 @@ In data 28 ottobre 2022 viene inviata al committente la \textit{lettera di prese
     Una volta fatto ciò è possibile lavorare liberamente sul proprio ramo di feature.
     \newline \textbf{Ad ogni} aggiornamento dell'attività svolta si dovrà fare riferimento alla issue e specificare il tempo impiegato per lo svolgimento di tale attività includendo nella descrizione:
     \begin{itemize}
-        \item Visual Studio Code:
-        \begin{figure}[h!]
-            \includegraphics[scale=0.65]{img/visual_code_example.png}
-        \end{figure}
-        \item Git Bash:
-        \begin{lstlisting}
-        git commit -m "titolo del commit" -m "CEA-26 #time 32m ..."
-        \end{lstlisting}
-    \end{itemize}
-    Comando generico da aggiungere nel corpo del messaggio, non nel titolo:
+    \item Visual Studio Code:
+    \begin{figure}[h!]
+      	\centering
+       	\includegraphics[scale=0.7]{img/visual_code_example.png}
+    \end{figure}
+    \vspace{100pt}
+    \item Git Bash:
+    	\begin{lstlisting}
+	git commit -m "titolo del commit" -m "CEA-26 #time 32m ..."
+	\end{lstlisting}
+	\end{itemize}
+    Comando generico da aggiungere nel corpo del messaggio, non nel titolo del commit:
     \begin{lstlisting}
     CEA-num #time ww dd hh mm <testo aggiuntivo>
     \end{lstlisting}
@@ -98,11 +100,11 @@ In data 28 ottobre 2022 viene inviata al committente la \textit{lettera di prese
     \end{lstlisting}
     Questo permette lo spostamento della issue dallo stato "in progress" allo stato "in review".\\
     Per permettere la revisione è necessario aprire una pull request, il titolo deve corrispondere al nome del branch.
-    Una volta revisionata la issue, se presenta qualche problema può essere spostata allo stato "in progress" dal pannello JIRA. Altrimenti attraverso pull request nel ramo "main" e con comando posto \textbf{nel TITOLO del commit di chiusura della pull request}:
+    Una volta revisionata la issue, se presenta qualche problema può essere spostata allo stato "in progress" dal pannello JIRA. Altrimenti attraverso una pull request nel ramo "main" e con il seguente comando posto \textbf{nel TITOLO del commit di chiusura della pull request} la issue verrà chiusa e considerata completata:
     \begin{lstlisting}
     CEA-num #close <testo aggiuntivo>
     \end{lstlisting}
-    Viene chiusa. Una volta chiusa sempre dalla pul request su github, \textbf{si elimina il ramo di feature} creato precedentemente.
+    Una volta chiusa, sempre dalla pull request su github, \textbf{si elimina il ramo di feature} creato precedentemente.
     \begin{figure}[h!]
         \includegraphics[width=15cm]{img/git_pull_request.png}
         La descrizione è a titolo esemplificativo, il contenuto non influenza gli smart commit di JIRA, il \textbf{titolo del merge commit} si.

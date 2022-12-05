@@ -1,9 +1,40 @@
 \section{Introduzione}
 
 \subsection{Scopo del documento}
-Questo documento ha lo scopo di mantener traccia del \textit{way of working} 
-e delle \textit{best practices} che il team si impegna a rispettare durante 
-l'intero svolgimento del progetto "\textit{CAPTCHA: Umano o Sovrumano?}".
+Dal proponente Zucchetti S.p.A. viene evidenziato, nel capitolato da loro proposto, una criticità negli attuali sistemi di sicurezza sulla rilevazione dei bot rispetto agli esseri umani. Oggi giorno il meccanismo più utilizzato per risolvere questo problema è il test CAPTCHA.\\
+Un bot non è altro che una procedura automatizzata che, in questo caso, ha fini malevoli, come per esempio:
+\begin{itemize}
+	\item registrazione presso siti web;
+	\item creazione di spam;
+	\item violare sistemi di sicurezza;
+\end{itemize}
+I bot, grazie alle nuove tecnologie sviluppate con sistemi che utilizzano principalmente l'intelligenza artificiale, riescono a svolgere compiti che fino a poco tempo fa venivano considerati impossibili da svolgere per una macchina.\\
+Ciò evidenzia che i CAPTCHA attuali risultano sempre più obsoleti, non andando a individuare correttamente tutti i bot, se non quasi nessuno.\\
+Un'altra criticità individuata dal proponente è il sistema di classificazione delle immagini che sta effettuando Google grazie al proprio reCAPTCHA, che attualmente è il sistema più diffuso.\\
+Questa criticità nasce dal beneficio che questa big tech ottiene dall'interazione degli utenti nel risolvere le task proposte, che portano alla creazione di enormi dataset di immagini classificate che possono essere utilizzate per l'apprendimento dei propri sistemi di machine learning o vendibili a terzi.\\
+Il capitolato C1 richiede di sviluppare una applicazione web costituita da una pagina di login provvista di questo sistema di rilevazione in grado di distinguere un utente umano da un bot.\\
+L'utente quindi, dopo aver compilato il form in cui inserirà il nome utente e la password, dovrà svolgere una task che sarà il cosiddetto test CAPTCHA.
 
 \subsection{Scopo del prodotto}
 Il prodotto come finalità prevede il raggiungimento di un buon grado di distinzione tra bot ed esseri umani attraverso l'implementazione di un captcha il quale sfrutta varie tecniche e metodologie per il raggiungimento di tale scopo.
+
+\subsection{Glossario}
+Per evitare ambiguità relative al linguaggio utilizzato nei documenti prodotti, viene fornito il \textbf{Glossario v1.0.0} (per ora teorica la sua versione \textbf{DA MODIFICARE)}. In questo documento sono contenuti tutti i termini tecnici, i quali avranno una definizione specifica per comprenderne al meglio il loro significato.
+
+\subsection{Riferimenti}
+
+\subsubsection{Riferimenti normativi}
+Link vari da aggiungere in seguito
+
+\subsubsection{Riferimenti informativi}
+
+\begin{itemize}
+	\item Capitolato C1 “CAPTCHA: umano o sovrumano?”
+	\url{https://www.math.unipd.it/~tullio/IS-1/2022/Progetto/C1.pdf}
+	\item Slide T06 del corso di Ingegneria del Software – Analisi dei requisiti:
+	\url{https://www.math.unipd.it/~tullio/IS-1/2022/Dispense/T06.pdf}
+	\item Slide P03 del corso di Ingegneria del Software – Diagrammi dei casi d'uso:
+	\url{https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf};
+	\item Regolamento del progetto didattico – Materiale didattico del corso di Ingegneria del Software::
+	\url{https://www.math.unipd.it/~tullio/IS-1/2022/Dispense/PD02.pdf};
+\end{itemize}
