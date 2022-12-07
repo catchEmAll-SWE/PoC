@@ -6,8 +6,8 @@ import re
 # MACRO RULES
 
 def titleCorrectness(title):
-    name = '[a-z]+\d*(_[a-z]+\d*)*$'
-    name_and_version = '[a-z]+(_[a-z]+)*_v\.\d\d*\.\d\d*\.\d\d*$'
+    file_name_rules = '[a-z]+\d*(_[a-z]+\d*)*$'
+    official_doc_rules = '[a-z]+(_[a-z]+)*_v\.\d\d*\.\d\d*\.\d\d*$'
 
     # brief description
     # name:
@@ -16,7 +16,7 @@ def titleCorrectness(title):
     # version (after name):
     #   - _v. << [0, 99] >>.<< [0, 99] >>.<<[0,99]>>
 
-    return (bool(re.match(name_and_version, title)), True) [bool(re.match(name, title))]
+    return (bool(re.match(official_doc_rules, title)), True) [bool(re.match(file_name_rules, title))]
 
 
 

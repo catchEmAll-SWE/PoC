@@ -58,9 +58,10 @@ Tutti i documenti prodotti sono divisi in uso interno e uso esterno:
 \subsubsection{Norme tipografiche}
 
 \subsubsubsection{Nome del file}
-Di seguito viene descritto il formato dei nomi dei documenti:
+Di seguito viene descritto il formato dei nomi dei documenti\\
+Regole per documenti ufficiali:
 \begin{itemize}
-\item Iniziano tutti con la lettera minuscola;
+\item Iniziano con lettere;
 \item Se il nome comprende più parole allora ognuna di esse è separata dal simbolo '\_';
 \item Deve essere seguito da un indicazione della propria versione.
 \end {itemize}
@@ -75,8 +76,13 @@ La sigla della versione deve essere così strutturata:
 \end {itemize}
 Esempi corretti: introduzione\textunderscore v0.0.1; norme\textunderscore di\textunderscore progetto\textunderscore v.0.0.1 .\\
 Esempi non corretti: Norme\textunderscore di\textunderscore Progetto; NormeDiProgetto.
-
-I verbali non seguono questa norma e hanno una nomenclatura diversa, poichè non subiscono variazioni dopo la prima redazione e hanno il seguente formato: (DA DEFINIRE)
+Documenti non ufficiali (tutti i file del repository ad esclusione dei documenti ufficiali)
+\begin{itemize}
+    \item Iniziano con lettere;
+    \item Possono contenere anche numeri (a patto che non siano isolati e preceduti da '\_');
+    \item Se il nome comprende più parole allora ognuna di esse è separata dal simbolo '\_';
+\end{itemize}
+Il controllo del rispetto delle regole è effettuato da uno script python.
 
 \subsubsubsection{Stile di testo}
 Di seguito vengono riportati i vari stili del testo e i loro usi:
