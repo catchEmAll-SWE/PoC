@@ -1,5 +1,5 @@
 from pathlib import Path
-from expressionFile import *
+from settings.expression_file import *
 
 def checkLatexFilesCorrectness():
 
