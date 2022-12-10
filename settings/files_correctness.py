@@ -26,7 +26,7 @@ for dir in official_dirs:
         sections_path = src_path/'sections'
         checkOfficialDocPresence(dir)
         if checkLatexFilePresenceInSrc(src_path):
-            checkSrcLatexFileCorrectness()
+            checkSrcLatexFileCorrectness(src_path)
         checkFilesExtensionInSections(sections_path)
         #if checkNecessarySectionsFilesPresence(sections_path, necessary_sections_files):
 

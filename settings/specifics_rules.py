@@ -1,7 +1,5 @@
 import re
-# In this file you can find function (tthem identify rules) for latex file's rules
-#
-# Rule must be added in regEx.py
+# In this file you can find function (them identify rules) for latex file's rules
 
 # MACRO RULES
 
