@@ -14,6 +14,9 @@ necessary_sections_files = [
     'title_page.tex',
 ]
 
+# Can find single files's rules in ./specifics_rules.py
+# Single files's rules are applied in order  <--- IMPORTANT
+
 wd = Path('.').absolute()
 
 # ================================================ checks =========================================================
