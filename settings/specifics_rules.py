@@ -19,24 +19,26 @@ def titleCorrectness(title):
 
 def srcLatexFileCorrectness(file):
     checks = {
-        '.*\\documentclass\[10pt\]\{article\}.*': 'font size',
-        '.*\\input\{sections/packages\}.*': 'packages file presence',
-        '.*\\input\{sections/style\}.*': 'style file presence',
-        '.*\\input\{sections/title_page\}.*': 'title page presence',
-        '.*\\pagenumbering\{roman\}.*': 'page numbering',
-        '.*\\tableofcontents.*': 'table of contents presence',
+        r'.*\\documentclass\[10pt\]\{article\}.*': 'font size',
+        r'.*\\input\{sections/packages\}.*': 'packages file presence',
+        r'.*\\input\{sections/style\}.*': 'style file presence',
+        r'.*\\input\{sections/title_page\}.*': 'title page presence',
+        r'.*\\pagenumbering\{roman\}.*': 'page numbering',
+        r'.*\\tableofcontents.*': 'table of contents presence',
     }
 
     file_as_string = file.read_text()
     errors = []
     for check in checks:
-        if not re.match(check, file_as_string):
+        if not re.search(check, file_as_string):
             errors.append(checks[check])
-    if not errors:
-        print('No errors in ', file)
+    if errors:
+        print('\n', file, ' has the following errors:')
+        [print(' - ', error) for error in errors]
+        print('\n')
     else:
-        print(file, ' has the following errors:')
-        [print(error) for error in errors]
+        print('No errors in ', file)
+        
 
 
 
