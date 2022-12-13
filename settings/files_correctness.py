@@ -9,7 +9,7 @@ official_docs_dirs = [
 ]
 
 necessary_sections_files = [
-    'styles.tex',
+    'style.tex',
     'packages.tex',
     'title_page.tex',
 ]
@@ -31,11 +31,10 @@ for dir in official_dirs:
         if checkLatexFilePresenceInSrc(src_path):
             checkSrcLatexFileCorrectness(src_path)
         checkFilesExtensionInSections(sections_path)
-        #if checkNecessarySectionsFilesPresence(sections_path, necessary_sections_files):
-
+        if checkNecessarySectionsFilesPresence(sections_path, necessary_sections_files):
             #checkStyleFileCorrectness(sections_path)
             #checkPackagesFileCorrectness(sections_path)
-            #checkStyleTitlePageCorrectness(sections_path)
+            checkTitlePageFileCorrectness(sections_path)
 
 
 

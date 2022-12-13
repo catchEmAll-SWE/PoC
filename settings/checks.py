@@ -50,16 +50,19 @@ def checkFilesExtensionInSections(sections):
 def checkNecessarySectionsFilesPresence(sections, files_name):
     presence = True
     for file_name in files_name:
-        if not sections/file_name:
+        if not (sections/file_name).exists():
             print(sections, 'must have ', file_name)
             presence = False
     return presence
 
-# def checkStyleFileCorrectness():
+def checkStyleFileCorrectness(sections):
+    style_file = sections/'style.tex'
 
 # def checkStylePackagesCorrectness():
 
-# def checkStyleTitlePageCorrectness():
+def checkTitlePageFileCorrectness(sections):
+    title_page_file = sections/'title_page.tex'
+    srules.titlePageFileCorrectness(title_page_file)
 
 # ======================================================== auxiliar functions ============================================================================
 
