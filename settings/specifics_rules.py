@@ -19,32 +19,33 @@ def titleCorrectness(title):
 
 def srcLatexFileCorrectness(file):
     checks = {
-        r'.*\\documentclass\[10pt\]\{article\}.*': 'font size',
-        r'.*\\input\{sections/packages\}.*': 'packages file',
-        r'.*\\input\{sections/style\}.*': 'style file',
-        r'.*\\input\{sections/title_page\}.*': 'title page',
-        r'.*\\pagenumbering\{roman\}.*': 'page roman numbering',
-        r'.*\\tableofcontents.*': 'table of contents',
+        'font size': r'.*\\documentclass\[10pt\]\{article\}.*',
+        'packages file': r'.*\\input\{sections/packages\}.*',
+        'style file': r'.*\\input\{sections/style\}.*',
+        'title page': r'.*\\input\{sections/title_page\}.*',
+        'page roman numbering': r'.*\\pagenumbering\{roman\}.*',
+        'table of contents': r'.*\\tableofcontents.*',
     }
 
     file_as_string = file.read_text()
     errors = []
     for check in checks:
-        if not re.search(check, file_as_string):
-            errors.append(checks[check])
+        if not re.search(checks[check], file_as_string):
+            errors.append(check)
+
     if errors:
         print('\nFollowing errors in style.tex:')
         [print(' - ', error) for error in errors]
         
 def titlePageFileCorrectness(file):
     checks = {
-        r'.*\\includegraphics\[scale = 0.05\]\{img/UniPD_Logo.png\}.*': 'unipd logo presence',
-        r'.*\\large \\textbf\{Università degli Studi di Padova\}.*': 'bold text "università degli studi di padova"',
-        r'.*\\includegraphics\[scale = 1.5\]\{img/logo.png\}.*': 'catch em all logo', 
-        r'.*\\large \\textbf\{Catch em All - \\textit\{CAPTCHA: Umano o Sovraumano\?\}\}.*': 'Catch em All - project name',
-        r'.*\\texttt\{Email: catchemallswe3@gmail.com\}.*': 'catch em all email',
-        r'.*\{\\fontfamily\{ptm\}\\fontsize\{1.5cm\}\{0\}\\selectfont Analisi dei requisiti\}.*': 'doc title',
-        (r'\\begin\{tabularx\}\{\\textwidth\}\{\| c \| c \|\}'
+        'unipd logo presence': r'.*\\includegraphics\[scale = 0.05\]\{img/UniPD_Logo.png\}.*',
+        'bold text "università degli studi di padova"': r'.*\\large \\textbf\{Università degli Studi di Padova\}.*',
+        'catch em all logo': r'.*\\includegraphics\[scale = 1.5\]\{img/logo.png\}.*', 
+        'Catch em All - project name': r'.*\\large \\textbf\{Catch em All - \\textit\{CAPTCHA: Umano o Sovraumano\?\}\}.*',
+        'catch em all email': r'.*\\texttt\{Email: catchemallswe3@gmail.com\}.*',
+        'doc title': r'.*\{\\fontfamily\{ptm\}\\fontsize\{1.5cm\}\{0\}\\selectfont Analisi dei requisiti\}.*',
+        'status bar': (r'\\begin\{tabularx\}\{\\textwidth\}\{\| c \| c \|\}'
 		r'\\hline'
 		r'\\textbf\{Versione\} & .*'
 		r'\\hline'
@@ -60,14 +61,15 @@ def titlePageFileCorrectness(file):
 		r'\\hline'
 		r'\\textbf\{Distribuzione\} & .*'
 		r'\\hline'
-	    r'\\end\{tabularx\}.*'): 'status table',
+	    r'\\end\{tabularx\}.*'),
     }
 
     file_as_string = file.read_text()
     errors = []
     for check in checks:
-        if not re.search(check, file_as_string):
-            errors.append(checks[check])
+        if not re.search(checks[check], file_as_string):
+            errors.append(check)
+            
     if errors:
         print('\nFollowing error in title_page.tex:')
         [print(' - ', error) for error in errors]
