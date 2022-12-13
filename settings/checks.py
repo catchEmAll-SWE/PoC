@@ -38,7 +38,7 @@ def checkLatexFilePresenceInSrc(src):
 
 def checkSrcLatexFileCorrectness(src):
     src_file = next(src.glob('*.tex'))
-    # TODO
+    srules.srcLatexFileCorrectness(src_file)
 
 
 def checkFilesExtensionInSections(sections):
@@ -61,10 +61,9 @@ def checkNecessarySectionsFilesPresence(sections, files_name):
 
 # def checkStyleTitlePageCorrectness():
 
-    # checkStyleCorrectness(necessary_sections_file[0])
+# ======================================================== auxiliar functions ============================================================================
 
     # if i am here ==> no failure ==> files are corrects
-
 
 def getDirectoryExtensions(dir, recursive=False):
     files = getFilesFromDir(dir, recursive)
