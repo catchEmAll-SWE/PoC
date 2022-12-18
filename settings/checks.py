@@ -113,13 +113,13 @@ def versionCorrectness(sections_path):
     :return: None
     """
     version = modificheVersion(sections_path)
-    titlePageCorrectness(sections_path, version)
+    titlePageVersionCorrectness(sections_path, version)
     styleFileCorrectness(sections_path, version)
 
 
 # TODO: check if modifiche.tex is correct
 def modificheVersion(sections_path):
-    """Get version from modifiche.tex
+    """Get version from modifiche.tex and check for file correctness
 
     :param sections_path: path to sections directory
     :type sections_path: Path (absolute path)
@@ -135,7 +135,7 @@ def modificheVersion(sections_path):
 
 
 # TODO: check if title_page.tex is correct
-def titlePageCorrectness(sections_path, version):
+def titlePageVersionCorrectness(sections_path, version):
     """Check if title page is coherent with version
 
     :param sections_path: path to sections directory
