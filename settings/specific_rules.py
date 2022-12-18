@@ -1,5 +1,4 @@
 import re
-from pathlib import Path
 # In this file you can find function (them identify rules) for latex file's rules
 
 # MACRO RULES
@@ -74,11 +73,47 @@ def titlePageFileCorrectness(file, name):
         if check == 'doc title':
             if not re.search(checks[check] + name + r'\}\s*\\\\', file_as_string):
                 errors.append(check)
-        if not re.search(checks[check], file_as_string):
+        elif not re.search(checks[check], file_as_string):
             errors.append(check)
 
     if errors:
         print('\nFollowing error in title_page.tex:')
         [print(' - ', error) for error in errors]
+
+
+def modificheVersion(file):
+    checks = {
+        'title': r'\\section\*\{Registro delle modifiche\}\s*',
+        'centering': r'\\begin\{center\}\s*',
+        'proprieties': r'\\renewcommand\\tabularxcolumn\[1\]\{\>\{\\Centering\}m\{#1\}\}\s*',
+        'definition': r'\\begin\{tabularx\}\{\\textwidth\}\{\|\sc\s\|\sc\s\|\sX\s\|\sX\s\|\sX\s\|} ',
+        'header': r'\\textbf\{Versione\}\s*&\s*\\textbf\{Data\}\s*&\s*\\textbf\{Descrizione\}\s*&\s*\\textbf\{Autore\}\s*&\s*\\textbf\{Ruolo\}.*',
+        # TODO: regex for date, version is already done
+        'data': r'\d\.\d\.\d\s*&\s*(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})\s*&\s*.*',
+        'end': r'\\end\{tabularx\}.*',
+        'end centering': r'\\end\{center\}.*',
+    }
+
+    versions = []
+
+    file_as_string = file.read_text()
+    errors = []
+    for check in checks:
+        if check == 'table data':
+            if re.search(checks[check], file_as_string):
+                versions.append(
+                    re.search(checks[check], file_as_string).group().split(' & ')[0])
+            else:
+                errors.append(check)
+        elif not re.search(checks[check], file_as_string):
+            errors.append(check)
+
+    if errors:
+        print('\nFollowing error in modifiche_version.tex:')
+        [print(' - ', error) for error in errors]
+
+    print(versions)  # TODO: remove this line, it's just for debug
+
+    return versions
 
 # ===========================================================================================================================

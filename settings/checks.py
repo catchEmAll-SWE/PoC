@@ -1,6 +1,6 @@
 from pathlib import *
 import collections
-import specifics_rules as srules
+import specific_rules as srules
 
 
 def filesNameCorrectness(files):
@@ -28,7 +28,8 @@ def necessaryFiles(dir):
 
     :param dir: directory in which we want to check files
     :type dir: Path (absolute path)
-    :return: None"""
+    :return: None
+    """
 
     files_dic = collections.Counter(getDirectoryExtensions(dir))
     pdfDocPresence(dir, files_dic)
@@ -40,7 +41,8 @@ def pdfDocPresence(dir, files_dic):
 
     :param files_dic: dictionary with file extensions as keys and number of files with that extension as values
     :type files_dic: dict
-    :return: None"""
+    :return: None
+    """
 
     if not (files_dic['.pdf'] == 1):
         print(dir, 'must have exactly one pdf file')
@@ -51,10 +53,11 @@ def singleFileInDir(dir, dir_files):
 
     :param dir_files: dictionary with file extensions as keys and number of files with that extension as values
     :type files_dic: dict
-    :return: None"""
+    :return: None
+    """
 
     if not (len(dir_files) == 1):
-        print(dir, 'cannot have more than one file')
+        print(dir, 'cannot have more than one file in it')
 
 
 def latexFilePresenceInSrc(src):
@@ -63,7 +66,9 @@ def latexFilePresenceInSrc(src):
     :param src: source directory
     :type src: Path (absolute path)
     :return: True if source directory has only one .tex file, False otherwise
+    :rtype: bool
     """
+
     src_files_dic = collections.Counter(getDirectoryExtensions(src))
     if (len(src_files_dic) == 1 and src_files_dic['.tex']):
         return True
@@ -101,27 +106,55 @@ def titlePageFileCorrectness(sections, dir):
 
 
 def versionCorrectness(sections_path):
-    version = modificheCorrectness(sections_path)
+    """Check if version is coherent with modifiche.tex
+
+    :param sections_path: path to sections directory
+    :type sections_path: Path (absolute path)
+    :return: None
+    """
+    version = modificheVersion(sections_path)
     titlePageCorrectness(sections_path, version)
     styleFileCorrectness(sections_path, version)
 
 
 # TODO: check if modifiche.tex is correct
-def modificheCorrectness(sections_path):
-    modifiche_file = sections_path/'modifiche.tex'
+def modificheVersion(sections_path):
+    """Get version from modifiche.tex
 
-    version = 1
+    :param sections_path: path to sections directory
+    :type sections_path: Path (absolute path)
+    :return: version
+    :rtype: str
+    """
+    modifiche_file = sections_path/'modifiche.tex'
+    versions = srules.modificheVersion(modifiche_file)
+
+    version = "0.0.0"
 
     return version
 
 
 # TODO: check if title_page.tex is correct
 def titlePageCorrectness(sections_path, version):
+    """Check if title page is coherent with version
+
+    :param sections_path: path to sections directory
+    :type sections_path: Path (absolute path)
+    :param version: version of the document
+    :type version: str
+    """
     titlePage_file = sections_path/'title_page.tex',
 
 
 # TODO: check if style.tex is correct
 def styleFileCorrectness(sections_path, version):
+    """Check if style file is coherent with version
+
+    :param sections_path: path to sections directory
+    :type sections_path: Path (absolute path)
+    :param version: version of the document
+    :type version: str
+    """
     style_file = sections_path/'style.tex'
 
 
