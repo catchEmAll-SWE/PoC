@@ -6,8 +6,8 @@ from pathlib import Path
 
 
 def titleCorrectness(title):
-    file_name_rules = '[a-z]+\d*(_[a-z]+\d*)*$'
-    official_doc_rules = '[a-z]+(_[a-z]+)*_v\.\d\d*\.\d\d*\.\d\d*$'
+    file_name_rules = r'[a-z]+\d*(_[a-z]+\d*)*$'
+    official_doc_rules = r'[a-z]+(_[a-z]+)*_v\.\d\d*\.\d\d*\.\d\d*$'
 
     # brief description
     # name:
