@@ -3,14 +3,14 @@ import collections
 import specifics_rules as srules
 
 
-def checkFilesNameCorrectness(files):
+def filesNameCorrectness(files):
     for file in files:
         if not srules.titleCorrectness(file.stem):
             print('Name not correct: ', file)
 # POST = print not correct files name path
 
 
-def checkOfficialDocsDirTree(dir):
+def officialDocsDirTree(dir):
     # directory tree is '*/dir_name/src/sections/'
     if not (dir/'src/sections/').exists():
         print('Directories tree not correct ', dir)
@@ -20,14 +20,14 @@ def checkOfficialDocsDirTree(dir):
 #        otherwise return True
 
 
-def checkOfficialDocPresence(dir):
+def officialDocPresence(dir):
     # official doc dir must has only one .pdf file
     dir_files = collections.Counter(getDirectoryExtensions(dir))
     if not (len(dir_files) == 1 and dir_files['.pdf']):
         print(dir, 'must has only one pdf file')
 
 
-def checkLatexFilePresenceInSrc(src):
+def latexFilePresenceInSrc(src):
     # '*/dir_name/src/' has only one .tex file
     src_files_ext = collections.Counter(getDirectoryExtensions(src))
     if not (len(src_files_ext) == 1 and src_files_ext['.tex']):
@@ -36,18 +36,18 @@ def checkLatexFilePresenceInSrc(src):
     return True
 
 
-def checkSrcLatexFileCorrectness(src):
+def srcLatexFileCorrectness(src):
     src_file = next(src.glob('*.tex'))
     srules.srcLatexFileCorrectness(src_file)
 
 
-def checkFilesExtensionInSections(sections):
+def filesExtensionInSections(sections):
     files_in_sections = getDirectoryExtensions(sections)
     if not (len(collections.Counter(files_in_sections)) == 1 and collections.Counter(files_in_sections)['.tex']):
         print(sections, 'must have only latex files')
 
 
-def checkNecessarySectionsFilesPresence(sections, files_name):
+def necessarySectionsFilesPresence(sections, files_name):
     presence = True
     for file_name in files_name:
         if not (sections/file_name).exists():
@@ -55,18 +55,21 @@ def checkNecessarySectionsFilesPresence(sections, files_name):
             presence = False
     return presence
 
-def checkStyleFileCorrectness(sections):
+
+def styleFileCorrectness(sections):
     style_file = sections/'style.tex'
 
 # def checkStylePackagesCorrectness():
 
-def checkTitlePageFileCorrectness(sections):
+
+def titlePageFileCorrectness(sections):
     title_page_file = sections/'title_page.tex'
     srules.titlePageFileCorrectness(title_page_file)
 
 # ======================================================== auxiliar functions ============================================================================
 
     # if i am here ==> no failure ==> files are corrects
+
 
 def getDirectoryExtensions(dir, recursive=False):
     files = getFilesFromDir(dir, recursive)
