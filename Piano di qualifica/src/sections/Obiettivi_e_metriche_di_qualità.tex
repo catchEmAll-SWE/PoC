@@ -2,25 +2,38 @@
 \subsection{Obiettivi e metriche di qualità di processo}
 In questa sezione vengono illustrati come il gruppo vuole verificare e misurare i progressi dei processi primari e secondari nel corso del progetto.
 \subsubsection{Obiettivi di qualità di processo}
+Obiettivi generici che ogni processo deve sottostare.
 \begin{table}[H]
 	\centering
 	\begin{tabularx}{\textwidth}{|c|X|X|X|}
 	\hline
 	\textbf{ID} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Metriche associate}\\
 	\hline
-	OQPC01 & Miglioramento continuo & Il processo si deve poter valutare e migliorare continuamente & MQPC01 - SPICE\\
+	OQPCG01 & Miglioramento continuo & Il processo si deve poter valutare e migliorare continuamente & MQPC01 - SPICE\\
 	\hline
-	OQPC02 & Efficienza nell'utilizzo delle risorse & Le risorse disponibili durante la durata del progetto devono essere distribuite ed utilizzate al meglio & MQPC02 - Costo previsto di un'attività programmata; \hspace{25pt} MQPC03 - Costo previsto di un'attività svolta; MQPC04 - Costo reale di un'attività svolta \\
+	OQPCG02 & Efficienza nell'utilizzo delle risorse & Le risorse disponibili durante la durata del progetto devono essere distribuite ed utilizzate al meglio & MQPC02 - Costo previsto di un'attività programmata; \hspace{25pt} MQPC03 - Costo previsto di un'attività svolta; MQPC04 - Costo reale di un'attività svolta \\
 	\hline
-	OQPC03 & Rispetto della pianificazione & Assicurare che le scadenze e i limiti di costi illustrati nel documento \textit{piano\_di\_progetto} siano rispettati &  MPC05: Variazioni nella programmazione;\hspace{65pt} MPC06: Variazioni nei costi. \\
-	\hline
-	OQPC04 & Leggibilità dei documenti & I documenti devono essere comprensibile all'utente medio & MQPC07 - Indice di Gulpease\\
-	\hline
-	OQPC05 & Correttezza ortografica & I documenti devono essere scritti senza errori ortografici & MQPC08 - Correttezza documento \\
+	OQPCG03 & Rispetto della pianificazione & Assicurare che le scadenze e i limiti di costi illustrati nel documento \textit{piano\_di\_progetto} siano rispettati &  MPC05: Variazioni nella programmazione;\hspace{65pt} MPC06: Variazioni nei costi. \\
 	\hline
 	\end{tabularx}
-	\caption{Tabella 3: Obiettivi di qualità di processo.}
+	\caption{Tabella 3: Obiettivi di qualità di processo generici.}
 \end{table}
+Obiettivi specifici di particolari processi.
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|c|X|X|X|}
+		\hline
+		\textbf{ID} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Metriche associate}\\
+		\hline
+		OQPCS01 & Leggibilità dei documenti & I documenti devono essere comprensibile all'utente medio & MQPC07 - Indice di Gulpease\\
+		\hline
+		OQPCS02 & Correttezza ortografica & I documenti devono essere scritti senza errori ortografici & MQPC08 - Correttezza documento \\
+		\hline
+	\end{tabularx}
+	\caption{Tabella 4: Obiettivi di qualità di processo specifici.}
+\end{table}
+
 \subsubsection{Metriche di qualità di processo}
 \begin{table}[H]
 	\centering
@@ -28,46 +41,74 @@ In questa sezione vengono illustrati come il gruppo vuole verificare e misurare 
 		\hline
 		\textbf{ID} & \textbf{Nome} & \textbf{Obiettivo} & \textbf{Valore accettabile} & \textbf{Valore ottimo}\\
 		\hline
-		MQPC01 & SPICE & OQPC01 - Miglioramento continuo & Level of Capability $\geq$ 2 (Managed process) & Level of Capability $\geq$ 4 (Predictable process) \\
+		MQPC01 & SPICE & OQPCG01 - Miglioramento continuo & Level of Capability $\geq$ 2 (Managed process) & Level of Capability $\geq$ 4 (Predictable process) \\
 		\hline
-		MQPC02 & Costo previsto di un'attività programmata & OQPC02 - Efficienza nell'utilizzo delle risorse & $\geq$ 0 & $\geq$ 0 \\
+		MQPC02 & Costo previsto di un'attività programmata & OQPCG02 - Efficienza nell'utilizzo delle risorse & $\geq$ 0 & $\geq$ 0 \\
 		\hline
-		MQPC03 & Costo previsto di un'attività svolta & OQPC02 - Efficienza nell'utilizzo delle risorse & $\geq$ 0 & $\geq$ BCWS \\
+		MQPC03 & Costo previsto di un'attività svolta & OQPCG02 - Efficienza nell'utilizzo delle risorse & $\geq$ 0 & $\geq$ BCWS \\
 		\hline
-		MQPC04 & Costo reale di un'attività svolta & OQPC02 - Efficienza nell'utilizzo delle risorse & $\geq$ BCWS & $\geq$ BCWS \\
+		MQPC04 & Costo reale di un'attività svolta & OQPCG02 - Efficienza nell'utilizzo delle risorse & $\geq$ BCWS & $\geq$ BCWS \\
 		\hline
-		MQPC05 & Variazioni nella programmazione & OQPC03 - Rispetto della pianificazione & -20\% & 0\% \\
+		MQPC05 & Variazioni nella programmazione & OQPCG03 - Rispetto della pianificazione & -20\% & 0\% \\
 		\hline
-		MQPC06 & Variazioni nei costi & OQPC03 - Rispetto della pianificazione & -15\% & 0\% \\
+		MQPC06 & Variazioni nei costi & OQPCG03 - Rispetto della pianificazione & -15\% & 0\% \\
+		\hline
+		MQPC07 & Indice di Gulpease & OQPCS01 - Leggibilità dei documenti & $\geq$ 45 & $\geq$ 80 \\
+		\hline
+		MQPC08 & Numero errori ortografici & OQPCS02 - Correttezza ortografica & 0 & 0 \\
 		\hline
 	\end{tabularx}
-	\caption{Tabella 4: Metriche di qualità di processo.}
+	\caption{Tabella 5: Metriche di qualità di processo.}
 \end{table}
 \subsection{Obiettivi e metriche di qualità di prodotto}
 Riferendoci allo standard ISO/IEC 25000 SQuaRE è possibile osservare un insieme di caratteristiche che il prodotto deve avere per essere considerato di qualità. Queste caratteristiche saranno misurabili tramite metriche apposite, le quali forniranno i valori accettabili per il raggiungimento dell'obiettivo.
 \subsubsection{Obiettivi di qualità di prodotto}
 \begin{table}[H]
 	\centering
-	\begin{tabularx}{\textwidth}{|c|c|X|c|}
+	\begin{tabularx}{\textwidth}{|c|c|X|X|}
 		\hline
 		\textbf{ID} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Metriche associate}\\
 		\hline
-		MQPD01 & Funzionalità & Si vogliono soddisfare in modo completo i requisiti presenti nel documento \textit{Analisi\_dei\_requisiti} & MQPD01 - \\
+		OQPD01 & Appropriatezza funzionale & Si vogliono soddisfare in modo completo i requisiti presenti nel documento \textit{Analisi\_dei\_requisiti} & MQPD01 - Completezza dei requisiti \\
 		\hline
-		MQPD02 & Efficienza & Si vuole realizzare un prodotto che soddisfi gli obiettivi prefissati utilizzando il minor numero di risorse possibili. & MQPD02 - \\
+		OQPD02 & Efficienza & Si vuole realizzare un prodotto che soddisfi gli obiettivi prefissati dando all'utente un'esperienza che utilizzi al meglio le capacità del sistema. & MQPD02 - Tempo di risposta dei servizi all'utente\\
 		\hline
-		MQPD03 & Affidabilità & Si vuole che il prodotto fornito sia sempre disponibile e con meno errori possibili. Nel caso se ne verifichino il prodotto deve poter rispondere adeguatamente. & MQPD03 -\\
+		OQPD03 & Affidabilità & Si vuole che il prodotto fornito sia sempre disponibile e con meno errori possibili. Nel caso se ne verifichino il prodotto deve poter rispondere adeguatamente. & MQPD03 - Test di affidabilità superati\\
 		\hline
-		MQPD04 & Usabilità & Si vuole realizzare un prodotto facilmente usabile dagli utenti e che non richieda sforzi nel capire il suo funzionamento. & MQPD04 -\\
+		OQPD04 & Usabilità & Si vuole realizzare un prodotto facilmente usabile dagli utenti e che non richieda sforzi nel capire il suo funzionamento. & MQPD04 - Tempo medio di apprendimento per l'utilizzo del prodotto\\
 		\hline
-		MQPD05 & Sicurezza & Si vuole realizzare un prodotto che garantisca la sicurezza dei sistemi e degli utenti che interagiscono con quest'ultimo. & MQPD05 -\\
+		MQPD05 & Sicurezza & Si vuole realizzare un prodotto che garantisca la sicurezza dei sistemi e degli utenti che interagiscono con quest'ultimo. & OQPD05 - Tasso di bot non rilevati\\
 		\hline
-		MQPD06 & Manutenibilità & Si vuole ottenere un prodotto riutilizzabile e facilmente migliorabile in futuro. & MQPD06 -\\
+		OQPD06 & Manutenibilità & Si vuole ottenere un prodotto riutilizzabile e facilmente migliorabile in futuro. & MQPD06 - Complessità del codice del prodotto\\
 		\hline
-		MQPD07 & Compatibilità & Il prodotto dovrà essere accessibile al numero più elevato di utenti possibile, garantendo quindi la compatibilità con tutti i browser più diffusi. & MQPD07 -\\
+		OQPD07 & Compatibilità & Il prodotto dovrà essere accessibile al numero più elevato di utenti possibile, garantendo quindi la compatibilità con tutti i browser più diffusi. & MQPD07 -\\
 		\hline
 	\end{tabularx}
-	\caption{Tabella 5: Obiettivi di qualità di prodotto.}
+	\caption{Tabella 6: Obiettivi di qualità di prodotto.}
 \end{table}
+
 \subsubsection{Metriche di qualità di prodotto}
-MQPD01
+Alcuni valori accettabili e ottimi per le metriche di qualità di prodotto verranno fissati in futuro.
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|c|X|X|X|X|}
+		\hline
+		\textbf{ID} & \textbf{Descrizione} & \textbf{Obiettivo} & \textbf{Valore accettabile} & \textbf{Valore ottimo}\\
+		\hline
+		MQPC01 & Completezza dei requisiti & OQPC01 - Appropriatezza funzionale & 100\% dei requisiti obbligatori & 100\% di tutti i requisiti\\
+		\hline
+		MQPC02 & Tempo di risposta dei servizi all'utente & OQPC02 - Efficienza & - & - \\
+		\hline
+		MQPC03 & Test di affidabilità superati & OQPC03 - Affidabilità & 100\% & 100\% \\
+		\hline
+		MQPC04 & Tempo medio di apprendimento per l'utilizzo del prodotto & OQPC04 - Usabilità & - &  - \\
+		\hline
+		MQPC05 & Tasso di bot non rilevati  & OQPC05 - Sicurezza & 25\% &  0\% \\
+		\hline
+		MQPC06 & Complessità del codice del prodotto & OQPC06 - Manutenibilità & - & - \\
+		\hline
+		MQPC07 & Browser supportati & OQPC07 - Compatibilità & 75\% & 100\% \\
+		\hline
+	\end{tabularx}
+	\caption{Tabella 7: Metriche di qualità di prodotto.}
+\end{table}
