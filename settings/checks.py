@@ -5,35 +5,66 @@ import specifics_rules as srules
 
 def filesNameCorrectness(files):
     for file in files:
-        if not srules.titleCorrectness(file.stem):
+        if srules.titleCorrectness(file.stem):
+            return
+        else:
             print('Name not correct: ', file)
 # POST = print not correct files name path
 
 
 def officialDocsDirTree(dir):
     # directory tree is '*/dir_name/src/sections/'
-    if not (dir/'src/sections/').exists():
-        print('Directories tree not correct ', dir)
+    if (dir/'src/sections/').exists():
+        return True
+    else:
+        print('Directory tree not correct ', dir)
         return False
-    return True  # TODO: invertire true e not per sicurezza
 # POST = print 'Directory tree not correct dir' and return false if directory dir tree is not correct
 #        otherwise return True
 
 
-def officialDocPresence(dir):
-    # official doc dir must has only one .pdf file
-    dir_files = collections.Counter(getDirectoryExtensions(dir))
-    if not (len(dir_files) == 1 and dir_files['.pdf']):
-        print(dir, 'must has only one pdf file')
+def necessaryFiles(dir):
+    """Check if official doc dir has only one file and it is a pdf file
+
+    :param dir: directory in which we want to check files
+    :type dir: Path (absolute path)
+    :return: None"""
+
+    files_dic = collections.Counter(getDirectoryExtensions(dir))
+    pdfDocPresence(dir, files_dic)
+    singleFileInDir(dir, files_dic)
+
+
+def pdfDocPresence(dir, files_dic):
+    """Official doc dir must have only one .pdf file
+
+    :param files_dic: dictionary with file extensions as keys and number of files with that extension as values
+    :type files_dic: dict
+    :return: None"""
+
+    if not (files_dic['.pdf'] == 1):
+        print(dir, 'must have exactly one pdf file')
+
+
+def singleFileInDir(dir, dir_files):
+    """Official doc dir must have only one file
+
+    :param dir_files: dictionary with file extensions as keys and number of files with that extension as values
+    :type files_dic: dict
+    :return: None"""
+
+    if not (len(dir_files) == 1):
+        print(dir, 'cannot have more than one file')
 
 
 def latexFilePresenceInSrc(src):
     # '*/dir_name/src/' has only one .tex file
     src_files_ext = collections.Counter(getDirectoryExtensions(src))
-    if not (len(src_files_ext) == 1 and src_files_ext['.tex']):
-        print(src, 'must has only one latex file')
+    if (len(src_files_ext) == 1 and src_files_ext['.tex']):
+        return True
+    else:
+        print(src, 'must have one latex file')
         return False
-    return True
 
 
 def srcLatexFileCorrectness(src):

@@ -30,7 +30,7 @@ for dir in official_dirs:
     if dir.exists() and officialDocsDirTree(dir):
         src_path = dir/'src/'
         sections_path = src_path/'sections'
-        officialDocPresence(dir)
+        necessaryFiles(dir)
         if latexFilePresenceInSrc(src_path):
             srcLatexFileCorrectness(src_path)
         filesExtensionInSections(sections_path)
