@@ -58,12 +58,17 @@ def singleFileInDir(dir, dir_files):
 
 
 def latexFilePresenceInSrc(src):
-    # '*/dir_name/src/' has only one .tex file
-    src_files_ext = collections.Counter(getDirectoryExtensions(src))
-    if (len(src_files_ext) == 1 and src_files_ext['.tex']):
+    """source directory (*/dir_name/src/) has only one .tex file
+
+    :param src: source directory
+    :type src: Path (absolute path)
+    :return: True if source directory has only one .tex file, False otherwise
+    """
+    src_files_dic = collections.Counter(getDirectoryExtensions(src))
+    if (len(src_files_dic) == 1 and src_files_dic['.tex']):
         return True
     else:
-        print(src, 'must have one latex file')
+        print(src, 'must have exactly one latex file')
         return False
 
 
@@ -87,19 +92,41 @@ def necessarySectionsFilesPresence(sections, files_name):
     return presence
 
 
-def styleFileCorrectness(sections):
-    style_file = sections/'style.tex'
-
-# def checkStylePackagesCorrectness():
-
-
-def titlePageFileCorrectness(sections):
+def titlePageFileCorrectness(sections, dir):
     title_page_file = sections/'title_page.tex'
-    srules.titlePageFileCorrectness(title_page_file)
+    # file_name = sections.strip('/sections').strip('/src').strip('/').split('/')[-1] #alternativa se PRE = non cambiano le directory
+    # strip '/' and get main directory name
+    file_name = str(dir).strip('/').split('/')[-1].capitalize()
+    srules.titlePageFileCorrectness(title_page_file, file_name)
+
+
+def versionCorrectness(sections_path):
+    version = modificheCorrectness(sections_path)
+    titlePageCorrectness(sections_path, version)
+    styleFileCorrectness(sections_path, version)
+
+
+# TODO: check if modifiche.tex is correct
+def modificheCorrectness(sections_path):
+    modifiche_file = sections_path/'modifiche.tex'
+
+    version = 1
+
+    return version
+
+
+# TODO: check if title_page.tex is correct
+def titlePageCorrectness(sections_path, version):
+    titlePage_file = sections_path/'title_page.tex',
+
+
+# TODO: check if style.tex is correct
+def styleFileCorrectness(sections_path, version):
+    style_file = sections_path/'style.tex'
+
 
 # ======================================================== auxiliar functions ============================================================================
-
-    # if i am here ==> no failure ==> files are corrects
+# if i am here ==> no failure ==> files are corrects
 
 
 def getDirectoryExtensions(dir, recursive=False):

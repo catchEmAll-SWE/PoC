@@ -35,10 +35,10 @@ for dir in official_dirs:
             srcLatexFileCorrectness(src_path)
         filesExtensionInSections(sections_path)
         if necessarySectionsFilesPresence(sections_path, necessary_sections_files):
-            # TODO: versionCorrectness(sections_path) #check version
-            # TODO: modificheCorrectness(sections_path) #check version
-            # TODO: titlePageCorrectness(sections_path) #title_page version updated with modifiche version
-            # TODO: styleFileCorrectness(sections_path) #file footer version updated with title_page and modifiche
+            versionCorrectness(sections_path)  # check version
+            # TODO: modificheCorrectness(sections_path, version) #check version
+            # TODO: titlePageCorrectness(sections_path, version) #title_page version updated with modifiche version
+            # TODO: styleFileCorrectness(sections_path, version) #file footer version updated with title_page and modifiche and styles
             # TODO: checkPackagesFileCorrectness(sections_path)
-            titlePageFileCorrectness(sections_path)
+            titlePageFileCorrectness(sections_path, dir)
         # TODO: check if itemize has an ending semicolon
