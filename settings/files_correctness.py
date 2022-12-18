@@ -1,6 +1,6 @@
 from checks import *
 from pathlib import Path
-#import github_action_utils as ghub_utils
+# import github_action_utils as ghub_utils
 
 allowed_extensions = ['.txt', '.tex', '.py', '.pdf']
 
@@ -18,12 +18,13 @@ necessary_sections_files = [
 # Can find single files's rules in ./specifics_rules.py
 # Single files's rules are applied in order  <--- IMPORTANT
 
-wd = Path('.').absolute()
+workingDir = Path('.').absolute()
 
 # ================================================ checks =========================================================
-checkFilesNameCorrectness([file for file in wd.rglob('*') if file.suffix in allowed_extensions])
+checkFilesNameCorrectness([file for file in workingDir.rglob(
+    '*') if file.suffix in allowed_extensions])  # check if files have correct extension
 
-official_dirs = [wd/dir_name for dir_name in official_docs_dirs]
+official_dirs = [workingDir/dir_name for dir_name in official_docs_dirs]
 for dir in official_dirs:
     if dir.exists() and checkOfficialDocsDirTree(dir):
         src_path = dir/'src/'
@@ -33,9 +34,6 @@ for dir in official_dirs:
             checkSrcLatexFileCorrectness(src_path)
         checkFilesExtensionInSections(sections_path)
         if checkNecessarySectionsFilesPresence(sections_path, necessary_sections_files):
-            #checkStyleFileCorrectness(sections_path)
-            #checkPackagesFileCorrectness(sections_path)
+            # checkStyleFileCorrectness(sections_path)
+            # checkPackagesFileCorrectness(sections_path)
             checkTitlePageFileCorrectness(sections_path)
-
-
-
