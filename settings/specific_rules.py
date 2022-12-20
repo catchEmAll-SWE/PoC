@@ -48,23 +48,15 @@ def titlePageFileCorrectness(file, name):
         'catch em all email': r'.*\\texttt\{Email: catchemallswe3@gmail.com\}.*',
         # added dynamic name check
         'doc title': r'.*\{\\fontfamily\{ptm\}\\fontsize\{1.5cm\}\{0\}\\selectfont\s*',
-        'status bar': (r'\\begin\{tabularx\}\{\\textwidth\}\{\s*\|\s*c\s*\|\s*c\s*\|\s*\}\s*'
-                       r'\\hline\s*'
-                       r'\\textbf\{Versione\}\s*&.*'
-                       r'\\hline\s*'
-                       r'\\textbf\{Approvazione\}\s*&.*'
-                       r'\\hline\s*'
-                       r'\\textbf\{Redazione\}\s*&.*'
-                       r'\\hline\s*'
-                       r'\\textbf\{Verifica\}\s*&.*'
-                       r'\\hline\s*'
-                       r'\\textbf\{Stato\}\s*&.*'
-                       r'\\hline\s*'
-                       r'\\textbf\{Uso\}\s*&.*'
-                       r'\\hline\s*'
-                       r'\\textbf\{Distribuzione\}\s*&.*'
-                       r'\\hline\s*'
-                    r'\\end\{tabularx\}.*'),
+        'definition': r'\\begin\{tabularx\}\{\\textwidth\}\{\s*\|\s*c\s*\|\s*c\s*\|\s*\}\s*',
+        'version': r'\\textbf\{Versione\}\s*&.*',
+        'approvation': r'\\textbf\{Approvazione\}\s*&.*',
+        'redaction': r'\\textbf\{Redazione\}\s*&.*',
+        'verification': r'\\textbf\{Verifica\}\s*&.*',
+        'state': r'\\textbf\{Stato\}\s*&.*',
+        'use': r'\\textbf\{Uso\}\s*&.*',
+        'distribution': r'\\textbf\{Distribuzione\}\s*&.*',
+        'end tabular': r'\\end\{tabularx\}.*',
     }
 
     file_as_string = file.read_text()
@@ -94,7 +86,6 @@ def modificheVersion(file):
         'end centering': r'\\end\{center\}.*',
     }
 
-
     file_as_string = file.read_text()
 
     versions = []
@@ -103,7 +94,8 @@ def modificheVersion(file):
     for check in checks:
         if check == 'data line':
             if re.search(checks[check], file_as_string):
-                versions = [version[0] for version in re.findall(checks[check], file_as_string)]
+                versions = [version[0]
+                            for version in re.findall(checks[check], file_as_string)]
             else:
                 errors.append(check)
         elif not re.search(checks[check], file_as_string):
