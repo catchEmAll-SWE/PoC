@@ -105,7 +105,7 @@ def modificheVersion(file):
         print('\nFollowing error in modifiche_version.tex:')
         [print(' - ', error) for error in errors]
 
-    print(versions)  # TODO: remove this line, it's just for debug
+    # print(versions)  #remove this line, it's just for debug
 
     return versions
 

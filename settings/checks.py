@@ -119,7 +119,7 @@ def versionCorrectness(sections_path):
 
 # TODO: check if modifiche.tex is correct
 def modificheVersion(sections_path):
-    """Get version from modifiche.tex and check for file correctness
+    """Get version from modifiche.tex and check for file correctness in descending order with no duplicates
 
     :param sections_path: path to sections directory
     :type sections_path: Path (absolute path)
@@ -129,9 +129,21 @@ def modificheVersion(sections_path):
     modifiche_file = sections_path/'modifiche.tex'
     versions = srules.modificheVersion(modifiche_file)
 
-    version = "0.0.0"
+    prev_version_list = [int(i)*(10**iteration) for i, iteration in zip(
+        versions[0].split('.')[::-1], range(0, len(versions[0].split('.'))))]
+    prev_version = sum(prev_version_list)
 
-    return version
+    last_version = prev_version
+
+    for version in versions[1:]:
+        cur_version_list = [int(i)*(10**iteration) for i, iteration in zip(
+            version.split('.')[::-1], range(0, len(version.split('.'))))]
+        cur_version = sum(cur_version_list)
+        if (cur_version > prev_version or cur_version == prev_version):
+            print('Version order not correct: ', cur_version, prev_version)
+        else:
+            prev_version = cur_version
+    return last_version
 
 
 # TODO: check if title_page.tex is correct
