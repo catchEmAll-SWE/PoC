@@ -23,7 +23,7 @@ def officialDocsDirTree(dir):
 #        otherwise return True
 
 
-def necessaryFiles(dir):
+def officialPdfPresenceOnly(dir):
     """Check if official doc dir has only one file and it is a pdf file
 
     :param dir: directory in which we want to check files

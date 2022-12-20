@@ -29,9 +29,9 @@ filesNameCorrectness([file for file in workingDir.rglob(
 official_dirs = [workingDir/dir_name for dir_name in official_docs_dirs]
 for dir in official_dirs:
     if dir.exists() and officialDocsDirTree(dir):
-        src_path = dir/'src/'  # TODO: check if src is a directory
-        sections_path = src_path/'sections'  # TODO: check if sections is a directory
-        necessaryFiles(dir)
+        src_path = dir/'src/' 
+        sections_path = src_path/'sections'
+        officialPdfPresenceOnly(dir)
         if latexFilePresenceInSrc(src_path):
             srcLatexFileCorrectness(src_path)
         filesExtensionInSections(sections_path)

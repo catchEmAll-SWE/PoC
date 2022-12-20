@@ -47,24 +47,24 @@ def titlePageFileCorrectness(file, name):
         'Catch em All - project name': r'.*\\large \\textbf\{Catch em All - \\textit\{CAPTCHA: Umano o Sovraumano\?\}\}.*',
         'catch em all email': r'.*\\texttt\{Email: catchemallswe3@gmail.com\}.*',
         # added dynamic name check
-        'doc title': r'.*\{\\fontfamily\{ptm\}\\fontsize\{1.5cm\}\{0\}\\selectfont ',
-        'status bar': (r'\\begin\{tabularx\}\{\\textwidth\}\{\| c \| c \|\}'
-                       r'\\hline'
-                       r'\\textbf\{Versione\} & .*'
-                       r'\\hline'
-                       r'\\textbf\{Approvazione\} & .*'
-                       r'\\hline'
-                       r'\\textbf\{Redazione\} & .*'
-                       r'\\hline'
-                       r'\\textbf\{Verifica\} & .*'
-                       r'\\hline'
-                       r'\\textbf\{Stato\} & .*'
-                       r'\\hline'
-                       r'\\textbf\{Uso\} & .*'
-                       r'\\hline'
-                       r'\\textbf\{Distribuzione\} & .*'
-                       r'\\hline'
-                       r'\\end\{tabularx\}.*'),
+        'doc title': r'.*\{\\fontfamily\{ptm\}\\fontsize\{1.5cm\}\{0\}\\selectfont\s*',
+        'status bar': (r'\\begin\{tabularx\}\{\\textwidth\}\{\s*\|\s*c\s*\|\s*c\s*\|\\s*}\s*'
+                       r'\\hline\s*'
+                       r'\\textbf\{Versione\}\s*&\s*.*'
+                       r'\\hline\s*'
+                       r'\\textbf\{Approvazione\}\s*&\s*.*'
+                       r'\\hline\s*'
+                       r'\\textbf\{Redazione\}\s*&\s*.*'
+                       r'\\hline\s*'
+                       r'\\textbf\{Verifica\}\s*&\s*.*'
+                       r'\\hline\s*'
+                       r'\\textbf\{Stato\}\s*&\s*.*'
+                       r'\\hline\s*'
+                       r'\\textbf\{Uso\}\s*&\s*.*'
+                       r'\\hline\s*'
+                       r'\\textbf\{Distribuzione\}\s*&\s*.*'
+                       r'\\hline\s*'
+                    r'\\end\{tabularx\}.*'),
     }
 
     file_as_string = file.read_text()
@@ -86,23 +86,24 @@ def modificheVersion(file):
         'title': r'\\section\*\{Registro delle modifiche\}\s*',
         'centering': r'\\begin\{center\}\s*',
         'proprieties': r'\\renewcommand\\tabularxcolumn\[1\]\{\>\{\\Centering\}m\{#1\}\}\s*',
-        'definition': r'\\begin\{tabularx\}\{\\textwidth\}\{\|\sc\s\|\sc\s\|\sX\s\|\sX\s\|\sX\s\|} ',
+        'definition': r'\\begin\{\\tabularx\}\{\\textwidth\}\{\|\sc|X\s\|\sc|X\s\|\sc|X\s\|\sc|X\s\|\sc|X\s\|}\s',
         'header': r'\\textbf\{Versione\}\s*&\s*\\textbf\{Data\}\s*&\s*\\textbf\{Descrizione\}\s*&\s*\\textbf\{Autore\}\s*&\s*\\textbf\{Ruolo\}.*',
         # TODO: regex for date, version is already done
-        'data': r'\d\.\d\.\d\s*&\s*(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})\s*&\s*.*',
+        'data line': r'(\d\d?\.\d\d?\.\d\d?)\s*&\s*(\d\d/\d\d/\d\d\d\d)\s*&.*&.*&',
         'end': r'\\end\{tabularx\}.*',
         'end centering': r'\\end\{center\}.*',
     }
 
-    versions = []
 
     file_as_string = file.read_text()
+
+    versions = []
     errors = []
+
     for check in checks:
-        if check == 'table data':
+        if check == 'data line':
             if re.search(checks[check], file_as_string):
-                versions.append(
-                    re.search(checks[check], file_as_string).group().split(' & ')[0])
+                versions = [version[0] for version in re.findall(checks[check], file_as_string)]
             else:
                 errors.append(check)
         elif not re.search(checks[check], file_as_string):
