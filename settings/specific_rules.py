@@ -48,21 +48,21 @@ def titlePageFileCorrectness(file, name):
         'catch em all email': r'.*\\texttt\{Email: catchemallswe3@gmail.com\}.*',
         # added dynamic name check
         'doc title': r'.*\{\\fontfamily\{ptm\}\\fontsize\{1.5cm\}\{0\}\\selectfont\s*',
-        'status bar': (r'\\begin\{tabularx\}\{\\textwidth\}\{\s*\|\s*c\s*\|\s*c\s*\|\\s*}\s*'
+        'status bar': (r'\\begin\{tabularx\}\{\\textwidth\}\{\s*\|\s*c\s*\|\s*c\s*\|\s*\}\s*'
                        r'\\hline\s*'
-                       r'\\textbf\{Versione\}\s*&\s*.*'
+                       r'\\textbf\{Versione\}\s*&.*'
                        r'\\hline\s*'
-                       r'\\textbf\{Approvazione\}\s*&\s*.*'
+                       r'\\textbf\{Approvazione\}\s*&.*'
                        r'\\hline\s*'
-                       r'\\textbf\{Redazione\}\s*&\s*.*'
+                       r'\\textbf\{Redazione\}\s*&.*'
                        r'\\hline\s*'
-                       r'\\textbf\{Verifica\}\s*&\s*.*'
+                       r'\\textbf\{Verifica\}\s*&.*'
                        r'\\hline\s*'
-                       r'\\textbf\{Stato\}\s*&\s*.*'
+                       r'\\textbf\{Stato\}\s*&.*'
                        r'\\hline\s*'
-                       r'\\textbf\{Uso\}\s*&\s*.*'
+                       r'\\textbf\{Uso\}\s*&.*'
                        r'\\hline\s*'
-                       r'\\textbf\{Distribuzione\}\s*&\s*.*'
+                       r'\\textbf\{Distribuzione\}\s*&.*'
                        r'\\hline\s*'
                     r'\\end\{tabularx\}.*'),
     }
