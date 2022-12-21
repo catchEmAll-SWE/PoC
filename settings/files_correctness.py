@@ -19,12 +19,14 @@ necessary_sections_files = [
 # Can find single files's rules in ./specifics_rules.py
 # Single files's rules are applied in order  <--- IMPORTANT
 
-# Path to working directory, TODO:find a way to get project root dir (chatchEmAll-Docs)
-workingDir = Path('.').absolute()
+workingDir = Path('.')
 
 # ================================================ checks =========================================================
-filesNameCorrectness([file for file in workingDir.rglob(
-    '*') if file.suffix in allowed_extensions])  # check if files have correct extension
+
+files_w_allowed_ext = [file for file in workingDir.rglob(
+    '*') if file.suffix in allowed_extensions] 
+
+filesNameCorrectness(files_w_allowed_ext)  # check if files have correct extension
 
 official_dirs = [workingDir/dir_name for dir_name in official_docs_dirs]
 for dir in official_dirs:
@@ -42,4 +44,9 @@ for dir in official_dirs:
             # TODO: styleFileCorrectness(sections_path, version) #file footer version updated with title_page and modifiche and styles
             # TODO: checkPackagesFileCorrectness(sections_path)
             titlePageFileCorrectness(sections_path, dir)
-        # TODO: check if itemize has an ending semicolon
+        
+
+# TODO: check if itemize has an ending semicolon
+latex_files = [file for file in files_w_allowed_ext if file.suffix == '.tex']
+
+itemizeInLatexFilesCorrectness(latex_files)

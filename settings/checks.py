@@ -1,4 +1,5 @@
 from pathlib import *
+import re
 import collections
 import specific_rules as srules
 
@@ -170,6 +171,13 @@ def styleFileCorrectness(sections_path, version):
     style_file = sections_path/'style.tex'
 
 
+def itemizeInLatexFilesCorrectness(latex_files):
+    print('check itemize')
+    for file in latex_files:
+        file_as_string = file.read_text()
+        if bool(re.search(r'\\begin{itemize}', file_as_string)):
+            wrong_itemizes = re.findall(r'\\begin{itemize}\n', file_as_string)
+            print(file, r'contains \begin{itemize} without ":" at the end or with spaces between "{itemize}" and ":"')
 # ======================================================== auxiliar functions ============================================================================
 # if i am here ==> no failure ==> files are corrects
 

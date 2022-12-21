@@ -69,7 +69,7 @@ def titlePageFileCorrectness(file, name):
             errors.append(check)
 
     if errors:
-        print('\nFollowing error in title_page.tex:')
+        print('\nFollowing error in title_page.tex: ', file)
         [print(' - ', error) for error in errors]
 
 
@@ -108,5 +108,8 @@ def modificheVersion(file):
     # print(versions)  #remove this line, it's just for debug
 
     return versions
+
+
+
 
 # ===========================================================================================================================
