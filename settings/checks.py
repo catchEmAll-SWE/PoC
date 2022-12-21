@@ -212,18 +212,7 @@ def latexFilesCorrectness(latex_files):
     """
     declarationListEndingWithColon(latex_files)
 
-def declarationListEndingWithColon(latex_files):
-    """Print files's name (and lines errors) missing colon in itemize list declaration
 
-    :param latex_files: latex files controlled
-    :type latex_files: list[Path]
-    """
-    error_message = r'contains \begin{itemize} without ":" at the end or with spaces between "{itemize}" and ":" in:'
-    for file in latex_files:
-        file_as_string = file.read_text()
-        if re.search(r'\\begin\s*{itemize}\n', file_as_string):
-            print(file, error_message)
-            [print(' - line: ', getMatchedStringLine(obj, file_as_string)) for obj in re.finditer(r'\\begin\s*{itemize}\n', file_as_string)]
 
 # ======================================================== auxiliar functions ============================================================================
 # if i am here ==> no failure ==> files are corrects
@@ -240,19 +229,3 @@ def getFilesFromDir(dir, recursive=False):
     else:
         return [file for file in dir.rglob('*') if file.is_file()]
 
-def getMatchedStringLine(obj_found, text):
-    """Return the line's number of the obj_found in the text
-
-    :param obj_found: element we ewant to now line's number
-    :type obj_found: Match Object
-    :param text: text which contains obj_found string
-    :type text: string
-    """
-    start_character_number = obj_found.start()
-    lines_in_text = re.finditer(r'\n', text)
-    line_number = 1
-    for iterator in lines_in_text:
-        if iterator.start() < start_character_number:
-            line_number += 1
-    return line_number
-# POST = return the line's number of the obj_found in the text
