@@ -199,26 +199,17 @@ def styleFileVersionCorrectness(sections_path, version):
     :param version: version of the document
     :type version: str
     """
-    if version:
-        style_file = sections_path/'style.tex'
-        version_search = re.findall(
-            r'.*v\s' + version + r'\s*\}\s*', style_file.read_text())
-        if len(version_search) > 1:
-            print(
-                'Multiple versions found in ', style_file, ', check for duplicates')
-        elif not version_search:
-            # PRE: title_page.tex has been checked for version string presence
-            print('Version number not correct in ', style_file)
-
+    style_file = sections_path/'style.tex'
 
 def itemizeInLatexFilesCorrectness(latex_files):
-    print('check itemize')
+    error_message = r'contains \begin{itemize} without ":" at the end or with spaces between "{itemize}" and ":" in:'
+    errors = []
     for file in latex_files:
         file_as_string = file.read_text()
-        if bool(re.search(r'\\begin{itemize}', file_as_string)):
-            wrong_itemizes = re.findall(r'\\begin{itemize}\n', file_as_string)
-            print(
-                file, r'contains \begin{itemize} without ":" at the end or with spaces between "{itemize}" and ":"')
+        if re.search(r'\\begin\s*{itemize}\n', file_as_string):
+            print(file, error_message)
+            [print(' - line: ', getMatchedStringLine(obj, file_as_string)) for obj in re.finditer(r'\\begin\s*{itemize}\n', file_as_string)]
+            
 # ======================================================== auxiliar functions ============================================================================
 # if i am here ==> no failure ==> files are corrects
 
@@ -233,3 +224,12 @@ def getFilesFromDir(dir, recursive=False):
         return [file for file in dir.glob('*') if file.is_file()]
     else:
         return [file for file in dir.rglob('*') if file.is_file()]
+
+def getMatchedStringLine(obj_found, text):
+    start_character_number = obj_found.start()
+    lines_in_text = re.finditer(r'\n', text)
+    line_number = 1
+    for iterator in lines_in_text:
+        if iterator.start() < start_character_number:
+            line_number += 1
+    return line_number
