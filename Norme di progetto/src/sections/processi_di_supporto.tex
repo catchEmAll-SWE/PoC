@@ -1,15 +1,27 @@
 \section{Processi di supporto}
 
+
 \subsection{Documentazione}
-GitHub dispone di un repository contenente documentazione riguardante:
+
+\subsubsection{Scopo}
+Lo scopo di questa sezione è definire gli standard neccessari per la stesura di tutti i documenti del progetto.
+
+\subsubsection{Ciclo di vita del documento}
+Tutti i documenti prodotti dal team seguono la seguente ciclo di vita:
 \begin{itemize}
-    \item Assegnazione dell'appalto (lettera di candidatura);
-    \item Diario di bordo;
-    \item Ricerche e documentazione prodotta dal team;
-    \item Specifiche tecniche del software;
-    \item Link dei verbali (interni ed esterni).
+    \item \textbf{Stesura}: il documento viene scritto utilizzando il metodo AGILE, adottando gli sprint di durata una settimana; 
+    \item \textbf{Revisione}:a fine di ogni sprint i documenti vengono revisionati da una persona diversa dal redattore. Solo dopo la revisione
+				le modifiche e i nuovi contenuti scritti possono essere integrati nel documento;
+    \item \textbf{Verifica}:avviene in un periodo specificato nel piano di progetto, tale attività viene svolto da almeno una persona. Il documento
+				è considerato verificato quando i Verificatori dichiarano che le modifiche neccessarie sono portate a termine;
+    \item \textbf{Approvazione}:il Responsabile di Progetto dichiara che il documento è completo in ogni sua
+					parte e pronto per essere rilasciato, marcandolo come approvato;
 \end{itemize}
-Confluence (strumento JIRA) contiene invece i verbali e i documenti retrospettivi: tale sceltà è stata guidata dalla presenza in questo strumento di template, i quali ne facilitano la scrittura.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{img/ciclo_di_vita.png}
+    \caption{Ciclo di vita dei documenti}
+\end{figure}
 
 \subsubsection{Struttura dei documenti}
 Tutti i documenti ufficiali seguono una struttura ben definita cosi da mantenere l'omogeneità. Più precisamente ogni documento è formato da:
@@ -19,7 +31,7 @@ Tutti i documenti ufficiali seguono una struttura ben definita cosi da mantenere
     \item \textbf{Indice};
     \item \textbf{Contenuto principale}.
 \end{itemize}
-	
+
 \subsubsubsection{Fontespizio}
 Rappresenta la pagina iniziale del documento ed è strutturato come segue:
 \begin{itemize}
@@ -105,23 +117,23 @@ Di seguito vengono descritti come vengono utilizzati gli elenchi puntati e numer
 \subsubsubsection{Sigle TODO}
 Di seguito viene elencata una lista di sigle le quali si possono trovare nei documenti e i loro significati:
 \begin {itemize}
-\item \textbf{Ruoli}:
-	\begin {itemize}
-	\item \textbf{Re}: indica l' \textit{Analisi Dei Requisiti};
-	\item \textbf{Am}: indica le \textit{Norme Di Progetto};
-	\item \textbf{An}: indica il \textit{Piano Di Progetto};
-	\item \textbf{Pt}: indica il \textit{Piano Di Qualifica};
-	\item \textbf{Pr}: indica il \textit{Manuale Utente};
-	\item \textbf{Ve}: indica il \textit{Manuale del Manutentore}.
-	\end {itemize}
 \item \textbf{Documentazione}:
 	\begin {itemize}
-	\item \textbf{AdR}: indica il ruolo di \textit{Responsabile di Progetto};
-	\item \textbf{NdP}: indica il ruolo di \textit{Amministratore di Progetto};
-	\item \textbf{PdP}: indica il ruolo di \textit{Analista};
-	\item \textbf{PdQ}: indica il ruolo di \textit{Progettista};
-	\item \textbf{MU}: indica il ruolo di \textit{Programmatore};
-	\item \textbf{MdM}: indica il ruolo di \textit{Verificatore}.
+	\item \textbf{AdR}: indica l' \textit{Analisi Dei Requisiti};
+	\item \textbf{NdP}: indica le \textit{Norme Di Progetto};
+	\item \textbf{PdP}: indica il \textit{Piano Di Progetto};
+	\item \textbf{PdQ}: indica il \textit{Piano Di Qualifica};
+	\item \textbf{MU}: indica il \textit{Manuale Utente};
+	\item \textbf{MdM}: indica il \textit{Manuale del Manutentore}.
+	\end {itemize}
+\item \textbf{Ruoli}:
+	\begin {itemize}
+	\item \textbf{Re}: indica il ruolo di \textit{Responsabile di Progetto};
+	\item \textbf{Am}: indica il ruolo di \textit{Amministratore di Progetto};
+	\item \textbf{An}: indica il ruolo di \textit{Analista};
+	\item \textbf{Pt}: indica il ruolo di \textit{Progettista};
+	\item \textbf{Pr}: indica il ruolo di \textit{Programmatore};
+	\item \textbf{Ve}: indica il ruolo di \textit{Verificatore}.
 	\end {itemize}
 \end {itemize}
 \subsubsubsection{Formato della data}
@@ -148,5 +160,35 @@ Di seguito vengono elencati gli strumenti usati per stendere i documenti:
 \begin {itemize}
 \item \textbf{\LaTeX}: per la produzione dei documenti, il team ha deciso di usare il linguaggio di marckup \textit{\LaTeX};
 \item \textbf{Microsoft Word}: per la stesura delle bozze;
-\item altro.
+\item \textbf{StarUML}: per produrre diagrammi.
 \end {itemize}
+
+
+\subsection{Gestione della configurazione}
+
+\subsubsection{Scopo}
+Lo scopo di questa sezione è descrivere come il team ha deciso di mantenere traccia le varie documentazioni stese.
+
+\subsubsection{Sistemi software utilizzati TODO}
+Per gestire i file e gli aggiornamenti dei documenti, viene utilizzato il servizio offerto da Github.
+
+\subsubsection{Struttura del repository TODO}
+Di seguito viene dato una lista di repository presente su Git
+\begin{itemize}
+\item \textbf{catchEmAll-SWE/catchEmAll-Docs} è il repository contenente documentazione riguardante:
+\begin{itemize}
+    \item Assegnazione dell'appalto (lettera di candidatura);
+    \item Diario di bordo;
+    \item Ricerche e documentazione prodotta dal team;
+    \item Specifiche tecniche del software;
+    \item Link dei verbali (interni ed esterni).
+\end{itemize}
+\item \textbf{catchEmAll-SWE/catchEmAll-Code(possibile repo)}
+\end{itemize}
+Confluence (strumento JIRA) contiene invece i verbali e i documenti retrospettivi: tale sceltà è stata guidata dalla presenza in questo strumento di template, i quali ne facilitano la scrittura.
+
+\subsubsection{Gestione delle modifiche}
+Per evitare i conflitti tra le modifiche e mantenere in ordine i file, ogni volta che viene apportata una modifica deve prima essere caricata su un branch per essere revisionata dal Ve poi viene mergiata nel branch principale \textbf{DA RISCRIVERE MEGLIO }
+
+\subsubsection{Tipi di file presenti}
+Nella repository \textit{catchEmAll-Docs} sono presenti esclusivamente file \textbf{.tex}, \textbf{.png} e \textbf{/pdf}. Altri file prodotte durante la stesura dei documenti di esetensione diversa da quelle citate sono escluse attraverso il file \textbf{.gitignore}.
