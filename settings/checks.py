@@ -205,13 +205,15 @@ def latexFilesCorrectness(latex_files):
     """Check latex_files correctness
 
     Invoke follow function:
-    :py:func:declarationListEndingWithColon
+    :py:func:srules.declarationListEndingWithColon
+    :py:func:srules.itemInListEndingWithCorrectCharacter
+    :py:func:srules.firstLetterInListMustBeMaiusc
 
     :param latex_files: latex_files controlled
     :type obj_found: list[Path]
     """
-    declarationListEndingWithColon(latex_files)
-
+    for file in latex_files:
+        srules.itemizeListCorrectness(file)
 
 
 # ======================================================== auxiliar functions ============================================================================

@@ -143,18 +143,75 @@ def modificheVersion(file):
 
     return versions
 
-def declarationListEndingWithColon(latex_files):
+# TODO: questa funzione si può fare solamente nel seguente modo:
+# cerco tutti i begin itemize, dalla riga seguente controllo:
+# primo carattere dopo \item deve essere maiuscolo se è una lettera
+# la riga successiva ha end{itemize}?
+# si --> la riga deve terminare con "."
+# no --> la riga deve terminare con ";"
+
+
+# file introduzione has following errors:
+#   lack of ":" in list definition in:
+#       - line: 35
+#       - line: 44
+#   lack of ";" at the end of items in line:
+def itemizeListCorrectness(file):
+    file_as_string = file.read_text()
+    missin_colon_lines = declarationListEndingWithColon(file_as_string)
+    missin_semicolon_lines = itemInListEndingWithSemicolon(file_as_string)
+    missing_dot_lines = itemInListEndingWithDot(file_as_string)
+    minusc_first_item_letter = firstLetterInListMustBeMaiusc(file_as_string)
+    if missin_colon_lines or missin_semicolon_lines or missing_dot_lines or minusc_first_item_letter:
+        print(file, 'has the following errors')
+        if missin_colon_lines:
+            printMissingCharacterLines('Missing ":" in lists definition:', missin_colon_lines)
+        if missin_semicolon_lines:
+            printMissingCharacterLines('Missing ";" in items:', missin_semicolon_lines)
+        if missing_dot_lines:
+            printMissingCharacterLines('Missing "." in last item:', missing_dot_lines)
+        if minusc_first_item_letter:
+            printMissingCharacterLines('Minusc first item letter:', minusc_first_item_letter)
+
+def printMissingCharacterLines(message_error, lines):
+        print(message_error)
+        [print(' - line: ', line) for line in lines]
+
+
+def declarationListEndingWithColon(file_as_string):
     """Print files's name (and lines errors) missing colon in itemize list declaration
 
     :param latex_files: latex files controlled
     :type latex_files: list[Path]
     """
-    error_message = r'contains \begin{itemize} without ":" at the end or with spaces between "{itemize}" and ":" in:'
-    for file in latex_files:
-        file_as_string = file.read_text()
-        if re.search(r'\\begin\s*{itemize}\n', file_as_string):
-            print(file, error_message)
-            [print(' - line: ', getMatchedStringLine(obj, file_as_string)) for obj in re.finditer(r'\\begin\s*{itemize}\n', file_as_string)]
+    missing_colon = re.finditer(r'[^:]\s*\n(?=\s*\\begin\s*{(itemize|enumerate)})', file_as_string)
+    missing_colon_lines = []
+    for obj in missing_colon:
+        missing_colon_lines.append(getMatchedStringLine(obj, file_as_string))
+    return missing_colon_lines
+
+
+def itemInListEndingWithSemicolon(file_as_string):
+    missing_semicolon = re.finditer(r'\\item.*[^;]\s*\n(?=\s*\\item)', file_as_string)
+    missing_semicolon_lines = []
+    for obj in missing_semicolon:
+        missing_semicolon_lines.append(getMatchedStringLine(obj, file_as_string))
+    return missing_semicolon_lines
+
+def itemInListEndingWithDot(file_as_string):
+    missing_dot = re.finditer(r'\\item.*[^\.]\s*\n(?=\s*\\end\s*{(itemize|enumerate)})', file_as_string)
+    missing_dot_lines = []
+    for obj in missing_dot:
+        missing_dot_lines.append(getMatchedStringLine(obj, file_as_string))
+    return missing_dot_lines
+
+def firstLetterInListMustBeMaiusc(file_as_string):
+    pattern = r'\\item\s*[a-z]'
+    minusc_letters = re.finditer(pattern, file_as_string)
+    minusc_letter_lines = []
+    for obj in minusc_letters:
+        minusc_letter_lines.append(getMatchedStringLine(obj, file_as_string))
+    return minusc_letter_lines
 
 def getMatchedStringLine(obj_found, text):
     """Return the line's number of the obj_found in the text

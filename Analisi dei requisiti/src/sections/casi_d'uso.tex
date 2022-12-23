@@ -22,9 +22,9 @@ TODO aggiungere eventualmente come utenti il db di unsplash e servizi vari in fu
 
 \textbf{Scenario principale}: L'utente:
 \begin{enumerate}
-\item Inserisce il proprio username [UC1.1]
-\item Inserisce la propria password [UC1.2]
-\item Compila correttamente il captcha visualizzato [UC1.3]
+\item Inserisce il proprio username [UC1.1];
+\item Inserisce la propria password [UC1.2];
+\item Compila correttamente il captcha visualizzato [UC1.3];
 \end{enumerate}
 
 \textbf{Scenari alternativi}:
@@ -66,9 +66,9 @@ TODO aggiungere eventualmente come utenti il db di unsplash e servizi vari in fu
    \item L'utente risolve il captcha proposto, non necessariamente in maniera corretta
 \end{enumerate}
 \textbf{Generalizzazioni}:
-\begin{itemize}:
-   \item captcha tipo 1 [UC1.3.1]
-   \item captcha tipo 2 [UC1.3.2]
+\begin{itemize}
+   \item captcha tipo 1 [UC1.3.1];
+   \item captcha tipo 2 [UC1.3.2];
    \item ...
 \end{itemize}
 
@@ -104,7 +104,7 @@ All'utente viene presentato il captcha tipo 2
 
 \textbf{Generalizzazioni}: L'utente ha commesso uno dei seguenti errori:
 \begin{enumerate}
-	\item Ha inserito delle credenziali errate [UC2.1]
+	\item Ha inserito delle credenziali errate [UC2.1];
 	\item Ha sbagliato a compilare il captcha [UC2.2]
 \end{enumerate}
 
@@ -119,8 +119,8 @@ All'utente viene presentato il captcha tipo 2
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-	\item L’utente visualizza un messaggio di errore
-	\item L’operazione di autenticazione fallisce
+	\item L’utente visualizza un messaggio di errore;
+	\item L’operazione di autenticazione fallisce;
 	\item Viene generato un altro captcha e l’utente potrà riprovare ad autenticarsi
 \end{enumerate}
 
@@ -131,8 +131,8 @@ All'utente viene presentato il captcha tipo 2
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-	\item Viene visualizzato un errore esplicativo
-	\item Il numero di tentativi compiuti dall’utente negli ultimi 20 minuti aumenta di 1
+	\item Viene visualizzato un errore esplicativo;
+	\item Il numero di tentativi compiuti dall’utente negli ultimi 20 minuti aumenta di 1;
 	\item L’utente non viene autenticato nel sistema e potrà  riprovare ad autenticarsi
 \end{enumerate}
 
@@ -152,10 +152,10 @@ All'utente viene presentato il captcha tipo 2
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-   \item L'utente visualizza un messaggio di errore che comunica lo stato di blocco
-   \item L'utente conferma di aver visualizzato il messaggio di errore
-   \item L'operazione di autenticazione fallisce
-   \item L'utente viene bloccato da futuri tentativi di login per un tempo prestabilito
+   \item L'utente visualizza un messaggio di errore che comunica lo stato di blocco;
+   \item L'utente conferma di aver visualizzato il messaggio di errore;
+   \item L'operazione di autenticazione fallisce;
+   \item L'utente viene bloccato da futuri tentativi di login per un tempo prestabilito.
 \end{enumerate}
 
 \subsection{UC4 - Generazione di un altro captcha (da chiedere su una possibile generalizzazione)}

@@ -48,4 +48,4 @@ for dir in official_dirs:
 
 # TODO: check if itemize has an ending semicolon
 latex_files = [file for file in files_w_allowed_ext if file.suffix == '.tex']
-latexFilesCorrectness(latex_files)
+latexFilesCorrectness([workingDir/'prova_latex.tex'])
