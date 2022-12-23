@@ -203,7 +203,12 @@ def styleFileVersionCorrectness(sections_path, version):
         style_file = sections_path/'style.tex'
         version_search = re.findall(
             r'.*v\s' + version + r'\s*\}\s*', style_file.read_text())
-        print(version_search)
+        if len(version_search) > 1:
+            print(
+                'Multiple versions found in ', style_file, ', check for duplicates')
+        elif not version_search:
+            # PRE: title_page.tex has been checked for version string presence
+            print('Version number not correct in ', style_file)
 
 
 def itemizeInLatexFilesCorrectness(latex_files):

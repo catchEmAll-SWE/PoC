@@ -97,7 +97,8 @@ def stylePageFileCorrectness(file, name):
     errors = []
     for check in checks:
         if check == 'doc title and version':
-            if not re.search(checks[check] + name + r'\sv.*\}\s*', file_as_string):
+            # letter 'v' has to have a space before and after
+            if not re.search(checks[check] + name + r'\sv\s.*\}\s*', file_as_string):
                 errors.append(check)
         elif not re.search(checks[check], file_as_string):
             errors.append(check)
