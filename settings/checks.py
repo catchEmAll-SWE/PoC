@@ -153,16 +153,14 @@ def modificheVersion(sections_path):
     modifiche_file = sections_path/'modifiche.tex'
     versions = srules.modificheVersion(modifiche_file)
 
-    prev_version_list = [int(i)*(10**iteration) for i, iteration in zip(
-        versions[0].split('.')[::-1], range(0, len(versions[0].split('.'))))]
-    prev_version = sum(prev_version_list)
+    prev_version = sum([int(i)*(10**iteration) for i, iteration in zip(
+        versions[0].split('.')[::-1], range(0, len(versions[0].split('.'))))])
 
     last_version = versions[0]
 
     for version in versions[1:]:
-        cur_version_list = [int(i)*(10**iteration) for i, iteration in zip(
-            version.split('.')[::-1], range(0, len(version.split('.'))))]
-        cur_version = sum(cur_version_list)
+        cur_version = sum([int(i)*(10**iteration) for i, iteration in zip(
+            version.split('.')[::-1], range(0, len(version.split('.'))))])
         if (cur_version > prev_version or cur_version == prev_version):
             print('Version order not correct or same version used in ', modifiche_file, ': ',
                   cur_version, prev_version)
@@ -203,6 +201,9 @@ def styleFileVersionCorrectness(sections_path, version):
     """
     if version:
         style_file = sections_path/'style.tex'
+        version_search = re.findall(
+            r'.*v\s' + version + r'\s*\}\s*', style_file.read_text())
+        print(version_search)
 
 
 def itemizeInLatexFilesCorrectness(latex_files):
