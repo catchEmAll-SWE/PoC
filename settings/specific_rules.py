@@ -80,7 +80,6 @@ def modificheVersion(file):
         'proprieties': r'\\renewcommand\\tabularxcolumn\[1\]\{\>\{\\Centering\}m\{#1\}\}\s*',
         'definition': r'\\begin\{\\tabularx\}\{\\textwidth\}\{\|\sc|X\s\|\sc|X\s\|\sc|X\s\|\sc|X\s\|\sc|X\s\|}\s',
         'header': r'\\textbf\{Versione\}\s*&\s*\\textbf\{Data\}\s*&\s*\\textbf\{Descrizione\}\s*&\s*\\textbf\{Autore\}\s*&\s*\\textbf\{Ruolo\}.*',
-        # TODO: regex for date, version is already done
         'data line': r'(\d\d?\.\d\d?\.\d\d?)\s*&\s*(\d\d/\d\d/\d\d\d\d)\s*&.*&.*&',
         'end': r'\\end\{tabularx\}.*',
         'end centering': r'\\end\{center\}.*',
@@ -108,8 +107,6 @@ def modificheVersion(file):
     # print(versions)  #remove this line, it's just for debug
 
     return versions
-
-
 
 
 # ===========================================================================================================================
