@@ -114,7 +114,7 @@ def titlePageFileCorrectness(sections, dir):
     srules.titlePageFileCorrectness(title_page_file, file_name)
 
 
-def styleFileCorrectness(sections):
+def styleFileCorrectness(sections, dir):
     """Check if style.tex has the correct settings fot stylings
 
     :param sections: path to sections directory

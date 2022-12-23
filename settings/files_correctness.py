@@ -40,7 +40,7 @@ for dir in official_dirs:
         filesExtensionInSections(sections_path)
         if necessarySectionsFilesPresence(sections_path, necessary_sections_files):
             titlePageFileCorrectness(sections_path, dir)
-            styleFileCorrectness(sections_path)
+            styleFileCorrectness(sections_path, dir)
             # check version PRE: title_page.tex and style.tex verified for correctness (to exclude parsing errors)
             versionCorrectness(sections_path)
             # TODO: checkPackagesFileCorrectness(sections_path)
