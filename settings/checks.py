@@ -164,7 +164,7 @@ def modificheVersion(sections_path):
             version.split('.')[::-1], range(0, len(version.split('.'))))]
         cur_version = sum(cur_version_list)
         if (cur_version > prev_version or cur_version == prev_version):
-            print('Version order not correct or same version used: ',
+            print('Version order not correct or same version used in ', modifiche_file, ': ',
                   cur_version, prev_version)
             return False
         else:
@@ -186,10 +186,10 @@ def titlePageVersionCorrectness(sections_path, version):
                                     r'\)\s*\\\\\s*', titlePage_file.read_text())
         if len(version_search) > 1:
             print(
-                'Multiple versions found in title_page.tex, check for duplicates')
+                'Multiple versions found in ', titlePage_file, ', check for duplicates')
         elif not version_search:
             # PRE: title_page.tex has been checked for version string presence
-            print('Version number not correct in title_page.tex')
+            print('Version number not correct in ', titlePage_file)
 
 
 # TODO: check if style.tex is correct
