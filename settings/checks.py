@@ -99,11 +99,35 @@ def necessarySectionsFilesPresence(sections, files_name):
 
 
 def titlePageFileCorrectness(sections, dir):
+    """Check if title_page.tex has the name coherent with the main directory name
+
+    :param sections: path to sections directory
+    :type sections: Path (absolute path)
+    :param dir: main directory
+    :type dir: Path (absolute path)
+    :return: None
+    """
     title_page_file = sections/'title_page.tex'
     # file_name = sections.strip('/sections').strip('/src').strip('/').split('/')[-1] #alternativa se PRE = non cambiano le directory
     # strip '/' and get main directory name
     file_name = str(dir).strip('/').split('/')[-1].capitalize()
     srules.titlePageFileCorrectness(title_page_file, file_name)
+
+
+def styleFileCorrectness(sections):
+    """Check if style.tex has the correct settings fot stylings
+
+    :param sections: path to sections directory
+    :type sections: Path (absolute path)
+    :param dir: main directory
+    :type dir: Path (absolute path)
+    :return: None
+    """
+    title_page_file = sections/'style.tex'
+    # file_name = sections.strip('/sections').strip('/src').strip('/').split('/')[-1] #alternativa se PRE = non cambiano le directory
+    # strip '/' and get main directory name
+    file_name = str(dir).strip('/').split('/')[-1].capitalize()
+    srules.stylePageFileCorrectness(title_page_file, file_name)
 
 
 def versionCorrectness(sections_path):
@@ -115,10 +139,9 @@ def versionCorrectness(sections_path):
     """
     version = modificheVersion(sections_path)
     titlePageVersionCorrectness(sections_path, version)
-    styleFileCorrectness(sections_path, version)
+    styleFileVersionCorrectness(sections_path, version)
 
 
-# TODO: check if modifiche.tex is correct
 def modificheVersion(sections_path):
     """Get version from modifiche.tex and check for file correctness in descending order with no duplicates
 
@@ -134,20 +157,21 @@ def modificheVersion(sections_path):
         versions[0].split('.')[::-1], range(0, len(versions[0].split('.'))))]
     prev_version = sum(prev_version_list)
 
-    last_version = prev_version
+    last_version = versions[0]
 
     for version in versions[1:]:
         cur_version_list = [int(i)*(10**iteration) for i, iteration in zip(
             version.split('.')[::-1], range(0, len(version.split('.'))))]
         cur_version = sum(cur_version_list)
         if (cur_version > prev_version or cur_version == prev_version):
-            print('Version order not correct: ', cur_version, prev_version)
+            print('Version order not correct or same version used: ',
+                  cur_version, prev_version)
+            return False
         else:
             prev_version = cur_version
     return last_version
 
 
-# TODO: check if title_page.tex is correct
 def titlePageVersionCorrectness(sections_path, version):
     """Check if title page is coherent with version
 
@@ -156,11 +180,20 @@ def titlePageVersionCorrectness(sections_path, version):
     :param version: version of the document
     :type version: str
     """
-    titlePage_file = sections_path/'title_page.tex',
+    if version:
+        titlePage_file = sections_path/'title_page.tex'
+        version_search = re.findall(r'\\textbf\{Versione\}\s*&\s*\(' + version +
+                                    r'\)\s*\\\\\s*', titlePage_file.read_text())
+        if len(version_search) > 1:
+            print(
+                'Multiple versions found in title_page.tex, check for duplicates')
+        elif not version_search:
+            # PRE: title_page.tex has been checked for version string presence
+            print('Version number not correct in title_page.tex')
 
 
 # TODO: check if style.tex is correct
-def styleFileCorrectness(sections_path, version):
+def styleFileVersionCorrectness(sections_path, version):
     """Check if style file is coherent with version
 
     :param sections_path: path to sections directory
@@ -168,7 +201,8 @@ def styleFileCorrectness(sections_path, version):
     :param version: version of the document
     :type version: str
     """
-    style_file = sections_path/'style.tex'
+    if version:
+        style_file = sections_path/'style.tex'
 
 
 def itemizeInLatexFilesCorrectness(latex_files):
@@ -177,7 +211,8 @@ def itemizeInLatexFilesCorrectness(latex_files):
         file_as_string = file.read_text()
         if bool(re.search(r'\\begin{itemize}', file_as_string)):
             wrong_itemizes = re.findall(r'\\begin{itemize}\n', file_as_string)
-            print(file, r'contains \begin{itemize} without ":" at the end or with spaces between "{itemize}" and ":"')
+            print(
+                file, r'contains \begin{itemize} without ":" at the end or with spaces between "{itemize}" and ":"')
 # ======================================================== auxiliar functions ============================================================================
 # if i am here ==> no failure ==> files are corrects
 

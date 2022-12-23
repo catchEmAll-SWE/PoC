@@ -1,6 +1,6 @@
 from checks import *
 from pathlib import Path
-#import github_action_utils as ghub_utils
+import github_action_utils as ghub_utils
 
 allowed_extensions = ['.txt', '.tex', '.py', '.pdf']
 
@@ -24,27 +24,27 @@ workingDir = Path('.')
 # ================================================ checks =========================================================
 
 files_w_allowed_ext = [file for file in workingDir.rglob(
-    '*') if file.suffix in allowed_extensions] 
+    '*') if file.suffix in allowed_extensions]
 
-filesNameCorrectness(files_w_allowed_ext)  # check if files have correct extension
+# check if files have correct extension
+filesNameCorrectness(files_w_allowed_ext)
 
 official_dirs = [workingDir/dir_name for dir_name in official_docs_dirs]
 for dir in official_dirs:
     if dir.exists() and officialDocsDirTree(dir):
-        src_path = dir/'src/' 
+        src_path = dir/'src/'
         sections_path = src_path/'sections'
         officialPdfPresenceOnly(dir)
         if latexFilePresenceInSrc(src_path):
             srcLatexFileCorrectness(src_path)
         filesExtensionInSections(sections_path)
         if necessarySectionsFilesPresence(sections_path, necessary_sections_files):
-            versionCorrectness(sections_path)  # check version
-            # TODO: modificheVersion(sections_path, version) #check version
-            # TODO: titlePageCorrectness(sections_path, version) #title_page version updated with modifiche version
-            # TODO: styleFileCorrectness(sections_path, version) #file footer version updated with title_page and modifiche and styles
-            # TODO: checkPackagesFileCorrectness(sections_path)
             titlePageFileCorrectness(sections_path, dir)
-        
+            styleFileCorrectness(sections_path)
+            # check version PRE: title_page.tex and style.tex verified for correctness (to exclude parsing errors)
+            versionCorrectness(sections_path)
+            # TODO: checkPackagesFileCorrectness(sections_path)
+
 
 # TODO: check if itemize has an ending semicolon
 latex_files = [file for file in files_w_allowed_ext if file.suffix == '.tex']

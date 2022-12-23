@@ -35,7 +35,7 @@ def srcLatexFileCorrectness(file):
             errors.append(check)
 
     if errors:
-        print('\nFollowing errors in style.tex:')
+        print('\nFollowing error in ', file, ':')
         [print(' - ', error) for error in errors]
 
 
@@ -69,7 +69,41 @@ def titlePageFileCorrectness(file, name):
             errors.append(check)
 
     if errors:
-        print('\nFollowing error in title_page.tex: ', file)
+        print('\nFollowing error in ', file, ':')
+        [print(' - ', error) for error in errors]
+
+
+def stylePageFileCorrectness(file, name):
+    checks = {
+        'section style': r'\\fancypagestyle\{section_style\}.*',
+        'empty page style': r'\\thispagestyle\{empty\}',
+        'fancy page style': r'\\thispagestyle\{fancy\}',
+        'pagestyle definition': r'\\pagestyle\{fancy\}',
+        'boh': r'\\fancyhf\{\}',  # TODO: cazz è?
+        'group name': r'\\fancyhead\[L\]\{\\textit\{Gruppo Catch em All\}\}',
+        'head style': r'\\fancyhead\[R\]\{\\uppercase\{\\textbf\{\\leftmark\}\}\}',
+        'doc title and version': r'\\fancyfoot\[L\]\{\\fontfamily\{qtm\}\\selectfont\s',
+        'footer style': r'\\fancyfoot\[R\]\{Pagina \\thepage\~di\~\\pageref\{LastPage\}\}',
+        'page counter': r'\\setcounter{page\}\{0\}',
+        'page nubering': r'\\pagenumbering\{arabic\}',
+        'headrulewidth': r'\\renewcommand\{\\headrulewidth\}\{0.4pt\}',
+        'footrulewidth': r'\\renewcommand\{\\footrulewidth\}\{0.4pt\}',
+        'table style C': r'\\newcolumntype\{C\}\[1\]\{>\{\\centering\\let\\newline\\\\\\arraybackslash\\hspace\{0pt\}\}m\{#1\}\}',
+        'table style R': r'\\newcolumntype\{R\}\[1\]\{>\{\\raggedleft\\let\\newline\\\\\\arraybackslash\\hspace\{0pt\}\}m\{#1\}\}',
+        'table style L': r'\\newcolumntype\{L\}\[1\]\{>\{\\raggedright\\let\\newline\\\\\\arraybackslash\\hspace\{0pt\}\}m\{#1\}\}',
+    }
+
+    file_as_string = file.read_text()
+    errors = []
+    for check in checks:
+        if check == 'doc title and version':
+            if not re.search(checks[check] + name + r'\sv\s.*\}\s*', file_as_string):
+                errors.append(check)
+        elif not re.search(checks[check], file_as_string):
+            errors.append(check)
+
+    if errors:
+        print('\nFollowing error in ', file, ':')
         [print(' - ', error) for error in errors]
 
 
@@ -101,7 +135,7 @@ def modificheVersion(file):
             errors.append(check)
 
     if errors:
-        print('\nFollowing error in modifiche_version.tex:')
+        print('\nFollowing error in ', file, ':')
         [print(' - ', error) for error in errors]
 
     # print(versions)  #remove this line, it's just for debug
