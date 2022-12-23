@@ -11,9 +11,16 @@ Dato che il requisito obbligatorio richiede la costruzione di una pagina di logi
 L'utente generico, che potrà essere una persona fisica o anche un bot, potrà accedere a tutte le funzionalità del prodotto. \\
 TODO aggiungere eventualmente come utenti il db di unsplash e servizi vari in futuro
 
-\begin{center}
-\includegraphics[scale = 0.65]{img/MainUML.png}\\
-\end{center}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{img/web_app.png}
+    \caption{Webapp}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{img/catpcha.png}
+    \caption{Catpcha}
+\end{figure}
 
 \subsection{UC1 - Autenticazione}
 \textbf{Attore primario}: Utente generico\\
@@ -32,9 +39,11 @@ TODO aggiungere eventualmente come utenti il db di unsplash e servizi vari in fu
     \item L’utente compila in modo errato il modulo di login e gli viene mostrato un errore. [UC2]
 \end{enumerate}
 
-\begin{center}
-	\includegraphics[scale = 1]{img/Autenticazione.png}\\
-\end{center}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{img/Autenticazione.png}
+    \caption{UC1-Autenticazione}
+\end{figure}
 
 \subsubsection{UC1.1 - Inserimento username}
 \textbf{Attore primario}: Utente generico\\
@@ -108,9 +117,11 @@ All'utente viene presentato il captcha tipo 2
 	\item Ha sbagliato a compilare il captcha [UC2.2]
 \end{enumerate}
 
-\begin{center}
-	\includegraphics[scale = 0.9]{img/Autenticazione_fallita.png}\\
-\end{center}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{img/Autenticazione_fallita.png}
+    \caption{UC2-Autenticazione fallita}
+\end{figure}
 
 \subsubsection{UC2.1 - Credenziali errate}
 \textbf{Attore primario:} Utente generico\\
@@ -169,6 +180,8 @@ All'utente viene presentato il captcha tipo 2
    \item Il sistema propone all'utente un altro captcha
 \end{enumerate}
 
-\begin{center}
-	\includegraphics[scale = 0.9]{img/Generazione_captcha.png}\\
-\end{center}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{img/Generazione_catpcha.png}
+    \caption{UC3-Generazione CATPCHA}
+\end{figure}
