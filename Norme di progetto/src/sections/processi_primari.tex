@@ -28,9 +28,9 @@ Al fine di scegliere il capitolato per il quale proporre la candidatura il grupp
 	\item \textbf{Motivazione dei capitolati}: Contiene l'analisi fatta dai membri del gruppo sui 7 capitolati proposti, valutandone per ognuno i pro e contro e dando le motivazioni per il quale siano stati presi in considerazione o meno;
 	\item \textbf{Preventivo costi ore e rischi}: Contiene un primo preventivo dei costi di tempo e denaro e dei rischi che si potrebbero incontrare durante il corso del progetto.
 \end{itemize}
-\subsubsubsection{AnalisiDeiRequisiti-v1.0.0}
+\subsubsubsection{Analisi\_dei\_requisiti v 1.0.0}
 Questo documento stilato dagli analisti del gruppo contiene tutti i requisiti e casi d'uso individuati per il progetto. I seguenti sono ottenuti dal documento di presentazione del capitolato e in seguito integrati sia attraverso discussioni tra i membri del gruppo, sia organizzando incontri con il proponente. 
-\subsubsubsection{PianoDiProgetto-v1.0.0}
+\subsubsubsection{Piano\_di\_progetto v 1.0.0}
 \paragraph {Descrizione}\mbox{}\\
 Questo documento stilato dal responsabile di progetto servirà ad organizzare le varie fasi del progetto individuate, di fare preventivi temporali e di costi su di esse e di compiere un'analisi dei rischi che si possono incontrare durante il corso del progetto.
 \paragraph {Analisi dei rischi}\mbox{}\\
@@ -84,16 +84,61 @@ Ogni preventivo sarà composto da:
 \paragraph {Consuntivi}\mbox{}\\
 In questa sezione vengono osservati il numero di ore di lavoro e costi reali di ogni periodo. Questi vengono poi relazionati con i preventivi fatti nella sezione \textit{preventivi}.
 
-\subsubsubsection{PianoDiQualifica-v1.0.0}
-
+\subsubsubsection{Piano\_di\_qualifica v 1.0.0}
+\paragraph {Descrizione}\mbox{}\\
+Questo documento stilato dai membri con il ruolo di analista e verificatore contiene i vari obiettivi e metriche che devono permettere ai processi e prodotti del progetto essere verificati e validati, e di conseguenza garantirne la qualità.
+\paragraph {Struttura documento}\mbox{}\\
+Questo documento è suddiviso in:
+\begin{itemize}
+	\item \textbf{Obiettivi e metriche di qualità di}:
+	\begin{itemize}
+		\item \textbf{Processo}: contiene i vari obiettivi generici e specifici e le metriche correlate ad essi che permettono la qualità di un processo;
+		\item \textbf{Prodotto}: contiene i vari obiettivi e le metriche correlate ad essi che permettono la qualità di un prodotto;
+	\end{itemize}
+	\item \textbf{Specifiche dei test}: vengono definiti i vari test che dovranno essere eseguiti i quali sono:
+	\begin{itemize}
+		\item Test di unità;
+		\item Test di integrazione;
+		\item Test di sistema;
+		\item Test di regressione;
+		\item Test di collaudo.
+	\end{itemize}
+	\item \textbf{Risultati dei test}: dove vengono illustrati i risultati dei test definiti nella sezione \textit{Specifiche dei test}.
+\end{itemize} 
+\paragraph {Struttura obiettivi}\mbox{}\\
+Ogni obiettivo sarà contrassegnato da un codice univoco così composto:
+\begin{center}
+	\verb|OQ<<Tipo di obiettivo>><<Genericità>><<ID>>|
+\end{center}
+Dove 
+\begin{itemize}
+	\item \verb|OQ| sta per obiettivo di qualità;
+	\item \verb|<<Tipo di obiettivo>>| identifica se è di processo o prodotto (PC-PD);
+	\item \verb|<<Genericità>>| è esclusivo per gli obiettivi di processo e indica se un obiettivo è da applicare ad ogni processo o se ne riguarda uno specifico (G-S);
+	\item \verb|<<ID>>| è un contatore correlato al tipo di obiettivo.
+\end{itemize}
+\paragraph {Struttura metriche}\mbox{}\\
+Ogni metrica sarà contrassegnata da un codice univoco così composto:
+\begin{center}
+	\verb|MQ<<Tipo di metrica>><<Genericità>><<ID>>|
+\end{center}
+Dove 
+\begin{itemize}
+	\item \verb|MQ| sta per metrica di qualità;
+	\item \verb|<<Tipo di metrica>>| identifica se è di processo o prodotto (PC-PD);
+	\item \verb|<<Genericità>>| è esclusivo per le metriche di processo e indica se una metrica è da applicare ad ogni processo o se ne riguarda uno specifico (G-S);
+	\item \verb|<<ID>>| è un contatore correlato al tipo di metrica.
+\end{itemize}
 
 \subsubsubsection{Proof of Concept}
 Un software esempio che va ad analizzare alcune sezioni critiche per lo sviluppo del progetto, osservate in seguito ad un'analisi del gruppo. Questo software permetterà al gruppo di determinare la fattibilità pratica e l'applicabilità di alcuni concetti necessari per la progettazione e codifica del prodotto finale.
 
 
 \subsection{Sviluppo}
+    \subsubsection{Scopo}
+    L'obiettivo del processo di sviluppo è definire le attività che il gruppo deve eseguire per realizzare il prodotto finale richiesto dal proponente.
     \subsubsection{Analisi dei requisiti}
-    \subsubsubsection{Descrizione}
+    \subsubsubsection{Scopo e descrizione}
     In questa fase vengono stilati tutti i requisiti che saranno necessari per la successiva fase di progettazione e quindi per lo sviluppo di un prodotto che risponda in maniera completa ai bisogni del proponente.
     Il documento stilato in questa fase contiene:
     \begin{itemize}
@@ -160,6 +205,49 @@ Un software esempio che va ad analizzare alcune sezioni critiche per lo sviluppo
         	\item I casi d'uso identificati.
         \end{itemize}
     \end{itemize}
+	
+	
+	\subsubsection{Progettazione}
+	\subsubsubsection{Scopo e descrizione}
+	Lo scopo di questa fase è quello di individuare le varie caratteristiche che comporranno il prodotto richiesto dal proponente. Queste verranno individuate attraverso i vari requisiti e casi d'uso identificati nella fase \textit{Analisi dei requisiti}. Le varie caratteristiche verranno poi messe insieme per costruire una singola soluzione che rispetti i vari obiettivi di qualità del prodotto.
+	\subsubsubsection{Suddivisione attività}
+	\begin{itemize}
+		\item \textbf{Proof of concept};
+		\item \textbf{Progettazione architetturale};
+		\item \textbf{Progettazione di dettaglio}.
+	\end{itemize}
+	\subsubsubsection{Proof of concept}
+	\paragraph {Scopo}\mbox{}\\
+	In questa fase viene prodotto un software esempio che sarà anche la technology baseline del prodotto finale. Questo andrà ad analizzare alcune sezioni critiche per lo sviluppo del progetto e servirà ad agevolare le successive scelte di progettazione del gruppo, aiutando a determinare la fattibilità e l'applicabilità di alcune scelte analizzate.
+	\paragraph {Suddivisione periodi}\mbox{}\\
+	Questa fase è divisa in due periodi:
+	\begin{itemize}
+		\item Periodo nel quale vengono identificati i requisiti del POC e delle 	tecnologie necessarie a svilupparlo, oltre che lo studio di queste ultime;
+		\item Periodo di produzione del POC. 
+	\end{itemize}
+	\subsubsubsection{Progettazione architetturale}
+	\paragraph {Scopo}\mbox{}\\
+	Lo scopo di questa fase è il raffinamento della technology baseline definita nella fase di \textit{Proof of Concept}, e discute ad alto livello l'architettura del prodotto e delle sue componenti. Le scelte che il gruppo effettua in questa fase riguarderanno la struttura complessiva del sistema e ne influenzeranno varie caratteristiche qualitative come per esempio l'efficienza, l'estensibilità e la manutenibilità.
+	\subsubsubsection{Progettazione di dettaglio}
+	\paragraph {Scopo}\mbox{}\\
+	Lo scopo di questa fase è definire le specifiche di dettaglio dell’architettura del prodotto e di tutte le sue componenti, scomposte in unità. Queste saranno correlate a diagrammi UML che le descriveranno e ai test di verifica per la qualità, i quali saranno indicati nel documento \textit{Piano\_di\_qualifica v1.0.0}. Tali informazioni costituiranno la Product Baseline, la quale conterrà:
+	\begin{itemize}
+		\item Desing patterns utilizzati;
+		\item Definizione delle classi;
+		\item Diagrammi UML:
+		\begin{itemize}
+			\item Diagrammi delle attività;
+			\item Diagrammi delle classi;
+			\item Diagrammi di sequenza.
+		\end{itemize}
+		\item Test di verifica per ogni componente.
+	\end{itemize}
+	\subsubsection{Codifica}
+	\subsubsubsection{Scopo e descrizione}
+	La fase di \textit{Codifica} è assegnata ai membri con il ruolo di programmatore, i quali dovranno realizzare il prodotto software richiesto dal proponente utilizzando ciò che i progettisti hanno definito nella fase di \textit{Progettazione}.\\
+	Per garantire un prodotto adeguato il codice dovrà essere verificato in modo che rispetti le metriche che garantiscono gli obiettivi di qualità definiti nel documento \textit{Piano\_di\_qualifica v 1.0.0}.
+	\subsubsubsection{Suddivisione attività}
+	Le varie attività che comporranno la fase di codifica saranno aggiunte più avanti. 
 
     
     
