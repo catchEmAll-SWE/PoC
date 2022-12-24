@@ -202,18 +202,17 @@ def styleFileVersionCorrectness(sections_path, version):
     style_file = sections_path/'style.tex'
 
 def latexFilesCorrectness(latex_files):
-    """Check latex_files correctness
+    """Check latex files correctness
+
+    :param latex_files: latex_files you want to controll correctness
+    :type obj_found: list[Path]
 
     Invoke follow function:
-    :py:func:srules.declarationListEndingWithColon
-    :py:func:srules.itemInListEndingWithCorrectCharacter
-    :py:func:srules.firstLetterInListMustBeMaiusc
-
-    :param latex_files: latex_files controlled
-    :type obj_found: list[Path]
+    :py:func:srules.itemizeListCorrectness
     """
+    
     for file in latex_files:
-        srules.itemizeListCorrectness(file)
+        srules.listCorrectness(file)
 
 
 # ======================================================== auxiliar functions ============================================================================

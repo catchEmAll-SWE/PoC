@@ -143,20 +143,17 @@ def modificheVersion(file):
 
     return versions
 
-# TODO: questa funzione si può fare solamente nel seguente modo:
-# cerco tutti i begin itemize, dalla riga seguente controllo:
-# primo carattere dopo \item deve essere maiuscolo se è una lettera
-# la riga successiva ha end{itemize}?
-# si --> la riga deve terminare con "."
-# no --> la riga deve terminare con ";"
+def listCorrectness(file):
+    """Check latex file list correctness as request in norme_di_progetto
 
-
-# file introduzione has following errors:
-#   lack of ":" in list definition in:
-#       - line: 35
-#       - line: 44
-#   lack of ";" at the end of items in line:
-def itemizeListCorrectness(file):
+    :param file: latex file you want to control list correctness
+    :type file: Path
+    
+    :py:func:declarationListEndingWithColon
+    :py:func:itemInListEndingWithSemicolon
+    :py:func:declarationListEndingWithColon
+    :py:func:firstLetterInListMustBeMaiusc
+    """
     file_as_string = file.read_text()
     missin_colon_lines = declarationListEndingWithColon(file_as_string)
     missin_semicolon_lines = itemInListEndingWithSemicolon(file_as_string)
@@ -177,35 +174,57 @@ def printMissingCharacterLines(message_error, lines):
         print(message_error)
         [print(' - line: ', line) for line in lines]
 
+def declarationListEndingWithColon(file):
+    """Return lines's missing ':' in list declaration in the file passed 
 
-def declarationListEndingWithColon(file_as_string):
-    """Print files's name (and lines errors) missing colon in itemize list declaration
-
-    :param latex_files: latex files controlled
-    :type latex_files: list[Path]
+    :param file: latex file we want to control
+    :type file: string
+    :return: list of missing colon lines
+    :rtype: list[string] 
     """
-    missing_colon = re.finditer(r'[^:]\s*\n(?=\s*\\begin\s*{(itemize|enumerate)})', file_as_string)
+    missing_colon = re.finditer(r'[^:]\s*\n(?=\s*\\begin\s*{(itemize|enumerate)})', file)
     missing_colon_lines = []
     for obj in missing_colon:
-        missing_colon_lines.append(getMatchedStringLine(obj, file_as_string))
+        missing_colon_lines.append(getMatchedStringLine(obj, file))
     return missing_colon_lines
 
 
-def itemInListEndingWithSemicolon(file_as_string):
-    missing_semicolon = re.finditer(r'\\item.*[^;]\s*\n(?=\s*\\item)', file_as_string)
+def itemInListEndingWithSemicolon(file):
+    """Return lines's missing ';' in item in the file passed 
+
+    :param file: latex file we want to control
+    :type file: string
+    :return: list of missing semi colon lines
+    :rtype: list[string] 
+    """
+    missing_semicolon = re.finditer(r'\\item.*[^;]\s*\n(?=\s*\\item)', file)
     missing_semicolon_lines = []
     for obj in missing_semicolon:
-        missing_semicolon_lines.append(getMatchedStringLine(obj, file_as_string))
+        missing_semicolon_lines.append(getMatchedStringLine(obj, file))
     return missing_semicolon_lines
 
-def itemInListEndingWithDot(file_as_string):
-    missing_dot = re.finditer(r'\\item.*[^\.]\s*\n(?=\s*\\end\s*{(itemize|enumerate)})', file_as_string)
+def itemInListEndingWithDot(file):
+    """Return lines's missing '.' in last item in the file passed 
+
+    :param file: latex file we want to control
+    :type file: string
+    :return: list of missing dot lines
+    :rtype: list[string] 
+    """
+    missing_dot = re.finditer(r'\\item.*[^\.]\s*\n(?=\s*\\end\s*{(itemize|enumerate)})', file)
     missing_dot_lines = []
     for obj in missing_dot:
-        missing_dot_lines.append(getMatchedStringLine(obj, file_as_string))
+        missing_dot_lines.append(getMatchedStringLine(obj, file))
     return missing_dot_lines
 
 def firstLetterInListMustBeMaiusc(file_as_string):
+    """Return lines's with first minusc letter in item in the file passed 
+
+    :param file: latex file we want to control
+    :type file: string
+    :return: list of first minusc letter lines
+    :rtype: list[string] 
+    """
     pattern = r'\\item\s*[a-z]'
     minusc_letters = re.finditer(pattern, file_as_string)
     minusc_letter_lines = []
