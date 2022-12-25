@@ -29,14 +29,15 @@ TODO aggiungere eventualmente come utenti il db di unsplash e servizi vari in fu
 
 \textbf{Scenario principale}: L'utente:
 \begin{enumerate}
-\item Inserisce il proprio username [UC1.1]
-\item Inserisce la propria password [UC1.2]
-\item Compila correttamente il captcha visualizzato [UC1.3]
+\item Inserisce i credenziali d'accesso [UC1.1]
+\item Compilazione catpcha [UC1.2]
+\item Superamento honeypot [UC1.3]
+\item Calcolato proof of work [UC1.3]
 \end{enumerate}
 
 \textbf{Scenari alternativi}:
 \begin{enumerate}
-    \item L’utente compila in modo errato il modulo di login e gli viene mostrato un errore. [UC2]
+    \item L’utente non supera l'autenticazione. [UC2]
 \end{enumerate}
 
 \begin{figure}[H]
@@ -45,27 +46,17 @@ TODO aggiungere eventualmente come utenti il db di unsplash e servizi vari in fu
     \caption{UC1-Autenticazione}
 \end{figure}
 
-\subsubsection{UC1.1 - Inserimento username}
+\subsubsection{UC1.1 - Inserimento credenziali d'accesso}
 \textbf{Attore primario}: Utente generico\\
 \textbf{Precondizioni}: Il sistema non riconosce l'utente e non conosce l'username\\
-\textbf{Postcondizioni}: Il sistema ha ricevuto l'username dell'utente\\
+\textbf{Postcondizioni}: Il sistema ha ricevuto le credenziali dell'utente\\
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-   \item L'utente inserisce l'username nell'apposito spazio. L'username deve essere quello preimpostato.
+   \item L'utente inserisce le credenziali negli appositi spazi. Le credenziali devono essere quelli preimpostati.
 \end{enumerate}
 
-\subsubsection{UC1.2 - Inserimento password}
-\textbf{Attore primario}: Utente generico\\
-\textbf{Precondizioni}: Il sistema non riconosce l'utente e non conosce la password\\
-\textbf{Postcondizioni}: Il sistema ha ricevuto la password dell'utente\\
-
-\textbf{Scenario principale}:
-\begin{enumerate}
-   \item L'utente inserisce la password nell'apposito spazio. L'username deve essere quello preimpostato.
-\end{enumerate}
-
-\subsubsection{UC1.3 - Compilazione captcha}
+\subsubsection{UC1.2 - Compilazione captcha}
 \textbf{Attore primario}: Utente generico\\
 \textbf{Precondizioni}: L'utente visualizza il captcha proposto dal sistema\\
 \textbf{Postcondizioni}: L'utente ha risolto il captcha (non necessariamente in modo corretto)\\
@@ -76,10 +67,30 @@ TODO aggiungere eventualmente come utenti il db di unsplash e servizi vari in fu
 \end{enumerate}
 \textbf{Generalizzazioni}:
 \begin{itemize}
-   \item captcha tipo 1 [UC1.3.1]
-   \item captcha tipo 2 [UC1.3.2]
+   \item captcha tipo 1 [UC1.2.1]
+   \item captcha tipo 2 [UC1.2.2]
    \item ...
 \end{itemize}
+
+\subsubsection{UC1.3 - Superamento honeypot}
+\textbf{Attore primario}: Utente generico\\
+\textbf{Precondizioni}: L'utente visualizza il captcha proposto dal sistema\\
+\textbf{Postcondizioni}: L'utente ha risolto il captcha (non necessariamente in modo corretto) e non cade nell'honeypot\\
+
+\textbf{Scenario principale}:
+\begin{enumerate}
+   \item L'utente risolve il captcha proposto, non necessariamente in maniera corretta. Durante la risoluzione non cade nella trappola honeypot.
+\end{enumerate}
+
+\subsubsection{UC1.4 - Calcolato il proof of work}
+\textbf{Attore primario}: Utente generico\\
+\textbf{Precondizioni}: L'utente visualizza il captcha proposto dal sistema\\
+\textbf{Postcondizioni}: L'utente ha risolto il captcha (non necessariamente in modo corretto) e viene calcolato il proof of work\\
+
+\textbf{Scenario principale}:
+\begin{enumerate}
+   \item L'utente risolve il captcha proposto, non necessariamente in maniera corretta. Durante la risoluzione viene calcolato il proof of work.
+\end{enumerate}
 
 \paragraph{UC1.3.1 - Compilazione captcha tipo 1 }~\smallskip
 \textbf{chiedere quanto si può andare in dettaglio}\\
@@ -103,7 +114,7 @@ All'utente viene presentato il captcha tipo 2
 
 \subsection{UC2 - Autenticazione fallita}
 \textbf{Attore primario}: Utente generico\\
-\textbf{Precondizioni}: L’utente non ha compilato correttamente il modulo di login.\\
+\textbf{Precondizioni}: L’utente non ha commesso errori di autenticazione.\\
 \textbf{Postcondizioni}:L’utente visualizza un messaggio di errore e l’operazione di autenticazione fallisce.\\
 
 \textbf{Scenario principale}:
@@ -114,7 +125,10 @@ All'utente viene presentato il captcha tipo 2
 \textbf{Generalizzazioni}: L'utente ha commesso uno dei seguenti errori:
 \begin{enumerate}
 	\item Ha inserito delle credenziali errate [UC2.1]
-	\item Ha sbagliato a compilare il captcha [UC2.2]
+	\item Ha sbagliato la classificazione delle immagini [UC2.2]
+	\item Cade nella trappola honeypot [UC2.3]
+	\item Non viene calcolato il proof of work [UC2.4]
+	\item Ha superato il numero massimo di tentativi disponibili [UC2.5]
 \end{enumerate}
 
 \begin{figure}[H]
@@ -152,21 +166,54 @@ All'utente viene presentato il captcha tipo 2
 	\item L’utente ha superato il numero di tentativi consentito per la compilazione del captcha negli ultimi 20 minuti. [UC3]
 \end{enumerate}
 
-\begin{center}
-	\includegraphics[scale = 0.9]{img/Errore_captcha.png}\\
-\end{center}
-
-\subsection{UC3 - Superamento del numero di tentativi consentito}
-\textbf{Attore primario}: Utente generico\\
-\textbf{Precondizioni}: L'utente ha superato il numero massimo di tentativi di autenticazione consentiti e non ha compilato l'ultimo captcha correttamente\\
-\textbf{Postcondizioni}:L'operazione di autenticazione fallisce e l'utente viene bloccato\\
+\subsubsection{UC2.3 - Trappola honeypot selezionata}
+\textbf{Attore primario:} Utente generico\\
+\textbf{Precondizioni}: L’utente ha selezionato l'immagine nascosta\\
+\textbf{Postcondizioni}:  L’utente visualizza un messaggio di errore e l’operazione di autenticazione fallisce. L’utente verrà riconosciuto come bot e non potrà riprovare  ad autenticarsi.\\
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-   \item L'utente visualizza un messaggio di errore che comunica lo stato di blocco
-   \item L'utente conferma di aver visualizzato il messaggio di errore
-   \item L'operazione di autenticazione fallisce
-   \item L'utente viene bloccato da futuri tentativi di login per un tempo prestabilito
+	\item L’utente visualizza un messaggio di errore
+	\item L’operazione di autenticazione fallisce
+	\item Viene riconosciuto come bot e verrà bloccato per futuri tentativi
+\end{enumerate}
+
+\subsubsection{UC2.4 - Non viene calcolato il proof of work}
+\textbf{Attore primario:} Utente generico\\
+\textbf{Precondizioni}: La compilazione delle credenziali e del catpcha troppo rapida. Non viene eseguito il calcolo del proof of work\\
+\textbf{Postcondizioni}:  L’utente visualizza un messaggio di errore e l’operazione di autenticazione fallisce. L’utente verrà riconosciuto come bot e non potrà riprovare  ad autenticarsi.\\
+
+\textbf{Scenario principale}:
+\begin{enumerate}
+	\item L’utente visualizza un messaggio di errore
+	\item L’operazione di autenticazione fallisce
+	\item Viene riconosciuto come bot e verrà bloccato per futuri tentativi
+\end{enumerate}
+
+\subsubsection{UC2.5 - Superamento tentativi consentiti}
+\textbf{Attore primario:} Utente generico\\
+\textbf{Precondizioni}: L'utente supera le autenticazioni precedenti ma finisce i tentativi disponibili\\
+\textbf{Postcondizioni}:  L’utente visualizza un messaggio di errore e l’operazione di autenticazione fallisce. L’utente potrà riprovare ad autenticarsi più tardi.\\
+
+\textbf{Scenario principale}:
+\begin{enumerate}
+	\item L’utente visualizza un messaggio di errore
+	\item L’operazione di autenticazione fallisce
+	\item L’utente non viene autenticato nel sistema e potrà  riprovare ad autenticarsi più tardi
+\end{enumerate}
+
+\subsection{UC3 - Rigenerazione captcha immagini}
+\textbf{Attore primario}: Utente generico\\
+\textbf{Precondizioni}: L'utente non riconosce le immagini e richiere la generazione di un altro set di immagini\\
+\textbf{Postcondizioni}:Viene generato un nuovo set di immagini e l'utente continua con l'autenticazione\\
+
+\textbf{Scenario principale}:
+\begin{enumerate}
+   \item L'utente non riesce a compilare il captcha
+   \item L'utente richiede un altro set di immagini
+   \item Viene generato un altro set di immagini
+   \item Viene decrementato di uno il numero di tentativi
+   \item L'utente continua con la compilazione del captcha
 \end{enumerate}
 
 \subsection{UC4 - Generazione di un altro captcha (da chiedere su una possibile generalizzazione)}
