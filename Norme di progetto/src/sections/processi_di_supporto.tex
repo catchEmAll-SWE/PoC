@@ -191,3 +191,119 @@ Per evitare i conflitti tra le modifiche e mantenere in ordine i file, ogni volt
 
 \subsubsection{Tipi di file presenti}
 Nella repository \textit{catchEmAll-Docs} sono presenti esclusivamente file \textbf{.tex}, \textbf{.png} e \textbf{/pdf}. Altri file prodotte durante la stesura dei documenti di esetensione diversa da quelle citate sono escluse attraverso il file \textbf{.gitignore}.
+\subsection{Assicurazione della qualità}
+\subsubsection{Scopo}
+Questo processo ha lo scopo di assicurare che tutti i processi e prodotti siano conformi con gli obiettivi e le metriche definiti dal gruppo nel documento \textit{Piano\_di\_qualifica v 1.0.0}. 
+Devono essere continuamente osservate la qualità di processo per garantire una buona gestione del progetto e la qualità del prodotto per assicurarsi di lavorare in modo conforme alle richieste del proponente.
+\subsubsection{Denominazione obiettivi di qualità}
+Ogni obiettivo sarà contrassegnato da un codice univoco così composto:
+\begin{center}
+	\verb|OQ<<Tipo di obiettivo>><<Genericità>><<ID>>|
+\end{center}
+Dove 
+\begin{itemize}
+	\item \verb|OQ| sta per obiettivo di qualità;
+	\item \verb|<<Tipo di obiettivo>>| identifica se è di processo o prodotto (PC-PD);
+	\item \verb|<<Genericità>>| è esclusivo per gli obiettivi di processo e indica se un obiettivo è da applicare ad ogni processo o se ne riguarda uno specifico (G-S);
+	\item \verb|<<ID>>| è un contatore correlato al tipo di obiettivo.
+\end{itemize}
+\subsubsection{Denominazione metriche di qualità}
+Ogni metrica sarà contrassegnata da un codice univoco così composto:
+\begin{center}
+	\verb|MQ<<Tipo di metrica>><<Genericità>><<ID>>|
+\end{center}
+Dove 
+\begin{itemize}
+	\item \verb|MQ| sta per metrica di qualità;
+	\item \verb|<<Tipo di metrica>>| identifica se è di processo o prodotto (PC-PD);
+	\item \verb|<<Genericità>>| è esclusivo per le metriche di processo e indica se una metrica è da applicare ad ogni processo o se ne riguarda uno specifico (G-S);
+	\item \verb|<<ID>>| è un contatore correlato al tipo di metrica.
+\end{itemize}
+\subsection{Verifica}
+\subsubsection{Scopo}
+Questo processo ha lo scopo di confermare che ciascuna attività svolta soddisfi i requisiti e gli obiettivi specificati, attraverso le metriche scelte dal gruppo e descritte in dettaglio nel documento \textit{Piano\_di\_qualifica v 1.0.0} e che non abbia introdotto errori.
+Il processo di \textit{Verifica} deve essere integrato nei processi di \textit{Fornitura}, \textit{Sviluppo} e \textit{Manutenzione}.
+\newline
+\newline
+Il processo di verifica è suddiviso in due fasi:
+\begin{itemize}
+	\item \textbf{Analisi statica}, la quale non richiede l'esecuzione dell'oggetto di verifica;
+	\item \textbf{Analisi dinamica}, la quale richiede l'esecuzione dell'oggetto di verifica.
+\end{itemize}
+
+\subsubsection{Analisi statica}
+L'analisi statica si occupa di analizzare documentazione e codice e accerta conformità a regole, assenza di errori, completezza dei requisiti desiderati.
+Inoltre poiché non richiede l'esecuzione dell’oggetto di verifica, si può applicare ad ogni prodotto di processo.\\
+Si utilizzano due metodi per svolgere analisi statica:
+\begin{itemize}
+	\item \textbf{Walkthrough};
+	\item \textbf{Inspection}.
+\end{itemize}
+Queste sono effettuate tramite studio dell’oggetto di verifica e lettura umana o automatizzata.
+\subsubsubsection{Walkthrough}
+\paragraph {Scopo}\mbox{}\\
+I verificatori, insieme agli sviluppatori quando necessario, che utilizzano questo metodo devono rilevare la presenza di errori attraverso una lettura critica ad ampio spettro del prodotto da analizzare. Questo metodo è molto oneroso dal punto di vista delle risorse utilizzate, e perciò si cercherà di utilizzare solo fino al momento in cui non sarà disponibile una checklist.
+\paragraph {Fasi}\mbox{}\\
+\begin{enumerate}
+	\item Pianificazione, svolta da autori e verificatori;
+	\item Lettura, svolta dai verificatori;
+	\item Discussione, svolta da autori e verificatori;
+	\item Correzione degli errori, svolta dagli autori.
+\end{enumerate}
+\paragraph {}\mbox{}\\
+\subsubsubsection{Inspection}
+\paragraph {Scopo}\mbox{}\\
+I verificatori che utilizzano questo metodo devono rilevare la presenza di errori eseguendo una lettura mirata dell’oggetto di verifica attraverso l'utilizzo di una checklist. Si cerca quindi di immaginare in precedenza quali saranno le criticità dell'oggetto da analizzare e di elencarli.
+\paragraph {Fasi}\mbox{}\\
+\begin{enumerate}
+	\item Pianificazione;
+	\item Definizione di una checklist;
+	\item Lettura;
+	\item Correzione degli errori, svolta dagli autori.
+\end{enumerate}
+\subsubsection{Analisi dinamica}
+L'analisi dinamica si occupa di eseguire dei test sugli oggetti di verifica che devono essere eseguiti. Questo permetterà al gruppo di accertarsi dell'assenza di errori.
+I test dovranno essere:
+\begin{itemize}
+	\item \textbf{Ripetibili}, ovvero che garantiscano la correttezza dell'oggetto di verifica e quindi la rimozione di eventuali errori.
+	\item \textbf{Automatizzati}, ovvero svolti in maniera automatica da precisi strumenti selezionati.
+\end{itemize}
+Inoltre verranno eseguiti diversi tipi di test:
+\begin{itemize}
+	\item \textbf{Test di unità};
+	\item \textbf{Test di integrazione};
+	\item \textbf{Test di sistema};
+	\item \textbf{Test di regressione};
+	\item \textbf{Test di accettazione e collaudo}.
+\end{itemize}
+\subsubsection{Denominazione test di verifica}
+Ogni test sarà contrassegnato da un codice univoco così composto:
+\begin{center}
+	\verb|TV<<Tipo di test>><<ID>>|
+\end{center}
+Dove 
+\begin{itemize}
+	\item \verb|TV| sta per test di verifica;
+	\item \verb|<<Tipo di test>>| identifica il tipo di test che si vuole fare, questi possono essere:
+	\begin{itemize}
+		\item UN, di unità;
+		\item IN, di integrazione;
+		\item ST, di sistema;
+		\item RG, di regressione;
+		\item AC, di accettazione e collaudo.
+	\end{itemize}
+	\item \verb|<<ID>>| è un contatore correlato al tipo di test.
+\end{itemize}
+Informazioni più dettagliate sui vari test, strumenti e metriche utilizzate per la verifica si possono trovare nel documento \textit{Piano\_di\_qualifica v 1.0.0}.
+
+\subsection{Validazione e collaudo}
+\subsubsection{Scopo}
+Lo scopo di questo processo è quello di confermare che tutti i requisiti siano rispettati all'interno del prodotto finale, dopo aver svolto tutti i test di verifica. Questi due processi sono strettamente legati fra loro e una buona verifica durante il corso del progetto permette di superare anche il processo di validazione.
+Questo processo permette anche di confermare che il prodotto finale sia conforme alle richieste del proponente.
+
+\subsection{Usabilità}
+\subsubsection{Scopo}
+Questo processo ha lo scopo di assicurare che siano prese in considerazione, ed  opportunamente indirizzate, le considerazioni espresse dalle parti interessate, gli stakeholders, relativamente alla facilità d'uso del prodotto finale da parte degli utenti cui è rivolto, al supporto che ne riceverà, alla formazione, all'incremento della produttività, alla qualità del lavoro, all'accettazione del prodotto stesso. 
+
+
+
