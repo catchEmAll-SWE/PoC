@@ -1,6 +1,78 @@
 \section{Processi organizzativi}
-    \subsection{Gestione delle comunicazioni}
-        \subsubsection{Comunicazioni interne}
+	\subsection{Gestione progetto}
+	\subsubsection{Scopo}
+	Lo scopo di questo processo è quello di fornire al gruppo delle linee guida su come gestire l'organizzazione delle varie fasi del progetto, con i punti a seguito elencati:
+	\begin{itemize}
+		\item Gestione dei ruoli;
+		\item Gestione delle comunicazioni;
+		\item Gestione degli incontri;
+		\item Gestione per il controllo della versione;
+		\item Gestione del GitHub Workflow;
+		\item Gestione del tracciamento delle attività.
+	\end{itemize}
+	\subsubsection{Gestione ruoli}
+	Durante il corso del progetto il gruppo dovrà gestire i vari ruoli garantendo una suddivisione equa tra i membri e pertinente rispetto al processo in svolgimento.\\
+	I sei ruoli possibili da assegnare sono:
+    \begin{itemize}
+    	\item Responsabile;
+    	\item Amministratore;
+    	\item Analista;
+    	\item Progettista;
+    	\item Programmatore;
+    	\item Verificatore.
+    \end{itemize}
+	\subsubsubsection{Responsabile}
+	Il responsabile di progetto è la figura di riferimento con l'esterno, quindi  garantisce una buona comunicazione con proponente e committente. Si assume inoltre la responsabilità delle scelte del gruppo, dopo averle approvate.\\
+	Il responsabile quindi gestisce:
+	\begin{itemize}
+		\item Elaborazione di piani e scadenze del progetto;
+		\item Gestire la suddivisione dei ruoli all'interno del gruppo;
+		\item Approvare il rilascio di prodotti parziali o finali, come documentazione o software;
+		\item Analisi e gestione dei rischi.
+	\end{itemize}
+	\subsubsubsection{Amministratore}
+	L'amministratore di progetto ha lo scopo di controllare l'efficienza dell'ambiente di lavoro, assicurandosi quindi che gli strumenti di supporto alle norme di progetto siano usate correttamente dal gruppo.\\
+	L'amministratore quindi gestisce:
+	\begin{itemize}
+		\item La corretta applicazione delle norme di progetto;
+		\item La ricerca di nuovi metodi per rendere più efficiente l'ambiente di lavoro;
+		\item Le versioni dei vari prodotti durante il corso del progetto;
+		\item L'analisi di metodi per la gestione della qualità.
+	\end{itemize}
+	\subsubsubsection{Analista}
+	L'analista si occupa di analizzare a fondo il problema e di individuare i vari requisiti che dovrà avere il prodotto finale in base a ciò che si ricava dal capitolato e dai successivi incontri con il proponente. \\
+	L'analista quindi gestisce:
+	\begin{itemize}
+		\item Lo studio approfondito del dominio del problema; 
+		\item Il documento \textit{Analisi dei requisiti};
+		\item L'individuazione dei requisiti del prodotto finale;
+		\item L'analisi dei casi d'uso.
+	\end{itemize}
+	\subsubsubsection{Progettista}
+	Il progettista si occupa di trovare soluzioni tecniche e tecnologiche che possano permettere al gruppo di creare un prodotto che rispetti al meglio tutti i requisiti individuati dagli analisti. \\
+	Il progettista quindi gestisce:
+	\begin{itemize}
+		\item La scelta degli aspetti tecnici e tecnologici per la realizzazione del prodotto; 
+		\item La scelta dei vari modelli da utilizzare nella definizione dell'architettura del prodotto;
+		\item Di definire l'architettura del prodotto che verrà poi programmato;
+	\end{itemize}
+	\subsubsubsection{Programmatore}
+	Il programmatore si occupa di codificare le soluzioni individuate dai progettisti per la creazione del prodotto finale. \\
+	Il programmatore quindi gestisce:
+	\begin{itemize}
+		\item La scrittura del codice in modo che sia chiaro e facile da mantenere; 
+		\item Gli strumenti che si occupano dei test utilizzati per la verifica e la validazione del software;
+		\item La redazione del Manuale Utente relativo alla codifica del prodotto;
+	\end{itemize}
+	\subsubsubsection{Verificatore}
+	Il verificatore si occupa di tutte le operazioni di verifica e validazione dei vari prodotti parziali e finali del progetto. \\
+	Il verificatore quindi gestisce:
+	\begin{itemize}
+		\item La verifica e validazione dei prodotti parziali o finali in fase di revisione in modo che rispettino gli obiettivi di qualità imposti nel documento \textit{Piano\_di\_qualifica v 1.0.0}. I seguenti prodotti se a norma verranno di conseguenza integrati; 
+		\item Segnalare gli eventuali errori riscontrati.
+	\end{itemize}
+    \subsubsection{Gestione delle comunicazioni}
+        \subsubsubsection{Comunicazioni interne}
         Le comunicazioni interne:
         \begin{itemize}
             \item riguardano solamente i componenti del team 
@@ -14,7 +86,7 @@
                 \end{itemize}
         \end{itemize}
             
-        \subsubsection{Comunicazioni esterne}
+        \subsubsubsection{Comunicazioni esterne}
         Le comunicazioni esterne:
         \begin{itemize}
             \item riguardano il gruppo e le altre figure (proponente e committente)
@@ -24,8 +96,8 @@
 
         
         
-    \subsection{Gestione degli incontri}
-        \subsubsection{Incontri interni}
+    \subsubsection{Gestione degli incontri}
+        \subsubsubsection{Incontri interni}
         Gli incontri interni sono necessari sia per una corretta adozione del framework Scrum (incontro organizzativo settimanale)
         sia per permettere al team di interagire direttamente, discutendo, proponendo e valutando idee, problematiche e possibili 
         soluzioni: per questo si tratta di uno strumento largamente utilizzato
@@ -39,7 +111,7 @@
         \end{itemize}
         Al termine degli incontri il responsabile di progetto inserisce nello sprint corrente il compito di redigere i verbali. 
 
-        \subsubsection{Incontri esterni}
+        \subsubsubsection{Incontri esterni}
         Gli incontri esterni sono schedulati in seguito alla presenza di dubbi (implementativi, riguardanti requisiti o richieste di altro tipo) all'interno del 
         team: questi incontri sono preceduti dallo svolgimento di una o più riunioni interne nelle quali si affrontano e si definiscono tali problematiche.
         \newline
@@ -53,12 +125,12 @@
         \newline
         Come per quelli interni il responsabile di progetto inserisce nello sprint corrente il compito di redigere tali documenti.
 
-	\subsection{Versionamento}
+	\subsubsection{Versionamento}
 	GitHub è lo strumento utilizzato dal gruppo per il versionamento del codice.
 	\newline Il team è identificato in tale piattaforma come organizzazione (\href{https://github.com/catchEmAll-SWE}{vedi}).
 	Inoltre, al fine di documentare il più possibile, ogni commit che porta valore al progetto contiene il riferimento al ticket che completa (totalmente o anche solo parzialmente). 
 
-	\subsection{GitHub Workflow}
+	\subsubsection{GitHub Workflow}
 	Tutti i titoli e le descrizioni dei commit devono essere fatti in inglese per conformità tra essi.
 	\newline Il Workflow viene gestito concorrentemente da GitHub e JIRA, in JIRA vengono create ed organizzate le issue, una volta fatto ciò si procede attraverso github alla creazione del branch relativo alla issue da risolvere.\\
 	Tale ramo ha nome codificato come:
@@ -111,7 +183,7 @@
 	\end{figure}
 	\clearpage
 
-	\subsection{Issues tracking}
+	\subsubsection{Issues tracking}
 	JIRA, piattaforma che offre un servizio di \textit{Issue Tracking} è il supporto scelto vista la qualità ed il numero dei servizi e delle estensioni che offre.
 	\newline
 	La definizione dei ticket è regolata dalla seguente convenzione:
