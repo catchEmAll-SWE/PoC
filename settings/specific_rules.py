@@ -1,24 +1,31 @@
-import re
 # In this file you can find function (them identify rules) for latex file's rules
 
-# MACRO RULES
+import re
 
-
-def titleCorrectness(title):
-    file_name_rules = r'[a-z]+\d*(_[a-z]+\d*)*$'
-    official_doc_rules = r'[a-z]+(_[a-z]+)*_v\.\d\d*\.\d\d*\.\d\d*$'
-
-    # brief description
+def fileNameCorrectness(file_name):
+    """Correctness of file name
+    :param file_name: file name you want to control (without extension)
+    :type file_name: string
+    :retutn: True if name is valid, False otherwise
+    :rtype: bool
+    """
     # name:
     #   - first character must be a lowercase letter
     #   - the other letters must be lowercase letter or '_'
     # version (after name):
     #   - _v. << [0, 99] >>.<< [0, 99] >>.<<[0,99]>>
 
-    return (bool(re.match(official_doc_rules, title)), True)[bool(re.match(file_name_rules, title))]
+    file_name_rules = r'[a-z]+\d*(_[a-z]+\d*)*$'
+    official_doc_rules = r'[a-z]+(_[a-z]+)*_v\.\d\d?\.\d\d?\.\d\d?$'
+
+    return (bool(re.match(official_doc_rules, file_name)), True)[bool(re.match(file_name_rules, file_name))]
 
 
 def srcLatexFileCorrectness(file):
+    """Correctness of src/main.tex file
+    :param file: src file
+    :type file: Path
+    """
     checks = {
         'font size': r'.*\\documentclass\[10pt\]\{article\}.*',
         'packages file': r'.*\\input\{sections/packages\}.*',
@@ -40,6 +47,12 @@ def srcLatexFileCorrectness(file):
 
 
 def titlePageFileCorrectness(file, name):
+    """title_page file correctness
+    :param file: title_page file
+    :type file: Path
+    :param name: name of official's document
+    :type name: string 
+    """
     checks = {
         'unipd logo presence': r'.*\\includegraphics\[scale = 0.05\]\{img/UniPD_Logo.png\}.*',
         'bold text "università degli studi di padova"': r'.*\\large \\textbf\{Università degli Studi di Padova\}.*',
@@ -74,6 +87,12 @@ def titlePageFileCorrectness(file, name):
 
 
 def stylePageFileCorrectness(file, name):
+    """style file correctness
+    :param file: style file
+    :type file: Path
+    :param name: name of official's document
+    :type name: string 
+    """
     checks = {
         'section style': r'\\fancypagestyle\{section_style\}.*',
         'empty page style': r'\\thispagestyle\{empty\}',
@@ -109,6 +128,10 @@ def stylePageFileCorrectness(file, name):
 
 
 def modificheVersion(file):
+    """modifiche fule correctness
+    :param file: modifiche file
+    :type file: Path
+    """
     checks = {
         'title': r'\\section\*\{Registro delle modifiche\}\s*',
         'centering': r'\\begin\{center\}\s*',
@@ -138,8 +161,6 @@ def modificheVersion(file):
     if errors:
         print('\nFollowing error in ', file, ':')
         [print(' - ', error) for error in errors]
-
-    # print(versions)  #remove this line, it's just for debug
 
     return versions
 

@@ -6,7 +6,7 @@ import specific_rules as srules
 
 def filesNameCorrectness(files):
     for file in files:
-        if srules.titleCorrectness(file.stem):
+        if srules.fileNameCorrectness(file.stem):
             return
         else:
             print('Name not correct: ', file)
