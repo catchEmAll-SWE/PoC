@@ -11,6 +11,8 @@ def main() -> int:
     official_docs_dirs = [
         'Analisi dei requisiti/',
         'Norme di progetto/',
+        'Piano di progetto/',
+        'Piano di qualifica/',
     ]  # directories that contains official docs on which we want to apply checks
 
     necessary_sections_files = [
