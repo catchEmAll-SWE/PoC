@@ -1,5 +1,6 @@
 from checks import *
 from pathlib import Path
+import github_action_utils as gha_utils
 
 
 def main() -> int:
@@ -30,7 +31,8 @@ def main() -> int:
         '*') if file.suffix in allowed_extensions]
 
     # check if files have correct extension
-    filesNameCorrectness(files_w_allowed_ext)
+    with gha_utils.group('File name correctness'):
+        filesNameCorrectness(files_w_allowed_ext)
 
     official_dirs = [workingDir/dir_name for dir_name in official_docs_dirs]
     for dir in official_dirs:
