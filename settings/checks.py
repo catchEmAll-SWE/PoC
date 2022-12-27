@@ -15,7 +15,7 @@ def filesNameCorrectness(files):
             # return
             # else:
             gha_utils.error(
-                "Name not correct", title="filesNameCorrectness", file=file,
+                "Name not correct change it", title="filesNameCorrectness", file=file,
                 col=1, end_column=2, line=1, end_line=2,)
 # POST = print not correct files name path
 
