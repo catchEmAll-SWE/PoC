@@ -10,7 +10,7 @@ Dato che il requisito obbligatorio richiede la costruzione di una pagina di logi
 \end{center}
 L'utente generico, che potrà essere una persona fisica o anche un bot, potrà accedere a tutte le funzionalità della WebApp. \\
 \begin{center}
-\includegraphics[scale = 1]{img/utente_generico.png}\\
+\includegraphics[scale = 1]{img/webapp.png}\\
 \end{center}
 La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA. \\
 
@@ -200,51 +200,78 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{img/catpcha.png}
-    \caption{Catpcha}
+    \includegraphics[scale=0.4]{img/captcha.png}
+    \caption{Captcha}
 \end{figure}
 
 
 \subsubsection{UC5 - Generazione CAPTCHA immagini}
 \textbf{Attore primario:} WebApp.\\
-\textbf{Precondizioni}: .\\
-\textbf{Postcondizioni}: .\\
+\textbf{Precondizioni}: La WebApp richiede la generazione di un CAPTCHA immagini.\\
+\textbf{Postcondizioni}: Il CAPTCHA immagini viene generato e restituito alla WebApp.\\
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-    \item ;
-	\item .
+    \item La WebApp richiede la generazione di un CAPTCHA immagini;
+    \item Il CAPTCHA immagini viene generato utilizzando le immagini fornite da Unsplash e quelle presenti nel database interno;
+    \item Viene generato un immagine aggiuntivo che funge da honeypot;
+    \item Il CAPTCHA immagini viene restituito alla WebApp.
+\end{enumerate}
+\textbf{Scenari alternativi}:
+\begin{enumerate}
+    \item Il CAPTCHA non può essere generato [UC6].
 \end{enumerate}
 
 \subsubsection{UC6 - Errore generazione CAPTCHA immagini}
 \textbf{Attore primario:} WebApp.\\
-\textbf{Precondizioni}: .\\
-\textbf{Postcondizioni}: .\\
+\textbf{Precondizioni}: La WebApp richiede la generazione di un CAPTCHA immagini.\\
+\textbf{Postcondizioni}: Il CAPTCHA immagini non viene generato.\\
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-    \item ;
-	\item .
+    \item La WebApp richiede la generazione di un CAPTCHA immagini;
+    \item Errore durante la generazione per motivi:
+		\begin{itemize}
+    		\item Connessione rete:
+			\begin{itemize}
+	    		\item Assenza connessione alla rete;
+	    		\item Unsplash non risponde alla richiesta;
+			\item Interruzione di connessione durante la richiesta.
+			\end{itemize}
+    		\item Dati scorretti:
+			\begin{itemize}
+	    		\item Immagine richiesta non presente;
+	    		\item Immagine richiesta ha un formato non supportato.
+			\end{itemize}
+		\end{itemize}
+    \item Il CAPTCHA non viene generato e restituisce un messaggio di errore alla WebApp.\\
 \end{enumerate}
 
 \subsubsection{UC7  - Generazione proof of work}
 \textbf{Attore primario:} WebApp.\\
-\textbf{Precondizioni}: .\\
-\textbf{Postcondizioni}: .\\
+\textbf{Precondizioni}: La WebApp richiede la generazione del proof of work.\\
+\textbf{Postcondizioni}: Viene generato il proof of work e restituito alla WebApp.\\
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-    \item ;
-	\item .
+    \item La WebApp richiede la generazione del proof of work;
+    \item Viene creato il Proof of work per il CAPTCHA per minare crypto valute;
+    \item Il proof of work viene restituito alla WebApp.
 \end{enumerate}
 
 \subsubsection{UC8 - Verifica CAPTCHA}
 \textbf{Attore primario:} WebApp.\\
-\textbf{Precondizioni}: .\\
-\textbf{Postcondizioni}: .\\
+\textbf{Precondizioni}: La WebApp richiede la verifica CAPTCHA.\\
+\textbf{Postcondizioni}: Viene data una risposta alla WebApp.\\
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-    \item ;
-	\item .
+    \item La WebApp richiede la verifica della corretteza del CAPTCHA compilata;
+    \item Viene verificata la corretteza di:
+    \begin{itemize}
+		\item CAPTCHA immagini;
+		\item Honeypot;
+		\item Proof of Work.
+    \end{itemize}
+    \item In base alla percentuale della correttezza, viene emesso il risultato e restituito alla WebApp.
 \end{enumerate}
