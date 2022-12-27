@@ -1,0 +1,19 @@
+\fancypagestyle{section_style}{
+	\thispagestyle{empty}
+	\thispagestyle{fancy}
+	\pagestyle{fancy}
+	\fancyhf{}
+	% HEADER
+	\fancyhead[L]{\textit{Gruppo Catch em All}}
+	\fancyhead[R]{\uppercase{\textbf{\leftmark}}}
+	% FOOTER
+	\fancyfoot[L]{\fontfamily{qtm}\selectfont Piano di progetto v0.0.1}
+	\fancyfoot[R]{Pagina \thepage~di~\pageref{LastPage}}
+	\setcounter{page}{0}
+	\pagenumbering{arabic}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+}
+
+\setcounter{secnumdepth}{4}
+\captionsetup[table]{labelformat=empty}
