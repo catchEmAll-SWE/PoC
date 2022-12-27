@@ -125,8 +125,9 @@ def stylePageFileCorrectness(file, name):
             errors.append(check)
 
     if errors:
-        gha_utils.notice("Errors in " + str(file) + ":")
-        [gha_utils.error(' - ' + str(error)) for error in errors]
+        gha_utils.notice("Errors in " + str(file) +
+                         ":", file=file, title='Errors')
+        [gha_utils.error(' - ' + str(error), title=error) for error in errors]
 
 
 def modificheFileCorrectness(file):
@@ -149,7 +150,8 @@ def modificheFileCorrectness(file):
             errors.append(check)
 
     if errors:
-        gha_utils.notice("Errors in " + str(file) + ":")
+        gha_utils.notice("Errors in " + str(file) +
+                         ":", file=file, title='Errors')
         [gha_utils.error(' - ' + str(error)) for error in errors]
 
 
@@ -182,7 +184,8 @@ def listCorrectness(file):
     missing_dot_lines = itemInListEndingWithDot(file_as_string)
     minusc_first_item_letter = firstLetterInListMustBeMaiusc(file_as_string)
     if missin_colon_lines or missin_semicolon_lines or missing_dot_lines or minusc_first_item_letter:
-        gha_utils.notice("Errors in " + str(file) + ":")
+        gha_utils.notice("Errors in " + str(file) +
+                         ":", file=file, title='Errors')
         if missin_colon_lines:
             printMissingCharacterLines(
                 'Missing ":" in lists definition:', missin_colon_lines)
@@ -198,7 +201,7 @@ def listCorrectness(file):
 
 
 def printMissingCharacterLines(error_message, lines):
-    gha_utils.notice(str(error_message))
+    gha_utils.notice(str(error_message), title='Errors')
     [gha_utils.error(' - line: ' + str(line)) for line in lines]
 
 
