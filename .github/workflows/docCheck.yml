@@ -2,7 +2,6 @@ name: run-python-script
 
 on:
   push:
-    branches: [ "CEA-43-controllo-correttezza" ]
 
 jobs:
   build:
