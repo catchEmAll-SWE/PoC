@@ -2,6 +2,7 @@ from pathlib import *
 import re
 import collections
 import specific_rules as srules
+import github_action_utils as gha_utils
 
 
 def filesNameCorrectness(files):
@@ -154,6 +155,7 @@ def styleFileCorrectness(style_file, dir):
     file_name = str(dir).strip('/').split('/')[-1].capitalize()
     srules.stylePageFileCorrectness(style_file, file_name)
 
+
 def modificheFileCorrectness(modifiche_file):
     """Control sections/modifiche.tex correctness
     :param modifiche_file: modifiche file
@@ -161,6 +163,7 @@ def modificheFileCorrectness(modifiche_file):
     """
     srules.modificheFileCorrectness(modifiche_file)
     versionsOrderInModificheFileCorrectness(modifiche_file)
+
 
 def versionsOrderInModificheFileCorrectness(modifiche_file):
     """Get version from modifiche.tex and check versions correctness in descending order with no duplicates
@@ -186,6 +189,7 @@ def versionsOrderInModificheFileCorrectness(modifiche_file):
             prev_version = cur_version
     return True
 
+
 def versionCorrectnessInSectionsFiles(sections_path):
     """Check if version in sections files is coherent with modifiche.tex
 
@@ -193,9 +197,11 @@ def versionCorrectnessInSectionsFiles(sections_path):
     :type sections_path: Path
     :return: None
     """
-    version = srules.getLatestVersionFromModificheFile(sections_path/'modifiche.tex')
+    version = srules.getLatestVersionFromModificheFile(
+        sections_path/'modifiche.tex')
     titlePageVersionCorrectness(sections_path/'title_page.tex', version)
     styleFileVersionCorrectness(sections_path/'style.tex', version)
+
 
 def titlePageVersionCorrectness(titlePage_file, version):
     """Check if title page is coherent with version
@@ -215,6 +221,7 @@ def titlePageVersionCorrectness(titlePage_file, version):
             # PRE: title_page.tex has been checked for version string presence
             print('Version number not correct in ', titlePage_file)
 
+
 def styleFileVersionCorrectness(style_file, version):
     """Check if style file is coherent with version
 
@@ -223,8 +230,7 @@ def styleFileVersionCorrectness(style_file, version):
     :param version: version of the document
     :type version: str
     """
-    print('Regex expression:: ', r'\\fancyfoot\s*\[L\].*v'+version+r'\s*}')
-    if re.search(r'\\fancyfoot\s*\[L\].*v'+version+r'\s*}', style_file.read_text()):
+    if re.search(r'\\fancyfoot\s*\[L\].*v\s'+version+r'\s*}', style_file.read_text()):
         return
     else:
         print('Version number not correct in ', style_file)
@@ -239,7 +245,7 @@ def latexFilesCorrectness(latex_files):
     Invoke follow function:
     :py:func:srules.itemizeListCorrectness
     """
-    
+
     for file in latex_files:
         srules.listCorrectness(file)
 
@@ -258,4 +264,3 @@ def getFilesFromDir(dir, recursive=False):
         return [file for file in dir.glob('*') if file.is_file()]
     else:
         return [file for file in dir.rglob('*') if file.is_file()]
-

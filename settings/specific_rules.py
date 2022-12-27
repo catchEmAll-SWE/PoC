@@ -1,6 +1,8 @@
 # In this file you can find function (them identify rules) for latex file's rules
 
 import re
+import github_action_utils as gha_utils
+
 
 def fileNameCorrectness(file_name):
     """Correctness of file name
@@ -126,16 +128,17 @@ def stylePageFileCorrectness(file, name):
         print('\nFollowing error in ', file, ':')
         [print(' - ', error) for error in errors]
 
+
 def modificheFileCorrectness(file):
     checks = {
-    'title': r'\\section\*\{Registro delle modifiche\}\s*',
-    'centering': r'\\begin\{center\}\s*',
-    'proprieties': r'\\renewcommand\\tabularxcolumn\[1\]\{\>\{\\Centering\}m\{#1\}\}\s*',
-    'definition': r'\\begin\{\\tabularx\}\{\\textwidth\}\{\|\sc|X\s\|\sc|X\s\|\sc|X\s\|\sc|X\s\|\sc|X\s\|}\s',
-    'header': r'\\textbf\{Versione\}\s*&\s*\\textbf\{Data\}\s*&\s*\\textbf\{Descrizione\}\s*&\s*\\textbf\{Autore\}\s*&\s*\\textbf\{Ruolo\}.*',
-    'data line': r'(\d\d?\.\d\d?\.\d\d?)\s*&\s*(\d\d/\d\d/\d\d\d\d)\s*&.*&.*&',
-    'end': r'\\end\{tabularx\}.*',
-    'end centering': r'\\end\{center\}.*',
+        'title': r'\\section\*\{Registro delle modifiche\}\s*',
+        'centering': r'\\begin\{center\}\s*',
+        'proprieties': r'\\renewcommand\\tabularxcolumn\[1\]\{\>\{\\Centering\}m\{#1\}\}\s*',
+        'definition': r'\\begin\{\\tabularx\}\{\\textwidth\}\{\|\sc|X\s\|\sc|X\s\|\sc|X\s\|\sc|X\s\|\sc|X\s\|}\s',
+        'header': r'\\textbf\{Versione\}\s*&\s*\\textbf\{Data\}\s*&\s*\\textbf\{Descrizione\}\s*&\s*\\textbf\{Autore\}\s*&\s*\\textbf\{Ruolo\}.*',
+        'data line': r'(\d\d?\.\d\d?\.\d\d?)\s*&\s*(\d\d/\d\d/\d\d\d\d)\s*&.*&.*&',
+        'end': r'\\end\{tabularx\}.*',
+        'end centering': r'\\end\{center\}.*',
     }
 
     file_as_string = file.read_text()
@@ -157,6 +160,7 @@ def getVersionsFromModificheFile(file):
     """
     return re.findall(r'\d\d?\.\d\d?\.\d\d?', file.read_text())
 
+
 def getLatestVersionFromModificheFile(file):
     return re.search(r'\d\d?\.\d\d?\.\d\d?', file.read_text()).group(0)
 
@@ -166,7 +170,7 @@ def listCorrectness(file):
 
     :param file: latex file you want to control list correctness
     :type file: Path
-    
+
     :py:func:declarationListEndingWithColon
     :py:func:itemInListEndingWithSemicolon
     :py:func:declarationListEndingWithColon
@@ -180,17 +184,23 @@ def listCorrectness(file):
     if missin_colon_lines or missin_semicolon_lines or missing_dot_lines or minusc_first_item_letter:
         print(file, 'has the following errors')
         if missin_colon_lines:
-            printMissingCharacterLines('Missing ":" in lists definition:', missin_colon_lines)
+            printMissingCharacterLines(
+                'Missing ":" in lists definition:', missin_colon_lines)
         if missin_semicolon_lines:
-            printMissingCharacterLines('Missing ";" in items:', missin_semicolon_lines)
+            printMissingCharacterLines(
+                'Missing ";" in items:', missin_semicolon_lines)
         if missing_dot_lines:
-            printMissingCharacterLines('Missing "." in last item:', missing_dot_lines)
+            printMissingCharacterLines(
+                'Missing "." in last item:', missing_dot_lines)
         if minusc_first_item_letter:
-            printMissingCharacterLines('Minusc first item letter:', minusc_first_item_letter)
+            printMissingCharacterLines(
+                'Minusc first item letter:', minusc_first_item_letter)
+
 
 def printMissingCharacterLines(message_error, lines):
-        print(message_error)
-        [print(' - line: ', line) for line in lines]
+    print(message_error)
+    [print(' - line: ', line) for line in lines]
+
 
 def declarationListEndingWithColon(file):
     """Return lines's missing ':' in list declaration in the file passed 
@@ -200,7 +210,8 @@ def declarationListEndingWithColon(file):
     :return: list of missing colon lines
     :rtype: list[string] 
     """
-    missing_colon = re.finditer(r'[^:]\s*\n(?=\s*\\begin\s*{(itemize|enumerate)})', file)
+    missing_colon = re.finditer(
+        r'[^:]\s*\n(?=\s*\\begin\s*{(itemize|enumerate)})', file)
     missing_colon_lines = []
     for obj in missing_colon:
         missing_colon_lines.append(getMatchedStringLine(obj, file))
@@ -221,6 +232,7 @@ def itemInListEndingWithSemicolon(file):
         missing_semicolon_lines.append(getMatchedStringLine(obj, file))
     return missing_semicolon_lines
 
+
 def itemInListEndingWithDot(file):
     """Return lines's missing '.' in last item in the file passed 
 
@@ -229,11 +241,13 @@ def itemInListEndingWithDot(file):
     :return: list of missing dot lines
     :rtype: list[string] 
     """
-    missing_dot = re.finditer(r'\\item.*[^\.]\s*\n(?=\s*\\end\s*{(itemize|enumerate)})', file)
+    missing_dot = re.finditer(
+        r'\\item.*[^\.]\s*\n(?=\s*\\end\s*{(itemize|enumerate)})', file)
     missing_dot_lines = []
     for obj in missing_dot:
         missing_dot_lines.append(getMatchedStringLine(obj, file))
     return missing_dot_lines
+
 
 def firstLetterInListMustBeMaiusc(file_as_string):
     """Return lines's with first minusc letter in item in the file passed 
@@ -249,6 +263,7 @@ def firstLetterInListMustBeMaiusc(file_as_string):
     for obj in minusc_letters:
         minusc_letter_lines.append(getMatchedStringLine(obj, file_as_string))
     return minusc_letter_lines
+
 
 def getMatchedStringLine(obj_found, text):
     """Return the line's number of the obj_found in the text
