@@ -12,11 +12,10 @@ def filesNameCorrectness(files):
     """
     for file in files:
         if srules.fileNameCorrectness(file.stem):
-            # return
-            # else:
+            return
+        else:
             gha_utils.error(
-                "Name not correct", title="filesNameCorrectness", file=file,
-                col=1, end_column=2, line=1, end_line=2,)
+                "Name not correct", title="filesNameCorrectness", file=file)
 # POST = print not correct files name path
 
 
@@ -30,7 +29,8 @@ def officialDocsDirTree(dir):
     if (dir/'src/sections/').exists():
         return True
     else:
-        print('Directory tree not correct ', dir)
+        gha_utils.error('Directory tree not correct ' +
+                        str(dir), title="officialDocsDirTree")
         return False
 
 
@@ -58,7 +58,8 @@ def pdfDocPresence(dir, files_dic):
     """
 
     if not (files_dic['.pdf'] == 1):
-        print(dir, 'must have exactly one pdf file')
+        gha_utils.error(
+            str(dir) + ' must have exactly one pdf file', title="pdfDocPresence")
 
 
 def singlePdfDocInOfficialDir(dir, dir_files):
@@ -72,7 +73,8 @@ def singlePdfDocInOfficialDir(dir, dir_files):
     """
 
     if not (len(dir_files) == 1):
-        print(dir, 'cannot have more than one file in it')
+        gha_utils.error(str(dir) + ' cannot have more than one file in it',
+                        title="singlePdfDocInOfficialDir")
 
 
 def latexFilePresenceInSrc(src):
@@ -88,7 +90,8 @@ def latexFilePresenceInSrc(src):
     if (len(src_files_dic) == 1 and src_files_dic['.tex']):
         return True
     else:
-        print(src, 'must have exactly one latex file')
+        gha_utils.error(
+            str(src) + ' must have exactly one latex file', title="latexFilePresenceInSrc")
         return False
 
 
@@ -108,7 +111,8 @@ def onlyLatexFilesInSection(sections):
     """
     files_in_sections = getDirectoryExtensions(sections)
     if not (len(collections.Counter(files_in_sections)) == 1 and collections.Counter(files_in_sections)['.tex']):
-        print(sections, 'must have only latex files')
+        gha_utils.error(str(sections) + ' must have only latex file',
+                        title="onlyLatexFilesInSection")
 
 
 def necessarySectionsFilesPresence(sections, necessary_files):
@@ -123,7 +127,8 @@ def necessarySectionsFilesPresence(sections, necessary_files):
     presence = True
     for file_name in necessary_files:
         if not (sections/file_name).exists():
-            print(sections, 'must have ', file_name)
+            gha_utils.error(str(sections) + ' must have ' +
+                            str(file_name), title="necessarySectionsFilesPresence")
             presence = False
     return presence
 
@@ -184,8 +189,8 @@ def versionsOrderInModificheFileCorrectness(modifiche_file):
         cur_version = sum([int(i)*(10**iteration) for i, iteration in zip(
             version.split('.')[::-1], range(0, len(version.split('.'))))])
         if (cur_version > prev_version or cur_version == prev_version):
-            print('Version order not correct or same version used in ', modifiche_file, ': ',
-                  cur_version, prev_version)
+            gha_utils.error('Version order not correct or same version used in ' + str(modifiche_file) + ' : ',
+                            str(cur_version) + " " + str(prev_version), title="versionsOrderInModificheFileCorrectness")
             return False
         else:
             prev_version = cur_version
@@ -217,11 +222,12 @@ def titlePageVersionCorrectness(titlePage_file, version):
         version_search = re.findall(r'\\textbf\{Versione\}\s*&\s*\(' + version +
                                     r'\)\s*\\\\\s*', titlePage_file.read_text())
         if len(version_search) > 1:
-            print(
-                'Multiple versions found in ', titlePage_file, ', check for duplicates')
+            gha_utils.error(
+                'Multiple versions found in ' + str(titlePage_file) + ', check for duplicates', title="titlePageVersionCorrectness")
         elif not version_search:
             # PRE: title_page.tex has been checked for version string presence
-            print('Version number not correct in ', titlePage_file)
+            gha_utils.error('Version number not correct in ' +
+                            str(titlePage_file), title="titlePageVersionCorrectness")
 
 
 def styleFileVersionCorrectness(style_file, version):
@@ -235,7 +241,8 @@ def styleFileVersionCorrectness(style_file, version):
     if re.search(r'\\fancyfoot\s*\[L\].*v\s'+version+r'\s*}', style_file.read_text()):
         return
     else:
-        print('Version number not correct in ', style_file)
+        gha_utils.error('Version number not correct in ' +
+                        str(style_file), title="styleFileVersionCorrectness")
 
 
 def latexFilesCorrectness(latex_files):

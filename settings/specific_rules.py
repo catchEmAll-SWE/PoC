@@ -44,8 +44,8 @@ def srcLatexFileCorrectness(file):
             errors.append(check)
 
     if errors:
-        print('\nFollowing error in ', file, ':')
-        [print(' - ', error) for error in errors]
+        gha_utils.group("Errors in " + str(file) + ":")
+        [gha_utils.error(' - ' + str(error)) for error in errors]
 
 
 def titlePageFileCorrectness(file, name):
@@ -84,8 +84,8 @@ def titlePageFileCorrectness(file, name):
             errors.append(check)
 
     if errors:
-        print('\nFollowing error in ', file, ':')
-        [print(' - ', error) for error in errors]
+        gha_utils.group("Errors in " + str(file) + ":")
+        [gha_utils.error(' - ' + str(error)) for error in errors]
 
 
 def stylePageFileCorrectness(file, name):
@@ -125,8 +125,8 @@ def stylePageFileCorrectness(file, name):
             errors.append(check)
 
     if errors:
-        print('\nFollowing error in ', file, ':')
-        [print(' - ', error) for error in errors]
+        gha_utils.group("Errors in " + str(file) + ":")
+        [gha_utils.error(' - ' + str(error)) for error in errors]
 
 
 def modificheFileCorrectness(file):
@@ -149,8 +149,8 @@ def modificheFileCorrectness(file):
             errors.append(check)
 
     if errors:
-        print('\nFollowing error in ', file, ':')
-        [print(' - ', error) for error in errors]
+        gha_utils.group("Errors in " + str(file) + ":")
+        [gha_utils.error(' - ' + str(error)) for error in errors]
 
 
 def getVersionsFromModificheFile(file):
@@ -182,7 +182,7 @@ def listCorrectness(file):
     missing_dot_lines = itemInListEndingWithDot(file_as_string)
     minusc_first_item_letter = firstLetterInListMustBeMaiusc(file_as_string)
     if missin_colon_lines or missin_semicolon_lines or missing_dot_lines or minusc_first_item_letter:
-        print(file, 'has the following errors')
+        gha_utils.group("Errors in " + str(file) + ":")
         if missin_colon_lines:
             printMissingCharacterLines(
                 'Missing ":" in lists definition:', missin_colon_lines)
@@ -197,9 +197,9 @@ def listCorrectness(file):
                 'Minusc first item letter:', minusc_first_item_letter)
 
 
-def printMissingCharacterLines(message_error, lines):
-    print(message_error)
-    [print(' - line: ', line) for line in lines]
+def printMissingCharacterLines(error_message, lines):
+    gha_utils.group(str(error_message))
+    [gha_utils.error(' - line: ' + str(line)) for line in lines]
 
 
 def declarationListEndingWithColon(file):
