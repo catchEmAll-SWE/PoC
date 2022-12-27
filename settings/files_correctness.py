@@ -54,7 +54,7 @@ def main() -> int:
                     with gha_utils.group('Title page name correct'):
                         titlePageFileCorrectness(
                             sections_path/'title_page.tex', dir)
-                    with gha_utils.group('Style file structure correct'):
+                    with gha_utils.group('Style file structure correctness'):
                         styleFileCorrectness(sections_path/'style.tex', dir)
                     with gha_utils.group('Stile and version correctness in motifiche.tex'):
                         modificheFileCorrectness(sections_path/'modifiche.tex')
