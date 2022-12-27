@@ -187,24 +187,24 @@ def listCorrectness(file):
     minusc_first_item_letter = firstLetterInListMustBeMaiusc(file_as_string)
     if missin_colon_lines or missin_semicolon_lines or missing_dot_lines or minusc_first_item_letter:
         gha_utils.notice("Errors in " + str(file) +
-                         ":", file=file, title='Errors')
+                         ":")
         if missin_colon_lines:
             printMissingCharacterLines(
-                'Missing ":" in lists definition:', missin_colon_lines)
+                'Missing ":" in lists definition:', missin_colon_lines, file)
         if missin_semicolon_lines:
             printMissingCharacterLines(
-                'Missing ";" in items:', missin_semicolon_lines)
+                'Missing ";" in items:', missin_semicolon_lines, file)
         if missing_dot_lines:
             printMissingCharacterLines(
-                'Missing "." in last item:', missing_dot_lines)
+                'Missing "." in last item:', missing_dot_lines, file)
         if minusc_first_item_letter:
             printMissingCharacterLines(
-                'Minusc first item letter:', minusc_first_item_letter)
+                'Minusc first item letter:', minusc_first_item_letter, file)
 
 
-def printMissingCharacterLines(error_message, lines):
-    gha_utils.notice(str(error_message), title='Error')
-    [gha_utils.error(' - line: ' + str(line), title="Error", line=line)
+def printMissingCharacterLines(error_message, lines, file):
+    gha_utils.notice(str(error_message), title=error_message)
+    [gha_utils.error(' - line: ' + str(line), title="Error", line=line, file=file)
      for line in lines]
 
 
