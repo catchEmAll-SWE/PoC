@@ -44,7 +44,8 @@ def srcLatexFileCorrectness(file):
             errors.append(check)
 
     if errors:
-        gha_utils.notice("Errors in " + str(file) + ":")
+        gha_utils.notice("Errors in " + str(file) +
+                         ":", file=file, title='Errors')
         [gha_utils.error(' - ' + str(error)) for error in errors]
 
 
@@ -84,7 +85,8 @@ def titlePageFileCorrectness(file, name):
             errors.append(check)
 
     if errors:
-        gha_utils.notice("Errors in " + str(file) + ":")
+        gha_utils.notice("Errors in " + str(file) +
+                         ":", file=file, title='Errors')
         [gha_utils.error(' - ' + str(error)) for error in errors]
 
 
@@ -201,8 +203,8 @@ def listCorrectness(file):
 
 
 def printMissingCharacterLines(error_message, lines):
-    gha_utils.notice(str(error_message), title='Errors')
-    [gha_utils.error(' - line: ' + str(line)) for line in lines]
+    [gha_utils.error(str(error_message), title="Error", line=line)
+     for line in lines]
 
 
 def declarationListEndingWithColon(file):
