@@ -203,7 +203,8 @@ def listCorrectness(file):
 
 
 def printMissingCharacterLines(error_message, lines):
-    [gha_utils.error(str(error_message), title="Error", line=line)
+    gha_utils.notice(str(error_message), title='Error')
+    [gha_utils.error(' - line: ' + str(line), title="Error", line=line)
      for line in lines]
 
 
