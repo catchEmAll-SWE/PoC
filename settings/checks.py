@@ -175,8 +175,6 @@ def versionsOrderInModificheFileCorrectness(modifiche_file):
     prev_version = sum([int(i)*(10**iteration) for i, iteration in zip(
         versions[0].split('.')[::-1], range(0, len(versions[0].split('.'))))])
 
-    last_version = versions[0]
-
     for version in versions[1:]:
         cur_version = sum([int(i)*(10**iteration) for i, iteration in zip(
             version.split('.')[::-1], range(0, len(version.split('.'))))])
@@ -217,17 +215,20 @@ def titlePageVersionCorrectness(titlePage_file, version):
             # PRE: title_page.tex has been checked for version string presence
             print('Version number not correct in ', titlePage_file)
 
-
-# TODO: check if style.tex is correct
-def styleFileVersionCorrectness(sections_path, version):
+def styleFileVersionCorrectness(style_file, version):
     """Check if style file is coherent with version
 
-    :param sections_path: path to sections directory
-    :type sections_path: Path (absolute path)
+    :param style_file: path to style file
+    :type style_file: Path
     :param version: version of the document
     :type version: str
     """
-    style_file = sections_path/'style.tex'
+    print('Regex expression:: ', r'\\fancyfoot\s*\[L\].*v'+version+r'\s*}')
+    if re.search(r'\\fancyfoot\s*\[L\].*v'+version+r'\s*}', style_file.read_text()):
+        return
+    else:
+        print('Version number not correct in ', style_file)
+
 
 def latexFilesCorrectness(latex_files):
     """Check latex files correctness

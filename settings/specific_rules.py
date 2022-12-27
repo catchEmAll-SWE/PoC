@@ -98,7 +98,7 @@ def stylePageFileCorrectness(file, name):
         'empty page style': r'\\thispagestyle\{empty\}',
         'fancy page style': r'\\thispagestyle\{fancy\}',
         'pagestyle definition': r'\\pagestyle\{fancy\}',
-        'boh': r'\\fancyhf\{\}',  # TODO: cazz è?
+        'specifications for header and footer': r'\\fancyhf\{\}',
         'group name': r'\\fancyhead\[L\]\{\\textit\{Gruppo Catch em All\}\}',
         'head style': r'\\fancyhead\[R\]\{\\uppercase\{\\textbf\{\\leftmark\}\}\}',
         'doc title and version': r'\\fancyfoot\[L\]\{\\fontfamily\{qtm\}\\selectfont\s',
