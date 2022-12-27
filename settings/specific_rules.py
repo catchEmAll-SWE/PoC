@@ -126,43 +126,40 @@ def stylePageFileCorrectness(file, name):
         print('\nFollowing error in ', file, ':')
         [print(' - ', error) for error in errors]
 
-
-def modificheVersion(file):
-    """modifiche fule correctness
-    :param file: modifiche file
-    :type file: Path
-    """
+def modificheFileCorrectness(file):
     checks = {
-        'title': r'\\section\*\{Registro delle modifiche\}\s*',
-        'centering': r'\\begin\{center\}\s*',
-        'proprieties': r'\\renewcommand\\tabularxcolumn\[1\]\{\>\{\\Centering\}m\{#1\}\}\s*',
-        'definition': r'\\begin\{\\tabularx\}\{\\textwidth\}\{\|\sc|X\s\|\sc|X\s\|\sc|X\s\|\sc|X\s\|\sc|X\s\|}\s',
-        'header': r'\\textbf\{Versione\}\s*&\s*\\textbf\{Data\}\s*&\s*\\textbf\{Descrizione\}\s*&\s*\\textbf\{Autore\}\s*&\s*\\textbf\{Ruolo\}.*',
-        'data line': r'(\d\d?\.\d\d?\.\d\d?)\s*&\s*(\d\d/\d\d/\d\d\d\d)\s*&.*&.*&',
-        'end': r'\\end\{tabularx\}.*',
-        'end centering': r'\\end\{center\}.*',
+    'title': r'\\section\*\{Registro delle modifiche\}\s*',
+    'centering': r'\\begin\{center\}\s*',
+    'proprieties': r'\\renewcommand\\tabularxcolumn\[1\]\{\>\{\\Centering\}m\{#1\}\}\s*',
+    'definition': r'\\begin\{\\tabularx\}\{\\textwidth\}\{\|\sc|X\s\|\sc|X\s\|\sc|X\s\|\sc|X\s\|\sc|X\s\|}\s',
+    'header': r'\\textbf\{Versione\}\s*&\s*\\textbf\{Data\}\s*&\s*\\textbf\{Descrizione\}\s*&\s*\\textbf\{Autore\}\s*&\s*\\textbf\{Ruolo\}.*',
+    'data line': r'(\d\d?\.\d\d?\.\d\d?)\s*&\s*(\d\d/\d\d/\d\d\d\d)\s*&.*&.*&',
+    'end': r'\\end\{tabularx\}.*',
+    'end centering': r'\\end\{center\}.*',
     }
 
     file_as_string = file.read_text()
-
-    versions = []
     errors = []
 
     for check in checks:
-        if check == 'data line':
-            if re.search(checks[check], file_as_string):
-                versions = [version[0]
-                            for version in re.findall(checks[check], file_as_string)]
-            else:
-                errors.append(check)
-        elif not re.search(checks[check], file_as_string):
+        if not re.search(checks[check], file_as_string):
             errors.append(check)
 
     if errors:
         print('\nFollowing error in ', file, ':')
         [print(' - ', error) for error in errors]
 
-    return versions
+
+def getVersionsFromModificheFile(file):
+    """modifiche fule correctness
+    :param file: modifiche file
+    :type file: Path
+    """
+    return re.findall(r'\d\d?\.\d\d?\.\d\d?', file.read_text())
+
+def getLatestVersionFromModificheFile(file):
+    return re.search(r'\d\d?\.\d\d?\.\d\d?', file.read_text()).group(0)
+
 
 def listCorrectness(file):
     """Check latex file list correctness as request in norme_di_progetto

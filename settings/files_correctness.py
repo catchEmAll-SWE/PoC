@@ -35,14 +35,17 @@ for dir in official_dirs:
         src_path = dir/'src/'
         sections_path = src_path/'sections'
         officialPdfPresenceOnly(dir)
+        # in dir/src/
         if latexFilePresenceInSrc(src_path):
             srcLatexFileCorrectness(src_path)
-        filesExtensionInSections(sections_path)
+        #in dir/src/sections
+        onlyLatexFilesInSection(sections_path)
         if necessarySectionsFilesPresence(sections_path, necessary_sections_files):
-            titlePageFileCorrectness(sections_path, dir)
-            styleFileCorrectness(sections_path, dir)
+            titlePageFileCorrectness(sections_path/'title_page.tex', dir)
+            styleFileCorrectness(sections_path/'style.tex', dir)
+            modificheFileCorrectness(sections_path/'modifiche.tex')
             # check version PRE: title_page.tex and style.tex verified for correctness (to exclude parsing errors)
-            versionCorrectness(sections_path)
+            versionCorrectnessInSectionsFiles(sections_path)
             # TODO: checkPackagesFileCorrectness(sections_path)
 
 latex_files = [file for file in files_w_allowed_ext if file.suffix == '.tex']

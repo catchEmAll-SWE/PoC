@@ -5,6 +5,10 @@ import specific_rules as srules
 
 
 def filesNameCorrectness(files):
+    """Control files name correctness
+    :param files: files you want to control
+    :type files: list[Path]
+    """
     for file in files:
         if srules.fileNameCorrectness(file.stem):
             return
@@ -14,14 +18,17 @@ def filesNameCorrectness(files):
 
 
 def officialDocsDirTree(dir):
+    """Control dir directories's structure coherence with official dir's structure
+    :param dir: official dir you want to control
+    :type dir: Path
+    :return: True if structure is coherence, False otherwise
+    """
     # directory tree is '*/dir_name/src/sections/'
     if (dir/'src/sections/').exists():
         return True
     else:
         print('Directory tree not correct ', dir)
         return False
-# POST = print 'Directory tree not correct dir' and return false if directory dir tree is not correct
-#        otherwise return True
 
 
 def officialPdfPresenceOnly(dir):
@@ -34,12 +41,14 @@ def officialPdfPresenceOnly(dir):
 
     files_dic = collections.Counter(getDirectoryExtensions(dir))
     pdfDocPresence(dir, files_dic)
-    singleFileInDir(dir, files_dic)
+    singlePdfDocInOfficialDir(dir, files_dic)
 
 
 def pdfDocPresence(dir, files_dic):
     """Official doc dir must have only one .pdf file
 
+    :param dir: official doc dir
+    :type dir: Path
     :param files_dic: dictionary with file extensions as keys and number of files with that extension as values
     :type files_dic: dict
     :return: None
@@ -49,9 +58,11 @@ def pdfDocPresence(dir, files_dic):
         print(dir, 'must have exactly one pdf file')
 
 
-def singleFileInDir(dir, dir_files):
+def singlePdfDocInOfficialDir(dir, dir_files):
     """Official doc dir must have only one file
 
+    :param dir: official dir
+    :type dir: Path
     :param dir_files: dictionary with file extensions as keys and number of files with that extension as values
     :type files_dic: dict
     :return: None
@@ -79,79 +90,87 @@ def latexFilePresenceInSrc(src):
 
 
 def srcLatexFileCorrectness(src):
+    """Control main.tex file correctness
+    :param src: official source file
+    :type src: Path 
+    """
     src_file = next(src.glob('*.tex'))
     srules.srcLatexFileCorrectness(src_file)
 
 
-def filesExtensionInSections(sections):
+def onlyLatexFilesInSection(sections):
+    """Control sections dir has only latex files
+    :param sections: sections directory
+    :type sections: Path
+    """
     files_in_sections = getDirectoryExtensions(sections)
     if not (len(collections.Counter(files_in_sections)) == 1 and collections.Counter(files_in_sections)['.tex']):
         print(sections, 'must have only latex files')
 
 
-def necessarySectionsFilesPresence(sections, files_name):
+def necessarySectionsFilesPresence(sections, necessary_files):
+    """Control if sections passed as param has necessary files
+    :param sections: sections dir you want to control
+    :type sections: Path
+    :param necessary_files: necessary files in sections dir
+    :type necessary_files: list[string]
+    :return: True if sections passed has necessary files, False otherwise
+    :rtype: bool
+    """
     presence = True
-    for file_name in files_name:
+    for file_name in necessary_files:
         if not (sections/file_name).exists():
             print(sections, 'must have ', file_name)
             presence = False
     return presence
 
 
-def titlePageFileCorrectness(sections, dir):
+def titlePageFileCorrectness(title_page_file, dir):
     """Check if title_page.tex has the name coherent with the main directory name
 
-    :param sections: path to sections directory
-    :type sections: Path (absolute path)
+    :param title_page_file: title_page file you want to control
+    :type title_page_file: Path (absolute path)
     :param dir: main directory
-    :type dir: Path (absolute path)
+    :type dir: Path
     :return: None
     """
-    title_page_file = sections/'title_page.tex'
     # file_name = sections.strip('/sections').strip('/src').strip('/').split('/')[-1] #alternativa se PRE = non cambiano le directory
     # strip '/' and get main directory name
     file_name = str(dir).strip('/').split('/')[-1].capitalize()
     srules.titlePageFileCorrectness(title_page_file, file_name)
 
 
-def styleFileCorrectness(sections, dir):
+def styleFileCorrectness(style_file, dir):
     """Check if style.tex has the correct settings fot stylings
 
-    :param sections: path to sections directory
-    :type sections: Path (absolute path)
+    :param style_file: 
+    :type style_file: Path
     :param dir: main directory
-    :type dir: Path (absolute path)
+    :type dir: Path
     :return: None
     """
-    title_page_file = sections/'style.tex'
     # file_name = sections.strip('/sections').strip('/src').strip('/').split('/')[-1] #alternativa se PRE = non cambiano le directory
     # strip '/' and get main directory name
     file_name = str(dir).strip('/').split('/')[-1].capitalize()
-    srules.stylePageFileCorrectness(title_page_file, file_name)
+    srules.stylePageFileCorrectness(style_file, file_name)
 
-
-def versionCorrectness(sections_path):
-    """Check if version is coherent with modifiche.tex
-
-    :param sections_path: path to sections directory
-    :type sections_path: Path (absolute path)
-    :return: None
+def modificheFileCorrectness(modifiche_file):
+    """Control sections/modifiche.tex correctness
+    :param modifiche_file: modifiche file
+    :type modifiche_file: Path  
     """
-    version = modificheVersion(sections_path)
-    titlePageVersionCorrectness(sections_path, version)
-    styleFileVersionCorrectness(sections_path, version)
+    srules.modificheFileCorrectness(modifiche_file)
+    versionsOrderInModificheFileCorrectness(modifiche_file)
 
+def versionsOrderInModificheFileCorrectness(modifiche_file):
+    """Get version from modifiche.tex and check versions correctness in descending order with no duplicates
 
-def modificheVersion(sections_path):
-    """Get version from modifiche.tex and check for file correctness in descending order with no duplicates
-
-    :param sections_path: path to sections directory
-    :type sections_path: Path (absolute path)
-    :return: version
-    :rtype: str
+    :param modifiche_file: path to modifiche file
+    :type modifiche_file: Path
+    :return: True if versions in modifiche file are in descending order with no duplicates
+    :rtype: bool
     """
-    modifiche_file = sections_path/'modifiche.tex'
-    versions = srules.modificheVersion(modifiche_file)
+    versions = srules.getVersionsFromModificheFile(modifiche_file)
 
     prev_version = sum([int(i)*(10**iteration) for i, iteration in zip(
         versions[0].split('.')[::-1], range(0, len(versions[0].split('.'))))])
@@ -167,19 +186,28 @@ def modificheVersion(sections_path):
             return False
         else:
             prev_version = cur_version
-    return last_version
+    return True
 
-
-def titlePageVersionCorrectness(sections_path, version):
-    """Check if title page is coherent with version
+def versionCorrectnessInSectionsFiles(sections_path):
+    """Check if version in sections files is coherent with modifiche.tex
 
     :param sections_path: path to sections directory
-    :type sections_path: Path (absolute path)
-    :param version: version of the document
+    :type sections_path: Path
+    :return: None
+    """
+    version = srules.getLatestVersionFromModificheFile(sections_path/'modifiche.tex')
+    titlePageVersionCorrectness(sections_path/'title_page.tex', version)
+    styleFileVersionCorrectness(sections_path/'style.tex', version)
+
+def titlePageVersionCorrectness(titlePage_file, version):
+    """Check if title page is coherent with version
+
+    :param titlePage_file: path to title_page file
+    :type sections_path: Path
+    :param version: latest version of the official document
     :type version: str
     """
     if version:
-        titlePage_file = sections_path/'title_page.tex'
         version_search = re.findall(r'\\textbf\{Versione\}\s*&\s*\(' + version +
                                     r'\)\s*\\\\\s*', titlePage_file.read_text())
         if len(version_search) > 1:
