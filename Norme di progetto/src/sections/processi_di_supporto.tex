@@ -95,27 +95,27 @@ Dove:
 \end{itemize}
 
 \subsubsubsection{Stile di testo}
-Di seguito vengono riportati i vari stili del testo e i loro usi:
+Di seguito vengono riportati i vari stili del testo e i loro utilizzi:
 \begin {itemize}
-\item \textbf{Grassetto}: viene utilizzato per i termini negli elenchi puntati e per i titoli delle sezioni;
-\item \textbf{Corsivo}: viene utilizzato per il nome del gruppo, l'email del gruppo e il nome del progetto;
-\item \textbf{Link}: i link sono collegamenti esterni del documento.
+\item \textbf{Grassetto}: Utilizzato per i termini da descrivere all'interno degli elenchi puntati e per i titoli delle varie sezioni del documento. Può essere utilizzato anche per evidenziare concetti particolarmente rilevanti;
+\item \textbf{Corsivo}: Utilizzato per il nome e l'email del gruppo, il nome del progetto, riferimenti ad altri documenti e sigle;
+\item \textbf{Link}: Sono collegamenti esterni al documento.
 \end {itemize}
 
 \subsubsubsection{Glossario}
-Le norme relative al \textit{Glossario} sono:
+Le norme da seguire relative al \textit{Glossario} sono:
 \begin{itemize}
-    \item Ogni parola presente nel \textit{glossario} viene contrassegnata con una 'G' a pedice;
-    \item Se un termine compare nella sua stessa definizione all'interno del \textit{glossario} esso viene contrassegnato.
+    \item Ogni parola presente nel documento \textit{Glossario v 1.0.0} viene contrassegnata con una 'G' a pedice all'interno dei vari documenti dove è utilizzata;
+    \item Se un termine compare nella sua stessa definizione all'interno del \textit{Glossario } esso viene contrassegnato.
 \end{itemize}
 
 \subsubsubsection{Elenchi puntati e numerati}
-Di seguito vengono descritti come vengono utilizzati gli elenchi puntati e numerati:
+Di seguito vengono descritti come utilizzare elenchi puntati e numerati:
 \begin {itemize}
 \item Ogni punto dell'elenco inizia con la lettera maiuscola;
-\item Alla fine di ogni punto vi è un ';';
-\item Dopo l'ultima voce vi è un '.';
-\item Se vi è un concetto da spiegare esso viene scritto in grassetto seguito da ':' e segue la spiegazione di esso.
+\item Alla fine di ogni punto vi è un \textbf{';'};
+\item Dopo l'ultima voce vi è un \textbf{'.'};
+\item Se vi è un concetto da spiegare esso viene scritto in grassetto seguito da \textbf{':'} e segue la spiegazione di esso, la quale deve iniziare in maiuscolo.
 \end {itemize}
 
 \subsubsubsection{Sigle}
@@ -173,7 +173,7 @@ Di seguito vengono elencati gli strumenti usati per redigere i documenti:
 \begin {itemize}
 \item \textbf{\LaTeX}: Per la produzione dei documenti, il team ha deciso di usare il linguaggio di markup \textit{\LaTeX};
 \item \textbf{Microsoft Word}: Per la stesura delle bozze di alcune parti di documenti;
-\item \textbf{Microsoft Excel}: Per la creazione delle tabelle con i preventivi delle ore e costi che verranno poi inserite nel PdP;
+\item \textbf{Microsoft Excel}: Per la creazione delle tabelle con i preventivi delle ore e costi che verranno poi inserite nel \textit{PdP};
 \item \textbf{StarUML}: Per la creazione dei vari UML da inserire all'interno dei documenti.
 \item \textbf{LucidChart}: Per discussioni di gruppo sui vari UML creati, dato che lo strumento permette modifiche condivise.
 \end {itemize}
@@ -185,28 +185,37 @@ Di seguito vengono elencati gli strumenti usati per redigere i documenti:
 Lo scopo di questa sezione è descrivere come il team ha deciso di mantenere traccia delle varie documentazioni stese.
 
 \subsubsection{Sistemi software utilizzati}
-Per la gestione dei file e gli aggiornamenti dei documenti viene utilizzato il sistema di controllo di versione Git, attraverso il servizio di GitHub.
+Per la gestione dei file e gli aggiornamenti dei documenti viene utilizzato il sistema di controllo di versione Git, attraverso il servizio di GitHub. Per la scrittura dei verbali interni ed esterni si è deciso di utilizzare il servizio Confluence offerto da JIRA.
 
-\subsubsection{Struttura del repository TODO}
+\subsubsection{Struttura del repository}
 Di seguito viene data una lista di cartelle presenti nella repository su Git.
 \begin{itemize}
 \item \textbf{catchEmAll-SWE/catchEmAll-Docs} è il repository contenente documentazione riguardante:
 \begin{itemize}
-    \item Assegnazione dell'appalto (lettera di candidatura);
-    \item Diario di bordo;
-    \item Ricerche e documentazione prodotta dal team;
-    \item Specifiche tecniche del software;
-    \item Link dei verbali (interni ed esterni).
+    \item \textbf{Assegnazione dell'appalto}: Con al suo interno i documenti \textit{LetteraCandidatura}, \textit{Preventivo\_Ore\_Costi\_rischi}, \textit{motivazione\_capitolati};
+    \item \textbf{Diari di bordo};
+    \item \textbf{Norme di progetto};
+    \item \textbf{Analisi dei requisiti};
+    \item \textbf{Piano di progetto};
+    \item \textbf{Piano di qualifica};
+    \item \textbf{Glossario};
+    \item \textbf{Link dei verbali interni ed esterni}.
 \end{itemize}
-\item \textbf{catchEmAll-SWE/catchEmAll-Code(possibile repo)}
 \end{itemize}
-Confluence (strumento JIRA) contiene invece i verbali e i documenti retrospettivi: tale sceltà è stata guidata dalla presenza in questo strumento di template, i quali ne facilitano la scrittura.
+\subsubsection{Struttura delle cartelle su Confluence}
+Confluence, un servizio fornito da JIRA è utilizzato dal gruppo per la scrittura e l'organizzazione di:
+\begin{itemize}
+	\item \textbf{Verbali}: Interni ed esterni;
+	\item \textbf{Sprint retrospective}: Contenente le varie analisi retrospettive del gruppo sugli sprint svolti;
+	\item \textbf{Ricerche e documentazioni}: Contiene le documentazioni e analisi che il gruppo ha svolto su strumenti o tecnologie che possono essere utili allo sviluppo del progetto.
+\end{itemize}
+Tale scelta è stata guidata dalla qualità dei template forniti dallo strumento, i quali facilitano la scrittura e la comprensione di alcuni specifici documenti.
 
 \subsubsection{Gestione delle modifiche}
-Per evitare i conflitti tra le modifiche e mantenere in ordine i file, ogni volta che viene apportata una modifica deve prima essere caricata su un branch per essere revisionata dal Ve poi viene mergiata nel branch principale \textbf{DA RISCRIVERE MEGLIO }
+Per evitare i conflitti tra le modifiche, mantenere in ordine i file e garantire che all'interno del branch principale ci siano solo documenti verificati, il gruppo ha deciso che ogni qual volta sia necessaria una modifica in uno specifico documento deve essere creato un branch per apportarla. La modifica in questione potrà essere integrata nel branch principale solo dopo essere stata revisionata dal \textit{Ve}.
 
 \subsubsection{Tipi di file presenti}
-Nella repository \textit{catchEmAll-Docs} sono presenti esclusivamente file \textbf{.tex}, \textbf{.png} e \textbf{/pdf}. Altri file prodotte durante la stesura dei documenti di esetensione diversa da quelle citate sono escluse attraverso il file \textbf{.gitignore}.
+Nella repository \textit{catchEmAll-Docs} sono presenti esclusivamente file \textbf{.tex}, \textbf{.png} e \textbf{/pdf}. Altri file prodotti durante la stesura dei documenti con estensioni diverse da quelle citate sono escluse attraverso il file \textbf{.gitignore}.
 
 
 
