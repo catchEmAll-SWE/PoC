@@ -12,7 +12,7 @@ class PrintError:
 class PrintSimpleError(PrintError):
     @staticmethod
     def print_error(errors, group_name=None):
-        build_status = BuildStatus.FAILED
+        PrintError.build_status = BuildStatus.FAILED
         if group_name is None:
             for e in errors:
                 error(e)
@@ -26,7 +26,7 @@ class PrintSimpleError(PrintError):
 class PrintErrorsWithLines(PrintError):
     @staticmethod
     def print_error(errors, lines, group_name=None):
-        build_status = BuildStatus.FAILED
+        PrintError.build_status = BuildStatus.FAILED
         if group_name is None:
             for e in errors:
                 error(e)
