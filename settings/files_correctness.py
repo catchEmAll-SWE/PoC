@@ -43,25 +43,16 @@ def main() -> int:
             sections_path = src_path/'sections'
             officialPdfPresenceOnly(dir)
             # in dir/src/
-            with gha_utils.group('Single latex file in src dir'):
-                if latexFilePresenceInSrc(src_path):
-                    with gha_utils.group('Latex file structure correctness'):
-                        srcLatexFileCorrectness(src_path)
-            # in dir/src/sections
-            with gha_utils.group('Only latex file in sections dir'):
+            if latexFilePresenceInSrc(src_path):
+                srcLatexFileCorrectness(src_path)
+            # in dir/src/sections/
                 onlyLatexFilesInSection(sections_path)
-            with gha_utils.group('All necessary sections files presence'):
                 if necessarySectionsFilesPresence(sections_path, necessary_sections_files):
-                    with gha_utils.group('Title page name correct'):
-                        titlePageFileCorrectness(
-                            sections_path/'title_page.tex', dir)
-                    with gha_utils.group('Style file structure correctness'):
-                        styleFileCorrectness(sections_path/'style.tex', dir)
-                    with gha_utils.group('Stile and version correctness in motifiche.tex'):
-                        modificheFileCorrectness(sections_path/'modifiche.tex')
+                    titlePageFileCorrectness(sections_path/'title_page.tex', dir)
+                    styleFileCorrectness(sections_path/'style.tex', dir)
+                    modificheFileCorrectness(sections_path/'modifiche.tex')
                     # check version PRE: title_page.tex and style.tex verified for correctness (to exclude parsing errors)
-                    with gha_utils.group('Version correctness in section files'):
-                        versionCorrectnessInSectionsFiles(sections_path)
+                    versionCorrectnessInSectionsFiles(sections_path)
 
     latex_files = [
         file for file in files_w_allowed_ext if file.suffix == '.tex']
