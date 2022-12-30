@@ -27,7 +27,7 @@ def officialDocsDirTree(dir):
     """
     # directory tree is '*/dir_name/src/sections/'
     if not (dir/'src/sections/').exists():
-        PrintSimpleError.print_error('Directory tree not correct ' + [str(dir)])
+        PrintSimpleError.print_error(['Directory tree not correct ' + str(dir)])
         return False
     return True
 
@@ -55,7 +55,7 @@ def pdfDocPresence(dir, files_dic):
     """
 
     if not (files_dic['.pdf'] == 1):
-        PrintSimpleError.print_error(str(dir) + ' must have exactly one pdf file')
+        PrintSimpleError.print_error([str(dir) + ' must have exactly one pdf file'])
 
 
 def singlePdfDocInOfficialDir(dir, dir_files):
@@ -69,7 +69,7 @@ def singlePdfDocInOfficialDir(dir, dir_files):
     """
 
     if not (len(dir_files) == 1):
-        PrintSimpleError.print_error(str(dir) + ' cannot have more than one file in it')
+        PrintSimpleError.print_error([str(dir) + ' cannot have more than one file in it'])
 
 
 def latexFilePresenceInSrc(src):
@@ -85,7 +85,7 @@ def latexFilePresenceInSrc(src):
     if (len(src_files_dic) == 1 and src_files_dic['.tex']):
         return True
     else:
-        PrintSimpleError.print_error(str(src) + ' must have exactly one latex file')
+        PrintSimpleError.print_error([str(src) + ' must have exactly one latex file'])
         return False
 
 
@@ -105,7 +105,7 @@ def onlyLatexFilesInSection(sections):
     """
     files_in_sections = getDirectoryExtensions(sections)
     if not (len(collections.Counter(files_in_sections)) == 1 and collections.Counter(files_in_sections)['.tex']):
-        PrintSimpleError.print_error(str(sections) + ' must have only latex file')
+        PrintSimpleError.print_error([str(sections) + ' must have only latex file'])
 
 
 def necessarySectionsFilesPresence(sections, necessary_files):
@@ -119,7 +119,7 @@ def necessarySectionsFilesPresence(sections, necessary_files):
     """
     for file_name in necessary_files:
         if not (sections/file_name).exists():
-            PrintSimpleError.print_error(str(sections) + ' must have ' + file_name)
+            PrintSimpleError.print_error([str(sections) + ' must have ' + file_name])
             return False
     return True
 
@@ -180,8 +180,8 @@ def versionsOrderInModificheFileCorrectness(modifiche_file):
         cur_version = sum([int(i)*(10**iteration) for i, iteration in zip(
             version.split('.')[::-1], range(0, len(version.split('.'))))])
         if (cur_version > prev_version or cur_version == prev_version):
-            PrintSimpleError.print_error('Version order not correct or same version used in ' + str(modifiche_file) + ' : ' +
-                                         str(cur_version) + " " + str(prev_version))
+            PrintSimpleError.print_error(['Version order not correct or same version used in ' + str(modifiche_file) + ' : ' +
+                                         str(cur_version) + " " + str(prev_version)])
             return False
         else:
             prev_version = cur_version
@@ -217,8 +217,7 @@ def titlePageVersionCorrectness(titlePage_file, version):
                 'Multiple versions found in ' + str(titlePage_file) + ', check for duplicates')
         elif not version_search:
             # PRE: title_page.tex has been checked for version string presence
-            PrintSimpleError.print_error(
-                'Version number not correct in ' + str(titlePage_file))
+            PrintSimpleError.print_error(['Version number not correct in ' + str(titlePage_file)])
 
 
 def styleFileVersionCorrectness(style_file, version):
@@ -232,7 +231,7 @@ def styleFileVersionCorrectness(style_file, version):
     if re.search(r'\\fancyfoot\s*\[L\].*v\s'+version+r'\s*}', style_file.read_text()):
         return
     else:
-        PrintSimpleError.print_error('Version number not correct in ' + str(style_file))
+        PrintSimpleError.print_error(['Version number not correct in ' + str(style_file)])
 
 
 def latexFilesCorrectness(latex_files):
