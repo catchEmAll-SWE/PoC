@@ -59,7 +59,7 @@ def main() -> int:
         file for file in files_w_allowed_ext if file.suffix == '.tex']
     with gha_utils.group('Latex files correctness'):
         latexFilesCorrectness(latex_files)
-    sys.exit(PrintError.getStatus().value)
+    sys.exit(PrintError.build_status.value)
 
 
 if __name__ == '__main__':  # to define that this is a script and not a module

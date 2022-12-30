@@ -8,9 +8,6 @@ class BuildStatus(Enum):
 class PrintError:
     build_status = BuildStatus.SUCCESS
 
-    @staticmethod
-    def getStatus(self):
-        return self.__build_status
 
 class PrintSimpleError(PrintError):
     @staticmethod
