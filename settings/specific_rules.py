@@ -194,7 +194,7 @@ def listCorrectness(file):
 
 
 def printMissingCharacterLines(error_message, lines, file):
-    PrintErrorsWithLines.print_error(error_message, lines)
+    PrintErrorsWithLines.print_error([error_message], lines)
 
 
 def declarationListEndingWithColon(file):
