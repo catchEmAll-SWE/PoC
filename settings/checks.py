@@ -14,7 +14,7 @@ def filesNameCorrectness(files):
     errors = []
     for file in files:
         if not srules.fileNameCorrectness(file.stem):
-            errors.append(str(file) + ' has not correct name')
+            errors.append(str(file))
     PrintSimpleError.print_error(errors, 'Files name correctness')
 # POST = print not correct files name path
 
@@ -27,7 +27,7 @@ def officialDocsDirTree(dir):
     """
     # directory tree is '*/dir_name/src/sections/'
     if not (dir/'src/sections/').exists():
-        PrintSimpleError.print_error('Directory tree not correct ' + str(dir))
+        PrintSimpleError.print_error('Directory tree not correct ' + [str(dir)])
         return False
     return True
 
