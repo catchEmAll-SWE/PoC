@@ -1,5 +1,6 @@
 from checks import *
 from pathlib import Path
+import sys
 import github_action_utils as gha_utils
 
 
@@ -72,3 +73,4 @@ def main() -> int:
 
 if __name__ == '__main__':  # to define that this is a script and not a module
     main()
+    sys.exit(1)
