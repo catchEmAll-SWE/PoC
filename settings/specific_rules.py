@@ -176,7 +176,7 @@ def listCorrectness(file):
     missing_dot_lines = itemInListEndingWithDot(file_as_string)
     minusc_first_item_letter = firstLetterInListMustBeMaiusc(file_as_string)
     if missin_colon_lines or missin_semicolon_lines or missing_dot_lines or minusc_first_item_letter:
-        gha_utils.group("Errors in " + str(file) +
+        gha_utils.notice("Errors in " + str(file) +
                          ":")
         if missin_colon_lines:
             printMissingCharacterLines(
