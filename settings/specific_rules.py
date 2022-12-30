@@ -2,6 +2,7 @@
 
 import re
 import github_action_utils as gha_utils
+from print_error import *
 
 
 def fileNameCorrectness(file_name):
@@ -42,11 +43,8 @@ def srcLatexFileCorrectness(file):
     for check in checks:
         if not re.search(checks[check], file_as_string):
             errors.append(check)
-
     if errors:
-        gha_utils.notice("Errors in " + str(file) +
-                         ":", file=file, title='Errors')
-        [gha_utils.error(' - ' + str(error)) for error in errors]
+        PrintSimpleError.print_error(errors, str(file)+' is not correct, errors:')
 
 
 def titlePageFileCorrectness(file, name):
@@ -83,11 +81,8 @@ def titlePageFileCorrectness(file, name):
                 errors.append(check)
         elif not re.search(checks[check], file_as_string):
             errors.append(check)
-
     if errors:
-        gha_utils.notice("Errors in " + str(file) +
-                         ":", file=file, title='Errors')
-        [gha_utils.error(' - ' + str(error)) for error in errors]
+        PrintSimpleError.print_error(errors, str(file)+' is not correct, errors:')
 
 
 def stylePageFileCorrectness(file, name):
@@ -127,9 +122,7 @@ def stylePageFileCorrectness(file, name):
             errors.append(check)
 
     if errors:
-        gha_utils.notice("Errors in " + str(file) +
-                         ":", file=file, title='Errors')
-        [gha_utils.error(' - ' + str(error), title=error) for error in errors]
+        PrintSimpleError.print_error(errors, str(file)+' is not correct, errors:')
 
 
 def modificheFileCorrectness(file):
@@ -152,9 +145,7 @@ def modificheFileCorrectness(file):
             errors.append(check)
 
     if errors:
-        gha_utils.notice("Errors in " + str(file) +
-                         ":", file=file, title='Errors')
-        [gha_utils.error(' - ' + str(error)) for error in errors]
+        PrintSimpleError.print_error(errors, str(file)+' is not correct, errors:')
 
 
 def getVersionsFromModificheFile(file):
@@ -203,9 +194,7 @@ def listCorrectness(file):
 
 
 def printMissingCharacterLines(error_message, lines, file):
-    gha_utils.notice(str(error_message), title=error_message)
-    [gha_utils.error(' - line: ' + str(line), title="Error", line=line, file=file)
-     for line in lines]
+    PrintErrorsWithLines.print_error(error_message, lines)
 
 
 def declarationListEndingWithColon(file):

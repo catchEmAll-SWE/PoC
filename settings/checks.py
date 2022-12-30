@@ -2,6 +2,7 @@ from pathlib import *
 import re
 import collections
 import specific_rules as srules
+from print_error import *
 import github_action_utils as gha_utils
 
 
@@ -10,12 +11,11 @@ def filesNameCorrectness(files):
     :param files: files you want to control
     :type files: list[Path]
     """
+    errors = []
     for file in files:
-        if srules.fileNameCorrectness(file.stem):
-            return
-        else:
-            gha_utils.error(
-                "Name not correct", title="filesNameCorrectness", file=file)
+        if not srules.fileNameCorrectness(file.stem):
+            errors.append(str(file) + ' has not correct name')
+    PrintSimpleError.print_error(errors, 'Files name correctness')
 # POST = print not correct files name path
 
 
@@ -26,12 +26,10 @@ def officialDocsDirTree(dir):
     :return: True if structure is coherence, False otherwise
     """
     # directory tree is '*/dir_name/src/sections/'
-    if (dir/'src/sections/').exists():
-        return True
-    else:
-        gha_utils.error('Directory tree not correct ' +
-                        str(dir), title="officialDocsDirTree")
+    if not (dir/'src/sections/').exists():
+        PrintSimpleError.print_error('Directory tree not correct ' + str(dir))
         return False
+    return True
 
 
 def officialPdfPresenceOnly(dir):
@@ -41,7 +39,6 @@ def officialPdfPresenceOnly(dir):
     :type dir: Path (absolute path)
     :return: None
     """
-
     files_dic = collections.Counter(getDirectoryExtensions(dir))
     pdfDocPresence(dir, files_dic)
     singlePdfDocInOfficialDir(dir, files_dic)
@@ -58,8 +55,7 @@ def pdfDocPresence(dir, files_dic):
     """
 
     if not (files_dic['.pdf'] == 1):
-        gha_utils.error(
-            str(dir) + ' must have exactly one pdf file', title="pdfDocPresence")
+        PrintSimpleError.print_error(str(dir) + ' must have exactly one pdf file')
 
 
 def singlePdfDocInOfficialDir(dir, dir_files):
@@ -73,8 +69,7 @@ def singlePdfDocInOfficialDir(dir, dir_files):
     """
 
     if not (len(dir_files) == 1):
-        gha_utils.error(str(dir) + ' cannot have more than one file in it',
-                        title="singlePdfDocInOfficialDir")
+        PrintSimpleError.print_error(str(dir) + ' cannot have more than one file in it')
 
 
 def latexFilePresenceInSrc(src):
@@ -90,8 +85,7 @@ def latexFilePresenceInSrc(src):
     if (len(src_files_dic) == 1 and src_files_dic['.tex']):
         return True
     else:
-        gha_utils.error(
-            str(src) + ' must have exactly one latex file', title="latexFilePresenceInSrc")
+        PrintSimpleError.print_error(str(src) + ' must have exactly one latex file')
         return False
 
 
@@ -111,8 +105,7 @@ def onlyLatexFilesInSection(sections):
     """
     files_in_sections = getDirectoryExtensions(sections)
     if not (len(collections.Counter(files_in_sections)) == 1 and collections.Counter(files_in_sections)['.tex']):
-        gha_utils.error(str(sections) + ' must have only latex file',
-                        title="onlyLatexFilesInSection")
+        PrintSimpleError.print_error(str(sections) + ' must have only latex file')
 
 
 def necessarySectionsFilesPresence(sections, necessary_files):
@@ -124,13 +117,11 @@ def necessarySectionsFilesPresence(sections, necessary_files):
     :return: True if sections passed has necessary files, False otherwise
     :rtype: bool
     """
-    presence = True
     for file_name in necessary_files:
         if not (sections/file_name).exists():
-            gha_utils.error(str(sections) + ' must have ' +
-                            str(file_name), title="necessarySectionsFilesPresence")
-            presence = False
-    return presence
+            PrintSimpleError.print_error(str(sections) + ' must have ' + file_name)
+            return False
+    return True
 
 
 def titlePageFileCorrectness(title_page_file, dir):
@@ -189,8 +180,8 @@ def versionsOrderInModificheFileCorrectness(modifiche_file):
         cur_version = sum([int(i)*(10**iteration) for i, iteration in zip(
             version.split('.')[::-1], range(0, len(version.split('.'))))])
         if (cur_version > prev_version or cur_version == prev_version):
-            gha_utils.error('Version order not correct or same version used in ' + str(modifiche_file) + ' : ',
-                            str(cur_version) + " " + str(prev_version), title="versionsOrderInModificheFileCorrectness")
+            PrintSimpleError.print_error('Version order not correct or same version used in ' + str(modifiche_file) + ' : ' +
+                                         str(cur_version) + " " + str(prev_version))
             return False
         else:
             prev_version = cur_version
@@ -222,12 +213,12 @@ def titlePageVersionCorrectness(titlePage_file, version):
         version_search = re.findall(r'\\textbf\{Versione\}\s*&\s*\(' + version +
                                     r'\)\s*\\\\\s*', titlePage_file.read_text())
         if len(version_search) > 1:
-            gha_utils.error(
-                'Multiple versions found in ' + str(titlePage_file) + ', check for duplicates', title="titlePageVersionCorrectness")
+            PrintSimpleError.print_error(
+                'Multiple versions found in ' + str(titlePage_file) + ', check for duplicates')
         elif not version_search:
             # PRE: title_page.tex has been checked for version string presence
-            gha_utils.error('Version number not correct in ' +
-                            str(titlePage_file), title="titlePageVersionCorrectness")
+            PrintSimpleError.print_error(
+                'Version number not correct in ' + str(titlePage_file))
 
 
 def styleFileVersionCorrectness(style_file, version):
@@ -241,8 +232,7 @@ def styleFileVersionCorrectness(style_file, version):
     if re.search(r'\\fancyfoot\s*\[L\].*v\s'+version+r'\s*}', style_file.read_text()):
         return
     else:
-        gha_utils.error('Version number not correct in ' +
-                        str(style_file), title="styleFileVersionCorrectness")
+        PrintSimpleError.print_error('Version number not correct in ' + str(style_file))
 
 
 def latexFilesCorrectness(latex_files):

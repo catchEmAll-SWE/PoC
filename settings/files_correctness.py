@@ -34,16 +34,14 @@ def main() -> int:
         '*') if file.suffix in allowed_extensions]
 
     # check if files have correct extension
-    with gha_utils.group('File name correctness'):
-        filesNameCorrectness(files_w_allowed_ext)
+    filesNameCorrectness(files_w_allowed_ext)
 
     official_dirs = [workingDir/dir_name for dir_name in official_docs_dirs]
     for dir in official_dirs:
         if dir.exists() and officialDocsDirTree(dir):
             src_path = dir/'src/'
             sections_path = src_path/'sections'
-            with gha_utils.group('Single pdf file in official dir'):
-                officialPdfPresenceOnly(dir)
+            officialPdfPresenceOnly(dir)
             # in dir/src/
             with gha_utils.group('Single latex file in src dir'):
                 if latexFilePresenceInSrc(src_path):
