@@ -2,6 +2,7 @@ from checks import *
 from pathlib import Path
 import sys
 import github_action_utils as gha_utils
+from print_error import PrintError
 
 
 def main() -> int:
@@ -58,8 +59,8 @@ def main() -> int:
         file for file in files_w_allowed_ext if file.suffix == '.tex']
     with gha_utils.group('Latex files correctness'):
         latexFilesCorrectness(latex_files)
+    sys.exit(PrintError.getStatus().value)
 
 
 if __name__ == '__main__':  # to define that this is a script and not a module
     main()
-    sys.exit(1)
