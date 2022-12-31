@@ -162,25 +162,75 @@ Le metriche di qualità a cui solo le varie documentazioni devono essere conform
 	\item \textbf{Browser supportati}: Che fa riferimento alla metrica \textit{MQPD14}.
 \end{itemize}
 \paragraph{Copertura funzionale}\mbox{}\\
-Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per assicurare che tutti i requisiti obbligatori del progetto siano stati integrati nel prodotto finale. Questa metrica è calcolata attraverso il rapporto tra il numero di requisiti soddisfatti e quello di requisiti obbligatori totali:
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare che tutti i requisiti obbligatori del progetto siano stati integrati nel prodotto finale. Questa metrica è calcolata attraverso il rapporto tra il numero di requisiti soddisfatti e quello di requisiti obbligatori totali:
 \begin{align*}
 	\centering
 	\textbf{CF} = \frac{RqSoddisfatti}{RqTotali}
 \end{align*}
-Dove CF sta per \textit{Copertura funzionale}.
+Dove \textbf{CF} sta per \textit{Copertura funzionale}.
 \paragraph{Tempo di risposta dei servizi all'utente}\mbox{}\\
 Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per assicurare che i tempi di risposta del prodotto siano accettabili. Un tempo di risposta adeguato in un sistema CAPTCHA è molto importante e per questo è un obiettivo fondamentale. Il valore accettabile verrà analizzato in una fase più avanzata di progetto.
 \paragraph{Copertura dei test}\mbox{}\\
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare che i test svolti sul prodotto finale coprano tutti i requisiti e casi d’uso identificati. Questa metrica è calcolata attraverso il rapporto tra il numero di requisiti e casi d'uso testati e quello di requisiti e casi d'uso totali da testare:
+\begin{align*}
+	\centering
+	\textbf{CdT} = \frac{RqUCTestati}{RqUCTotali}
+\end{align*}
+Dove \textbf{CdT} sta per \textit{Copertura dei test}.
 \paragraph{Robustezza agli errori}\mbox{}\\
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare quale parte di tutti gli errori critici, ovvero quelli che possono determinare blocchi del sistema, è stata messa sotto controllo. Questa metrica è calcolata attraverso il rapporto tra il numero di errori critici gestiti e il numero totale di errori critici da gestire:
+\begin{align*}
+	\centering
+	\textbf{RaE} = \frac{ErrCritGestiti}{ErrCritTotali}
+\end{align*}
+Dove \textbf{RaE} sta per \textit{Robustezza agli errori}.
+\newpage
 \paragraph{Completezza di descrizione}\mbox\\
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare la percentuale degli scenari d’uso che è descritta nella documentazione rispetto al totale. Questo per poter garantire informazioni complete agli utilizzatori del prodotto. Questa metrica è calcolata attraverso il rapporto tra il numero di scenari descritti e il numero di scenari effettivamente presenti:
+\begin{align*}
+	\centering
+	\textbf{CdD} = \frac{ScenariDescritti}{ScenariPresenti}
+\end{align*}
+Dove \textbf{CdD} sta per \textit{Completezza di descrizione}.
 \paragraph{Completezza della guida utente}\mbox{}\\
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare la percentuale delle funzioni utilizzabili dall'utente che hanno una descrizione completa nei vari manuali. Questa metrica è calcolata attraverso il rapporto tra il numero di funzionalità descritti e il numero di funzionalità totali:
+\begin{align*}
+	\centering
+	\textbf{CdGU} = \frac{FunzDescritte}{FunzTotali}
+\end{align*}
+Dove \textbf{CdGU} sta per \textit{Completezza della guida utente}.
 \paragraph{Interfaccia utente auto-esplicativa}\mbox{}\\
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare la percentuale degli elementi di informazione che sono presentati all’utente inesperto in modo che possa completare un’attività senza un addestramento preliminare o assistenza esterna. Questa metrica è calcolata attraverso il rapporto tra il numero di informazioni fornite all'utente rispetto a quelle di cui avrebbe bisogno per completare ogni piccolo passo:
+\begin{align*}
+	\centering
+	\textbf{IUAE} = \frac{InfoFornite}{InfoRichieste}
+\end{align*}
+Dove \textbf{IUAE} sta per \textit{Interfaccia utente auto-esplicativa}.
 \paragraph{Procedure di autenticazione}\mbox{}\\
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare che il grado di efficacia del sistema CAPTCHA implementato per l'autenticazione di un utente. Il gruppo definirà un grado di accettabilità per la percentuale di accessi indesiderati non bloccati.
+\begin{center}
+	\textbf{AINB} $\le$ 25\%
+\end{center}
+Dove \textbf{AINB} sta per \textit{Accessi indesiderati non bloccati}.
 \paragraph{Accoppiamento di componenti}\mbox{}\\
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per controllare quanti componenti del sistema sono strettamente  indipendenti e quanti sono esenti da impatti conseguenti a cambiamenti negli altri componenti.
+In futuro verrà definita un valore per misurarla al meglio. 
+\newpage
 \paragraph{Adeguatezza della complessità ciclomatica}\mbox{}\\
-\paragraph{Completezza della funzione di test}\mbox{}\\
-\paragraph{Browser supportati}\mbox{}\\
 
+\paragraph{Completezza della funzione di test}\mbox{}\\
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare la percentuale di completezza delle funzioni di test implementate. Questa metrica è calcolata attraverso il rapporto tra il numero di test implementati e il numero di test totali da fare:
+\begin{align*}
+	\centering
+	\textbf{CdFT} = \frac{TestImpl}{TestTot}
+\end{align*}
+Dove \textbf{CdFT} sta per \textit{Completezza della funzione di test}.
+\paragraph{Browser supportati}\mbox{}\\
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare il numero di browser che supportano il prodotto sviluppato. Il gruppo definirà un grado di accettabilità per la percentuale di browser che deve supportare il prodotto.
+\begin{center}
+	\textbf{BRS} $\geq$ 75\%
+\end{center}
+Dove \textbf{BRS} sta per \textit{Browser supportati}.
 
 
 
