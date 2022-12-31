@@ -9,3 +9,6 @@
 
 #ignore vscode settings
 *.vscode
+
+#ignore python caching
+*__pycache__
