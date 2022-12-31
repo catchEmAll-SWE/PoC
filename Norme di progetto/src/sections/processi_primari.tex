@@ -13,11 +13,11 @@ In data 28 ottobre 2022 viene inviata al committente la \textit{lettera di prese
 \subsection{Sviluppo}
     \subsubsection{Analisi dei requisiti}
     Il documento \textit{Analisi dei requisiti} contiene in maniera formale:
-    \begin{itemize}:
+    \begin{itemize}
         \item descrizione generale del prodotto
         \item casi d'uso
         \item requisiti, i quali vengono estrapolati da:
-        \begin{itemize}:
+        \begin{itemize}
             \item documento di presentazione del capitolato
             \item confronto tra il gruppo e con il proponente
         \end{itemize}
@@ -28,9 +28,9 @@ In data 28 ottobre 2022 viene inviata al committente la \textit{lettera di prese
     \verb|R<<tipologia di requisito>>-<<id>>|
     \newline
     Dove:
-    \begin{itemize}:
+    \begin{itemize}
         \item <<tipologia di requisito>> identifica la classe tra le seguenti:
-        \begin{itemize}:
+        \begin{itemize}
             \item funzionale
             \item qualità
             \item vincolo
@@ -38,7 +38,7 @@ In data 28 ottobre 2022 viene inviata al committente la \textit{lettera di prese
         \item <<id>> identifica il requisito nella classe di appartenza
     \end{itemize}
     Nel documento vengono raggruppati per categoria specificandone:
-    \begin{itemize}:
+    \begin{itemize}
         \item grado di obbligatorietà
         \item descrizione
         \item fonte
@@ -49,7 +49,7 @@ In data 28 ottobre 2022 viene inviata al committente la \textit{lettera di prese
     \verb|UC<<id>>.<<progressivo>>|
     \newline
     Dove 
-    \begin{itemize}:
+    \begin{itemize}
         \item id identifica l'use classe
         \item progressivo identifica eventuali sottocasi
     \end{itemize}
@@ -73,7 +73,7 @@ In data 28 ottobre 2022 viene inviata al committente la \textit{lettera di prese
     \end{lstlisting}
     Una volta fatto ciò è possibile lavorare liberamente sul proprio ramo di feature.
     \newline \textbf{Ad ogni} aggiornamento dell'attività svolta si dovrà fare riferimento alla issue e specificare il tempo impiegato per lo svolgimento di tale attività includendo nella descrizione:
-    \begin{itemize}:
+    \begin{itemize}
     \item Visual Studio Code:
     \begin{figure}[h!]
       	\centering
@@ -116,17 +116,17 @@ In data 28 ottobre 2022 viene inviata al committente la \textit{lettera di prese
     JIRA, piattaforma che offre un servizio di \textit{Issue Tracking} è il supporto scelto vista la qualità ed il numero dei servizi e delle estensioni che offre.
     \newline
     La definizione dei ticket è regolata dalla seguente convenzione:
-    \begin{itemize}:
+    \begin{itemize}
         \item titolo e descrizione devono, oltre ad essere sempre presenti, eplicitare in maniera chiara il problema
         \item utilizzo di label
         \item stima del lavoro necessario al completamento
         \item corretto utilizzo di ereditarietà (rapporti di parentela)
     \end{itemize}
     Si è deciso di di adottare il framework \textbf{Scrum} per la gestione del ciclo di sviluppo del progetto con le seguenti caratteristiche:
-    \begin{itemize}:
+    \begin{itemize}
         \item sprint della durata di una settimana
         \item utilizzo di una board avente 4 stati:
-            \begin{itemize}:
+            \begin{itemize}
                 \item to do
                 \item in progress
                 \item in review (ogni ticket deve essere validato da uno o più componenti del gruppo per essere considerato chiuso)
@@ -139,7 +139,7 @@ In data 28 ottobre 2022 viene inviata al committente la \textit{lettera di prese
     CEA-number #command <message body describing the commit>
     \end{lstlisting}
     Tra i comandi troviamo:
-    \begin{itemize}:
+    \begin{itemize}
         \item \textbf{open}: permette di spostarsi da una issue nello stadio "to do" oppure "in review" allo stadio "in progress"
         \item \textbf{review}: permette lo spostamento della issue dallo stadio "in progress" oppure "done" allo stadio "in review"
         \item \textbf{close}: premette di spostarsi dallo stadio "in review" allo stadio "done"
