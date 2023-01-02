@@ -1,6 +1,78 @@
 \section{Processi organizzativi}
-    \subsection{Gestione delle comunicazioni}
-        \subsubsection{Comunicazioni interne}
+	\subsection{Gestione progetto}
+	\subsubsection{Scopo}
+	Lo scopo di questo processo è quello di fornire al gruppo delle linee guida su come gestire l'organizzazione delle varie fasi del progetto, con i punti a seguito elencati:
+	\begin{itemize}
+		\item Gestione dei ruoli;
+		\item Gestione delle comunicazioni;
+		\item Gestione degli incontri;
+		\item Gestione per il controllo della versione;
+		\item Gestione del GitHub Workflow;
+		\item Gestione del tracciamento delle attività.
+	\end{itemize}
+	\subsubsection{Gestione ruoli}
+	Durante il corso del progetto il gruppo dovrà gestire i vari ruoli garantendo una suddivisione equa tra i membri e pertinente rispetto al processo in svolgimento.\\
+	I sei ruoli possibili da assegnare sono:
+    \begin{itemize}
+    	\item Responsabile;
+    	\item Amministratore;
+    	\item Analista;
+    	\item Progettista;
+    	\item Programmatore;
+    	\item Verificatore.
+    \end{itemize}
+	\subsubsubsection{Responsabile}
+	Il responsabile di progetto è la figura di riferimento con l'esterno, quindi  garantisce una buona comunicazione con proponente e committente. Si assume inoltre la responsabilità delle scelte del gruppo, dopo averle approvate.\\
+	Il responsabile quindi gestisce:
+	\begin{itemize}
+		\item Elaborazione di piani e scadenze del progetto;
+		\item Gestire la suddivisione dei ruoli all'interno del gruppo;
+		\item Approvare il rilascio di prodotti parziali o finali, come documentazione o software;
+		\item Analisi e gestione dei rischi.
+	\end{itemize}
+	\subsubsubsection{Amministratore}
+	L'amministratore di progetto ha lo scopo di controllare l'efficienza dell'ambiente di lavoro, assicurandosi quindi che gli strumenti di supporto alle norme di progetto siano usate correttamente dal gruppo.\\
+	L'amministratore quindi gestisce:
+	\begin{itemize}
+		\item La corretta applicazione delle norme di progetto;
+		\item La ricerca di nuovi metodi per rendere più efficiente l'ambiente di lavoro;
+		\item Le versioni dei vari prodotti durante il corso del progetto;
+		\item L'analisi di metodi per la gestione della qualità.
+	\end{itemize}
+	\subsubsubsection{Analista}
+	L'analista si occupa di analizzare a fondo il problema e di individuare i vari requisiti che dovrà avere il prodotto finale in base a ciò che si ricava dal capitolato e dai successivi incontri con il proponente. \\
+	L'analista quindi gestisce:
+	\begin{itemize}
+		\item Lo studio approfondito del dominio del problema; 
+		\item Il documento \textit{Analisi dei requisiti};
+		\item L'individuazione dei requisiti del prodotto finale;
+		\item L'analisi dei casi d'uso.
+	\end{itemize}
+	\subsubsubsection{Progettista}
+	Il progettista si occupa di trovare soluzioni tecniche e tecnologiche che possano permettere al gruppo di creare un prodotto che rispetti al meglio tutti i requisiti individuati dagli analisti. \\
+	Il progettista quindi gestisce:
+	\begin{itemize}
+		\item La scelta degli aspetti tecnici e tecnologici per la realizzazione del prodotto; 
+		\item La scelta dei vari modelli da utilizzare nella definizione dell'architettura del prodotto;
+		\item Di definire l'architettura del prodotto che verrà poi programmato;
+	\end{itemize}
+	\subsubsubsection{Programmatore}
+	Il programmatore si occupa di codificare le soluzioni individuate dai progettisti per la creazione del prodotto finale. \\
+	Il programmatore quindi gestisce:
+	\begin{itemize}
+		\item La scrittura del codice in modo che sia chiaro e facile da mantenere; 
+		\item Gli strumenti che si occupano dei test utilizzati per la verifica e la validazione del software;
+		\item La redazione del Manuale Utente relativo alla codifica del prodotto;
+	\end{itemize}
+	\subsubsubsection{Verificatore}
+	Il verificatore si occupa di tutte le operazioni di verifica e validazione dei vari prodotti parziali e finali del progetto. \\
+	Il verificatore quindi gestisce:
+	\begin{itemize}
+		\item La verifica e validazione dei prodotti parziali o finali in fase di revisione in modo che rispettino gli obiettivi di qualità imposti nel documento \textit{Piano\_di\_qualifica v 1.0.0}. I seguenti prodotti se a norma verranno di conseguenza integrati; 
+		\item Segnalare gli eventuali errori riscontrati.
+	\end{itemize}
+    \subsubsection{Gestione delle comunicazioni}
+        \subsubsubsection{Comunicazioni interne}
         Le comunicazioni interne:
         \begin{itemize}
             \item riguardano solamente i componenti del team 
@@ -14,7 +86,7 @@
                 \end{itemize}
         \end{itemize}
             
-        \subsubsection{Comunicazioni esterne}
+        \subsubsubsection{Comunicazioni esterne}
         Le comunicazioni esterne:
         \begin{itemize}
             \item riguardano il gruppo e le altre figure (proponente e committente)
@@ -24,8 +96,8 @@
 
         
         
-    \subsection{Gestione degli incontri}
-        \subsubsection{Incontri interni}
+    \subsubsection{Gestione degli incontri}
+        \subsubsubsection{Incontri interni}
         Gli incontri interni sono necessari sia per una corretta adozione del framework Scrum (incontro organizzativo settimanale)
         sia per permettere al team di interagire direttamente, discutendo, proponendo e valutando idee, problematiche e possibili 
         soluzioni: per questo si tratta di uno strumento largamente utilizzato
@@ -39,7 +111,7 @@
         \end{itemize}
         Al termine degli incontri il responsabile di progetto inserisce nello sprint corrente il compito di redigere i verbali. 
 
-        \subsubsection{Incontri esterni}
+        \subsubsubsection{Incontri esterni}
         Gli incontri esterni sono schedulati in seguito alla presenza di dubbi (implementativi, riguardanti requisiti o richieste di altro tipo) all'interno del 
         team: questi incontri sono preceduti dallo svolgimento di una o più riunioni interne nelle quali si affrontano e si definiscono tali problematiche.
         \newline
@@ -53,3 +125,94 @@
         \newline
         Come per quelli interni il responsabile di progetto inserisce nello sprint corrente il compito di redigere tali documenti.
 
+	\subsubsection{Versionamento}
+	GitHub è lo strumento utilizzato dal gruppo per il versionamento del codice.
+	\newline Il team è identificato in tale piattaforma come organizzazione (\href{https://github.com/catchEmAll-SWE}{vedi}).
+	Inoltre, al fine di documentare il più possibile, ogni commit che porta valore al progetto contiene il riferimento al ticket che completa (totalmente o anche solo parzialmente). 
+
+	\subsubsection{GitHub Workflow}
+	Tutti i titoli e le descrizioni dei commit devono essere fatti in inglese per conformità tra essi.
+	\newline Il Workflow viene gestito concorrentemente da GitHub e JIRA, in JIRA vengono create ed organizzate le issue, una volta fatto ciò si procede attraverso github alla creazione del branch relativo alla issue da risolvere.\\
+	Tale ramo ha nome codificato come:
+	\begin{lstlisting}
+		CEA-num-titolo-della-issue
+	\end{lstlisting}
+	Questo permette di identificare titolo e numero della issue di appartenenza. Una volta fatto ciò viene creato un \textbf{primo commit}, nel cui messaggio è specificata l'avvenuta presa in carico della issue, la quale dovrà passare dallo stato "to do" allo stato "in progress"\\
+	Ciò è garantito dal suddetto commit message contenente la stringa:
+	\begin{lstlisting}
+		CEA-num #open <testo aggiuntivo>
+	\end{lstlisting}
+	Una volta fatto ciò è possibile lavorare liberamente sul proprio ramo di feature.
+	\newline \textbf{Ad ogni} aggiornamento dell'attività svolta si dovrà fare riferimento alla issue e specificare il tempo impiegato per lo svolgimento di tale attività includendo nella descrizione:
+	\begin{itemize}
+		\item Visual Studio Code:
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.7]{img/visual_code_example.png}
+		\end{figure}
+		\vspace{100pt}
+		\item Git Bash:
+		\begin{lstlisting}
+	git commit -m "titolo del commit" -m "CEA-26 #time 32m ..."
+		\end{lstlisting}
+	\end{itemize}
+	Comando generico da aggiungere nel corpo del messaggio, non nel titolo del commit:
+	\begin{lstlisting}
+		CEA-num #time ww dd hh mm <testo aggiuntivo>
+	\end{lstlisting}
+	Così facendo è permesso specificare a scelta settimane, giorni, ore e minuti di lavoro, ad esempio:
+	\begin{lstlisting}
+		CEA-26 #time 1h aggiunto github Workflow
+	\end{lstlisting}
+	Ciò aggiunge 1h alle ore di lavoro impiegate per la issue con ID CEA-26, e come testo aggiuntivo per il commit "aggiunto github Workflow", ignorato da JIRA.\\
+	Una volta terminata l'attività, sarà necessario passare allo stato di revisione, il quale permette di verificare il corretto svolgimento del compito eseguito. Questo è permesso da un ultimo commit prima della revisione, con messaggio da includere nella descrizione(non titolo):
+	\begin{lstlisting}
+		CEA-num #review #time ww dd hh mm <testo aggiuntivo>
+	\end{lstlisting}
+	Questo permette lo spostamento della issue dallo stato "in progress" allo stato "in review".\\
+	Per permettere la revisione è necessario aprire una pull request, il titolo deve corrispondere al nome del branch.
+	Una volta revisionata la issue, se presenta qualche problema può essere spostata allo stato "in progress" dal pannello JIRA. Altrimenti attraverso una pull request nel ramo "main" e con il seguente comando posto \textbf{nel TITOLO del commit di chiusura della pull request} la issue verrà chiusa e considerata completata:
+	\begin{lstlisting}
+		CEA-num #close <testo aggiuntivo>
+	\end{lstlisting}
+	Una volta chiusa, sempre dalla pull request su github, \textbf{si elimina il ramo di feature} creato precedentemente.
+	\begin{figure}[h!]
+		\includegraphics[width=15cm]{img/git_pull_request.png}
+		La descrizione è a titolo esemplificativo, il contenuto non influenza gli smart commit di JIRA, il \textbf{titolo del merge commit} si.
+		\newline \includegraphics[width=15cm]{img/git_pull_request_commit.png}
+	\end{figure}
+	\clearpage
+
+	\subsubsection{Issues tracking}
+	JIRA, piattaforma che offre un servizio di \textit{Issue Tracking} è il supporto scelto vista la qualità ed il numero dei servizi e delle estensioni che offre.
+	\newline
+	La definizione dei ticket è regolata dalla seguente convenzione:
+	\begin{itemize}
+		\item titolo e descrizione devono, oltre ad essere sempre presenti, eplicitare in maniera chiara il problema
+		\item utilizzo di label
+		\item stima del lavoro necessario al completamento
+		\item corretto utilizzo di ereditarietà (rapporti di parentela)
+	\end{itemize}
+	Si è deciso di di adottare il framework \textit{Scrum} per la gestione del ciclo di sviluppo del progetto con le seguenti caratteristiche:
+	\begin{itemize}
+		\item sprint della durata di una settimana
+		\item utilizzo di una board avente 4 stati:
+		\begin{itemize}
+			\item to do
+			\item in progress
+			\item in review (ogni ticket deve essere validato da uno o più componenti del gruppo per essere considerato chiuso)
+			\item done
+		\end{itemize}
+	\end{itemize}
+
+	JIRA dispone di un'integrazione con github che fornisce un meccanismo chiamato \textit{smart commit} il quale permette la transizione dei ticket da uno stato ad un'altro attraverso comandi posti nei commit stessi, la sintassi utilizzata è la seguente
+	\begin{lstlisting}
+	CEA-number #command <message body describing the commit>
+	\end{lstlisting}
+	Tra i comandi troviamo:
+	\begin{itemize}
+		\item \textbf{open}: permette di spostarsi da una issue nello stadio "to do" oppure "in review" allo stadio "in progress"
+		\item \textbf{review}: permette lo spostamento della issue dallo stadio "in progress" oppure "done" allo stadio "in review"
+		\item \textbf{close}: premette di spostarsi dallo stadio "in review" allo stadio "done"
+		\item \textbf{close-no-rev}: permette in casi eccezionali di passare direttamente dallo stadio "in progress" allo stadio "done"
+	\end{itemize}
