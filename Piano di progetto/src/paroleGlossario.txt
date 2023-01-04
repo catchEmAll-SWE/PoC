@@ -1,0 +1,13 @@
+piano di progetto:
+milestone-2.3-rischi organizzativi-descrizione
+modello agile-3 modello di sviluppo
+framework scrum-3 modello di sviluppo
+sprint-3 modello di sviluppo
+product Backlog Renement-3 modello di sviluppo
+proof of concept-4 pianificazione
+UML-4.1.4 attivita-analisi dei requisiti
+Poc
+Technology Baseline-4-2-4 attivita
+Diagramma di Gantt
+sprint review
+MVP-4.4.6.2 Secondo periodo
