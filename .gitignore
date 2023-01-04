@@ -11,4 +11,5 @@
 *.vscode
 
 #ignore python caching
-*__pycache__
+__pycache__
+__pycache__/*
