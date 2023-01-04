@@ -1,81 +1,81 @@
-\section{Requisiti}
-In questa sezione viene riportato l'elenco completo dei requisiti del progetto.
-I requisiti sono stati individuati e classificati durante l'attività di analisi dei requisiti, e a ciascuno è stato assegnato un codice identificativo univoco secondo quanto stabilito nelle Norme di progetto.
+\section{Requisiti\textsubscript{G}}
+In questa sezione viene riportato l'elenco completo dei requisiti\textsubscript{G} del progetto.
+I requisiti\textsubscript{G} sono stati individuati e classificati durante l'attività di analisi dei requisiti\textsubscript{G}, e a ciascuno è stato assegnato un codice identificativo univoco secondo quanto stabilito nelle Norme di progetto.
 
-\subsection{Requisiti funzionali}
+\subsection{Requisiti\textsubscript{G} funzionali}
 
 \renewcommand\tabularxcolumn[1]{>{\Centering}m{#1}}
 \begin{tabularx}{\textwidth}{| c | c | X | X |} 
  \hline
- \textbf{ID Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
+ \textbf{ID\textsubscript{G} Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
  \hline
- RF-1 & Obbligatorio &  L'utente deve poter raggiungere il sistema nel web & Capitolato\\
+ RF-1 & Obbligatorio & L'utente deve poter raggiungere il sistema nel web & Capitolato\\
  \hline
-  RF-2 & Obbligatorio &  L'utente deve potersi autenticare all'interno del sistema tramite un modulo di login &  UC1, Capitolato\\
+  RF-2 & Obbligatorio & L'utente deve potersi autenticare all'interno del sistema tramite un modulo di login &  UC1, Capitolato\\
  \hline
  RF-3 & Obbligatorio &  L'utente deve poter inserire il proprio username &  UC1.1, Capitolato\\
  \hline
- RF-4 & Obbligatorio &  L'utente deve poter inserire la propria password &  UC1.1, Capitolato\\
+ RF-4 & Obbligatorio & L'utente deve poter inserire la propria password &  UC1.1, Capitolato\\
  \hline
- RF-5 & Obbligatorio &  L'utente deve superare il CAPTCHA immagini proposto dal sistema per poter effettuare il login &  UC1.2, Capitolato, VE\_20221111\\
-  \hline
- RF-6 & Obbligatorio & Alla correttezza della soluzione del CAPTCHA immagini fornita dall'utente viene applicato un margine di errore &  UC1.2, VE\_20221111\\
-\hline
- RF-7 & Opzionale & L'utente deve superare una trappola honeypot per poter effettuare il login &  UC1.3\\
+ RF-5 & Obbligatorio & L'utente deve superare il CAPTCHA\textsubscript{G}\textsubscript{G} immagini proposto dal sistema per poter effettuare l'autenticazione &  UC1.2, Capitolato, VE\_20221111\\
  \hline
- RF-8 & Opzionale & L'utente deve calcolare il proof of work per poter effettuare il login &  UC1.4, VE\_20221111\\
+ RF-6 & Obbligatorio & Alla correttezza della soluzione del CAPTCHA\textsubscript{G}\textsubscript{G} immagini fornita dall'utente viene applicato un margine di errore &  UC1.2, VE\_20221111\\
+ \hline
+ RF-7 & Opzionale & L'utente deve superare una trappola honeypot per poter effettuare l'autenticazione &  UC1.3\\
+ \hline
+ RF-8 & Opzionale & L'utente deve calcolare il proof of work per poter effettuare l'autenticazione &  UC1.4, VE\_20221111\\
  \hline
  RF-9 & Obbligatorio & All'utente viene mostrato un messaggio di errore nel caso in cui non riesca ad autenticarsi &  UC2, UC2.1, UC2.2, UC2.3, UC2.4, UC2.5\\
  \hline
- RF-10 & Obbligatorio & All'utente viene mostrato un messaggio di errore nel caso in cui abbia superato il numero massimo di tentativi di login consentito &  UC2.5, VI\_20221115\\
+ RF-10 & Obbligatorio & All'utente viene mostrato un messaggio di errore nel caso in cui abbia superato il numero massimo di tentativi di autenticazione consentito &  UC2.5, VI\_20221115\\
  \hline
- RF-11 & Obbligatorio &  L'utente deve poter richiedere la generazione di un altro CAPTCHA immagini &  UC3, VI\_20221115\\
+ RF-11 & Obbligatorio & L'utente deve poter richiedere la generazione di un altro CAPTCHA\textsubscript{G}\textsubscript{G} immagini &  UC3, VI\_20221115\\
  \hline
- RF-12 & Obbligatorio & All'utente viene mostrato un messaggio di errore nel caso in cui abbia superato il limite di richieste di rigenerazione CAPTCHA immagini &  UC4\\
+ RF-12 & Obbligatorio & All'utente viene mostrato un messaggio di errore nel caso in cui abbia superato il limite di richieste di rigenerazione CAPTCHA\textsubscript{G} immagini &  UC4\\
  \hline
-  RF-13 & Obbligatorio & Il sistema deve fornire la possibilità di richiedere la generazione di un CAPTCHA immagini & UC5, VE\_20221214\\
-   \hline
-  RF-14 & Obbligatorio & Il sistema deve comunicare un'eventuale errore nella generazione di un CAPTCHA immagini & UC6, VE\_20221214\\
-   \hline
-  RF-15 & Opzionale & Il sistema deve richiedere il calcolo il proof of work & UC7, VE\_20221111\\
-   \hline
-  RF-16 & Obbligatorio & Il sistema deve offrire le funzionalità di verifica della correttezza del CAPTCHA compilato dall'utente & UC8, VE\_20221214\\
+ RF-13 & Obbligatorio & Il sistema deve fornire la possibilità di richiedere la generazione di un CAPTCHA\textsubscript{G}\textsubscript{G} immagini & UC5, VE\_20221214\\
+ \hline
+ RF-14 & Obbligatorio & Il sistema deve comunicare un'eventuale errore nella generazione di un CAPTCHA\textsubscript{G}\textsubscript{G} immagini & UC6, VE\_20221214\\
+ \hline
+ RF-15 & Opzionale & Il sistema deve richiedere il calcolo il proof of work & UC7, VE\_20221111\\
+ \hline
+ RF-16 & Obbligatorio & Il sistema deve offrire le funzionalità di verifica della correttezza del CAPTCHA\textsubscript{G}\textsubscript{G} compilato dall'utente & UC8, VE\_20221214\\
  \hline
 \end{tabularx}
 
-\subsection{Requisiti di qualità}
+\subsection{Requisiti\textsubscript{G} di qualità}
 \renewcommand\tabularxcolumn[1]{>{\Centering}m{#1}}
 \begin{tabularx}{\textwidth}{| c | c | X | c |} 
  \hline
- \textbf{ID Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
+ \textbf{ID\textsubscript{G} Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
  \hline
- RQ-1 & Obbligatorio &  Il captcha deve mitigare potenziali attacchi “brute force” & Capitolato, VE\_20221111\\
+ RQ-1 & Obbligatorio & Il CAPTCHA\textsubscript{G} deve mitigare potenziali attacchi “brute force\textsubscript{G}” & Capitolato, VE\_20221111\\
  \hline
   RQ-2 & Obbligatorio & Il server non deve accettare chiamate con dati falsificati & Capitolato\\
  \hline
- RQ-3 & Obbligatorio &  Dovrà essere prodotto un manuale utente del prodotto & Capitolato\\
+ RQ-3 & Obbligatorio & Dovrà essere prodotto un manuale utente del prodotto & Capitolato\\
  \hline
- RQ-4 & Obbligatorio &  Dovrà essere prodotto un manuale utente per l'estensione del prodotto &  Capitolato\\
+ RQ-4 & Obbligatorio & Dovrà essere prodotto un manuale utente per l'estensione del prodotto &  Capitolato\\
  \hline
  RQ-5 & Obbligatorio & Il prodotto dovrà essere sviluppato rispettando quanto espresso nelle Norme di progetto & VI\_20221115\\
  \hline
- RQ-6 & Obbligatorio &  La documentazione e il codice sorgente del prodotto saranno pubblicate su GitHub & VI\_20221115\\
+ RQ-6 & Obbligatorio & La documentazione e il codice sorgente del prodotto saranno pubblicate su GitHub & VI\_20221115\\
  \hline
  RQ-7 & Obbligatorio & Dovrà essere condotta un'analisi sulle tecnologie utilizzate & Capitolato\\
  \hline
 \end{tabularx}
 
-\subsection{Requisiti di vincolo}
+\subsection{Requisiti\textsubscript{G} di vincolo}
 \renewcommand\tabularxcolumn[1]{>{\Centering}m{#1}}
 \begin{tabularx}{\textwidth}{| c | c | X | c |} 
  \hline
- \textbf{ID Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
+ \textbf{ID\textsubscript{G} Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
  \hline
  RV-1 & Obbligatorio &  Il sistema deve essere raggiungibile nel web & Capitolato\\
  \hline
   RV-2 & Obbligatorio & Il sistema deve funzionare con la versione più recente del browser Chrome & VI\_20221115\\
  \hline
- RV-3 & Obbligatorio &  Le librerie utilizzate devono essere open source & Capitolato\\
+ RV-3 & Obbligatorio &  Le librerie utilizzate devono essere open source\textsubscript{G} & Capitolato\\
  \hline
  RV-4 & Obbligatorio & I servizi web utilizzati devono essere gratuiti &  Capitolato\\
  \hline
@@ -85,10 +85,10 @@ I requisiti sono stati individuati e classificati durante l'attività di analisi
  \hline
 \end{tabularx}
 
-\subsection{Requisiti prestazionali}
-Non sono stati individuati requisiti prestazionali misurabili.
+\subsection{Requisiti\textsubscript{G} prestazionali}
+Non sono stati individuati requisiti\textsubscript{G} prestazionali misurabili.
 
-\subsection{Tracciamento dei requisiti}
+\subsection{Tracciamento dei requisiti\textsubscript{G}}
 
 \subsubsection{Requisito - Fonti}
 \begin{table}[H]
@@ -158,12 +158,12 @@ Non sono stati individuati requisiti prestazionali misurabili.
 	\end{tabular}
 \end{table}
 
-\subsubsection{Fonte - Requisiti}
+\subsubsection{Fonte - Requisiti\textsubscript{G}}
 \begin{table}[H]
 	\centering
 	\begin{tabular}{| p{0.5\textwidth} | p{0.5\textwidth} |} 
  \hline
- \textbf{Fonte} & \textbf{Requisiti} \\
+ \textbf{Fonte} & \textbf{Requisiti\textsubscript{G}} \\
  \hline
 	UC1 & RF-2\\
 \hline
@@ -212,7 +212,7 @@ Non sono stati individuati requisiti prestazionali misurabili.
 	\end{tabular}
 \end{table}
 
-\subsection{Riepilogo dei requisiti}
+\subsection{Riepilogo dei requisiti\textsubscript{G}}
 
 \begin{table}[h]
 	\centering

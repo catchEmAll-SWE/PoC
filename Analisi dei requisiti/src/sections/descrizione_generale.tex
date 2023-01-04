@@ -1,43 +1,43 @@
 \section{Descrizione generale}
 
 \subsection{Caratteristiche del prodotto}
-L'obiettivo di questo progetto è la creazione di un captcha che permetta il riconoscimento tra un essere umano ed un bot\textsubscript{G} in maniera efficace, per offrire un'alternativa valida ai sistemi già esistenti che oramai non sono più in grado di svolgere questa task in maniera ottimale.\\
+L'obiettivo di questo progetto è la creazione di un CAPTCHA\textsubscript{G} che permetta il riconoscimento tra un essere umano ed un bot\textsubscript{G} in maniera efficace, per offrire un'alternativa valida ai sistemi già esistenti che oramai non sono più in grado di svolgere questa task\textsubscript{G} in maniera ottimale.\\
 
 \noindent Di seguito vengono descritte le caratteristiche che dovrà avere il prodotto.
 
-\subsubsection{Task richiesta}
-Il test CAPTCHA pensato richiederà all'utente di svolgere una task di classificazione.\\
+\subsubsection{Task\textsubscript{G} richiesta}
+Il test CAPTCHA\textsubscript{G} pensato richiederà all'utente di svolgere una task\textsubscript{G} di classificazione.\\
 In particolare verrà fornito un insieme di 9 immagini, ognuna con una propria classe di appartenenza, con un totale di classi, presenti nell'insieme fornito, che può variare tra 2 ad un massimale di 4.\\
-All'utente, come task, verrà richiesto di selezionare le immagini appartenenti ad una particolare classe presente nell'insieme.
+All'utente, come task\textsubscript{G}, verrà richiesto di selezionare le immagini appartenenti ad una particolare classe presente nell'insieme.
 
-\subsubsection{Dataset di immagini}
-Verrà utilizzato il dataset pubblico Unsplash, un dataset di immagini senza copyright, il quale fornisce un'API che permette il prelevamento di immagini dato un ID\textsubscript{G} o una query\textsubscript{G}, la cui immagine risultante sarà fatta corrispondere ad una classe di appartenenza nel nostro database.
+\subsubsection{Dataset\textsubscript{G} di immagini}
+Verrà utilizzato il dataset\textsubscript{G} pubblico Unsplash, un dataset\textsubscript{G} di immagini senza copyright\textsubscript{G}, il quale fornisce un'API che permette il prelevamento di immagini dato un ID\textsubscript{G} o una query\textsubscript{G}, la cui immagine risultante sarà fatta corrispondere ad una classe di appartenenza nel nostro database.
 
-\subsubsection{Algoritmo di rielaborazione di un immagine}
-Il team si occuperà di generare un algoritmo\textsubscript{G} ad hoc, in linguaggio Python\textsubscript{G}, che presa un'immagine dal dataset Unsplash, individua il soggetto dell'immagine per poi ridefinirne solo i contorni in bianco e lasciando tutto il resto dell'immagine in nero.  
+\subsubsection{Algoritmo\textsubscript{G} di rielaborazione di un immagine}
+Il team si occuperà di generare un algoritmo\textsubscript{G} ad hoc, in linguaggio Python\textsubscript{G}, che presa un'immagine dal dataset\textsubscript{G} Unsplash, individua il soggetto dell'immagine per poi ridefinirne solo i contorni in bianco e lasciando tutto il resto dell'immagine in nero.  
 
-\subsubsection{Algoritmo di controllo sulla correttezza della soluzione generata dall'utente}
-Ricevuta la soluzione generata dall'utente in risposta al CAPTCHA fornitogli, vi è la necessità di creare un algoritmo che verifichi la correttezza o meno della soluzione proposta. In caso di correttezza, l'utente effettuerà il login, altrimenti gli verrà generato un altro CAPTCHA da risolvere, con immagini diverse e un'altra classe da individuare all'interno dell'insieme, diminuendo di un numero il numero di tentativi rimasti per autenticarsi. Al termine di questi tentativi, l'utente verrà bloccato per 20 minuti prima di poter riprovare ad accedere. 
+\subsubsection{Algoritmo\textsubscript{G} di controllo sulla correttezza della soluzione generata dall'utente}
+Ricevuta la soluzione generata dall'utente in risposta al CAPTCHA\textsubscript{G} fornitogli, vi è la necessità di creare un algoritmo che verifichi la correttezza o meno della soluzione proposta. In caso di correttezza, l'utente effettuerà il login, altrimenti gli verrà generato un altro CAPTCHA\textsubscript{G} da risolvere, con immagini diverse e un'altra classe da individuare all'interno dell'insieme, diminuendo di un numero il numero di tentativi rimasti per autenticarsi. Al termine di questi tentativi, l'utente verrà bloccato per 20 minuti prima di poter riprovare ad accedere. 
 
 \subsection{Obblighi di Progettazione}
 \begin{itemize}
     \item Sviluppare una applicazione web costituita da una pagina di login che presenti un sistema in grado di distinguere un utente umano da un robot;
-    \item Verifica che dimostri che il sistema CAPTCHA non è eludibile chiamando in modo diretto la componente server senza aver utilizzato la parte client;
+    \item Verifica che dimostri che il sistema CAPTCHA\textsubscript{G} non è eludibile chiamando in modo diretto la componente server senza aver utilizzato la parte client;
     \item Analisi sulle tecnologie utilizzate, al fine di indicare quali sviluppi futuri di diverse tecnologie possono con il tempo rendere inefficace il sistema di verifica;
-    \item Il sistema di CAPTCHA potrà essere una libreria Open Source, un servizio obbligatoriamente gratuito fruibile via web.
+    \item Il sistema di CAPTCHA\textsubscript{G} potrà essere una libreria Open Source\textsubscript{G}, un servizio obbligatoriamente gratuito fruibile via web.
 \end{itemize}
 
-\subsection{Requisiti opzionali}
+\subsection{Requisiti\textsubscript{G} opzionali}
 \begin{itemize}
     \item Form di registrazione di un nuovo utente;
     \item Mini-forum che accetta contenuti prodotti dagli utenti dell'applicazione;
-    \item Pagina di ricerca sul forum con verifica CAPTCHA;
+    \item Pagina di ricerca sul forum con verifica CAPTCHA\textsubscript{G};
 \end{itemize}
 
 \subsection{Tecnologie utilizzate}
 Per sviluppare la piattaforma verranno utilizzate le seguenti tecnologie:
 \begin{itemize}
-    \item Python: Sviluppo interfaccia web, algoritmi di elaborazione delle immagini e controllo dei documenti;
+    \item Python\textsubscript{G}: Sviluppo interfaccia web, algoritmi di elaborazione delle immagini e controllo dei documenti;
     \item HTML5: Sviluppo interfaccia web;
     \item CSS3: Sviluppo interfaccia web;
 \end{itemize}
