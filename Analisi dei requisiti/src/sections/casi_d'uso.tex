@@ -8,7 +8,7 @@ Dato che il requisito obbligatorio richiede la costruzione di una pagina di logi
 \begin{center}
 \includegraphics[scale = 1]{img/utente_generico.png}\\
 \end{center}
-L'utente generico, che potrà essere una persona fisica o anche un bot, potrà accedere a tutte le funzionalità della WebApp. \\
+L'utente generico, che potrà essere una persona fisica o anche un bot\textsubscript{G}, potrà accedere a tutte le funzionalità della WebApp. \\
 \begin{center}
 \includegraphics[scale = 1]{img/webapp.png}\\
 \end{center}
@@ -75,7 +75,7 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA. 
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-   \item All'utente viene presentata una trappola honeypot, sottoforma di immagine nascosta ad un utente umano, ma visibile ad un bot.
+   \item All'utente viene presentata una trappola honeypot, sottoforma di immagine nascosta ad un utente umano, ma visibile ad un bot\textsubscript{G}.
    \item L'utente non seleziona l'immagine nascosta.
 \end{enumerate}
 
@@ -144,7 +144,7 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA. 
 \begin{enumerate}
     \item L'utente seleziona l'immagine nascosta;
 	\item L’utente visualizza un messaggio di errore;
-	\item L'utente viene riconosciuto come bot e verrà bloccato nei futuri tentativi di login.
+	\item L'utente viene riconosciuto come bot\textsubscript{G} e verrà bloccato nei futuri tentativi di login.
 \end{enumerate}
 
 \paragraph{UC2.4 - Errore proof of work}
@@ -156,7 +156,7 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA. 
 \begin{enumerate}
     \item L'utente inserisce le credenziali e compila il CAPTCHA immagini in maniera troppo rapida, per cui non viene eseguito il calcolo del proof of work;
 	\item L’utente visualizza un messaggio di errore;
-	\item L'utente viene riconosciuto come bot e verrà bloccato nei futuri tentativi di login.
+	\item L'utente viene riconosciuto come bot\textsubscript{G} e verrà bloccato nei futuri tentativi di login.
 \end{enumerate}
 
 \paragraph{UC2.5 - Tentativi massimi superati}
