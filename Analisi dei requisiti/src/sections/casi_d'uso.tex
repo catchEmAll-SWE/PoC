@@ -8,7 +8,7 @@ Dato che il requisito obbligatorio richiede la costruzione di una pagina di logi
 \begin{center}
 \includegraphics[scale = 1]{img/utente_generico.png}\\
 \end{center}
-L'utente generico, che potrà essere una persona fisica o anche un bot\textsubscript{G}, potrà accedere a tutte le funzionalità della WebApp. \\
+L'utente generico, che potrà essere una persona fisica o anche un bot\textsubscript{G}, potrà accedere alle funzionalità della WebApp. \\
 \begin{center}
 \includegraphics[scale = 1]{img/webapp.png}\\
 \end{center}
@@ -75,7 +75,7 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA. 
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-   \item All'utente viene presentata una trappola honeypot, sottoforma di immagine nascosta ad un utente umano, ma visibile ad un bot\textsubscript{G}.
+   \item All'utente viene presentata una trappola honeypot, sottoforma di immagine nascosta ad un utente umano, ma visibile ad un bot\textsubscript{G};
    \item L'utente non seleziona l'immagine nascosta.
 \end{enumerate}
 
@@ -104,11 +104,11 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA. 
 
 \textbf{Generalizzazioni}: L'utente ha commesso uno dei seguenti errori:
 \begin{enumerate}
-	\item Ha inserito delle credenziali errate [UC2.1]
-	\item Ha sbagliato la classificazione delle immagini [UC2.2]
-	\item E' caduto nella trappola honeypot [UC2.3]
-	\item Non ha calcolato il proof of work [UC2.4]
-	\item Ha superato il numero massimo di tentativi disponibili [UC2.5]
+	\item Ha inserito delle credenziali errate [UC2.1];
+	\item Ha sbagliato la classificazione delle immagini [UC2.2];
+	\item E' caduto nella trappola honeypot [UC2.3];
+	\item Non ha calcolato il proof of work [UC2.4];
+	\item Ha superato il numero massimo di tentativi disponibili [UC2.5].
 \end{enumerate}
 
 \paragraph{UC2.1 - Credenziali errate}
@@ -118,7 +118,12 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA. 
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-    \item L'utente inserisce uno username non registrato nel sistema, una password sbagliata per lo username scelto, oppure non inserisce le credenziali;
+    \item L'utente inserisce in alternativa:
+        \begin{itemize}
+            \item Username non registrato nel sistema;
+            \item Una password sbagliata per lo username scelto;
+            \item Non inserisce le credenziali.
+        \end{itemize}
 	\item L’utente visualizza un messaggio di errore;
 	\item Il numero di tentativi consecutivi compiuti dall’utente aumenta di 1.
 \end{enumerate}
@@ -130,7 +135,7 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA. 
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-    \item L'utente classifica le immagini proposte superando il margine di errore consentito rispetto alla classificazione in uso dal sistema;
+    \item L'utente classifica le immagini proposte superando il margine di errore tollerato rispetto alla classificazione in uso dal sistema;
 	\item L’utente visualizza un messaggio di errore;
 	\item Il numero di tentativi consecutivi compiuti dall’utente aumenta di 1.
 \end{enumerate}
@@ -149,14 +154,18 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA. 
 
 \paragraph{UC2.4 - Errore proof of work}
 \textbf{Attore primario:} Utente generico\\
-\textbf{Precondizioni}: Il proof of work non viene calcolato.\\
+\textbf{Precondizioni}: Il proof of work non è stato calcolato.\\
 \textbf{Postcondizioni}:  L’utente visualizza un messaggio di errore e l’operazione di autenticazione fallisce.\\
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-    \item L'utente inserisce le credenziali e compila il CAPTCHA immagini in maniera troppo rapida, per cui non viene eseguito il calcolo del proof of work;
+    \item In alternativa:
+    \begin{itemize}
+        \item L'utente inserisce le credenziali e compila il CAPTCHA immagini in maniera troppo rapida, per cui non viene eseguito il calcolo del proof of work;
+        \item L'utente invia un proof of work non valido.
+    \end{itemize}
 	\item L’utente visualizza un messaggio di errore;
-	\item L'utente viene riconosciuto come bot\textsubscript{G} e verrà bloccato nei futuri tentativi di login.
+	\item L'utente viene bloccato in fase di login.
 \end{enumerate}
 
 \paragraph{UC2.5 - Tentativi massimi superati}
@@ -214,7 +223,7 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA. 
 \begin{enumerate}
     \item La WebApp richiede la generazione di un CAPTCHA immagini;
     \item Il CAPTCHA immagini viene generato utilizzando le immagini fornite da Unsplash e quelle presenti nel database interno;
-    \item Viene generato un immagine aggiuntivo che funge da honeypot;
+    \item Viene generato un immagine aggiuntiva che funge da honeypot;
     \item Il CAPTCHA immagini viene restituito alla WebApp.
 \end{enumerate}
 \textbf{Scenari alternativi}:
