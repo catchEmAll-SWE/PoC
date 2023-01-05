@@ -1,0 +1,5 @@
+SPICE-2.1.2.1 Dettagli delle metriche di qualità di processo utilizzate
+NPLF-(Ogni attributo di processo viene valutato su una scala di valutazione NPLF.
+	Il gruppo si impegna a raggiungere un grado di capability minimo di 2 per ogni processo.)
+BCWS-(Questo valore deve essere un intorno del BCWS con un errore non superiore al 20%.)
+Indice di Gulpease
