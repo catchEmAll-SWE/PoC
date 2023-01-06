@@ -1,6 +1,6 @@
 \section{Obiettivi e metriche di qualità}
 \subsection{Obiettivi e metriche di qualità di processo}
-In questa sezione vengono illustrati come il gruppo vuole verificare e misurare i progressi dei processi primari e di supporto nel corso del progetto. 
+In questa sezione viene illustrato come il gruppo vuole verificare e misurare i progressi dei processi primari e di supporto nel corso del progetto. 
 \subsubsection{Obiettivi di qualità di processo}
 \begin{table}[H]
 	\centering
@@ -12,7 +12,7 @@ In questa sezione vengono illustrati come il gruppo vuole verificare e misurare 
 	\hline
 	OQPC02 & Efficienza nell'utilizzo delle risorse & Le risorse disponibili durante la durata del progetto devono essere distribuite ed utilizzate al meglio & MQPC02 - Costo pianificato di progetto; MQPC03 - Costo pianificato di progetto svolto; \hspace{25pt} MQPC04 - Costo reale di progetto svolto \\
 	\hline
-	OQPC03 & Variazioni dalla pianificazione & Assicurare che le scadenze e i limiti di costi illustrati nel documento \textit{piano\_di\_progetto} siano rispettati &  MPC05: Variazioni nella programmazione;\hspace{65pt} MPC06: Variazioni nei costi. \\
+	OQPC03 & Variazioni dalla pianificazione & Assicurare che le scadenze e i limiti di costi illustrati nel documento \textit{Piano di progetto} siano rispettati &  MPC05: Variazioni nella programmazione;\hspace{65pt} MPC06: Variazioni nei costi. \\
 	\hline
 	\caption{Obiettivi di qualità di processo.}
 	\end{tabularx}
@@ -25,7 +25,7 @@ In questa sezione vengono illustrati come il gruppo vuole verificare e misurare 
 		\hline
 		\textbf{ID} & \textbf{Nome} & \textbf{Obiettivo} & \textbf{Valore accettabile} & \textbf{Valore ottimo}\\
 		\hline
-		MQPC01 & SPICE & OQPC01 - Miglioramento continuo & Level of Capability $\geq$ 2 (Managed process) & Level of Capability $\geq$ 4 (Predictable process) \\
+		MQPC01 & SPICE & OQPC01 - Miglioramento continuo & Level of Capability\textsubscript{G} $\geq$ 2 (Managed process) & Level of Capability\textsubscript{G} $\geq$ 4 (Predictable process) \\
 		\hline
 		MQPC02 & Costo pianificato di progetto & OQPC02 - Efficienza nell'utilizzo delle risorse & $\geq$ 0 \& $\le$ 11.100 & $\geq$ 0 \& $\le$ 11.100\\
 		\hline
@@ -44,23 +44,23 @@ In questa sezione vengono illustrati come il gruppo vuole verificare e misurare 
 Le metriche di qualità a cui ogni processo deve essere conforme sono:
 \begin{itemize}
 	\item \textbf{SPICE}: Riferito alla metrica per misurare il miglioramento continuo (MQPC01);
-	\item \textbf{Costo pianificato di progetto}: Riferito alla metrica per misurare l'efficienza dell'utilizzo delle risorse continuo (MQPC02);
-	\item \textbf{Costo pianificato di progetto svolto}: Riferito alla metrica per misurare l'efficienza dell'utilizzo delle risorse continuo (MQPC03);
-	\item \textbf{Costo reale di progetto svolto}: Riferito alla metrica per misurare l'efficienza dell'utilizzo delle risorse continuo (MQPC04);
+	\item \textbf{Costo pianificato di progetto}: Riferito alla metrica per misurare l'efficienza dell'utilizzo delle risorse (MQPC02);
+	\item \textbf{Costo pianificato di progetto svolto}: Riferito alla metrica per misurare l'efficienza dell'utilizzo delle risorse (MQPC03);
+	\item \textbf{Costo reale di progetto svolto}: Riferito alla metrica per misurare l'efficienza dell'utilizzo delle risorse (MQPC04);
 	\item \textbf{Variazioni nella pianificazione}: Riferito alla metrica per misurare le variazioni dalla pianificazione (MQPC05);
 	\item \textbf{Variazioni nei costi}: Riferito alla metrica per misurare le variazioni dalla pianificazione (MQPC06).
 \end{itemize}
 \paragraph{SPICE}\mbox{}\\
-Questa metrica è di riferimento ai processi ed è stata scelta dal gruppo per verificare il grado di \textit{capability} che ogni processo deve raggiungere. Lo standard definisce vari livelli di \textit{capability}:
+Questa metrica è di riferimento ai processi ed è stata scelta dal gruppo per verificare il grado di \textit{capability}\textsubscript{G} che ogni processo deve raggiungere. Lo standard definisce vari livelli di \textit{capability}\textsubscript{G}:
 \begin{itemize}
-	\item \textbf{Livello 0 - Incomplete process}: Il processo non è implementato o incapace di raggiungere i suoi obiettivi;
-	\item \textbf{Livello 1 - Performed process}: Il processo è attivo e può essere completato ma non è sottoposto a controlli e verifiche;
-	\item \textbf{Livello 2 - Managed process}: Il processo processo attivo è pianificato e può completare i suoi obbiettivi attraverso vari controlli e verifiche;
-	\item \textbf{Livello 3 - Established process}: Il processo definito da degli standard;
+	\item \textbf{Livello 0 - Incomplete process}: Il processo non è implementato oppure è incapace di raggiungere i suoi obiettivi;
+	\item \textbf{Livello 1 - Performed process}: Il processo è attivo e può essere completato ma non è sottoposto a controlli;
+	\item \textbf{Livello 2 - Managed process}: Il processo processo è attivo e pianificato, e può completare i suoi obbiettivi attraverso vari controlli;
+	\item \textbf{Livello 3 - Established process}: Il processo è definito da degli standard;
 	\item \textbf{Livello 4 - Predictable process}: Il processo è attivo secondo standard e viene controllato in modo dettagliato per renderlo in futuro prevedibile e ripetibile;
-	\item \textbf{Livello 5 - Optimizing process}: Il processo è completamente definito e tracciato, e viene analizzatto e migliorato di continuo.
+	\item \textbf{Livello 5 - Optimizing process}: Il processo è completamente definito e tracciato, e viene analizzato e migliorato in maniera continua.
 \end{itemize}
-Per misurare la capability di utilizzano i vari attributi di un processo:
+Per misurare la \textit{capability}\textsubscript{G} si utilizzano i vari attributi di un processo:
 \begin{itemize}
 	\item Process performance;
 	\item Performance management;
@@ -72,15 +72,15 @@ Per misurare la capability di utilizzano i vari attributi di un processo:
 	\item Process innovation;
 	\item Process optimization.
 \end{itemize}
-Ogni attributo di processo viene valutato su una scala di valutazione NPLF.\\ Il gruppo si impegna a raggiungere un grado di capability minimo di 2 per ogni processo.
+Ogni attributo di processo viene valutato su una scala di valutazione NPLF\textsubscript{G}.\\ Il gruppo si impegna a raggiungere un grado di \textit{capability}\textsubscript{G} minimo di 2 per ogni processo.
 \paragraph{Costo pianificato di progetto}\mbox{}\\
-Questa metrica è di riferimento ai processi ed è stata scelta dal gruppo per indicare il costo totale di progetto pianificato alla data corrente. Il valore si può osservare nella sezione preventivo del \textit{PdP}. Questo valore deve essere $\geq$ 0 e minore del budget totale disponibile.
+Questa metrica è di riferimento ai processi ed è stata scelta dal gruppo per indicare il costo totale di progetto pianificato alla data corrente. Il valore si può osservare nella sezione \textit{Preventivo} del \textbf{Piano di progetto}. Questo valore deve essere $\geq$ 0 e minore del budget totale disponibile.
 \paragraph{Costo pianificato di progetto svolto}\mbox{}\\
 Questa metrica è di riferimento ai processi ed è stata scelta dal gruppo per indicare il valore effettivo del prodotto ottenuto fino alla data corrente.
 \paragraph{Costo reale di progetto svolto}\mbox{}\\
-Questa metrica è di riferimento ai processi ed è stata scelta dal gruppo per indicare il costo reale impiegato per svolgere il progetto fino alla data corrente. Il valore si può osservare nella sezione consuntivo del \textit{PdP}. Questo valore deve essere un intorno del BCWS con un errore non superiore al 20\%.
+Questa metrica è di riferimento ai processi ed è stata scelta dal gruppo per indicare il costo reale impiegato per svolgere il progetto fino alla data corrente. Il valore si può osservare nella sezione \textit{Consuntivo} del \textbf{Piano di progetto}. Questo valore deve essere un intorno\textsubscript{G} del BCWS con un errore non superiore al 20\%.
 \paragraph{Variazioni nella pianificazione}\mbox{}\\
-Questa metrica è di riferimento ai processi ed è stata scelta dal gruppo per misurare in che percentuale ci sono state variazioni la pianificazione preventivata e quella reale. Questa metrica si calcola:
+Questa metrica è di riferimento ai processi ed è stata scelta dal gruppo per misurare in che percentuale ci sono state variazioni rispetto alla pianificazione preventivata. Questa metrica si calcola come segue:
 \begin{align*}
 	\centering
 	\textbf{VP} = \frac{100 * (BCWP - BCWS)}{BCWS}
@@ -92,7 +92,7 @@ Dove:
 	\item \textbf{BCWS} sta per \textit{Budgeted Cost of Work Scheduled}.
 \end{itemize}
 \paragraph{Variazioni nei costi}\mbox{}\\
-Questa metrica è di riferimento ai processi ed è stata scelta dal gruppo per misurare in che percentuale ci sono state variazioni tra i costi di sviluppo pianificati e quelli reali. Questa metrica si calcola:
+Questa metrica è di riferimento ai processi ed è stata scelta dal gruppo per misurare in che percentuale ci sono state variazioni tra i costi di sviluppo pianificati e quelli reali. Questa metrica si calcola come segue:
 \begin{align*}
 	\centering
 	\textbf{VC} = \frac{100 * (BCWS - ACWP)}{BCWS}
@@ -105,7 +105,7 @@ Dove:
 \end{itemize}
 \newpage
 \subsection{Obiettivi e metriche di qualità di prodotto}
-Riferendoci alla serie di standard ISO/IEC 25000 SQuaRE è possibile osservare un insieme di caratteristiche che il prodotto deve avere per essere considerato di qualità. Queste caratteristiche saranno misurabili tramite metriche apposite, le quali forniranno i valori accettabili per il raggiungimento dell'obiettivo.
+Riferendoci alla serie di standard ISO/IEC 25000 SQuaRE possiamo osservare un insieme di caratteristiche che il prodotto deve avere per essere considerato di qualità. Queste caratteristiche saranno misurabili tramite metriche apposite, le quali forniranno i valori accettabili per il raggiungimento dell'obiettivo.
 \subsubsection{Obiettivi di qualità di prodotto}
 \subsubsubsection{Documentazione}
 \begin{table}[H]
@@ -114,9 +114,9 @@ Riferendoci alla serie di standard ISO/IEC 25000 SQuaRE è possibile osservare u
 		\hline
 		\textbf{ID} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Metriche associate}\\
 		\hline
-		OQPD01 & Leggibilità dei documenti & I documenti devono essere comprensibile all'utente medio & MQPC01 - Indice di Gulpease\\
+		OQPD01 & Leggibilità dei documenti & I documenti devono essere comprensibile all'utente medio & MQPD01 - Indice di Gulpease\\
 		\hline
-		OQPD02 & Correttezza ortografica & I documenti devono essere scritti senza errori ortografici & MQPC02 - Correttezza documento \\
+		OQPD02 & Correttezza ortografica & I documenti devono essere scritti senza errori ortografici & MQPD02 - Correttezza documento \\
 		\hline
 		\caption{Obiettivi di qualità di processo specifici.}
 	\end{tabularx}
@@ -128,19 +128,19 @@ Riferendoci alla serie di standard ISO/IEC 25000 SQuaRE è possibile osservare u
 		\hline
 		\textbf{ID} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Metriche associate}\\
 		\hline
-		OQPD03 & Appropriatezza funzionale & Si vogliono soddisfare in modo completo i requisiti presenti nel documento \textit{Analisi\_dei\_requisiti} & MQPD03 - Completezza dei requisiti \\
+		OQPD03 & Appropriatezza funzionale & Si vogliono soddisfare in modo completo i requisiti presenti nel documento \textit{Analisi dei requisiti} & MQPD03 - Copertura funzionale \\
 		\hline
 		OQPD04 & Efficienza & Si vuole realizzare un prodotto che soddisfi gli obiettivi prefissati dando all'utente un'esperienza che utilizzi al meglio le capacità del sistema. & MQPD04 - Tempo di risposta dei servizi all'utente\\
 		\hline
-		OQPD05 & Affidabilità & Si vuole che il prodotto fornito sia sempre disponibile e con meno errori possibili. Nel caso se ne verifichino il prodotto deve poter rispondere adeguatamente. & MQPD05 - Test di affidabilità superati\\
+		OQPD05 & Affidabilità & Si vuole che il prodotto fornito sia sempre disponibile e con meno errori possibili. Nel caso se ne verifichino il prodotto deve poter rispondere adeguatamente. & MQPD05 - Copertura dei test, MQPD06 - Robustezza agli errori\\
 		\hline
-		OQPD06 & Usabilità & Si vuole realizzare un prodotto facilmente usabile dagli utenti e che non richieda sforzi nel capire il suo funzionamento. & MQPD06 - Tempo medio di apprendimento per l'utilizzo del prodotto\\
+		OQPD06 & Usabilità & Si vuole realizzare un prodotto facilmente usabile dagli utenti e che non richieda sforzi nel capire il suo funzionamento. & MQPD07 - Completezza di descrizione, MQPD08 - Completezza della guida utente\\
 		\hline
-		QQPD07 & Sicurezza & Si vuole realizzare un prodotto che garantisca la sicurezza dei sistemi e degli utenti che interagiscono con quest'ultimo. & OQPD07 - Tasso di bot non rilevati\\
+		QQPD07 & Sicurezza & Si vuole realizzare un prodotto che garantisca la sicurezza dei sistemi e degli utenti che interagiscono con quest'ultimo. & MQPD10 - Procedure di autenticazione \\
 		\hline
-		OQPD08 & Manutenibilità & Si vuole ottenere un prodotto riutilizzabile e facilmente migliorabile in futuro. & MQPD08 - Complessità del codice del prodotto\\
+		OQPD08 & Manutenibilità & Si vuole ottenere un prodotto riutilizzabile e facilmente migliorabile in futuro. & MQPD11 - Accoppiamento\textsubscript{G} di componenti, MQPD12 - Adeguatezza della complessità ciclomatica\textsubscript{G}, MQPD13 - Completezza della funzione di test\\
 		\hline
-		OQPD09 & Compatibilità & Il prodotto dovrà essere accessibile al numero più elevato di utenti possibile, garantendo quindi la compatibilità con tutti i browser più diffusi. & MQPD09 -\\
+		OQPD09 & Compatibilità & Il prodotto dovrà essere accessibile al numero più elevato di utenti possibile, garantendo quindi la compatibilità con tutti i browser più diffusi. & MQPD14 - Browser supportati \\
 		\hline
 		\caption{Obiettivi di qualità di prodotto.}
 	\end{tabularx}
@@ -155,33 +155,33 @@ Alcuni valori accettabili e ottimi per le metriche di qualità di prodotto verra
 		\hline
 		\textbf{ID} & \textbf{Descrizione} & \textbf{Obiettivo} & \textbf{Valore accettabile} & \textbf{Valore ottimo}\\
 		\hline
-		MQPC01 & Indice di Gulpease & OQPD01 - Leggibilità dei documenti & $\geq$ 40 & $\geq$ 80 \\
+		MQPD01 & Indice di Gulpease & OQPD01 - Leggibilità dei documenti & $\geq$ 40 & $\geq$ 80 \\
 		\hline
-		MQPC02 & Numero errori ortografici & OQPD02 - Correttezza ortografica & 0 & 0 \\
+		MQPD02 & Numero errori ortografici & OQPD02 - Correttezza ortografica & 0 & 0 \\
 		\hline
-		MQPC03 & Copertura funzionale & OQPC03 - Appropriatezza funzionale & 100\% dei requisiti obbligatori & 100\% di tutti i requisiti\\
+		MQPD03 & Copertura funzionale & OQPD03 - Appropriatezza funzionale & 100\% dei requisiti obbligatori & 100\% di tutti i requisiti\\
 		\hline
-		MQPC04 & Tempo di risposta dei servizi all'utente & OQPC04 - Efficienza & - & - \\
+		MQPD04 & Tempo di risposta dei servizi all'utente & OQPD04 - Efficienza & - & - \\
 		\hline
-		MQPC05 & Copertura dei test & OQPC05 - Affidabilità & 100\% & 100\% \\
+		MQPD05 & Copertura dei test & OQPD05 - Affidabilità & 100\% & 100\% \\
 		\hline
-		MQPC06 & Robustezza agli errori & OQPC05 - Affidabilità & 80\% & 100\% \\
+		MQPD06 & Robustezza agli errori & OQPD05 - Affidabilità & 80\% & 100\% \\
 		\hline
-		MQPC07 & Completezza di descrizione & OQPC06 - Usabilità & 100\% &  100\% \\
+		MQPD07 & Completezza di descrizione & OQPD06 - Usabilità & 100\% &  100\% \\
 		\hline
-		MQPC08 & Completezza della guida utente & OQPC06 - Usabilità & 80\% &  100\% \\
+		MQPD08 & Completezza della guida utente & OQPD06 - Usabilità & 80\% &  100\% \\
 		\hline
-		MQPC09 & Interfaccia utente auto-esplicativa & OQPC06 - Usabilità & 70\% &  100\% \\
+		MQPD09 & Interfaccia utente auto-esplicativa & OQPD06 - Usabilità & 70\% &  100\% \\
 		\hline
-		MQPC10 & Procedure di autenticazione & OQPC07 - Sicurezza & 25\% &  0\% \\
+		MQPD10 & Procedure di autenticazione & OQPD07 - Sicurezza & 25\% &  0\% \\
 		\hline
-		MQPC11 & Accoppiamento di componenti & OQPC08 - Manutenibilità & - & - \\
+		MQPD11 & Accoppiamento\textsubscript{G} di componenti & OQPD08 - Manutenibilità & - & - \\
 		\hline
-		MQPC12 & Adeguatezza della complessità ciclomatica & OQPC08 - Manutenibilità & - & - \\
+		MQPD12 & Adeguatezza della complessità ciclomatica\textsubscript{G} & OQPD08 - Manutenibilità & - & - \\
 		\hline
-		MQPC13 & Completezza della funzione di test & OQPC08 - Manutenibilità & 90\% & 100\% \\
+		MQPD13 & Completezza della funzione di test & OQPD08 - Manutenibilità & 90\% & 100\% \\
 		\hline
-		MQPC14 & Browser supportati & OQPC09 - Compatibilità & 75\% & 100\% \\
+		MQPD14 & Browser supportati & OQPD09 - Compatibilità & 75\% & 100\% \\
 		\hline
 		\caption{Metriche di qualità di prodotto.}
 	\end{tabularx}
@@ -194,7 +194,7 @@ Le metriche di qualità a cui ogni prodotto deve essere conforme sono divisi in 
 	\item \textbf{Metriche per la qualità del software}.
 \end{itemize}
 \subsubsubsection{Metriche di qualità della documentazione}
-Le metriche di qualità a cui solo le varie documentazioni devono essere conformi sono:
+Le metriche di qualità a cui solo la documentazione deve essere conforme sono:
 \begin{itemize}
 	\item \textbf{Indice di Gulpease}: Che fa riferimento alla metrica \textit{MQPD01};
 	\item \textbf{Correttezza ortografica}: Che fa riferimento alla metrica \textit{MQPD02}.
@@ -205,11 +205,11 @@ L'indice di Gulpease è una metrica di riferimento ai prodotti di documentazione
 	\centering
 	\textbf{IG} = 89 + \frac{300 * Nfrasi - 10 * Nlettere}{Nparole}
 \end{align*}
-Il gruppo ha scelto come valore minimo di accettabilità 40. Questo viene indicato come limite dato che un valore minore implica una difficoltà di lettura anche per chi ha conferito un diploma superiore.
+Il gruppo ha scelto come valore minimo di accettabilità 40. Questo viene indicato come limite dato che un valore minore implica una difficoltà di lettura anche per chi ha conferito un diploma di scuola superiore.
 \paragraph{Correttezza ortografica}\mbox{}\\
-Questa metrica è di riferimento ai prodotti di documentazione ed è utilizzata dal gruppo per assicurare la correttezza ortografica di ogni parola presente nei documenti. Non devono esserci errori grammaticali per far si che un documento sia accettato.
+Questa metrica è di riferimento ai prodotti di documentazione ed è utilizzata dal gruppo per assicurare la correttezza ortografica di ogni parola presente nei documenti. Non devono esserci errori grammaticali per far sì che un documento sia accettato.
 \subsubsubsection{Metriche di qualità del software}
-Le metriche di qualità a cui solo le varie documentazioni devono essere conformi sono:
+Le metriche di qualità a cui solo il software deve essere conforme sono:
 \begin{itemize}
 	\item \textbf{Copertura funzionale}: Che fa riferimento alla metrica \textit{MQPD03};
 	\item \textbf{Tempo di risposta dei servizi all'utente}: Che fa riferimento alla metrica \textit{MQPD04}; 
@@ -219,8 +219,8 @@ Le metriche di qualità a cui solo le varie documentazioni devono essere conform
 	\item \textbf{Completezza della guida utente}: Che fa riferimento alla metrica \textit{MQPD08};
 	\item \textbf{Interfaccia utente auto-esplicativa}: Che fa riferimento alla metrica \textit{MQPD09};
 	\item \textbf{Procedure di autenticazione}: Che fa riferimento alla metrica \textit{MQPD10};
-	\item \textbf{Accoppiamento di componenti}: Che fa riferimento alla metrica \textit{MQPD11};
-	\item \textbf{Adeguatezza della complessità ciclomatica}: Che fa riferimento alla metrica \textit{MQPD12};
+	\item \textbf{Accoppiamento\textsubscript{G} di componenti}: Che fa riferimento alla metrica \textit{MQPD11};
+	\item \textbf{Adeguatezza della complessità ciclomatica}\textsubscript{G}: Che fa riferimento alla metrica \textit{MQPD12};
 	\item \textbf{Completezza della funzione di test}: Che fa riferimento alla metrica \textit{MQPD13};
 	\item \textbf{Browser supportati}: Che fa riferimento alla metrica \textit{MQPD14}.
 \end{itemize}
@@ -232,7 +232,7 @@ Questa metrica è di riferimento ai prodotti software ed è utilizzata dal grupp
 \end{align*}
 Dove \textbf{CF} sta per \textit{Copertura funzionale}.
 \paragraph{Tempo di risposta dei servizi all'utente}\mbox{}\\
-Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per assicurare che i tempi di risposta del prodotto siano accettabili. Un tempo di risposta adeguato in un sistema CAPTCHA è molto importante e per questo è un obiettivo fondamentale. Il valore accettabile verrà analizzato in una fase più avanzata di progetto.
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per assicurare che i tempi di risposta del prodotto siano accettabili. Un tempo di risposta adeguato in un sistema CAPTCHA\textsubscript{G} è molto importante e per questo è un obiettivo fondamentale. Il valore accettabile verrà analizzato in una fase più avanzata di progetto.
 \paragraph{Copertura dei test}\mbox{}\\
 Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare che i test svolti sul prodotto finale coprano tutti i requisiti e casi d’uso identificati. Questa metrica è calcolata attraverso il rapporto tra il numero di requisiti e casi d'uso testati e quello di requisiti e casi d'uso totali da testare:
 \begin{align*}
@@ -241,7 +241,7 @@ Questa metrica è di riferimento ai prodotti software ed è utilizzata dal grupp
 \end{align*}
 Dove \textbf{CdT} sta per \textit{Copertura dei test}.
 \paragraph{Robustezza agli errori}\mbox{}\\
-Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare quale parte di tutti gli errori critici, ovvero quelli che possono determinare blocchi del sistema, è stata messa sotto controllo. Questa metrica è calcolata attraverso il rapporto tra il numero di errori critici gestiti e il numero totale di errori critici da gestire:
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare quale parte di tutti gli errori critici, ovvero quelli che possono determinare blocchi del sistema, è stata messa sotto controllo. Questa metrica è calcolata attraverso il rapporto tra il numero di errori critici gestiti e il numero totale di errori critici da gestire in totale:
 \begin{align*}
 	\centering
 	\textbf{RaE} = \frac{ErrCritGestiti}{ErrCritTotali}
@@ -249,14 +249,14 @@ Questa metrica è di riferimento ai prodotti software ed è utilizzata dal grupp
 Dove \textbf{RaE} sta per \textit{Robustezza agli errori}.
 \newpage
 \paragraph{Completezza di descrizione}\mbox\\
-Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare la percentuale degli scenari d’uso che è descritta nella documentazione rispetto al totale. Questo per poter garantire informazioni complete agli utilizzatori del prodotto. Questa metrica è calcolata attraverso il rapporto tra il numero di scenari descritti e il numero di scenari effettivamente presenti:
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare la percentuale degli scenari d’uso che è descritta nella documentazione rispetto al totale. Questo per poter garantire informazioni complete agli utilizzatori del prodotto. Questa metrica è calcolata attraverso il rapporto tra il numero di scenari descritti e il numero di scenari effettivamente presenti nel dominio\textsubscript{G}:
 \begin{align*}
 	\centering
 	\textbf{CdD} = \frac{ScenariDescritti}{ScenariPresenti}
 \end{align*}
 Dove \textbf{CdD} sta per \textit{Completezza di descrizione}.
 \paragraph{Completezza della guida utente}\mbox{}\\
-Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare la percentuale delle funzioni utilizzabili dall'utente che hanno una descrizione completa nei vari manuali. Questa metrica è calcolata attraverso il rapporto tra il numero di funzionalità descritti e il numero di funzionalità totali:
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare la percentuale delle funzioni utilizzabili dall'utente che hanno una descrizione completa nei vari manuali. Questa metrica è calcolata attraverso il rapporto tra il numero di funzionalità descritte e il numero di funzionalità totali:
 \begin{align*}
 	\centering
 	\textbf{CdGU} = \frac{FunzDescritte}{FunzTotali}
@@ -270,18 +270,18 @@ Questa metrica è di riferimento ai prodotti software ed è utilizzata dal grupp
 \end{align*}
 Dove \textbf{IUAE} sta per \textit{Interfaccia utente auto-esplicativa}.
 \paragraph{Procedure di autenticazione}\mbox{}\\
-Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare che il grado di efficacia del sistema CAPTCHA implementato per l'autenticazione di un utente. Il gruppo definirà un grado di accettabilità per la percentuale di accessi indesiderati non bloccati.
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare il grado di efficacia del sistema CAPTCHA\textsubscript{G} implementato per l'autenticazione di un utente. Il gruppo definisce un grado di accettabilità per la percentuale di accessi indesiderati non bloccati:
 \begin{center}
 	\textbf{AINB} $\le$ 25\%
 \end{center}
 Dove \textbf{AINB} sta per \textit{Accessi indesiderati non bloccati}.
-\paragraph{Accoppiamento di componenti}\mbox{}\\
+\paragraph{Accoppiamento\textsubscript{G} di componenti}\mbox{}\\
 Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per controllare quanti componenti del sistema sono strettamente  indipendenti e quanti sono esenti da impatti conseguenti a cambiamenti negli altri componenti.
-In futuro verrà definita un valore per misurarla al meglio. 
+In futuro verrà definito un valore per misurarla al meglio. 
 \newpage
-\paragraph{Adeguatezza della complessità ciclomatica}\mbox{}\\
-Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare quanti moduli software hanno una complessità ciclomatica accettabile. Per verificarla il gruppo deciderà una soglia di accettabilità per i vari linguaggi di programmazione e per il tipo di modulo o di funzione utilizzati durante il progetto.\\
-Nelle metriche software la complessità ciclomatica è usata per valutare la complessità di un algoritmo ed è basata sulla struttura del grafo che rappresenta l’algoritmo da misurare. Per calcolarla si fa uso di questa formula:
+\paragraph{Adeguatezza della complessità ciclomatica}\textsubscript{G}\mbox{}\\
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare quanti moduli software hanno una complessità ciclomatica\textsubscript{G} accettabile. Per verificarla il gruppo deciderà una soglia di accettabilità per i vari linguaggi di programmazione e per il tipo di modulo o di funzione utilizzati durante il progetto.\\
+Nelle metriche software la complessità ciclomatica\textsubscript{G} è usata per valutare la complessità di un algoritmo ed è basata sulla struttura del grafo che rappresenta l’algoritmo da misurare. Per calcolarla si fa uso di questa formula:
 \begin{align*}
 	\centering
 	\textbf{v(G)} = L - N + 2 * P
@@ -306,10 +306,4 @@ Questa metrica è di riferimento ai prodotti software ed è utilizzata dal grupp
 	\textbf{BRS} $\geq$ 75\%
 \end{center}
 Dove \textbf{BRS} sta per \textit{Browser supportati}.
-
-
-
-
-
-
 
