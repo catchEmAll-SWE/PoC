@@ -3,6 +3,8 @@
 *.fdb_latexmk
 *.fls
 *.log
+*.lof
+*.lot
 *.out
 *.toc
 *.synctex.gz
@@ -11,4 +13,5 @@
 *.vscode
 
 #ignore python caching
-*__pycache__
+__pycache__
+__pycache__/*
