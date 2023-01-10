@@ -110,7 +110,7 @@ Le norme da seguire relative al \textit{Glossario} sono:
     \item Se un termine compare nella sua stessa definizione all'interno del \textit{Glossario } esso viene contrassegnato.
 \end{itemize}
 
-\subsubsubsection{Elenchi puntati e numerati}
+\subsubsubsection{Elenchi puntati e numerati} \label{sec:elenchi_puntati_numerati}
 Di seguito vengono descritti come utilizzare elenchi puntati e numerati:
 \begin{itemize}
 \item Ogni punto dell'elenco inizia con la lettera maiuscola;
@@ -288,6 +288,51 @@ I verificatori che utilizzano questo metodo devono rilevare la presenza di error
 	\item Lettura;
 	\item Correzione degli errori, svolta dagli autori.
 \end{enumerate}
+
+\paragraph{File correctness script\textsubscript{G}}\mbox{}\\
+Allo scopo di eseguire in modo automatizzato l'inspection dei file è stato scritto un programma in python che permette di verificare determinati elementi:
+\begin{itemize}
+	\item All'interno del file;
+	\item Nomi dei file;
+	\item Estensioni dei file e numero;
+	\item Nomi di cartelle.
+\end{itemize}
+\noindent Queste verifiche sono per la maggior parte delegate ad un modulo chiamato "specific\_rules.py" il quale contiene tutte le verifiche da fare tramite espresssioni regolari (regex) su vari input forniti alle funzioni del file. Questo modulo viene incluso da un altro modulo "checks.py" il quale a sua volta è incluso dallo script "file\_correctness.py".\\
+\noindent Le verifiche effettuate dallo script sono:
+\begin{enumerate}
+	\item Presenza di tutte le directory;
+	\item Correttezza nome delle directory;
+	\item Sottoalbero delle directory di documentazione principale presente e corretto;
+	\item Presenza di un solo file pdf e di nessun altro file;
+	\item Presenza di un solo file LaTeX nella cartella "src" e nessun altro file;
+	\item File LaTeX nella cartella "src" con determinati parametri;
+	\newline In particolare:
+	\begin{lstlisting}
+	'font size': r'.*\\documentclass\[10pt\]\{article\}.*',
+        'packages file': r'.*\\input\{sections/packages\}.*',
+        'style file': r'.*\\input\{sections/style\}.*',
+        'title page': r'.*\\input\{sections/title_page\}.*',
+        'page roman numbering': r'.*\\pagenumbering\{roman\}.*',
+        'table of contents': r'.*\\tableofcontents.*',
+	\end{lstlisting}
+	\item Controllo della presenza di almeno un file LaTeX nella cartella "sections" e di nessun altro tipo di file;
+	\item Controllo della presenza dei file necessari nella cartella "sections", precedentemente inclusi nel file LaTeX in "src";
+	Ovvero:
+	\begin{lstlisting}
+	necessary_sections_files = [
+        'style.tex',
+        'packages.tex',
+        'title_page.tex',
+        'modifiche.tex',
+    	]
+	\end{lstlisting}
+	\item Controllo della presenza di determinati parametri nel file title\_page.tex, tra cui il titolo che coincida con il nome della cartella in cui si trova il file;
+	\item Controllo della presenza di determinati parametri nel file style.tex, tra cui la correttezza del nome del file;
+	\item Controllo della presenza di determinati parametri nel file modifiche.tex, tra cui il giusto ordine e l'assenza di ripetizioni nel numero delle versioni;
+	\item Controllo della presenza dell'ultima versione nei file title\_page.tex e in style.tex;
+	\item Controllo del rispetto della norma per le gli elenchi puntati e numerati (\ref{sec:elenchi_puntati_numerati}).
+\end{enumerate}
+
 \subsubsection{Analisi dinamica}
 L'analisi dinamica si occupa di eseguire dei test sugli oggetti di verifica che devono essere eseguiti. Questo permetterà al gruppo di accertarsi dell'assenza di errori.
 I test dovranno essere:
