@@ -116,7 +116,7 @@ Di seguito vengono descritti come utilizzare elenchi puntati e numerati:
 \item Ogni punto dell'elenco inizia con la lettera maiuscola;
 \item Alla fine di ogni punto vi è un \textbf{';'};
 \item Dopo l'ultima voce vi è un \textbf{'.'};
-\item Se vi è un concetto da spiegare esso viene scritto in grassetto seguito da \textbf{':'} e segue la spiegazione di esso, la quale deve iniziare in maiuscolo.
+\item Se vi è un concetto da spiegare esso viene scritto in grassetto seguito da \textbf{':'} e segue la spiegazione di esso, la quale deve iniziare con la lettera maiuscola.
 \end{itemize}
 
 \subsubsubsection{Sigle}
@@ -159,7 +159,7 @@ Dove \textbf{DD} indica il giorno, \textbf{MM} indica il mese e \textbf{YYYY} in
 Ogni tabella del documento deve:
 \begin{itemize}
 \item Essere centrata orizzontalmente;
-\item Essere accompagnata da una didascalia che indichi il numero della tabella all'interno del documento; l'unica eccezione è la tabella delle modifiche che non necessita di didascalie.
+\item Essere accompagnata da una didascalia che indichi il numero della tabella all'interno del documento. L'unica eccezione è la tabella delle modifiche che non necessita di didascalie.
 \end{itemize}
 
 \subsubsubsection{Immagini}
@@ -191,7 +191,7 @@ Per la gestione dei file e gli aggiornamenti dei documenti viene utilizzato il s
 \subsubsection{Struttura del repository}
 Di seguito viene data una lista di cartelle presenti nella repository su Git:
 \begin{itemize}
-\item \textbf{catchEmAll-SWE/catchEmAll-Docs} è il repository contenente documentazione riguardante:
+\item \textbf{catchEmAll-SWE/catchEmAll-Docs} è la repository contenente documentazione riguardante:
 \begin{itemize}
     \item \textbf{Assegnazione dell'appalto}: Con al suo interno i documenti \textit{LetteraCandidatura}, \textit{Preventivo\_Ore\_Costi\_rischi}, \textit{motivazione\_capitolati};
     \item \textbf{Diari di bordo};
@@ -216,7 +216,7 @@ Tale scelta è stata guidata dalla qualità dei template forniti dallo strumento
 Per evitare i conflitti tra le modifiche, mantenere in ordine i file e garantire che all'interno del branch\textsubscript{G} principale ci siano solo documenti verificati, il gruppo ha deciso che ogni qual volta sia necessaria una modifica in uno specifico documento deve essere creato un branch\textsubscript{G} per apportarla. La modifica in questione potrà essere integrata nel branch\textsubscript{G} principale solo dopo essere stata revisionata dal \textit{Ve}.
 
 \subsubsection{Tipi di file presenti}
-Nella repository \textit{catchEmAll-Docs} sono presenti esclusivamente file \textbf{.tex}, \textbf{.png} e \textbf{/pdf}. Altri file prodotti durante la stesura dei documenti con estensioni diverse da quelle citate sono escluse attraverso il file \textbf{.gitignore}.
+Nella repository \textit{catchEmAll-Docs} sono presenti esclusivamente file \textbf{.tex}, \textbf{.png} e \textbf{.pdf}. Altri file prodotti durante la stesura dei documenti con estensioni diverse da quelle citate sono escluse attraverso il file \textbf{.gitignore}.
 
 
 
@@ -259,8 +259,7 @@ Il processo di verifica è suddiviso in due fasi:
 \end{itemize}
 
 \subsubsection{Analisi statica}
-L'analisi statica si occupa di analizzare documentazione e codice e accerta conformità a regole, assenza di errori, completezza dei requisiti desiderati.
-Inoltre poiché non richiede l'esecuzione dell’oggetto di verifica, si può applicare ad ogni prodotto di processo.\\
+L’analisi statica si occupa di analizzare la documentazione e il codice e accerta la conformità alle regole introdotte, l'assenza di errori, la completezza dei requisiti desiderati. Inoltre poiché non richiede l’esecuzione dell’oggetto di verifica, si può applicare ad ogni prodotto di processo.\\
 Si utilizzano due metodi per svolgere analisi statica:
 \begin{itemize}
 	\item \textbf{Walkthrough};
@@ -334,7 +333,7 @@ Allo scopo di eseguire in modo automatizzato l'inspection dei file è stato scri
 \end{enumerate}
 
 \subsubsection{Analisi dinamica}
-L'analisi dinamica si occupa di eseguire dei test sugli oggetti di verifica che devono essere eseguiti. Questo permetterà al gruppo di accertarsi dell'assenza di errori.
+L'analisi dinamica si occupa di eseguire dei test sugli oggetti di verifica che devono essere eseguiti. Questo permetterà al gruppo di accertarsi dell'assenza di errori noti.
 I test dovranno essere:
 \begin{itemize}
 	\item \textbf{Ripetibili}, ovvero che garantiscano la correttezza dell'oggetto di verifica e quindi la rimozione di eventuali errori;
