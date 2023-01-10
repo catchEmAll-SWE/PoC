@@ -8,8 +8,8 @@ Lo scopo di questa sezione è definire gli standard necessari per la stesura di 
 \subsubsection{Ciclo di vita del documento}
 Tutti i documenti prodotti dal team seguono il seguente ciclo di vita:
 \begin{itemize}
-    \item \textbf{Stesura}: Il documento viene scritto utilizzando la metodologia AGILE, adottando sprint di durata settimanale;
-    \item \textbf{Revisione}: Alla fine di ogni sprint i documenti modificati devono essere revisionati da un membro del gruppo diverso dal redattore. Solo dopo una revisione con esito positivo le modifiche e i nuovi contenuti possono essere integrati nel documento finale;
+    \item \textbf{Stesura}: Il documento viene scritto utilizzando la metodologia AGILE, adottando sprint\textsubscript{G} di durata settimanale;
+    \item \textbf{Revisione}: Alla fine di ogni sprint\textsubscript{G} i documenti modificati devono essere revisionati da un membro del gruppo diverso dal redattore. Solo dopo una revisione con esito positivo le modifiche e i nuovi contenuti possono essere integrati nel documento finale;
     \item \textbf{Verifica}: Avviene in un periodo della fase di analisi indicata nel documento \textit{Piano\_di\_progetto v 1.0.0}. Tale attività viene svolta da almeno una persona. Il documento è considerato verificato quando i Verificatori dichiarano che le modifiche necessarie per renderlo coerente con tutte le norme sono state portate a termine;
     \item \textbf{Approvazione}: Il Responsabile di Progetto dichiara che il documento è completo in ogni sua parte e pronto per essere rilasciato, marcandolo come approvato.
 \end{itemize}
@@ -186,7 +186,7 @@ Di seguito vengono elencati gli strumenti usati per redigere i documenti:
 Lo scopo di questa sezione è descrivere come il team ha deciso di mantenere traccia delle varie documentazioni stese.
 
 \subsubsection{Sistemi software utilizzati}
-Per la gestione dei file e gli aggiornamenti dei documenti viene utilizzato il sistema di controllo di versione Git, attraverso il servizio di GitHub. Per la scrittura dei verbali interni ed esterni si è deciso di utilizzare il servizio Confluence offerto da JIRA.
+Per la gestione dei file e gli aggiornamenti dei documenti viene utilizzato il sistema di controllo di versione Git, attraverso il servizio di GitHub\textsubscript{G}. Per la scrittura dei verbali interni ed esterni si è deciso di utilizzare il servizio Confluence offerto da JIRA\textsubscript{G}.
 
 \subsubsection{Struttura del repository}
 Di seguito viene data una lista di cartelle presenti nella repository su Git:
@@ -204,16 +204,16 @@ Di seguito viene data una lista di cartelle presenti nella repository su Git:
 \end{itemize}
 \end{itemize}
 \subsubsection{Struttura delle cartelle su Confluence}
-Confluence, un servizio fornito da JIRA è utilizzato dal gruppo per la scrittura e l'organizzazione di:
+Confluence, un servizio fornito da JIRA\textsubscript{G} è utilizzato dal gruppo per la scrittura e l'organizzazione di:
 \begin{itemize}
 	\item \textbf{Verbali}: Interni ed esterni;
-	\item \textbf{Sprint retrospective}: Contenente le varie analisi retrospettive del gruppo sugli sprint svolti;
+	\item \textbf{Sprint\textsubscript{G} retrospective}: Contenente le varie analisi retrospettive del gruppo sugli sprint\textsubscript{G} svolti;
 	\item \textbf{Ricerche e documentazioni}: Contiene le documentazioni e analisi che il gruppo ha svolto su strumenti o tecnologie che possono essere utili allo sviluppo del progetto.
 \end{itemize}
 Tale scelta è stata guidata dalla qualità dei template forniti dallo strumento, i quali facilitano la scrittura e la comprensione di alcuni specifici documenti.
 
 \subsubsection{Gestione delle modifiche}
-Per evitare i conflitti tra le modifiche, mantenere in ordine i file e garantire che all'interno del branch principale ci siano solo documenti verificati, il gruppo ha deciso che ogni qual volta sia necessaria una modifica in uno specifico documento deve essere creato un branch per apportarla. La modifica in questione potrà essere integrata nel branch principale solo dopo essere stata revisionata dal \textit{Ve}.
+Per evitare i conflitti tra le modifiche, mantenere in ordine i file e garantire che all'interno del branch\textsubscript{G} principale ci siano solo documenti verificati, il gruppo ha deciso che ogni qual volta sia necessaria una modifica in uno specifico documento deve essere creato un branch\textsubscript{G} per apportarla. La modifica in questione potrà essere integrata nel branch\textsubscript{G} principale solo dopo essere stata revisionata dal \textit{Ve}.
 
 \subsubsection{Tipi di file presenti}
 Nella repository \textit{catchEmAll-Docs} sono presenti esclusivamente file \textbf{.tex}, \textbf{.png} e \textbf{/pdf}. Altri file prodotti durante la stesura dei documenti con estensioni diverse da quelle citate sono escluse attraverso il file \textbf{.gitignore}.
@@ -223,7 +223,7 @@ Nella repository \textit{catchEmAll-Docs} sono presenti esclusivamente file \tex
 \subsection{Assicurazione della qualità}
 \subsubsection{Scopo}
 Questo processo ha lo scopo di assicurare che tutti i processi e prodotti siano conformi con gli obiettivi e le metriche definiti dal gruppo nel documento \textit{Piano\_di\_qualifica v 1.0.0}. 
-Devono essere continuamente osservate la qualità di processo per garantire una buona gestione del progetto e la qualità del prodotto per assicurarsi di lavorare in modo conforme alle richieste del proponente.
+Devono essere continuamente osservate la qualità di processo\textsubscript{G} per garantire una buona gestione del progetto e la qualità del prodotto per assicurarsi di lavorare in modo conforme alle richieste del proponente.
 \subsubsection{Denominazione obiettivi di qualità}
 Ogni obiettivo sarà contrassegnato da un codice univoco così composto:
 \begin{center}
@@ -297,8 +297,8 @@ Allo scopo di eseguire in modo automatizzato l'inspection dei file è stato scri
 	\item Estensioni dei file e numero;
 	\item Nomi di cartelle.
 \end{itemize}
-\noindent Queste verifiche sono per la maggior parte delegate ad un modulo chiamato "specific\_rules.py" il quale contiene tutte le verifiche da fare tramite espresssioni regolari (regex) su vari input forniti alle funzioni del file. Questo modulo viene incluso da un altro modulo "checks.py" il quale a sua volta è incluso dallo script "file\_correctness.py".\\
-\noindent Le verifiche effettuate dallo script sono:
+\noindent Queste verifiche sono per la maggior parte delegate ad un modulo chiamato "specific\_rules.py" il quale contiene tutte le verifiche da fare tramite espresssioni regolari (regex) su vari input forniti alle funzioni del file. Questo modulo viene incluso da un altro modulo "checks.py" il quale a sua volta è incluso dallo script\textsubscript{G} "file\_correctness.py".\\
+\noindent Le verifiche effettuate dallo script\textsubscript{G} sono:
 \begin{enumerate}
 	\item Presenza di tutte le directory;
 	\item Correttezza nome delle directory;
@@ -368,9 +368,9 @@ Dove:
 \end{itemize}
 Informazioni più dettagliate sui vari test, strumenti e metriche utilizzate per la verifica si possono trovare nel documento \textit{Piano\_di\_qualifica v 1.0.0}.
 
-\subsection{Validazione e collaudo}
+\subsection{Validazione\textsubscript{G} e collaudo}
 \subsubsection{Scopo}
-Lo scopo di questo processo è quello di confermare che tutti i requisiti siano rispettati all'interno del prodotto finale, dopo aver svolto tutti i test di verifica. Questi due processi sono strettamente legati fra loro e una buona verifica durante il corso del progetto permette di superare anche il processo di validazione.
+Lo scopo di questo processo è quello di confermare che tutti i requisiti siano rispettati all'interno del prodotto finale, dopo aver svolto tutti i test di verifica. Questi due processi sono strettamente legati fra loro e una buona verifica durante il corso del progetto permette di superare anche il processo di validazione\textsubscript{G}.
 Questo processo permette anche di confermare che il prodotto finale sia conforme alle richieste del proponente.
 
 \subsection{Usabilità}

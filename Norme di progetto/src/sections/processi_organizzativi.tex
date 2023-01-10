@@ -7,7 +7,7 @@
 		\item Gestione delle comunicazioni;
 		\item Gestione degli incontri;
 		\item Gestione per il controllo della versione;
-		\item Gestione del GitHub Workflow;
+		\item Gestione del GitHub\textsubscript{G} Workflow;
 		\item Gestione del tracciamento delle attività.
 	\end{itemize}
 	\subsubsection{Gestione ruoli}
@@ -61,14 +61,14 @@
 	Il programmatore quindi gestisce:
 	\begin{itemize}
 		\item La scrittura del codice in modo che sia chiaro e facile da mantenere;
-		\item Gli strumenti che si occupano dei test utilizzati per la verifica e la validazione del software;
+		\item Gli strumenti che si occupano dei test utilizzati per la verifica e la validazione\textsubscript{G} del software;
 		\item La redazione del Manuale Utente relativo alla codifica del prodotto.
 	\end{itemize}
 	\subsubsubsection{Verificatore}
-	Il verificatore si occupa di tutte le operazioni di verifica e validazione dei vari prodotti parziali e finali del progetto. \\
+	Il verificatore si occupa di tutte le operazioni di verifica e validazione\textsubscript{G} dei vari prodotti parziali e finali del progetto. \\
 	Il verificatore quindi gestisce:
 	\begin{itemize}
-		\item La verifica e validazione dei prodotti parziali o finali in fase di revisione in modo che rispettino gli obiettivi di qualità imposti nel documento \textit{Piano\_di\_qualifica v 1.0.0}. I seguenti prodotti se a norma verranno di conseguenza integrati;
+		\item La verifica e validazione\textsubscript{G} dei prodotti parziali o finali in fase di revisione in modo che rispettino gli obiettivi di qualità imposti nel documento \textit{Piano\_di\_qualifica v 1.0.0}. I seguenti prodotti se a norma verranno di conseguenza integrati;
 		\item Segnalare gli eventuali errori riscontrati.
 	\end{itemize}
     \subsubsection{Gestione delle comunicazioni}
@@ -82,7 +82,7 @@
                     \item Comunicazioni istantanee tra tutti i componenti;
                     \item Discussioni;
                     \item Pianificazione degli incontri;
-                    \item \textit{daily scrum meeting}.
+                    \item \textit{daily scrum\textsubscript{G} meeting}.
                 \end{itemize}
         \end{itemize}
             
@@ -98,7 +98,7 @@
         
     \subsubsection{Gestione degli incontri}
         \subsubsubsection{Incontri interni}
-        Gli incontri interni sono necessari sia per una corretta adozione del framework Scrum (incontro organizzativo settimanale)
+        Gli incontri interni sono necessari sia per una corretta adozione del framework Scrum\textsubscript{G} (incontro organizzativo settimanale)
         sia per permettere al team di interagire direttamente, discutendo, proponendo e valutando idee, problematiche e possibili 
         soluzioni: per questo si tratta di uno strumento largamente utilizzato
         \newline
@@ -109,7 +109,7 @@
             \item Canali testuali;
             \item Canali video (con possibilità di condivisione schermo).
         \end{itemize}
-        Al termine degli incontri il responsabile di progetto inserisce nello sprint corrente il compito di redigere i verbali. 
+        Al termine degli incontri il responsabile di progetto inserisce nello sprint\textsubscript{G} corrente il compito di redigere i verbali. 
 
         \subsubsubsection{Incontri esterni}
         Gli incontri esterni sono schedulati in seguito alla presenza di dubbi (implementativi, riguardanti requisiti o richieste di altro tipo) all'interno del 
@@ -123,27 +123,27 @@
         I verbali hanno lo scopo di documentare in maniera dettagliata tutti gli argomenti trattati affinchè si possa costruire uno storico identificando
         e motivando le decisioni prese.
         \newline
-        Come per quelli interni il responsabile di progetto inserisce nello sprint corrente il compito di redigere tali documenti.
+        Come per quelli interni il responsabile di progetto inserisce nello sprint\textsubscript{G} corrente il compito di redigere tali documenti.
 
 	\subsubsection{Versionamento}
-	GitHub è lo strumento utilizzato dal gruppo per il versionamento del codice.
+	GitHub\textsubscript{G} è lo strumento utilizzato dal gruppo per il versionamento del codice.
 	\newline Il team è identificato in tale piattaforma come organizzazione (\href{https://github.com/catchEmAll-SWE}{vedi}).
-	Inoltre, al fine di documentare il più possibile, ogni commit che porta valore al progetto contiene il riferimento al ticket che completa (totalmente o anche solo parzialmente). 
+	Inoltre, al fine di documentare il più possibile, ogni commit\textsubscript{G} che porta valore al progetto contiene il riferimento al ticket che completa (totalmente o anche solo parzialmente). 
 
-	\subsubsection{GitHub Workflow}
-	Tutti i titoli e le descrizioni dei commit devono essere fatti in inglese per conformità tra essi.
-	\newline Il Workflow viene gestito concorrentemente da GitHub e JIRA, in JIRA vengono create ed organizzate le issue, una volta fatto ciò si procede attraverso github alla creazione del branch relativo alla issue da risolvere.\\
+	\subsubsection{GitHub\textsubscript{G} Workflow}
+	Tutti i titoli e le descrizioni dei commit\textsubscript{G} devono essere fatti in inglese per conformità tra essi.
+	\newline Il Workflow viene gestito concorrentemente da GitHub\textsubscript{G} e JIRA\textsubscript{G}, in JIRA\textsubscript{G} vengono create ed organizzate le issue\textsubscript{G}, una volta fatto ciò si procede attraverso github\textsubscript{G} alla creazione del branch\textsubscript{G} relativo alla issue\textsubscript{G} da risolvere.\\
 	Tale ramo ha nome codificato come:
 	\begin{lstlisting}
 		CEA-num-titolo-della-issue
 	\end{lstlisting}
-	Questo permette di identificare titolo e numero della issue di appartenenza. Una volta fatto ciò viene creato un \textbf{primo commit}, nel cui messaggio è specificata l'avvenuta presa in carico della issue, la quale dovrà passare dallo stato "to do" allo stato "in progress"\\
-	Ciò è garantito dal suddetto commit message contenente la stringa:
+	Questo permette di identificare titolo e numero della issue\textsubscript{G} di appartenenza. Una volta fatto ciò viene creato un \textbf{primo commit\textsubscript{G}}, nel cui messaggio è specificata l'avvenuta presa in carico della issue, la quale dovrà passare dallo stato "to do" allo stato "in progress"\\
+	Ciò è garantito dal suddetto commit\textsubscript{G} message contenente la stringa:
 	\begin{lstlisting}
 		CEA-num #open <testo aggiuntivo>
 	\end{lstlisting}
-	Una volta fatto ciò è possibile lavorare liberamente sul proprio ramo di feature.
-	\newline \textbf{Ad ogni} aggiornamento dell'attività svolta si dovrà fare riferimento alla issue e specificare il tempo impiegato per lo svolgimento di tale attività includendo nella descrizione:
+	Una volta fatto ciò è possibile lavorare liberamente sul proprio ramo di feature\textsubscript{G}.
+	\newline \textbf{Ad ogni} aggiornamento dell'attività svolta si dovrà fare riferimento alla issue\textsubscript{G} e specificare il tempo impiegato per lo svolgimento di tale attività includendo nella descrizione:
 	\begin{itemize}
 		\item Visual Studio Code;
 		\begin{figure}[ht!]
@@ -152,38 +152,38 @@
 		\end{figure}
 		\item Git Bash.
 		\begin{lstlisting}
-	git commit -m "titolo del commit" -m "CEA-26 #time 32m ..."
+	git commit -m "titolo del commit\textsubscript{G}" -m "CEA-26 #time 32m ..."
 		\end{lstlisting}
 	\end{itemize}
-	Comando generico da aggiungere nel corpo del messaggio, non nel titolo del commit:
+	Comando generico da aggiungere nel corpo del messaggio, non nel titolo del commit\textsubscript{G}:
 	\begin{lstlisting}
 		CEA-num #time ww dd hh mm <testo aggiuntivo>
 	\end{lstlisting}
 	Così facendo è permesso specificare a scelta settimane, giorni, ore e minuti di lavoro, ad esempio:
 	\begin{lstlisting}
-		CEA-26 #time 1h aggiunto github Workflow
+		CEA-26 #time 1h aggiunto github\textsubscript{G} Workflow
 	\end{lstlisting}
-	Ciò aggiunge 1h alle ore di lavoro impiegate per la issue con ID CEA-26, e come testo aggiuntivo per il commit "aggiunto github Workflow", ignorato da JIRA.\\
-	Una volta terminata l'attività, sarà necessario passare allo stato di revisione, il quale permette di verificare il corretto svolgimento del compito eseguito. Questo è permesso da un ultimo commit prima della revisione, con messaggio da includere nella descrizione(non titolo):
+	Ciò aggiunge 1h alle ore di lavoro impiegate per la issue\textsubscript{G} con ID CEA-26, e come testo aggiuntivo per il commit\textsubscript{G} "aggiunto github Workflow", ignorato da JIRA\textsubscript{G}.\\
+	Una volta terminata l'attività, sarà necessario passare allo stato di revisione, il quale permette di verificare il corretto svolgimento del compito eseguito. Questo è permesso da un ultimo commit\textsubscript{G} prima della revisione, con messaggio da includere nella descrizione(non titolo):
 	\begin{lstlisting}
 		CEA-num #review #time ww dd hh mm <testo aggiuntivo>
 	\end{lstlisting}
-	Questo permette lo spostamento della issue dallo stato "in progress" allo stato "in review".\\
-	Per permettere la revisione è necessario aprire una pull request, il titolo deve corrispondere al nome del branch.
-	Una volta revisionata la issue, se presenta qualche problema può essere spostata allo stato "in progress" dal pannello JIRA. Altrimenti attraverso una pull request nel ramo "main" e con il seguente comando posto \textbf{nel TITOLO del commit di chiusura della pull request} la issue verrà chiusa e considerata completata:
+	Questo permette lo spostamento della issue\textsubscript{G} dallo stato "in progress" allo stato "in review".\\
+	Per permettere la revisione è necessario aprire una pull request, il titolo deve corrispondere al nome del branch\textsubscript{G}.
+	Una volta revisionata la issue\textsubscript{G}, se presenta qualche problema può essere spostata allo stato "in progress" dal pannello JIRA\textsubscript{G}. Altrimenti attraverso una pull request nel ramo "main" e con il seguente comando posto \textbf{nel TITOLO del commit\textsubscript{G} di chiusura della pull request} la issue\textsubscript{G} verrà chiusa e considerata completata:
 	\begin{lstlisting}
 		CEA-num #close <testo aggiuntivo>
 	\end{lstlisting}
-	Una volta chiusa, sempre dalla pull request su github, \textbf{si elimina il ramo di feature} creato precedentemente.
+	Una volta chiusa, sempre dalla pull request su github\textsubscript{G}, \textbf{si elimina il ramo di feature\textsubscript{G}} creato precedentemente.
 	\begin{figure}[ht!]
 		\includegraphics[width=15cm]{img/git_pull_request.png}
-		La descrizione è a titolo esemplificativo, il contenuto non influenza gli smart commit di JIRA, il \textbf{titolo del merge commit} si.
+		La descrizione è a titolo esemplificativo, il contenuto non influenza gli smart commit\textsubscript{G} di JIRA\textsubscript{G}, il \textbf{titolo del merge\textsubscript{G} commit} si.
 		\newline \includegraphics[width=15cm]{img/git_pull_request_commit.png}
 	\end{figure}
 	\clearpage
 
 	\subsubsection{Issues tracking}
-	JIRA, piattaforma che offre un servizio di \textit{Issue Tracking} è il supporto scelto vista la qualità ed il numero dei servizi e delle estensioni che offre.
+	JIRA\textsubscript{G}, piattaforma che offre un servizio di \textit{Issue\textsubscript{G} Tracking} è il supporto scelto vista la qualità ed il numero dei servizi e delle estensioni che offre.
 	\newline
 	La definizione dei ticket è regolata dalla seguente convenzione:
 	\begin{itemize}
@@ -192,9 +192,9 @@
 		\item Stima del lavoro necessario al completamento;
 		\item Corretto utilizzo di ereditarietà (rapporti di parentela).
 	\end{itemize}
-	Si è deciso di di adottare il framework \textit{Scrum} per la gestione del ciclo di sviluppo del progetto con le seguenti caratteristiche:
+	Si è deciso di di adottare il framework\textsubscript{G} \textit{Scrum}\textsubscript{G} per la gestione del ciclo di sviluppo del progetto con le seguenti caratteristiche:
 	\begin{itemize}
-		\item Sprint della durata di una settimana;
+		\item Sprint\textsubscript{G} della durata di una settimana;
 		\item Utilizzo di una board avente 4 stati.
 		I quali sono:
 		\begin{itemize}
@@ -205,14 +205,14 @@
 		\end{itemize}
 	\end{itemize}
 
-	JIRA dispone di un'integrazione con github che fornisce un meccanismo chiamato \textit{smart commit} il quale permette la transizione dei ticket da uno stato ad un'altro attraverso comandi posti nei commit stessi, la sintassi utilizzata è la seguente
+	JIRA\textsubscript{G} dispone di un'integrazione con github\textsubscript{G} che fornisce un meccanismo chiamato \textit{smart commit\textsubscript{G}} il quale permette la transizione dei ticket da uno stato ad un'altro attraverso comandi posti nei commit\textsubscript{G} stessi, la sintassi utilizzata è la seguente
 	\begin{lstlisting}
-	CEA-number #command <message body describing the commit>
+	CEA-number #command <message body describing the commit\textsubscript{G}>
 	\end{lstlisting}
 	Tra i comandi troviamo:
 	\begin{itemize}
-		\item \textbf{Open}: permette di spostarsi da una issue nello stadio "to do" oppure "in review" allo stadio "in progress";
-		\item \textbf{Review}: permette lo spostamento della issue dallo stadio "in progress" oppure "done" allo stadio "in review";
+		\item \textbf{Open}: permette di spostarsi da una issue\textsubscript{G} nello stadio "to do" oppure "in review" allo stadio "in progress";
+		\item \textbf{Review}: permette lo spostamento della issue\textsubscript{G} dallo stadio "in progress" oppure "done" allo stadio "in review";
 		\item \textbf{Close}: premette di spostarsi dallo stadio "in review" allo stadio "done";
 		\item \textbf{Close-no-rev}: permette in casi eccezionali di passare direttamente dallo stadio "in progress" allo stadio "done".
 	\end{itemize}
