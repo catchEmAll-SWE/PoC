@@ -173,11 +173,11 @@ def versionsOrderInModificheFileCorrectness(modifiche_file):
     """
     versions = srules.getVersionsFromModificheFile(modifiche_file)
 
-    prev_version = sum([int(i)*(10**iteration) for i, iteration in zip(
+    prev_version = sum([int(i)*(100**iteration) for i, iteration in zip(
         versions[0].split('.')[::-1], range(0, len(versions[0].split('.'))))])
 
     for version in versions[1:]:
-        cur_version = sum([int(i)*(10**iteration) for i, iteration in zip(
+        cur_version = sum([int(i)*(100**iteration) for i, iteration in zip(
             version.split('.')[::-1], range(0, len(version.split('.'))))])
         if (cur_version > prev_version or cur_version == prev_version):
             PrintSimpleError.print_error(['Version order not correct or same version used in ' + str(modifiche_file) + ' : ' +
