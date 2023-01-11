@@ -1,98 +1,100 @@
-\section{Requisiti}
-In questa sezione viene riportato l'elenco completo dei requisiti del progetto.
-I requisiti sono stati individuati e classificati durante l'attività di analisi dei requisiti, e a ciascuno è stato assegnato un codice identificativo univoco secondo quanto stabilito nelle Norme di progetto.
+\section{Requisiti\textsubscript{G}}
+In questa sezione viene riportato l'elenco completo dei requisiti\textsubscript{G} del progetto.
+I requisiti\textsubscript{G} sono stati individuati e classificati durante l'attività di analisi dei requisiti\textsubscript{G}, e a ciascuno è stato assegnato un codice identificativo univoco secondo quanto stabilito nelle Norme di progetto.
 
-\subsection{Requisiti funzionali}
+\subsection{Requisiti\textsubscript{G} funzionali}
 
 \renewcommand\tabularxcolumn[1]{>{\Centering}m{#1}}
-\begin{tabularx}{\textwidth}{| c | c | X | c |} 
+\begin{tabularx}{\textwidth}{| c | c | X | X |} 
  \hline
- \textbf{ID Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
+ \textbf{ID\textsubscript{G} Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
  \hline
- RF-1 & Obbligatorio &  L'utente deve poter raggiungere il sistema in cloud & Capitolato\\
+ RF-1 & Obbligatorio & L'utente deve poter raggiungere il sistema nel web & Capitolato\\
  \hline
-  RF-2 & Obbligatorio &  L'utente deve potersi autenticare all'interno del sistema tramite un form di login &  UC1, Capitolato\\
+  RF-2 & Obbligatorio & L'utente deve potersi autenticare all'interno del sistema tramite un modulo di login &  UC1, Capitolato\\
  \hline
  RF-3 & Obbligatorio &  L'utente deve poter inserire il proprio username &  UC1.1, Capitolato\\
  \hline
- RF-4 & Obbligatorio &  L'utente deve poter inserire la propria password &  UC1.2, Capitolato\\
+ RF-4 & Obbligatorio & L'utente deve poter inserire la propria password &  UC1.1, Capitolato\\
  \hline
- RF-5 & Obbligatorio &  L'utente deve superare il captcha proposto dal sistema per poter effettuare il login &  UC1.3, Capitolato\\
+ RF-5 & Obbligatorio & L'utente deve superare il CAPTCHA\textsubscript{G}\textsubscript{G} immagini proposto dal sistema per poter effettuare l'autenticazione &  UC1.2, Capitolato, VE\_20221111\\
  \hline
- RF-6 & Obbligatorio &  L'utente deve superare il captcha tipo 1 per poter effettuare il login &  UC1.3.1, VE-20221111\\
+ RF-6 & Obbligatorio & Alla correttezza della soluzione del CAPTCHA\textsubscript{G}\textsubscript{G} immagini fornita dall'utente viene applicato un margine di errore &  UC1.2, VE\_20221111\\
  \hline
- RF-7 & Obbligatorio & All'utente viene mostrato un messaggio di errore nel caso in cui non riesca a superare il captcha &  UC2\\
+ RF-7 & Opzionale & L'utente deve superare una trappola honeypot per poter effettuare l'autenticazione &  UC1.3\\
  \hline
- RF-8 & Obbligatorio &  All'utente viene mostrato un messaggio di errore nel caso in cui abbia superato il numero massimo di tentativi consentito &  UC3, VI-20221115\\
+ RF-8 & Opzionale & L'utente deve calcolare il proof of work per poter effettuare l'autenticazione &  UC1.4, VE\_20221111\\
  \hline
- RF-9 & Obbligatorio &  L'utente deve poter richiedere la generazione di un altro captcha &  UC4, VI-20221115\\
+ RF-9 & Obbligatorio & All'utente viene mostrato un messaggio di errore nel caso in cui non riesca ad autenticarsi &  UC2, UC2.1, UC2.2, UC2.3, UC2.4, UC2.5\\
  \hline
- RF-10 & Obbligatorio & All'utente viene mostrato un messaggio di errore nel caso in cui abbia inserito delle credenziali non valide &  UC5\\
+ RF-10 & Obbligatorio & All'utente viene mostrato un messaggio di errore nel caso in cui abbia superato il numero massimo di tentativi di autenticazione consentito &  UC2.5, VI\_20221115\\
  \hline
+ RF-11 & Obbligatorio & L'utente deve poter richiedere la generazione di un altro CAPTCHA\textsubscript{G}\textsubscript{G} immagini &  UC3, VI\_20221115\\
+ \hline
+ RF-12 & Obbligatorio & All'utente viene mostrato un messaggio di errore nel caso in cui abbia superato il limite di richieste di rigenerazione CAPTCHA\textsubscript{G} immagini &  UC4\\
+ \hline
+ RF-13 & Obbligatorio & Il sistema deve fornire la possibilità di richiedere la generazione di un CAPTCHA\textsubscript{G}\textsubscript{G} immagini & UC5, VE\_20221214\\
+ \hline
+ RF-14 & Obbligatorio & Il sistema deve comunicare un'eventuale errore nella generazione di un CAPTCHA\textsubscript{G}\textsubscript{G} immagini & UC6, VE\_20221214\\
+ \hline
+ RF-15 & Opzionale & Il sistema deve richiedere il calcolo il proof of work & UC7, VE\_20221111\\
+ \hline
+ RF-16 & Obbligatorio & Il sistema deve offrire le funzionalità di verifica della correttezza del CAPTCHA\textsubscript{G}\textsubscript{G} compilato dall'utente & UC8, VE\_20221214\\
+ \hline
+ \caption{Requisiti\textsubscript{G} funzionali}
 \end{tabularx}
 
-\vspace{60pt}
-
-\subsection{Requisiti di qualità}
+\subsection{Requisiti\textsubscript{G} di qualità}
 \renewcommand\tabularxcolumn[1]{>{\Centering}m{#1}}
 \begin{tabularx}{\textwidth}{| c | c | X | c |} 
  \hline
- \textbf{ID Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
+ \textbf{ID\textsubscript{G} Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
  \hline
- RQ-1 & Obbligatorio &  Il captcha deve mitigare potenziali attacchi “brute force” & Capitolato\\
+ RQ-1 & Obbligatorio & Il CAPTCHA\textsubscript{G} deve mitigare potenziali attacchi “brute force\textsubscript{G}” & Capitolato, VE\_20221111\\
  \hline
   RQ-2 & Obbligatorio & Il server non deve accettare chiamate con dati falsificati & Capitolato\\
  \hline
- RQ-3 & Obbligatorio &  Dovrà essere prodotto un manuale utente del prodotto & Capitolato\\
+ RQ-3 & Obbligatorio & Dovrà essere prodotto un manuale utente del prodotto & Capitolato\\
  \hline
- RQ-4 & Obbligatorio &  Dovrà essere prodotto un manuale utente per l'estensione del prodotto &  Capitolato\\
+ RQ-4 & Obbligatorio & Dovrà essere prodotto un manuale utente per l'estensione del prodotto &  Capitolato\\
  \hline
- RQ-5 & Obbligatorio & Il prodotto dovrà essere sviluppato rispettando quanto espresso nelle Norme di progetto & VI-20221115\\
+ RQ-5 & Obbligatorio & Il prodotto dovrà essere sviluppato rispettando quanto espresso nelle Norme di progetto & VI\_20221115\\
  \hline
- RQ-6 & Obbligatorio &  La documentazione e il codice sorgente del prodotto saranno pubblicate su GitHub & VI-20221115\\
+ RQ-6 & Obbligatorio & La documentazione e il codice sorgente del prodotto saranno pubblicate su GitHub & VI\_20221115\\
  \hline
  RQ-7 & Obbligatorio & Dovrà essere condotta un'analisi sulle tecnologie utilizzate & Capitolato\\
  \hline
- RQ-8 & Obbligatorio &  Il sistema dovrà essere distribuito con la licenza ??? & VI-202211??\\
- \hline
+ \caption{Requisiti\textsubscript{G} di qualità}
 \end{tabularx}
 
-
-
-
-
-
-
-
-
-\subsection{Requisiti di vincolo}
+\subsection{Requisiti\textsubscript{G} di vincolo}
 \renewcommand\tabularxcolumn[1]{>{\Centering}m{#1}}
 \begin{tabularx}{\textwidth}{| c | c | X | c |} 
  \hline
- \textbf{ID Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
+ \textbf{ID\textsubscript{G} Requisito} & \textbf{Classificazione} & \textbf{Descrizione} & \textbf{Fonti} \\
  \hline
- RV-1 & Obbligatorio &  Il sistema deve essere raggiungibile in cloud & Capitolato\\
+ RV-1 & Obbligatorio &  Il sistema deve essere raggiungibile nel web & Capitolato\\
  \hline
-  RV-2 & Obbligatorio & Il sistema deve funzionare con la versione più recente del browser Chrome & VI-20221115\\
+  RV-2 & Obbligatorio & Il sistema deve garantire la compatibilità con tutti i browser più diffusi & VI\_20221115\\
  \hline
- RV-3 & Obbligatorio &  Le librerie utilizzate devono essere open source & Capitolato\\
+ RV-3 & Obbligatorio &  Le librerie utilizzate devono essere open source\textsubscript{G} & Capitolato\\
  \hline
  RV-4 & Obbligatorio & I servizi web utilizzati devono essere gratuiti &  Capitolato\\
  \hline
- RV-5 & Obbligatorio & La parte server deve essere sviluppata utilizzando il linguaggio Python & VE-20221021\\
+ RV-5 & Obbligatorio & La parte server può essere sviluppata utilizzando i linguaggi a scelta del gruppo & VE\_20221021\\
  \hline
- RV-6 & Obbligatorio & La parte client deve essere sviluppata utilizzando i linguaggi HTML, CSS, JavaScript & VI-20221115\\
+ RV-6 & Obbligatorio & La parte client deve essere sviluppata utilizzando i linguaggi HTML, CSS, JavaScript & VI\_20221115\\
  \hline
+ \caption{Requisiti\textsubscript{G} di vincolo}
 \end{tabularx}
 
-\subsection{Requisiti prestazionali}
-Non sono stati individuati requisiti prestazionali misurabili.
+\subsection{Requisiti\textsubscript{G} prestazionali}
+Non sono stati individuati requisiti\textsubscript{G} prestazionali misurabili.
 
-
-\subsection{Tracciamento dei requisitii}
+\subsection{Tracciamento dei requisiti\textsubscript{G}}
 
 \subsubsection{Requisito - Fonti}
-\begin{table}[h]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{| p{0.5\textwidth} | p{0.5\textwidth} |} 
 		\hline
@@ -104,21 +106,33 @@ Non sono stati individuati requisiti prestazionali misurabili.
 		\hline
 		RF-3 & UC1.1, Capitolato\\
 		\hline
-		RF-4 & UC1.2, Capitolato\\
+		RF-4 & UC1.1, Capitolato\\
 		\hline
-		RF-5 & UC1.3, Capitolato\\
+		RF-5 & UC1.2, Capitolato, VE\_20221111\\
 		\hline
-		RF-6 & UC1.3.1, VE-20221111\\
+		RF-6 & UC1.2, VE\_20221111\\
 		\hline
-		RF-7 & UC2\\
+		RF-7 & UC1.3\\
 		\hline
-		RF-8 & UC3, VI-20221115\\
+		RF-8 & UC1.4, VE\_20221111\\
 		\hline
-		RF-9 & UC4, VI-20221115\\
+		RF-9 & UC2, UC2.1, UC2.2, UC2.3, UC2.4, UC2.5\\
 		\hline
-		RF-10 & UC5\\
+		RF-10 & UC2.5, VI\_20221115\\
+         \hline
+		RF-11 & UC3, VI\_20221115\\
+        \hline
+		RF-12 & UC4\\
+         \hline
+		RF-13 & UC5, VE\_20221214\\
+        \hline
+		RF-14 & UC6, VE\_20221214\\
+         \hline
+		RF-15 & UC7, VE\_20221111\\
+         \hline
+		RF-16 & UC8, VE\_20221214\\
 		\hline
-		RQ-1 & Capitolato\\
+		RQ-1 & Capitolato, VE\_20221111\\
 		\hline
 		RQ-2 & Capitolato\\
 		\hline
@@ -126,77 +140,99 @@ Non sono stati individuati requisiti prestazionali misurabili.
 		\hline
 		RQ-4 & Capitolato\\
 		\hline
-		RQ-5 & VI-20221115\\
+		RQ-5 & VI\_20221115\\
 		\hline
-		RQ-6 & VI-20221115\\
+		RQ-6 & VI\_20221115\\
 		\hline
 		RQ-7 & Capitolato\\
 		\hline
-		RQ-8 & VI-20221115\\
-		\hline
 		RV-1 & Capitolato\\
 		\hline
-		RV-2 & VI-20221115\\
+		RV-2 & VI\_20221115\\
 		\hline
 		RV-3 & Capitolato\\
 		\hline
 		RV-4 & Capitolato\\
 		\hline
-		RV-5 & VE-20221021\\
+		RV-5 & VE\_20221021\\
 		\hline
-		RV-6 & Capitolato\\
+		RV-6 & VI\_20221115\\
 		\hline
 	\end{tabular}
+	\caption{Tracciamento dei requisiti\textsubscript{G}}
 \end{table}
 
-\subsubsection{Fonte - Requisiti}
-\begin{tabular}{| c | c |} 
+\subsubsection{Fonte - Requisiti\textsubscript{G}}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| p{0.5\textwidth} | p{0.5\textwidth} |} 
  \hline
- \textbf{Fonte} & \textbf{Requisiti} \\
+ \textbf{Fonte} & \textbf{Requisiti\textsubscript{G}} \\
  \hline
 	UC1 & RF-2\\
-\hline
-	UC1.1 & RF-3\\
-\hline
-	UC1.2 & RF-4\\
-\hline
-	UC1.3 & RF-5\\
-\hline
-	UC1.3.1 & RF-6\\
-\hline
-	UC2 & RF-7\\
-\hline
-	UC3 & RF-8\\
-\hline
-	UC4 & RF-9\\
-\hline
-	UC5 & RF-10\\
-\hline
-	Capitolato & RF-1, RF-2, RF-3, RF-4, RF-5, RQ-1, RQ-2, RQ-3, RQ-4, RQ-7, RV-1, RV-3, RV-4, RV-6\\
-\hline
-	VE-20221111 & RF-6\\
-\hline
-	VE-20221021 & RV-5\\
-\hline
-	VI-20221115 & RF-8, RF-9, RQ-5, RQ-6, RQ-8, RV-2\\
-\hline
-\end{tabular}
+	\hline
+	UC1.1 & RF-3, RF-4\\
+	\hline
+	UC1.2 & RF-5, RF-6\\
+	\hline
+	UC1.3 & RF-7\\
+	\hline
+	UC1.4 & RF-8\\
+	\hline
+	UC2 & RF-9\\
+ 	\hline
+	UC2.1 & RF-9\\
+ 	\hline
+	UC2.2 & RF-9\\
+  	\hline
+	UC2.3 & RF-9\\
+  	\hline
+	UC2.4 & RF-9\\
+  	\hline
+	UC2.5 & RF-9, RF-10\\
+	\hline
+	UC3 & RF-11\\ 
+	\hline
+	UC4 & RF-12\\
+ 	\hline
+	UC5 & RF-13\\
+ 	\hline
+	UC6 & RF-14\\
+ 	\hline
+	UC7 & RF-15\\
+ 	\hline
+	UC8 & RF-16\\
+	\hline
+	Capitolato & RF-1, RF-2, RF-3, RF-4, RF-5, RQ-1, RQ-2, RQ-3, RQ-4, RQ-7, RV-1, RV-3, RV-4\\
+ 	\hline
+	VE\_20221021 & RV-5\\
+	\hline
+	VE\_20221111 & RF-5, RF-6, RF-8, RF-15, RQ-1\\
+	\hline
+	VI\_20221115 & RF-10, RF-11, RQ-5, RQ-6, RV-2, RV-6\\
+ 	\hline
+	VE\_20221214 & RF-13, RF-14, RF-16\\
+	\hline
+	\end{tabular}
+	\caption{Tracciamento dei requisiti\textsubscript{G}}
+\end{table}
 
-\subsection{Riepilogo dei requisiti}
+\subsection{Riepilogo dei requisiti\textsubscript{G}}
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{| p{0.25\textwidth} | p{0.25\textwidth} | p{0.25\textwidth} | p{0.25\textwidth} |} 
 		\hline
-		\textbf{Classificazione} & \textbf{Obbligatorio} & \textbf{Facoltativo} & \textbf{Totale} \\
+		\textbf{Classificazione} & \textbf{Obbligatorio} & \textbf{Opzionale} & \textbf{Totale} \\
 		\hline
-		Funzionali & 10 &  0 & 10\\
+		Funzionali & 13 & 3 & 16\\
 		\hline
-		Di qualità & 8 & 0 & 8\\
+		Di qualità & 7 & 0 & 7\\
 		\hline
-		Di vincolo & 5 & 1 & 6\\
+		Di vincolo & 6 & 0 & 6\\
 		\hline
-		\textbf{Totale} & \textbf{23} &\textbf {1} &  \textbf{24}\\
+		\textbf{Totale} & \textbf{26} &\textbf {3} &  \textbf{29}\\
 		\hline
 	\end{tabular}
+	\caption{Riepilogo dei requisiti\textsubscript{G}}
 \end{table}
