@@ -1,11 +1,11 @@
-name: file-correctness-checks
+name: files-correctness-checks
 
 on:
   push:
 
 jobs:
   build:
-    name: file-correctness-checks
+    name: files-correctness-checks
     runs-on: ubuntu-latest
 
     steps:
