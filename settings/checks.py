@@ -15,7 +15,7 @@ def filesNameCorrectness(files):
     for file in files:
         if not srules.fileNameCorrectness(file.stem):
             errors.append(str(file))
-    PrintSimpleError.print_error(errors, 'Files name correctness')
+            PrintSimpleError.print_error(errors, 'Files name correctness')
 # POST = print not correct files name path
 
 
