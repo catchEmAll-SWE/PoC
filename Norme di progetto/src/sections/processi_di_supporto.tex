@@ -8,8 +8,8 @@ Lo scopo di questa sezione è definire gli standard necessari per la stesura di 
 \subsubsection{Ciclo di vita del documento}
 Tutti i documenti prodotti dal team seguono il seguente ciclo di vita:
 \begin{itemize}
-    \item \textbf{Stesura}: Il documento viene scritto utilizzando la metodologia AGILE, adottando sprint di durata settimanale; 
-    \item \textbf{Revisione}: Alla fine di ogni sprint i documenti modificati devono essere revisionati da un membro del gruppo diverso dal redattore. Solo dopo una revisione con esito positivo le modifiche e i nuovi contenuti possono essere integrati nel documento finale;
+    \item \textbf{Stesura}: Il documento viene scritto utilizzando la metodologia AGILE, adottando sprint\textsubscript{G} di durata settimanale;
+    \item \textbf{Revisione}: Alla fine di ogni sprint\textsubscript{G} i documenti modificati devono essere revisionati da un membro del gruppo diverso dal redattore. Solo dopo una revisione con esito positivo le modifiche e i nuovi contenuti possono essere integrati nel documento finale;
     \item \textbf{Verifica}: Avviene in un periodo della fase di analisi indicata nel documento \textit{Piano\_di\_progetto v 1.0.0}. Tale attività viene svolta da almeno una persona. Il documento è considerato verificato quando i Verificatori dichiarano che le modifiche necessarie per renderlo coerente con tutte le norme sono state portate a termine;
     \item \textbf{Approvazione}: Il Responsabile di Progetto dichiara che il documento è completo in ogni sua parte e pronto per essere rilasciato, marcandolo come approvato.
 \end{itemize}
@@ -71,16 +71,17 @@ Di seguito viene descritto il formato dei nomi dei documenti:
 \item Iniziano tutti con la lettera maiuscola;
 \item Se il nome comprende più parole allora ognuna di esse è separata dal simbolo '\_';
 \item Deve essere seguito dalla versione in cui si trova.
-\end {itemize}
+\end{itemize}
 La sigla della versione deve essere così strutturata:
 \begin{center}
     \large{\textbf{v.X.Y.Z}}
 \end{center}
+Dove:
 \begin{itemize}
 \item \textbf{X}: Indicato da un numero che parte da 0, corrisponde al numero di approvazioni del documento da parte del responsabile;
 \item \textbf{Y}: Indicato da un numero che parte da 0, corrisponde al numero di verifiche del documento da parte dei verificatori, viene portato a 0 ad ogni incremento di \textbf{X};
 \item \textbf{Z}: Indicato da un numero che parte da 0, corrisponde al numero di modifiche del documento da parte del redattore, viene portato a 0 ad ogni incremento di \textbf{X} e \textbf{Y}.
-\end {itemize}
+\end{itemize}
 Esempio corretto: Norme\_di\_progetto\_v.0.0.1, Norme\_di\_progetto\_v.0.2.1, Norme\_di\_progetto\_v.1.0.0.
 Esempi non corretti: Norme\_di\_progetto, NormeDiProgetto.\\
 I verbali non seguono questa norma e hanno una nomenclatura diversa, poiché non subiscono variazioni dopo la prima redazione e hanno il seguente formato: 
@@ -96,11 +97,11 @@ Dove:
 
 \subsubsubsection{Stile di testo}
 Di seguito vengono riportati i vari stili del testo e i loro utilizzi:
-\begin {itemize}
+\begin{itemize}
 \item \textbf{Grassetto}: Utilizzato per i termini da descrivere all'interno degli elenchi puntati e per i titoli delle varie sezioni del documento. Può essere utilizzato anche per evidenziare concetti particolarmente rilevanti;
 \item \textbf{Corsivo}: Utilizzato per il nome e l'email del gruppo, il nome del progetto, riferimenti ad altri documenti e sigle;
 \item \textbf{Link}: Sono collegamenti esterni al documento.
-\end {itemize}
+\end{itemize}
 
 \subsubsubsection{Glossario}
 Le norme da seguire relative al \textit{Glossario} sono:
@@ -109,42 +110,42 @@ Le norme da seguire relative al \textit{Glossario} sono:
     \item Se un termine compare nella sua stessa definizione all'interno del \textit{Glossario } esso viene contrassegnato.
 \end{itemize}
 
-\subsubsubsection{Elenchi puntati e numerati}
+\subsubsubsection{Elenchi puntati e numerati} \label{sec:elenchi_puntati_numerati}
 Di seguito vengono descritti come utilizzare elenchi puntati e numerati:
-\begin {itemize}
+\begin{itemize}
 \item Ogni punto dell'elenco inizia con la lettera maiuscola;
 \item Alla fine di ogni punto vi è un \textbf{';'};
 \item Dopo l'ultima voce vi è un \textbf{'.'};
-\item Se vi è un concetto da spiegare esso viene scritto in grassetto seguito da \textbf{':'} e segue la spiegazione di esso, la quale deve iniziare in maiuscolo.
-\end {itemize}
+\item Se vi è un concetto da spiegare esso viene scritto in grassetto seguito da \textbf{':'} e segue la spiegazione di esso, la quale deve iniziare con la lettera maiuscola.
+\end{itemize}
 
 \subsubsubsection{Sigle}
 Di seguito viene elencata una lista di sigle le quali si possono trovare nei documenti e i loro significati:
-\begin {itemize}
+\begin{itemize}
 \item \textbf{Documentazione}:
-	\begin {itemize}
+	\begin{itemize}
 	\item \textbf{AdR}: Indica l' \textit{Analisi Dei Requisiti};
 	\item \textbf{NdP}: Indica le \textit{Norme Di Progetto};
 	\item \textbf{PdP}: Indica il \textit{Piano Di Progetto};
 	\item \textbf{PdQ}: Indica il \textit{Piano Di Qualifica};
-	\item \textbf{Gls}: Indica il \textit{Glossario};
-	\end {itemize}
+	\item \textbf{Gls}: Indica il \textit{Glossario}.
+	\end{itemize}
 \item \textbf{Ruoli}:
-	\begin {itemize}
+	\begin{itemize}
 	\item \textbf{Re}: Indica il ruolo di \textit{Responsabile di Progetto};
 	\item \textbf{Am}: Indica il ruolo di \textit{Amministratore di Progetto};
 	\item \textbf{An}: Indica il ruolo di \textit{Analista};
 	\item \textbf{Pt}: Indica il ruolo di \textit{Progettista};
 	\item \textbf{Pr}: Indica il ruolo di \textit{Programmatore};
 	\item \textbf{Ve}: Indica il ruolo di \textit{Verificatore}.
-	\end {itemize}
+	\end{itemize}
 \item \textbf{Revisioni di progetto}:
 	\begin{itemize}
 		\item \textbf{RTB}: Indica la prima revisione di progetto, e comprende la Requirements and Technology Baseline;
 		\item \textbf{PB}: Indica la seconda revisione, e comprende la Product Baseline;
 		\item \textbf{CA}: Indica la terza revisione, e comprende la Customer Acceptance.
 	\end{itemize}
-\end {itemize}
+\end{itemize}
 \subsubsubsection{Formato della data}
 Il team ha adottato il seguente formato per le date all'interno dei documenti:
 \begin{center}
@@ -156,27 +157,27 @@ Dove \textbf{DD} indica il giorno, \textbf{MM} indica il mese e \textbf{YYYY} in
 
 \subsubsubsection{Tabelle}
 Ogni tabella del documento deve:
-\begin {itemize}
+\begin{itemize}
 \item Essere centrata orizzontalmente;
-\item Essere accompagnata da una didascalia che indichi il numero della tabella all'interno del documento; l'unica eccezione è la tabella delle modifiche che non necessita di didascalie.
-\end {itemize}
+\item Essere accompagnata da una didascalia che indichi il numero della tabella all'interno del documento. L'unica eccezione è la tabella delle modifiche che non necessita di didascalie.
+\end{itemize}
 
 \subsubsubsection{Immagini}
 Ogni immagine del documento deve:
-\begin {itemize}
+\begin{itemize}
 \item Essere centrata orizzontalmente;
 \item Essere accompagnata da una didascalia che indichi il numero dell'immagine all'interno del documento.
-\end {itemize}
+\end{itemize}
 
 \subsubsection{Strumenti}
 Di seguito vengono elencati gli strumenti usati per redigere i documenti:
-\begin {itemize}
+\begin{itemize}
 \item \textbf{\LaTeX}: Per la produzione dei documenti, il team ha deciso di usare il linguaggio di markup \textit{\LaTeX};
 \item \textbf{Microsoft Word}: Per la stesura delle bozze di alcune parti di documenti;
 \item \textbf{Microsoft Excel}: Per la creazione delle tabelle con i preventivi delle ore e costi che verranno poi inserite nel \textit{PdP};
-\item \textbf{StarUML}: Per la creazione dei vari UML da inserire all'interno dei documenti.
+\item \textbf{StarUML}: Per la creazione dei vari UML da inserire all'interno dei documenti;
 \item \textbf{LucidChart}: Per discussioni di gruppo sui vari UML creati, dato che lo strumento permette modifiche condivise.
-\end {itemize}
+\end{itemize}
 
 
 \subsection{Gestione della configurazione}
@@ -185,12 +186,12 @@ Di seguito vengono elencati gli strumenti usati per redigere i documenti:
 Lo scopo di questa sezione è descrivere come il team ha deciso di mantenere traccia delle varie documentazioni stese.
 
 \subsubsection{Sistemi software utilizzati}
-Per la gestione dei file e gli aggiornamenti dei documenti viene utilizzato il sistema di controllo di versione Git, attraverso il servizio di GitHub. Per la scrittura dei verbali interni ed esterni si è deciso di utilizzare il servizio Confluence offerto da JIRA.
+Per la gestione dei file e gli aggiornamenti dei documenti viene utilizzato il sistema di controllo di versione Git, attraverso il servizio di GitHub\textsubscript{G}. Per la scrittura dei verbali interni ed esterni si è deciso di utilizzare il servizio Confluence offerto da JIRA\textsubscript{G}.
 
 \subsubsection{Struttura del repository}
-Di seguito viene data una lista di cartelle presenti nella repository su Git.
+Di seguito viene data una lista di cartelle presenti nella repository su Git:
 \begin{itemize}
-\item \textbf{catchEmAll-SWE/catchEmAll-Docs} è il repository contenente documentazione riguardante:
+\item \textbf{catchEmAll-SWE/catchEmAll-Docs} è la repository contenente documentazione riguardante:
 \begin{itemize}
     \item \textbf{Assegnazione dell'appalto}: Con al suo interno i documenti \textit{LetteraCandidatura}, \textit{Preventivo\_Ore\_Costi\_rischi}, \textit{motivazione\_capitolati};
     \item \textbf{Diari di bordo};
@@ -203,32 +204,32 @@ Di seguito viene data una lista di cartelle presenti nella repository su Git.
 \end{itemize}
 \end{itemize}
 \subsubsection{Struttura delle cartelle su Confluence}
-Confluence, un servizio fornito da JIRA è utilizzato dal gruppo per la scrittura e l'organizzazione di:
+Confluence, un servizio fornito da JIRA\textsubscript{G} è utilizzato dal gruppo per la scrittura e l'organizzazione di:
 \begin{itemize}
 	\item \textbf{Verbali}: Interni ed esterni;
-	\item \textbf{Sprint retrospective}: Contenente le varie analisi retrospettive del gruppo sugli sprint svolti;
+	\item \textbf{Sprint\textsubscript{G} retrospective}: Contenente le varie analisi retrospettive del gruppo sugli sprint\textsubscript{G} svolti;
 	\item \textbf{Ricerche e documentazioni}: Contiene le documentazioni e analisi che il gruppo ha svolto su strumenti o tecnologie che possono essere utili allo sviluppo del progetto.
 \end{itemize}
 Tale scelta è stata guidata dalla qualità dei template forniti dallo strumento, i quali facilitano la scrittura e la comprensione di alcuni specifici documenti.
 
 \subsubsection{Gestione delle modifiche}
-Per evitare i conflitti tra le modifiche, mantenere in ordine i file e garantire che all'interno del branch principale ci siano solo documenti verificati, il gruppo ha deciso che ogni qual volta sia necessaria una modifica in uno specifico documento deve essere creato un branch per apportarla. La modifica in questione potrà essere integrata nel branch principale solo dopo essere stata revisionata dal \textit{Ve}.
+Per evitare i conflitti tra le modifiche, mantenere in ordine i file e garantire che all'interno del branch\textsubscript{G} principale ci siano solo documenti verificati, il gruppo ha deciso che ogni qual volta sia necessaria una modifica in uno specifico documento deve essere creato un branch\textsubscript{G} per apportarla. La modifica in questione potrà essere integrata nel branch\textsubscript{G} principale solo dopo essere stata revisionata dal \textit{Ve}.
 
 \subsubsection{Tipi di file presenti}
-Nella repository \textit{catchEmAll-Docs} sono presenti esclusivamente file \textbf{.tex}, \textbf{.png} e \textbf{/pdf}. Altri file prodotti durante la stesura dei documenti con estensioni diverse da quelle citate sono escluse attraverso il file \textbf{.gitignore}.
+Nella repository \textit{catchEmAll-Docs} sono presenti esclusivamente file \textbf{.tex}, \textbf{.png} e \textbf{.pdf}. Altri file prodotti durante la stesura dei documenti con estensioni diverse da quelle citate sono escluse attraverso il file \textbf{.gitignore}.
 
 
 
 \subsection{Assicurazione della qualità}
 \subsubsection{Scopo}
 Questo processo ha lo scopo di assicurare che tutti i processi e prodotti siano conformi con gli obiettivi e le metriche definiti dal gruppo nel documento \textit{Piano\_di\_qualifica v 1.0.0}. 
-Devono essere continuamente osservate la qualità di processo per garantire una buona gestione del progetto e la qualità del prodotto per assicurarsi di lavorare in modo conforme alle richieste del proponente.
+Devono essere continuamente osservate la qualità di processo\textsubscript{G} per garantire una buona gestione del progetto e la qualità del prodotto per assicurarsi di lavorare in modo conforme alle richieste del proponente.
 \subsubsection{Denominazione obiettivi di qualità}
 Ogni obiettivo sarà contrassegnato da un codice univoco così composto:
 \begin{center}
 	\verb|OQ<<Tipo di obiettivo>><<ID>>|
 \end{center}
-Dove 
+Dove:
 \begin{itemize}
 	\item \verb|OQ| sta per obiettivo di qualità;
 	\item \verb|<<Tipo di obiettivo>>| identifica se è di processo o prodotto (PC-PD);
@@ -239,7 +240,7 @@ Ogni metrica sarà contrassegnata da un codice univoco così composto:
 \begin{center}
 	\verb|MQ<<Tipo di metrica>><<ID>>|
 \end{center}
-Dove 
+Dove:
 \begin{itemize}
 	\item \verb|MQ| sta per metrica di qualità;
 	\item \verb|<<Tipo di metrica>>| identifica se è di processo o prodotto (PC-PD);
@@ -258,8 +259,7 @@ Il processo di verifica è suddiviso in due fasi:
 \end{itemize}
 
 \subsubsection{Analisi statica}
-L'analisi statica si occupa di analizzare documentazione e codice e accerta conformità a regole, assenza di errori, completezza dei requisiti desiderati.
-Inoltre poiché non richiede l'esecuzione dell’oggetto di verifica, si può applicare ad ogni prodotto di processo.\\
+L’analisi statica si occupa di analizzare la documentazione e il codice e accerta la conformità alle regole introdotte, l'assenza di errori, la completezza dei requisiti desiderati. Inoltre poiché non richiede l’esecuzione dell’oggetto di verifica, si può applicare ad ogni prodotto di processo.\\
 Si utilizzano due metodi per svolgere analisi statica:
 \begin{itemize}
 	\item \textbf{Walkthrough};
@@ -269,7 +269,7 @@ Queste sono effettuate tramite studio dell’oggetto di verifica e lettura umana
 \subsubsubsection{Walkthrough}
 \paragraph {Scopo}\mbox{}\\
 I verificatori, insieme agli sviluppatori quando necessario, che utilizzano questo metodo devono rilevare la presenza di errori attraverso una lettura critica ad ampio spettro del prodotto da analizzare. Questo metodo è molto oneroso dal punto di vista delle risorse utilizzate, e perciò si cercherà di utilizzare solo fino al momento in cui non sarà disponibile una checklist.
-\paragraph {Fasi}\mbox{}\\
+\paragraph {Fasi:}\:
 \begin{enumerate}
 	\item Pianificazione, svolta da autori e verificatori;
 	\item Lettura, svolta dai verificatori;
@@ -280,18 +280,63 @@ I verificatori, insieme agli sviluppatori quando necessario, che utilizzano ques
 \subsubsubsection{Inspection}
 \paragraph {Scopo}\mbox{}\\
 I verificatori che utilizzano questo metodo devono rilevare la presenza di errori eseguendo una lettura mirata dell’oggetto di verifica attraverso l'utilizzo di una checklist. Si cerca quindi di immaginare in precedenza quali saranno le criticità dell'oggetto da analizzare e di elencarli.
-\paragraph {Fasi}\mbox{}\\
+\paragraph {Fasi:}\:
 \begin{enumerate}
 	\item Pianificazione;
 	\item Definizione di una checklist;
 	\item Lettura;
 	\item Correzione degli errori, svolta dagli autori.
 \end{enumerate}
+
+\paragraph{File correctness script\textsubscript{G}}\mbox{}\\
+Allo scopo di eseguire in modo automatizzato l'inspection dei file è stato scritto un programma in python che permette di verificare determinati elementi:
+\begin{itemize}
+	\item All'interno del file;
+	\item Nomi dei file;
+	\item Estensioni dei file e numero;
+	\item Nomi di cartelle.
+\end{itemize}
+\noindent Queste verifiche sono per la maggior parte delegate ad un modulo chiamato "specific\_rules.py" il quale contiene tutte le verifiche da fare tramite espresssioni regolari (regex) su vari input forniti alle funzioni del file. Questo modulo viene incluso da un altro modulo "checks.py" il quale a sua volta è incluso dallo script\textsubscript{G} "file\_correctness.py".\\
+\noindent Le verifiche effettuate dallo script\textsubscript{G} sono:
+\begin{enumerate}
+	\item Presenza di tutte le directory;
+	\item Correttezza nome delle directory;
+	\item Sottoalbero delle directory di documentazione principale presente e corretto;
+	\item Presenza di un solo file pdf e di nessun altro file;
+	\item Presenza di un solo file LaTeX nella cartella "src" e nessun altro file;
+	\item File LaTeX nella cartella "src" con determinati parametri;
+	\newline In particolare:
+	\begin{lstlisting}
+	'font size': r'.*\\documentclass\[10pt\]\{article\}.*',
+        'packages file': r'.*\\input\{sections/packages\}.*',
+        'style file': r'.*\\input\{sections/style\}.*',
+        'title page': r'.*\\input\{sections/title_page\}.*',
+        'page roman numbering': r'.*\\pagenumbering\{roman\}.*',
+        'table of contents': r'.*\\tableofcontents.*',
+	\end{lstlisting}
+	\item Controllo della presenza di almeno un file LaTeX nella cartella "sections" e di nessun altro tipo di file;
+	\item Controllo della presenza dei file necessari nella cartella "sections", precedentemente inclusi nel file LaTeX in "src";
+	Ovvero:
+	\begin{lstlisting}
+	necessary_sections_files = [
+        'style.tex',
+        'packages.tex',
+        'title_page.tex',
+        'modifiche.tex',
+    	]
+	\end{lstlisting}
+	\item Controllo della presenza di determinati parametri nel file title\_page.tex, tra cui il titolo che coincida con il nome della cartella in cui si trova il file;
+	\item Controllo della presenza di determinati parametri nel file style.tex, tra cui la correttezza del nome del file;
+	\item Controllo della presenza di determinati parametri nel file modifiche.tex, tra cui il giusto ordine e l'assenza di ripetizioni nel numero delle versioni;
+	\item Controllo della presenza dell'ultima versione nei file title\_page.tex e in style.tex;
+	\item Controllo del rispetto della norma per le gli elenchi puntati e numerati (\ref{sec:elenchi_puntati_numerati}).
+\end{enumerate}
+
 \subsubsection{Analisi dinamica}
-L'analisi dinamica si occupa di eseguire dei test sugli oggetti di verifica che devono essere eseguiti. Questo permetterà al gruppo di accertarsi dell'assenza di errori.
+L'analisi dinamica si occupa di eseguire dei test sugli oggetti di verifica che devono essere eseguiti. Questo permetterà al gruppo di accertarsi dell'assenza di errori noti.
 I test dovranno essere:
 \begin{itemize}
-	\item \textbf{Ripetibili}, ovvero che garantiscano la correttezza dell'oggetto di verifica e quindi la rimozione di eventuali errori.
+	\item \textbf{Ripetibili}, ovvero che garantiscano la correttezza dell'oggetto di verifica e quindi la rimozione di eventuali errori;
 	\item \textbf{Automatizzati}, ovvero svolti in maniera automatica da precisi strumenti selezionati.
 \end{itemize}
 Inoltre verranno eseguiti diversi tipi di test:
@@ -307,7 +352,7 @@ Ogni test sarà contrassegnato da un codice univoco così composto:
 \begin{center}
 	\verb|TV<<Tipo di test>><<ID>>|
 \end{center}
-Dove 
+Dove:
 \begin{itemize}
 	\item \verb|TV| sta per test di verifica;
 	\item \verb|<<Tipo di test>>| identifica il tipo di test che si vuole fare, questi possono essere:
@@ -322,9 +367,9 @@ Dove
 \end{itemize}
 Informazioni più dettagliate sui vari test, strumenti e metriche utilizzate per la verifica si possono trovare nel documento \textit{Piano\_di\_qualifica v 1.0.0}.
 
-\subsection{Validazione e collaudo}
+\subsection{Validazione\textsubscript{G} e collaudo}
 \subsubsection{Scopo}
-Lo scopo di questo processo è quello di confermare che tutti i requisiti siano rispettati all'interno del prodotto finale, dopo aver svolto tutti i test di verifica. Questi due processi sono strettamente legati fra loro e una buona verifica durante il corso del progetto permette di superare anche il processo di validazione.
+Lo scopo di questo processo è quello di confermare che tutti i requisiti siano rispettati all'interno del prodotto finale, dopo aver svolto tutti i test di verifica. Questi due processi sono strettamente legati fra loro e una buona verifica durante il corso del progetto permette di superare anche il processo di validazione\textsubscript{G}.
 Questo processo permette anche di confermare che il prodotto finale sia conforme alle richieste del proponente.
 
 \subsection{Usabilità}
