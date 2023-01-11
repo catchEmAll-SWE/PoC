@@ -37,7 +37,7 @@ def srcLatexFileCorrectness(file):
         'table of contents': r'.*\\tableofcontents.*',
     }
 
-    file_as_string = file.read_text()
+    file_as_string = file.read_text(encoding="utf-8")
     errors = []
     for check in checks:
         if not re.search(checks[check], file_as_string):
@@ -72,7 +72,7 @@ def titlePageFileCorrectness(file, name):
         'end tabular': r'\\end\{tabularx\}.*',
     }
 
-    file_as_string = file.read_text()
+    file_as_string = file.read_text(encoding="utf-8")
     errors = []
     for check in checks:
         if check == 'doc title':
@@ -110,7 +110,7 @@ def stylePageFileCorrectness(file, name):
         'table style L': r'\\newcolumntype\{L\}\[1\]\{>\{\\raggedright\\let\\newline\\\\\\arraybackslash\\hspace\{0pt\}\}m\{#1\}\}',
     }
 
-    file_as_string = file.read_text()
+    file_as_string = file.read_text(encoding="utf-8")
     errors = []
     for check in checks:
         if check == 'doc title and version':
@@ -136,7 +136,7 @@ def modificheFileCorrectness(file):
         'end centering': r'\\end\{center\}.*',
     }
 
-    file_as_string = file.read_text()
+    file_as_string = file.read_text(encoding="utf-8")
     errors = []
 
     for check in checks:
@@ -152,11 +152,11 @@ def getVersionsFromModificheFile(file):
     :param file: modifiche file
     :type file: Path
     """
-    return re.findall(r'\d\d?\.\d\d?\.\d\d?', file.read_text())
+    return re.findall(r'\d\d?\.\d\d?\.\d\d?', file.read_text(encoding="utf-8"))
 
 
 def getLatestVersionFromModificheFile(file):
-    return re.search(r'\d\d?\.\d\d?\.\d\d?', file.read_text()).group(0)
+    return re.search(r'\d\d?\.\d\d?\.\d\d?', file.read_text(encoding="utf-8")).group(0)
 
 
 def listCorrectness(file):
