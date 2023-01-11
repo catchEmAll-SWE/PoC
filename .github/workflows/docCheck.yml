@@ -1,11 +1,11 @@
-name: run-python-script
+name: files-correctness-checks
 
 on:
   push:
 
 jobs:
   build:
-
+    name: files-correctness-checks
     runs-on: ubuntu-latest
 
     steps:
