@@ -188,7 +188,7 @@ def versionsOrderInModificheFileCorrectness(modifiche_file):
     return True
 
 
-def versionCorrectnessInSectionsFiles(sections_path):
+def versionCorrectnessInSectionsFiles(sections_path, dir):
     """Check if version in sections files is coherent with modifiche.tex
 
     :param sections_path: path to sections directory
@@ -199,6 +199,7 @@ def versionCorrectnessInSectionsFiles(sections_path):
         sections_path/'modifiche.tex')
     titlePageVersionCorrectness(sections_path/'title_page.tex', version)
     styleFileVersionCorrectness(sections_path/'style.tex', version)
+    pdfFileVersionCorrectness(dir, version)
 
 
 def titlePageVersionCorrectness(titlePage_file, version):
@@ -232,6 +233,20 @@ def styleFileVersionCorrectness(style_file, version):
         return
     else:
         PrintSimpleError.print_error(['Version number not correct in ' + str(style_file)])
+
+def pdfFileVersionCorrectness(dir, version):
+    """Check if main pdf file is coherent with version
+
+    :param style_file: path to document root
+    :type style_file: Path
+    :param version: version of the document
+    :type version: str
+    """
+    file_name = str(dir).strip('/').split('/')[-1].lower().replace(' ', '_') + '_v.' + version + '.pdf'
+    if file_name in [file.name for file in getFilesFromDir(dir)]:
+        return
+    else:
+        PrintSimpleError.print_error(['Version number or name not correct in ' + str(dir) + ' must be: ' + file_name])
 
 
 def latexFilesCorrectness(latex_files):

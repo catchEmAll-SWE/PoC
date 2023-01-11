@@ -53,7 +53,7 @@ def main() -> int:
                     styleFileCorrectness(sections_path/'style.tex', dir)
                     modificheFileCorrectness(sections_path/'modifiche.tex')
                     # check version PRE: title_page.tex and style.tex verified for correctness (to exclude parsing errors)
-                    versionCorrectnessInSectionsFiles(sections_path)
+                    versionCorrectnessInSectionsFiles(sections_path, dir)
 
     latex_files = [
         file for file in files_w_allowed_ext if file.suffix == '.tex']
