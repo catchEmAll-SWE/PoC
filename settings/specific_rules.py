@@ -170,7 +170,7 @@ def listCorrectness(file):
     :py:func:declarationListEndingWithColon
     :py:func:firstLetterInListMustBeMaiusc
     """
-    file_as_string = file.read_text()
+    file_as_string = file.read_text(encoding="utf-8")
     missin_colon_lines = declarationListEndingWithColon(file_as_string)
     missin_semicolon_lines = itemInListEndingWithSemicolon(file_as_string)
     missing_dot_lines = itemInListEndingWithDot(file_as_string)
