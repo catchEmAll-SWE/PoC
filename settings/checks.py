@@ -211,7 +211,7 @@ def titlePageVersionCorrectness(titlePage_file, version):
     """
     if version:
         version_search = re.findall(r'\\textbf\{Versione\}\s*&\s*\(' + version +
-                                    r'\)\s*\\\\\s*', titlePage_file.read_text())
+                                    r'\)\s*\\\\\s*', titlePage_file.read_text(encoding="utf-8"))
         if len(version_search) > 1:
             PrintSimpleError.print_error(
                 'Multiple versions found in ' + str(titlePage_file) + ', check for duplicates')
@@ -228,7 +228,7 @@ def styleFileVersionCorrectness(style_file, version):
     :param version: version of the document
     :type version: str
     """
-    if re.search(r'\\fancyfoot\s*\[L\].*v\s'+version+r'\s*}', style_file.read_text()):
+    if re.search(r'\\fancyfoot\s*\[L\].*v\s'+version+r'\s*}', style_file.read_text(encoding="utf-8")):
         return
     else:
         PrintSimpleError.print_error(['Version number not correct in ' + str(style_file)])
