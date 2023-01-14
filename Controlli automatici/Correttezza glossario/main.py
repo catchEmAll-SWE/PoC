@@ -3,7 +3,7 @@ from pathlib import Path
 
 # TODO
 # fare il merge del main con il glossario in questo ramo
-# ritornare una lista di errori importando il modulo print_error
+# ritornare una lista di errori importando il modulo print_error stampando anche la linea dove manca la parola
 # aggiungere lo script al workflow di github con trigger modifiche sul documento Glossario/src/sections/glossario.tex (così non si runna ogni volta che si fa un push inutilmente)
 
 def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
@@ -15,7 +15,8 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
             for file in dir.rglob('*'):
                 if file.suffix == '.tex':
                     file_text = file.read_text()
-                    if re.search(r'word(?!\\textsubscript{\S*G\S*})', file_text):
+                    if re.search(word+r'(?!\\textsubscript{\S*G\S*})', file_text):
+                        print(str(file) + ' - ' + word)
                         result = False
     return result
 
@@ -24,8 +25,9 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
 
 def main() -> int:
     glossario = (Path('.')/"Controlli automatici/Correttezza glossario/glossario.tex").read_text()
+    print('wrong files: ')
     for word in re.finditer(r'\\paragraph{\s*([A-z]+(\s[A-z]+)*)\s*}', glossario):
-        print(word.group(1))
+        checkGlossaryWordPresenceInOfficialDocs(word.group(1))
 
 
 
