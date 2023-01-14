@@ -10,7 +10,7 @@ Tutti i documenti prodotti dal team seguono il seguente ciclo di vita:
 \begin{itemize}
     \item \textbf{Stesura}: Il documento viene scritto utilizzando la metodologia AGILE, adottando sprint\textsubscript{G} di durata settimanale;
     \item \textbf{Revisione}: Alla fine di ogni sprint\textsubscript{G} i documenti modificati devono essere revisionati da un membro del gruppo diverso dal redattore. Solo dopo una revisione con esito positivo le modifiche e i nuovi contenuti possono essere integrati nel documento finale;
-    \item \textbf{Verifica}: Avviene in un periodo della fase di analisi indicata nel documento \textit{Piano\_di\_progetto v 1.0.0}. Tale attività viene svolta da almeno una persona. Il documento è considerato verificato quando i Verificatori dichiarano che le modifiche necessarie per renderlo coerente con tutte le norme sono state portate a termine;
+    \item \textbf{verifica\textsubscript{G}}: Avviene in un periodo della fase di analisi indicata nel documento \textit{Piano\_di\_progetto v 1.0.0}. Tale attività viene svolta da almeno una persona. Il documento è considerato verificato quando i Verificatori dichiarano che le modifiche necessarie per renderlo coerente con tutte le norme sono state portate a termine;
     \item \textbf{Approvazione}: Il Responsabile di Progetto dichiara che il documento è completo in ogni sua parte e pronto per essere rilasciato, marcandolo come approvato.
 \end{itemize}
 \begin{figure}[H]
@@ -141,7 +141,7 @@ Di seguito viene elencata una lista di sigle le quali si possono trovare nei doc
 	\end{itemize}
 \item \textbf{Revisioni di progetto}:
 	\begin{itemize}
-		\item \textbf{RTB}: Indica la prima revisione di progetto, e comprende la Requirements and Technology Baseline;
+		\item \textbf{RTB}: Indica la prima revisione di progetto, e comprende la Requirements and Technology baseline\textsubscript{G};
 		\item \textbf{PB}: Indica la seconda revisione, e comprende la Product Baseline;
 		\item \textbf{CA}: Indica la terza revisione, e comprende la Customer Acceptance.
 	\end{itemize}
@@ -175,8 +175,8 @@ Di seguito vengono elencati gli strumenti usati per redigere i documenti:
 \item \textbf{\LaTeX}: Per la produzione dei documenti, il team ha deciso di usare il linguaggio di markup \textit{\LaTeX};
 \item \textbf{Microsoft Word}: Per la stesura delle bozze di alcune parti di documenti;
 \item \textbf{Microsoft Excel}: Per la creazione delle tabelle con i preventivi delle ore e costi che verranno poi inserite nel \textit{PdP};
-\item \textbf{StarUML}: Per la creazione dei vari UML da inserire all'interno dei documenti;
-\item \textbf{LucidChart}: Per discussioni di gruppo sui vari UML creati, dato che lo strumento permette modifiche condivise.
+\item \textbf{StarUML}: Per la creazione dei vari UML\textsubscript{G} da inserire all'interno dei documenti;
+\item \textbf{LucidChart}: Per discussioni di gruppo sui vari UML\textsubscript{G} creati, dato che lo strumento permette modifiche condivise.
 \end{itemize}
 
 
@@ -246,26 +246,26 @@ Dove:
 	\item \verb|<<Tipo di metrica>>| identifica se è di processo o prodotto (PC-PD);
 	\item \verb|<<ID>>| è un contatore correlato al tipo di metrica.
 \end{itemize}
-\subsection{Verifica}
+\subsection{verifica\textsubscript{G}}
 \subsubsection{Scopo}
-Questo processo ha lo scopo di confermare che ciascuna attività svolta soddisfi i requisiti e gli obiettivi specificati, attraverso le metriche scelte dal gruppo e descritte in dettaglio nel documento \textit{Piano\_di\_qualifica v 1.0.0} e che non abbia introdotto errori.
-Il processo di \textit{Verifica} deve essere integrato nei processi di \textit{Fornitura}, \textit{Sviluppo} e \textit{Manutenzione}.
+Questo processo ha lo scopo di confermare che ciascuna attività svolta soddisfi i requisiti\textsubscript{G} e gli obiettivi specificati, attraverso le metriche scelte dal gruppo e descritte in dettaglio nel documento \textit{Piano\_di\_qualifica v 1.0.0} e che non abbia introdotto errori.
+Il processo di \textit{verifica\textsubscript{G}} deve essere integrato nei processi di \textit{Fornitura}, \textit{Sviluppo} e \textit{Manutenzione}.
 \newline
 \newline
-Il processo di verifica è suddiviso in due fasi:
+Il processo di verifica\textsubscript{G} è suddiviso in due fasi:
 \begin{itemize}
-	\item \textbf{Analisi statica}, la quale non richiede l'esecuzione dell'oggetto di verifica;
-	\item \textbf{Analisi dinamica}, la quale richiede l'esecuzione dell'oggetto di verifica.
+	\item \textbf{Analisi statica}, la quale non richiede l'esecuzione dell'oggetto di verifica\textsubscript{G};
+	\item \textbf{Analisi dinamica}, la quale richiede l'esecuzione dell'oggetto di verifica\textsubscript{G}.
 \end{itemize}
 
 \subsubsection{Analisi statica}
-L’analisi statica si occupa di analizzare la documentazione e il codice e accerta la conformità alle regole introdotte, l'assenza di errori, la completezza dei requisiti desiderati. Inoltre poiché non richiede l’esecuzione dell’oggetto di verifica, si può applicare ad ogni prodotto di processo.\\
+L’analisi statica si occupa di analizzare la documentazione e il codice e accerta la conformità alle regole introdotte, l'assenza di errori, la completezza dei requisiti\textsubscript{G} desiderati. Inoltre poiché non richiede l’esecuzione dell’oggetto di verifica\textsubscript{G}, si può applicare ad ogni prodotto di processo.\\
 Si utilizzano due metodi per svolgere analisi statica:
 \begin{itemize}
 	\item \textbf{Walkthrough};
 	\item \textbf{Inspection}.
 \end{itemize}
-Queste sono effettuate tramite studio dell’oggetto di verifica e lettura umana o automatizzata.
+Queste sono effettuate tramite studio dell’oggetto di verifica\textsubscript{G} e lettura umana o automatizzata.
 \subsubsubsection{Walkthrough}
 \paragraph {Scopo}\mbox{}\\
 I verificatori, insieme agli sviluppatori quando necessario, che utilizzano questo metodo devono rilevare la presenza di errori attraverso una lettura critica ad ampio spettro del prodotto da analizzare. Questo metodo è molto oneroso dal punto di vista delle risorse utilizzate, e perciò si cercherà di utilizzare solo fino al momento in cui non sarà disponibile una checklist.
@@ -279,7 +279,7 @@ I verificatori, insieme agli sviluppatori quando necessario, che utilizzano ques
 \paragraph {}\mbox{}\\
 \subsubsubsection{Inspection}
 \paragraph {Scopo}\mbox{}\\
-I verificatori che utilizzano questo metodo devono rilevare la presenza di errori eseguendo una lettura mirata dell’oggetto di verifica attraverso l'utilizzo di una checklist. Si cerca quindi di immaginare in precedenza quali saranno le criticità dell'oggetto da analizzare e di elencarli.
+I verificatori che utilizzano questo metodo devono rilevare la presenza di errori eseguendo una lettura mirata dell’oggetto di verifica\textsubscript{G} attraverso l'utilizzo di una checklist. Si cerca quindi di immaginare in precedenza quali saranno le criticità dell'oggetto da analizzare e di elencarli.
 \paragraph {Fasi:}\:
 \begin{enumerate}
 	\item Pianificazione;
@@ -334,10 +334,10 @@ Allo scopo di eseguire in modo automatizzato l'inspection dei file è stato scri
 \end{enumerate}
 
 \subsubsection{Analisi dinamica}
-L'analisi dinamica si occupa di eseguire dei test sugli oggetti di verifica che devono essere eseguiti. Questo permetterà al gruppo di accertarsi dell'assenza di errori noti.
+L'analisi dinamica si occupa di eseguire dei test sugli oggetti di verifica\textsubscript{G} che devono essere eseguiti. Questo permetterà al gruppo di accertarsi dell'assenza di errori noti.
 I test dovranno essere:
 \begin{itemize}
-	\item \textbf{Ripetibili}, ovvero che garantiscano la correttezza dell'oggetto di verifica e quindi la rimozione di eventuali errori;
+	\item \textbf{Ripetibili}, ovvero che garantiscano la correttezza dell'oggetto di verifica\textsubscript{G} e quindi la rimozione di eventuali errori;
 	\item \textbf{Automatizzati}, ovvero svolti in maniera automatica da precisi strumenti selezionati.
 \end{itemize}
 Inoltre verranno eseguiti diversi tipi di test:
@@ -348,14 +348,14 @@ Inoltre verranno eseguiti diversi tipi di test:
 	\item \textbf{Test di regressione};
 	\item \textbf{Test di accettazione e collaudo}.
 \end{itemize}
-\subsubsection{Denominazione test di verifica}
+\subsubsection{Denominazione test di verifica\textsubscript{G}}
 Ogni test sarà contrassegnato da un codice univoco così composto:
 \begin{center}
 	\verb|TV<<Tipo di test>><<ID>>|
 \end{center}
 Dove:
 \begin{itemize}
-	\item \verb|TV| sta per test di verifica;
+	\item \verb|TV| sta per test di verifica\textsubscript{G};
 	\item \verb|<<Tipo di test>>| identifica il tipo di test che si vuole fare, questi possono essere:
 	\begin{itemize}
 		\item UN, di unità;
@@ -366,11 +366,11 @@ Dove:
 	\end{itemize}
 	\item \verb|<<ID>>| è un contatore correlato al tipo di test.
 \end{itemize}
-Informazioni più dettagliate sui vari test, strumenti e metriche utilizzate per la verifica si possono trovare nel documento \textit{Piano\_di\_qualifica v 1.0.0}.
+Informazioni più dettagliate sui vari test, strumenti e metriche utilizzate per la verifica\textsubscript{G} si possono trovare nel documento \textit{Piano\_di\_qualifica v 1.0.0}.
 
 \subsection{Validazione\textsubscript{G} e collaudo}
 \subsubsection{Scopo}
-Lo scopo di questo processo è quello di confermare che tutti i requisiti siano rispettati all'interno del prodotto finale, dopo aver svolto tutti i test di verifica. Questi due processi sono strettamente legati fra loro e una buona verifica durante il corso del progetto permette di superare anche il processo di validazione\textsubscript{G}.
+Lo scopo di questo processo è quello di confermare che tutti i requisiti\textsubscript{G} siano rispettati all'interno del prodotto finale, dopo aver svolto tutti i test di verifica\textsubscript{G}. Questi due processi sono strettamente legati fra loro e una buona verifica\textsubscript{G} durante il corso del progetto permette di superare anche il processo di validazione\textsubscript{G}.
 Questo processo permette anche di confermare che il prodotto finale sia conforme alle richieste del proponente.
 
 \subsection{Usabilità}

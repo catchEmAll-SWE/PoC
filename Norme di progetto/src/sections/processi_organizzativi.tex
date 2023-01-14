@@ -61,14 +61,14 @@
 	Il programmatore quindi gestisce:
 	\begin{itemize}
 		\item La scrittura del codice in modo che sia chiaro e facile da mantenere;
-		\item Gli strumenti che si occupano dei test utilizzati per la verifica e la validazione\textsubscript{G} del software;
+		\item Gli strumenti che si occupano dei test utilizzati per la verifica\textsubscript{G} e la validazione\textsubscript{G} del software;
 		\item La redazione del Manuale Utente relativo alla codifica del prodotto.
 	\end{itemize}
 	\subsubsubsection{Verificatore}
-	Il verificatore si occupa di tutte le operazioni di verifica e validazione\textsubscript{G} dei vari prodotti parziali e finali del progetto. \\
+	Il verificatore si occupa di tutte le operazioni di verifica\textsubscript{G} e validazione\textsubscript{G} dei vari prodotti parziali e finali del progetto. \\
 	Il verificatore quindi gestisce:
 	\begin{itemize}
-		\item La verifica e validazione\textsubscript{G} dei prodotti parziali o finali in fase di revisione in modo che rispettino gli obiettivi di qualità imposti nel documento \textit{Piano\_di\_qualifica v 1.0.0}. I seguenti prodotti se a norma verranno di conseguenza integrati;
+		\item La verifica\textsubscript{G} e validazione\textsubscript{G} dei prodotti parziali o finali in fase di revisione in modo che rispettino gli obiettivi di qualità imposti nel documento \textit{Piano\_di\_qualifica v 1.0.0}. I seguenti prodotti se a norma verranno di conseguenza integrati;
 		\item Segnalare gli eventuali errori riscontrati.
 	\end{itemize}
     \subsubsection{Gestione delle comunicazioni}
@@ -136,9 +136,9 @@
 In JIRA\textsubscript{G} vengono create ed organizzate le issue\textsubscript{G}, una volta fatto ciò si procede attraverso github\textsubscript{G} alla creazione del branch\textsubscript{G} relativo alla issue\textsubscript{G} da risolvere.\\
 	Tale ramo ha nome codificato come:
 	\begin{lstlisting}
-		CEA-num-titolo-della-issue
+		CEA-num-titolo-della-Issue
 	\end{lstlisting}
-	Questo permette di identificare titolo e numero della issue\textsubscript{G} di appartenenza. Una volta fatto ciò viene creato un \textbf{primo commit\textsubscript{G}}, nel cui messaggio è specificata l'avvenuta presa in carico della issue, la quale dovrà passare dallo stato "to do" allo stato "in progress"\\
+	Questo permette di identificare titolo e numero della issue\textsubscript{G} di appartenenza. Una volta fatto ciò viene creato un \textbf{primo commit\textsubscript{G}}, nel cui messaggio è specificata l'avvenuta presa in carico della issue\textsubscript{G}, la quale dovrà passare dallo stato "to do" allo stato "in progress"\\
 	Ciò è garantito dal suddetto commit\textsubscript{G} message contenente la stringa:
 	\begin{lstlisting}
 		CEA-num #open <testo aggiuntivo>
@@ -179,10 +179,10 @@ In JIRA\textsubscript{G} vengono create ed organizzate le issue\textsubscript{G}
 	Una volta chiusa, sempre dalla pull request su github\textsubscript{G}, \textbf{si elimina il ramo di feature\textsubscript{G}} creato precedentemente.
 	\begin{figure}[ht!]
 		\includegraphics[width=15cm]{img/git_pull_request.png}
-		\caption{Merge di una pull request su Github}
+		\caption{Merge\textsubscript{G} di una pull request su Github}
 		La descrizione è a titolo esemplificativo, il contenuto non influenza gli smart commit\textsubscript{G} di JIRA\textsubscript{G}, il \textbf{titolo del merge\textsubscript{G} commit} si.
 		\newline \includegraphics[width=15cm]{img/git_pull_request_commit.png}
-		\caption{Messaggio esempio per effettuare il merge di una pull request}
+		\caption{Messaggio esempio per effettuare il merge\textsubscript{G} di una pull request}
 	\end{figure}
 	\clearpage
 
