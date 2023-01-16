@@ -2,6 +2,9 @@ import re
 from pathlib import Path
 
 # TODO
+# escludere il controllo ai file title_page, packages, style, modifiche
+# \textit{parola}\textsubscript{G} questo viene rilevato senza pedice (per la parentesi graffa)
+# parola dentro la parola es. parola "Id" e' presente anche in "Identificazione", lo script segna la parola
 # ritornare una lista di errori importando il modulo print_error stampando anche la linea dove manca la parola
 # aggiungere lo script al workflow di github con trigger modifiche sul documento Glossario/src/sections/glossario.tex (così non si runna ogni volta che si fa un push inutilmente)
 
