@@ -28,7 +28,7 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
                         else:
                             errors.append(str(file))    
     if errors:
-            PrintSimpleError.print_warning(errors, group_name = word)
+            PrintSimpleError.print_error(errors, group_name = word)
     if warnings:
             PrintWarning.print_warning(warnings, group_name = word)
 
