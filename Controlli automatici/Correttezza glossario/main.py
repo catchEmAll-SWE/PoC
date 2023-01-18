@@ -11,6 +11,7 @@ from ..Correttezza_file.print_error import PrintWarning, PrintError
 
 def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
     ambiguous_words = ['Verifica']
+    unnecessary_files = ['title_page', 'packages', 'style', 'modifiche']
     errors = []
     warnings = []
     official_docs_dirs = ['Analisi dei requisiti/', 'Norme di progetto/', 'Piano di progetto/', 'Piano di qualifica/']
@@ -18,7 +19,7 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
     for dir in official_dirs:
         if dir.exists():
             for file in dir.rglob('*'):
-                if file.suffix == '.tex':
+                if file.suffix == '.tex' and file.stem not in unnecessary_files:
                     file_text = file.read_text(encoding="UTF-8")
                     if re.search(r'\s'+word+r'?!\\textsubscript{\S*G\S*}', file_text):
                         if word in ambiguous_words:
@@ -47,4 +48,5 @@ if __name__ == '__main__': #to define that is a script and not a module
 #   [x] add class to print errors to print warnings
 #   [x] add space in regex to identify only word and not word inside other word
 #   [ ] recognize word that is ambigous (ex. Verifica)
+#   [x] check not in title page, packages, style, modifiche
 #   [ ] add workflow using push affects specific files trigger event
