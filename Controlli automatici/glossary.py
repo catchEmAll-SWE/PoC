@@ -1,4 +1,5 @@
 import re
+import sys
 from pathlib import Path
 from modules.print_error import PrintWarning, PrintError
 
@@ -36,7 +37,7 @@ def main() -> int:
     glossario = (Path('.')/"Glossario/src/sections/glossario.tex").read_text(encoding="UTF-8")
     for word in re.finditer(r'\\paragraph{\s*([A-z]+(\s[A-z]+)*)\s*}', glossario):
         checkGlossaryWordPresenceInOfficialDocs(word.group(1))
-
+    sys.exit(PrintError.build_status.value)
 
 
 if __name__ == '__main__': #to define that is a script and not a module
