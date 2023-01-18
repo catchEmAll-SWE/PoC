@@ -1,5 +1,6 @@
 import re
 from pathlib import Path
+from ..Correttezza_file.print_error import PrintError
 
 # TODO
 # escludere il controllo ai file title_page, packages, style, modifiche
@@ -35,3 +36,10 @@ def main() -> int:
 
 if __name__ == '__main__': #to define that is a script and not a module
     main()
+
+
+# TODO 
+#   [] add class to print errors to print warnings
+#   [] add space in regex to identify only word and not word inside other word
+#   [] recognize word that is ambigous (ex. Verifica)
+#   [] add workflow using push affects specific files trigger event
