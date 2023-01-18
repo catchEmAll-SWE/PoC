@@ -21,7 +21,7 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
             for file in dir.rglob('*'):
                 if file.suffix == '.tex' and file.stem not in unnecessary_files:
                     file_text = file.read_text(encoding="UTF-8")
-                    if re.search(r'\s'+word+r'?!\\textsubscript{\S*G\S*}', file_text):
+                    if re.search(r'\s+'+word+'(?!\\textsubscript{\S*G\S*})', file_text):
                         if word in ambiguous_words:
                             warnings.append(str(file))
                         else:
