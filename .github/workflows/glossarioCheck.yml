@@ -1,7 +1,5 @@
 on:
   push:
-    paths:
-      - 'Glossario/*'
 
 jobs:
   build:
