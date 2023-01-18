@@ -1,10 +1,12 @@
 on:
-push:
-  paths:
-    - Glossario/*
+  push:
+    paths:
+      - Glossario/*
     
- jobs:
-  name: files-correctness-checks
+    
+jobs:
+  build:
+    name: glossario-checks
     runs-on: ubuntu-latest
 
     steps:
