@@ -42,9 +42,3 @@ def main() -> int:
 
 if __name__ == '__main__': #to define that is a script and not a module
     main()
-
-
-# TODO
-#   [ ] recognize word that is ambigous (ex. Verifica)
-#   [x] check not in title page, packages, style, modifiche
-#   [ ] add workflow using push affects specific files trigger event
