@@ -43,9 +43,7 @@ if __name__ == '__main__': #to define that is a script and not a module
     main()
 
 
-# TODO 
-#   [x] add class to print errors to print warnings
-#   [x] add space in regex to identify only word and not word inside other word
+# TODO
 #   [ ] recognize word that is ambigous (ex. Verifica)
 #   [x] check not in title page, packages, style, modifiche
 #   [ ] add workflow using push affects specific files trigger event
