@@ -2,8 +2,7 @@ on:
   push:
     paths:
       - 'Glossario/*'
-    
-    
+
 jobs:
   build:
     name: glossario-checks
