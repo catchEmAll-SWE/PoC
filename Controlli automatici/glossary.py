@@ -1,7 +1,7 @@
 import re
 import sys
 from pathlib import Path
-from modules.print_error import PrintWarning, PrintError
+from modules.print_error import PrintWarning, PrintError, PrintSimpleError
 
 # TODO
 # escludere il controllo ai file title_page, packages, style, modifiche
@@ -28,7 +28,7 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
                         else:
                             errors.append(str(file))    
     if errors:
-            PrintWarning.print_warning(errors, group_name = word)
+            PrintSimpleError.print_warning(errors, group_name = word)
     if warnings:
             PrintWarning.print_warning(warnings, group_name = word)
 
