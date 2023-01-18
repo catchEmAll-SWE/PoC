@@ -1,6 +1,6 @@
 import re
 from pathlib import Path
-from ..Correttezza_file.print_error import PrintWarning, PrintError
+from modules.print_error import PrintWarning, PrintError
 
 # TODO
 # escludere il controllo ai file title_page, packages, style, modifiche
@@ -34,7 +34,6 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
 
 def main() -> int:
     glossario = (Path('.')/"Glossario/src/sections/glossario.tex").read_text(encoding="UTF-8")
-    print('wrong files: ')
     for word in re.finditer(r'\\paragraph{\s*([A-z]+(\s[A-z]+)*)\s*}', glossario):
         checkGlossaryWordPresenceInOfficialDocs(word.group(1))
 

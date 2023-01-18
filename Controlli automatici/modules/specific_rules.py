@@ -1,7 +1,7 @@
 # In this file you can find function (them identify rules) for latex file's rules
 import re
 import github_action_utils as gha_utils
-from print_error import *
+from modules.print_error import *
 
 
 def fileNameCorrectness(file_name):
