@@ -1,7 +1,7 @@
 on:
   push:
     paths: 
-      - '**/Glossario/src/sectionsglossario.tex'
+      - '**/Glossario/src/sections/glossario.tex'
 
 jobs:
   build:
