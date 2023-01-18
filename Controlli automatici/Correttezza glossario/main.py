@@ -1,6 +1,6 @@
 import re
 from pathlib import Path
-from ..Correttezza_file.print_error import PrintError
+from ..Correttezza_file.print_error import PrintWarning, PrintError
 
 # TODO
 # escludere il controllo ai file title_page, packages, style, modifiche
@@ -10,7 +10,9 @@ from ..Correttezza_file.print_error import PrintError
 # aggiungere lo script al workflow di github con trigger modifiche sul documento Glossario/src/sections/glossario.tex (così non si runna ogni volta che si fa un push inutilmente)
 
 def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
-    result = True
+    ambiguous_words = ['Verifica']
+    errors = []
+    warnings = []
     official_docs_dirs = ['Analisi dei requisiti/', 'Norme di progetto/', 'Piano di progetto/', 'Piano di qualifica/']
     official_dirs = [Path('.')/dir_name for dir_name in official_docs_dirs]
     for dir in official_dirs:
@@ -19,11 +21,14 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
                 if file.suffix == '.tex':
                     file_text = file.read_text(encoding="UTF-8")
                     if re.search(r'\s'+word+r'?!\\textsubscript{\S*G\S*}', file_text):
-                        print(str(file) + ' - ' + word)
-                        result = False
-    return result
-
-#POST: return True if word is present in official docs, False and print files where it is not present otherwise
+                        if word in ambiguous_words:
+                            warnings.append(str(file))
+                        else:
+                            errors.append(str(file))    
+    if errors:
+            PrintWarning.print_warning(errors, group_name = word)
+    if warnings:
+            PrintWarning.print_warning(warnings, group_name = word)
 
 
 def main() -> int:
@@ -39,7 +44,7 @@ if __name__ == '__main__': #to define that is a script and not a module
 
 
 # TODO 
-#   [] add class to print errors to print warnings
+#   [x] add class to print errors to print warnings
 #   [x] add space in regex to identify only word and not word inside other word
-#   [] recognize word that is ambigous (ex. Verifica)
-#   [] add workflow using push affects specific files trigger event
+#   [ ] recognize word that is ambigous (ex. Verifica)
+#   [ ] add workflow using push affects specific files trigger event
