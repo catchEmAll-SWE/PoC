@@ -18,7 +18,7 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
             for file in dir.rglob('*'):
                 if file.suffix == '.tex':
                     file_text = file.read_text(encoding="UTF-8")
-                    if re.search(word+r'(?!\\textsubscript{\S*G\S*})', file_text):
+                    if re.search(r'\s'+word+r'?!\\textsubscript{\S*G\S*}', file_text):
                         print(str(file) + ' - ' + word)
                         result = False
     return result
@@ -40,6 +40,6 @@ if __name__ == '__main__': #to define that is a script and not a module
 
 # TODO 
 #   [] add class to print errors to print warnings
-#   [] add space in regex to identify only word and not word inside other word
+#   [x] add space in regex to identify only word and not word inside other word
 #   [] recognize word that is ambigous (ex. Verifica)
 #   [] add workflow using push affects specific files trigger event
