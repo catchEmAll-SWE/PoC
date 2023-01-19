@@ -12,7 +12,7 @@ from modules.print_error import PrintWarning, PrintError, PrintSimpleError
 
 def addRegexControllToPossibleDuplicate(regex: str, list_of_duplicates: list[str]) -> str:
     for duplicate in list_of_duplicates:
-        regex += r'(?!'+duplicate+')'
+        regex += r'(?!\s+'+duplicate+')'
     return regex
 
 def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
