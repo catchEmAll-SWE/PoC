@@ -10,9 +10,15 @@ from modules.print_error import PrintWarning, PrintError, PrintSimpleError
 # ritornare una lista di errori importando il modulo print_error stampando anche la linea dove manca la parola
 # aggiungere lo script al workflow di github con trigger modifiche sul documento Glossario/src/sections/glossario.tex (così non si runna ogni volta che si fa un push inutilmente)
 
+def addRegexControllToPossibleDuplicate(regex: str, list_of_duplicates: list[str]) -> str:
+    for duplicate in list_of_duplicates:
+        regex += r'(?!'+duplicate+')'
+    return regex
+
 def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
     ambiguous_words = ['Verifica']
     unnecessary_files = ['title_page', 'packages', 'style', 'modifiche']
+    possible_duplicate = {'github': ['workflow']}
     errors = []
     warnings = []
     official_docs_dirs = ['Analisi dei requisiti/', 'Norme di progetto/', 'Piano di progetto/', 'Piano di qualifica/']
@@ -22,7 +28,10 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
             for file in dir.rglob('*'):
                 if file.suffix == '.tex' and file.stem not in unnecessary_files:
                     file_text = file.read_text(encoding="UTF-8")
-                    if re.search(r'[^A-z]'+word+r'(?![a-zA-Z])(?!\\textsubscript{\s*G\s*})', file_text, re.IGNORECASE):
+                    regex = r'[^A-z]'+word+r'(?![a-zA-Z])(?!\\textsubscript{\s*G\s*})'
+                    if word in possible_duplicate.keys():
+                        regex = addRegexControllToPossibleDuplicate(regex, possible_duplicate[word])
+                    if re.search(regex, file_text, re.IGNORECASE):
                         if word in ambiguous_words:
                             warnings.append(str(file))
                         else:
