@@ -1,5 +1,5 @@
 from enum import Enum
-from github_action_utils import group, notice, error, echo
+from github_action_utils import group, notice, error, echo, warning
 
 class BuildStatus(Enum):
     SUCCESS = 0
@@ -45,8 +45,8 @@ class PrintWarning(PrintError):
     def print_warning(warnings, group_name=None):
         if group_name is None:
             for w in warnings:
-                notice(w)
+                warning(w)
         else:
             with group(group_name):
                 for w in warnings:
-                    notice(w)
+                    warning(w)
