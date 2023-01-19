@@ -28,7 +28,7 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
             for file in dir.rglob('*'):
                 if file.suffix == '.tex' and file.stem not in unnecessary_files:
                     file_text = file.read_text(encoding="UTF-8")
-                    regex = r'[^A-z]'+word+r'(?![a-zA-Z]|/)(?!\\textsubscript{\s*G\s*})'
+                    regex = r'[^A-z]'+word+r'(?=\s)(?!\\textsubscript{\s*G\s*})'
                     if word in possible_duplicate.keys():
                         regex = addRegexControllToPossibleDuplicate(regex, possible_duplicate[word])
                     if re.search(regex, file_text, re.IGNORECASE):
