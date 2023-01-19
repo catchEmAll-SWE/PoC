@@ -128,7 +128,7 @@ Riferendoci alla serie di standard ISO/IEC 25000 SQuaRE possiamo osservare un in
 		\hline
 		\textbf{ID} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Metriche associate}\\
 		\hline
-		OQPD03 & Appropriatezza funzionale & Si vogliono soddisfare in modo completo i requisiti presenti nel documento \textit{Analisi dei requisiti} & MQPD03 - Copertura funzionale \\
+		OQPD03 & Appropriatezza funzionale & Si vogliono soddisfare in modo completo i requisiti\textsubscript{G} presenti nel documento \textit{Analisi dei requisiti} & MQPD03 - Copertura funzionale \\
 		\hline
 		OQPD04 & Efficienza & Si vuole realizzare un prodotto che soddisfi gli obiettivi prefissati dando all'utente un'esperienza che utilizzi al meglio le capacità del sistema. & MQPD04 - Tempo di risposta dei servizi all'utente\\
 		\hline
@@ -159,7 +159,7 @@ Alcuni valori accettabili e ottimi per le metriche di qualità di prodotto verra
 		\hline
 		MQPD02 & Numero errori ortografici & OQPD02 - Correttezza ortografica & 0 & 0 \\
 		\hline
-		MQPD03 & Copertura funzionale & OQPD03 - Appropriatezza funzionale & 100\% dei requisiti obbligatori & 100\% di tutti i requisiti\\
+		MQPD03 & Copertura funzionale & OQPD03 - Appropriatezza funzionale & 100\% dei requisiti\textsubscript{G} obbligatori & 100\% di tutti i requisiti\textsubscript{G}\\
 		\hline
 		MQPD04 & Tempo di risposta dei servizi all'utente & OQPD04 - Efficienza & - & - \\
 		\hline
@@ -225,7 +225,7 @@ Le metriche di qualità a cui solo il software deve essere conforme sono:
 	\item \textbf{Browser supportati}: Che fa riferimento alla metrica \textit{MQPD14}.
 \end{itemize}
 \paragraph{Copertura funzionale}\mbox{}\\
-Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare che tutti i requisiti obbligatori del progetto siano stati integrati nel prodotto finale. Questa metrica è calcolata attraverso il rapporto tra il numero di requisiti soddisfatti e quello di requisiti obbligatori totali:
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare che tutti i requisiti\textsubscript{G} obbligatori del progetto siano stati integrati nel prodotto finale. Questa metrica è calcolata attraverso il rapporto tra il numero di requisiti\textsubscript{G} soddisfatti e quello di requisiti\textsubscript{G} obbligatori totali:
 \begin{align*}
 	\centering
 	\textbf{CF} = \frac{RqSoddisfatti}{RqTotali}
@@ -234,7 +234,7 @@ Dove \textbf{CF} sta per \textit{Copertura funzionale}.
 \paragraph{Tempo di risposta dei servizi all'utente}\mbox{}\\
 Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per assicurare che i tempi di risposta del prodotto siano accettabili. Un tempo di risposta adeguato in un sistema CAPTCHA\textsubscript{G} è molto importante e per questo è un obiettivo fondamentale. Il valore accettabile verrà analizzato in una fase più avanzata di progetto.
 \paragraph{Copertura dei test}\mbox{}\\
-Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare che i test svolti sul prodotto finale coprano tutti i requisiti e casi d’uso identificati. Questa metrica è calcolata attraverso il rapporto tra il numero di requisiti e casi d'uso testati e quello di requisiti e casi d'uso totali da testare:
+Questa metrica è di riferimento ai prodotti software ed è utilizzata dal gruppo per verificare che i test svolti sul prodotto finale coprano tutti i requisiti\textsubscript{G} e casi d’uso identificati. Questa metrica è calcolata attraverso il rapporto tra il numero di requisiti\textsubscript{G} e casi d'uso testati e quello di requisiti\textsubscript{G} e casi d'uso totali da testare:
 \begin{align*}
 	\centering
 	\textbf{CdT} = \frac{RqUCTestati}{RqUCTotali}
