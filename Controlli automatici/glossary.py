@@ -28,7 +28,7 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
             for file in dir.rglob('*'):
                 if file.suffix == '.tex' and file.stem not in unnecessary_files:
                     file_text = file.read_text(encoding="UTF-8")
-                    regex = r'(^|[^A-z])'+word+r'(?=[^A-z])(?!\\textsubscript{\s*G\s*})'
+                    regex = r'((?<=\s)|(?<=^))'+word+r'(?=[^\w])(?!\.\w)(?!\\textsubscript{\s*G\s*})'
                     if word in possible_duplicate.keys():
                         regex = addRegexControllToPossibleDuplicate(regex, possible_duplicate[word])
                     if re.search(regex, file_text, re.IGNORECASE):
@@ -44,7 +44,7 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
 
 def main() -> int:
     glossario = (Path('.')/"Glossario/src/sections/glossario.tex").read_text(encoding="UTF-8")
-    for word in re.finditer(r'\\paragraph{\s*([A-z]+(\s[A-z]+)*)\s*}', glossario):
+    for word in re.finditer(r'\\paragraph{\s*(.*)\s*}', glossario):
         checkGlossaryWordPresenceInOfficialDocs(word.group(1))
     sys.exit(PrintError.build_status.value)
 
