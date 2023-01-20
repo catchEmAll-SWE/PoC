@@ -16,9 +16,9 @@ def addRegexControllToPossibleDuplicate(regex: str, list_of_duplicates: list[str
     return regex
 
 def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
-    ambiguous_words = ['verifica', 'commit'] #must be lowercase
+    ambiguous_words = ['verifica', 'commit','id','captcha','requisiti'] #must be lowercase
     unnecessary_files = ['title_page', 'packages', 'style', 'modifiche']
-    possible_duplicate = {'github': ['workflow']}
+    possible_duplicate = {'github' : ['workflow'], 'framework' : ['scrum']}
     errors = []
     warnings = []
     official_docs_dirs = ['Analisi dei requisiti/', 'Norme di progetto/', 'Piano di progetto/', 'Piano di qualifica/']
@@ -55,3 +55,6 @@ if __name__ == '__main__': #to define that is a script and not a module
 # Comment regard ambiguos words meaning:
 # Verifica: can assume different meaning in different context
 # Commit: can be included in a command explanation
+# Id: can be included in a command explanation
+# CAPTCHA: can be reference to another document
+# Requisiti: can assume different meaning in different context
