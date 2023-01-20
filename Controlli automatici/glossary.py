@@ -16,7 +16,7 @@ def addRegexControllToPossibleDuplicate(regex: str, list_of_duplicates: list[str
     return regex
 
 def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
-    ambiguous_words = ['Verifica']
+    ambiguous_words = ['verifica', 'commit'] #must be lowercase
     unnecessary_files = ['title_page', 'packages', 'style', 'modifiche']
     possible_duplicate = {'github': ['workflow']}
     errors = []
@@ -29,7 +29,7 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
                 if file.suffix == '.tex' and file.stem not in unnecessary_files:
                     file_text = file.read_text(encoding="UTF-8")
                     regex = r'((?<=\s)|(?<=^))'+word+r'(?=[^\w])(?!\.\w)(?!\\textsubscript{\s*G\s*})'
-                    if word in possible_duplicate.keys():
+                    if word.lower() in possible_duplicate.keys():
                         regex = addRegexControllToPossibleDuplicate(regex, possible_duplicate[word])
                     if re.search(regex, file_text, re.IGNORECASE):
                         if word in ambiguous_words:
@@ -51,3 +51,7 @@ def main() -> int:
 
 if __name__ == '__main__': #to define that is a script and not a module
     main()
+
+# Comment regard ambiguos words meaning:
+# Verifica: can assume different meaning in different context
+# Commit: can be included in a command explanation
