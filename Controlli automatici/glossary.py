@@ -16,9 +16,9 @@ def addRegexControllToPossibleDuplicate(regex: str, list_of_duplicates: list[str
     return regex
 
 def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
-    ambiguous_words = ['verifica', 'commit','id','captcha','requisiti'] #must be lowercase
+    ambiguous_words = ['verifica', 'commit', 'id', 'captcha', 'requisiti'] #must be lowercase
     unnecessary_files = ['title_page', 'packages', 'style', 'modifiche']
-    possible_duplicate = {'github' : ['workflow'], 'framework' : ['scrum']}
+    possible_duplicate = {'github' : ['workflow'], 'framework' : ['scrum']} #must be lowercase
     errors = []
     warnings = []
     official_docs_dirs = ['Analisi dei requisiti/', 'Norme di progetto/', 'Piano di progetto/', 'Piano di qualifica/']
@@ -30,9 +30,9 @@ def checkGlossaryWordPresenceInOfficialDocs(word: str) -> bool:
                     file_text = file.read_text(encoding="UTF-8")
                     regex = r'((?<=\s)|(?<=^))'+word+r'(?=[^\w])(?!\.\w)(?!\\textsubscript{\s*G\s*})'
                     if word.lower() in possible_duplicate.keys():
-                        regex = addRegexControllToPossibleDuplicate(regex, possible_duplicate[word])
+                        regex = addRegexControllToPossibleDuplicate(regex, possible_duplicate[word.lower()])
                     if re.search(regex, file_text, re.IGNORECASE):
-                        if word in ambiguous_words:
+                        if word.lower() in ambiguous_words:
                             warnings.append(str(file))
                         else:
                             errors.append(str(file))    

@@ -1,5 +1,5 @@
 from enum import Enum
-from github_action_utils import group, notice, error, echo, warning
+from github_action_utils import group, error, echo, warning
 
 class BuildStatus(Enum):
     SUCCESS = 0
