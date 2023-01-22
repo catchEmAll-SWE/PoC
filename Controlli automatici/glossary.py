@@ -56,5 +56,5 @@ if __name__ == '__main__': #to define that is a script and not a module
 # Verifica: can assume different meaning in different context
 # Commit: can be included in a command explanation
 # Id: can be included in a command explanation
-# CAPTCHA: can be reference to another document
+# CAPTCHA: can be reference to another document, can assume his own meaning 
 # Requisiti: can assume different meaning in different context
