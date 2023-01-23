@@ -22,7 +22,7 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA\t
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{img/web_app.png}
+    \includegraphics[scale=0.6]{img/web_app.png}
     \caption{Webapp}
 \end{figure}
 
@@ -47,7 +47,7 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA\t
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.8]{img/Autenticazione.png}
-    \caption{UC1-Autenticazione}
+    \caption{UC1 Autenticazione}
 \end{figure}
 
 \paragraph{UC1.1 - Inserimento credenziali}
@@ -213,7 +213,7 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA\t
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{img/captcha.png}
+    \includegraphics[scale=0.6]{img/captcha.png}
     \caption{CAPTCHA\textsubscript{G}}
 \end{figure}
 
@@ -227,32 +227,48 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA\t
 \begin{enumerate}
     \item La WebApp richiede la generazione di un CAPTCHA\textsubscript{G} immagini;
     \item Il CAPTCHA\textsubscript{G} immagini viene generato utilizzando le immagini fornite da Unsplash e quelle presenti nel database interno;
-    \item Viene generato un immagine aggiuntiva che funge da honeypot\textsubscript{G};
+    \item Viene generata un'immagine aggiuntiva che funge da honeypot\textsubscript{G};
     \item Il CAPTCHA\textsubscript{G} immagini viene restituito alla WebApp.
 \end{enumerate}
 \textbf{Scenari alternativi}:
 \begin{enumerate}
-    \item Il CAPTCHA\textsubscript{G} non può essere generato [UC6].
+    \item Si verifica un errore durante la richiesta delle immagini al servizio Unsplash [UC6].
 \end{enumerate}
 
-\subsubsection{UC6 - Errore generazione CAPTCHA\textsubscript{G} immagini}
+\subsubsection{UC6 - Errore richiesta immagini ad Unsplash}
 \textbf{Attore primario:} WebApp.\\
-\textbf{Precondizioni}: La WebApp richiede la generazione di un CAPTCHA\textsubscript{G} immagini.\\
-\textbf{Postcondizioni}: Il CAPTCHA\textsubscript{G} immagini non viene generato.\\
+\textbf{Precondizioni}: Il servizio Unsplash non restituisce le immagini richieste.\\
+\textbf{Postcondizioni}: Il CAPTCHA\textsubscript{G} immagini viene generato senza appoggiarsi al servizio Unsplash.\\
 
 \textbf{Scenario principale}:
 \begin{enumerate}
-    \item La WebApp richiede la generazione di un CAPTCHA\textsubscript{G} immagini;
-    \item Errore durante la generazione per motivi:
-		\begin{itemize}
-    		\item Connessione rete:
-			\begin{itemize}
-	    		\item Assenza connessione alla rete;
-	    		\item Unsplash non risponde alla richiesta;
-			\item Interruzione di connessione durante la richiesta.
-			\end{itemize}
-		\end{itemize}
-    \item Il CAPTCHA\textsubscript{G} non viene generato e restituisce un messaggio di errore alla WebApp.
+    \item Il servizio Unsplash non restituisce le immagini richieste dalla WebApp;
+    \item Il CAPTCHA\textsubscript{G} viene generato utilizzando solo le immagini presenti nel database interno;
+    \item Il CAPTCHA\textsubscript{G} immagini viene restituito alla WebApp.
+\end{enumerate}
+
+\paragraph{UC6.1 - Servizio Unsplash non disponibile}
+\textbf{Attore primario:} WebApp.\\
+\textbf{Precondizioni}: Il servizio Unsplash non restituisce le immagini richieste.\\
+\textbf{Postcondizioni}: Il CAPTCHA\textsubscript{G} immagini viene generato senza appoggiarsi al servizio Unsplash.\\
+
+\textbf{Scenario principale}:
+\begin{enumerate}
+    \item Il servizio Unsplash non risulta raggiungibile, non fornendo una risposta entro il limite di tempo massimo prestabilito;
+    \item Il CAPTCHA\textsubscript{G} viene generato utilizzando solo le immagini presenti nel database interno;
+    \item Il CAPTCHA\textsubscript{G} immagini viene restituito alla WebApp.
+\end{enumerate}
+
+\paragraph{UC6.2 - Superato limite di richieste nuove immagini}
+\textbf{Attore primario:} WebApp.\\
+\textbf{Precondizioni}: Il servizio Unsplash restituisce un messaggio di errore.\\
+\textbf{Postcondizioni}: Il CAPTCHA\textsubscript{G} immagini viene generato senza appoggiarsi al servizio Unsplash.\\
+
+\textbf{Scenario principale}:
+\begin{enumerate}
+    \item Il servizio Unsplash restituisce un messaggio di errore che indica che è stato superato il limite massimo di immagini che si possono richiedere in un'ora;
+    \item Il CAPTCHA\textsubscript{G} viene generato utilizzando solo le immagini presenti nel database interno;
+    \item Il CAPTCHA\textsubscript{G} immagini viene restituito alla WebApp.
 \end{enumerate}
 
 \subsubsection{UC7  - Generazione proof of work\textsubscript{G}}
@@ -269,17 +285,69 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA\t
 
 \subsubsection{UC8 - Verifica CAPTCHA\textsubscript{G}}
 \textbf{Attore primario:} WebApp.\\
-\textbf{Precondizioni}: La WebApp richiede la verifica CAPTCHA\textsubscript{G}.\\
-\textbf{Postcondizioni}: Viene data una risposta alla WebApp.\\
+\textbf{Precondizioni}: La WebApp richiede la verifica 
+ del CAPTCHA\textsubscript{G}.\\
+\textbf{Postcondizioni}: Viene data una risposta alla WebApp per indicare se il CAPTCHA\textsubscript{G} è stato superato o meno.\\
 
 \textbf{Scenario principale}:
 \begin{enumerate}
     \item La WebApp richiede la verifica della corretteza del CAPTCHA\textsubscript{G} compilato;
     \item Viene verificata la correttezza di:
     \begin{itemize}
-		\item CAPTCHA\textsubscript{G} immagini;
-		\item Honeypot\textsubscript{G};
-		\item Proof of Work\textsubscript{G}.
+		\item CAPTCHA\textsubscript{G} immagini [UC8.1];
+		\item Honeypot\textsubscript{G} [UC8.2;
+		\item Proof of Work\textsubscript{G} [UC8.3].
     \end{itemize}
     \item In base alla percentuale di correttezza, viene emesso il risultato booleano\textsubscript{G} e restituito alla WebApp.
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{img/verifica_captcha.png}
+    \caption{UC8 Verifica CAPTCHA\textsubscript{G}}
+\end{figure}
+
+\paragraph{UC8.1 - Verifica CAPTCHA\textsubscript{G} immagini}
+\textbf{Attore primario:} WebApp.\\
+\textbf{Precondizioni}: La WebApp richiede la verifica del CAPTCHA\textsubscript{G} immagini.\\
+\textbf{Postcondizioni}: Il superamento del CAPTCHA\textsubscript{G} immagini viene verificato.\\
+
+\textbf{Scenario principale}:
+\begin{enumerate}
+    \item La WebApp richiede la verifica della corretteza del CAPTCHA\textsubscript{G} immagini;
+    \item In base alla percentuale di correttezza, viene verificato se il CAPTCHA\textsubscript{G} immagini è stato superato o meno.
+\end{enumerate}
+
+\paragraph{UC8.2 - Verifica superamento Honeypot}
+\textbf{Attore primario:} WebApp.\\
+\textbf{Precondizioni}: La WebApp richiede la verifica del superamento dell'Honeypot.\\
+\textbf{Postcondizioni}: Il superamento dell'Honeypot viene verificato.\\
+
+\textbf{Scenario principale}:
+\begin{enumerate}
+    \item La WebApp richiede la verifica del superamento dell'Honeypot;
+    \item Se è stata selezionata l'immagine che funge da Honeypot, allora significa che il sistema ha rilevato la presenza di un bot\textsubscript{G}; altrimenti l'Honeypot viene considerato superato.
+\end{enumerate}
+
+\paragraph{UC8.3 - Verifica Proof of Work}
+\textbf{Attore primario:} WebApp.\\
+\textbf{Precondizioni}: La WebApp richiede la verifica del superamento del Proof of Work.\\
+\textbf{Postcondizioni}: Il superamento del Proof of Work viene verificato.\\
+
+\textbf{Scenario principale}:
+\begin{enumerate}
+    \item La WebApp richiede la verifica del superamento del Proof of Work;
+    \item L'esecuzione dei calcoli richiesti viene verificata sulla base di quanto fornito dalla WebApp come soluzione.
+\end{enumerate}
+
+\subsubsection{UC9  - Mining Pool non disponibile}
+\textbf{Attore primario:} WebApp.\\
+\textbf{Precondizioni}: La Mining Pool non risulta raggiungibile.\\
+\textbf{Postcondizioni}: Viene generato il Proof of Work\textsubscript{G} senza appoggiarsi alla Mining Pool.\\
+
+\textbf{Scenario principale}:
+\begin{enumerate}
+    \item La Mining Pool non risulta raggiungibile, non fornendo una risposta entro il limite di tempo massimo prestabilito;
+    \item Viene creato il Proof of Work\textsubscript{G} tramite una procedura alternativa interna, che non richiede alcun dato a servizi esterni;
+    \item Il Proof of Work\textsubscript{G} viene restituito alla WebApp.
 \end{enumerate}
