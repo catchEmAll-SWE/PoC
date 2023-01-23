@@ -243,7 +243,7 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA\t
 \textbf{Scenario principale}:
 \begin{enumerate}
     \item Il servizio Unsplash non restituisce le immagini richieste dalla WebApp;
-    \item Il CAPTCHA\textsubscript{G} viene generato utilizzando solo le immagini presenti nel database interno;
+    \item Il CAPTCHA\textsubscript{G} viene generato utilizzando solo le immagini presenti nel database\textsubscript{G} interno;
     \item Il CAPTCHA\textsubscript{G} immagini viene restituito alla WebApp.
 \end{enumerate}
 
@@ -255,7 +255,7 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA\t
 \textbf{Scenario principale}:
 \begin{enumerate}
     \item Il servizio Unsplash non risulta raggiungibile, non fornendo una risposta entro il limite di tempo massimo prestabilito;
-    \item Il CAPTCHA\textsubscript{G} viene generato utilizzando solo le immagini presenti nel database interno;
+    \item Il CAPTCHA\textsubscript{G} viene generato utilizzando solo le immagini presenti nel database\textsubscript{G} interno;
     \item Il CAPTCHA\textsubscript{G} immagini viene restituito alla WebApp.
 \end{enumerate}
 
@@ -267,7 +267,7 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA\t
 \textbf{Scenario principale}:
 \begin{enumerate}
     \item Il servizio Unsplash restituisce un messaggio di errore che indica che è stato superato il limite massimo di immagini che si possono richiedere in un'ora;
-    \item Il CAPTCHA\textsubscript{G} viene generato utilizzando solo le immagini presenti nel database interno;
+    \item Il CAPTCHA\textsubscript{G} viene generato utilizzando solo le immagini presenti nel database\textsubscript{G} interno;
     \item Il CAPTCHA\textsubscript{G} immagini viene restituito alla WebApp.
 \end{enumerate}
 
@@ -318,7 +318,7 @@ La WebApp, che potrà accedere alle funzionalità offerte dal servizio CAPTCHA\t
     \item In base alla percentuale di correttezza, viene verificato se il CAPTCHA\textsubscript{G} immagini è stato superato o meno.
 \end{enumerate}
 
-\paragraph{UC8.2 - Verifica superamento Honeypot}
+\paragraph{UC8.2 - Verifica superamento Honeypot\textsubscript{G}}
 \textbf{Attore primario:} WebApp.\\
 \textbf{Precondizioni}: La WebApp richiede la verifica del superamento dell'Honeypot.\\
 \textbf{Postcondizioni}: Il superamento dell'Honeypot viene verificato.\\
