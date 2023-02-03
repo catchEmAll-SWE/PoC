@@ -26,13 +26,13 @@ class Captcha:
                 x = random.randrange(0, len(images_reliable)-1)
                 image_want = images_reliable.pop(x)
                 id = image_want.get("id")
-                image = new Image(id, class_name, 1)
+                image = Image(id, class_name, 1)
                 self.list_images.append(image)
             for i in range(number_unreliable):
                 x = random.randrange(0, len(images_unreliable)-1)
                 image_want = images_unreliable.pop(x)
                 id = image_want.get("id")
-                image = new Image(id, class_name, 1)
+                image = Image(id, class_name, 1)
                 self.list_images.append(image)
                 
     def sortListOfImages(self):
