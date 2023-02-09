@@ -1,12 +1,11 @@
 <?php 
-$username = $_POST['name'];
-$passwd = $_POST['password'];
+$username = $_POST['ids'];
 $nonce_found = $_POST['nonce'];
 $difficulty = $_POST['difficulty'];
 $pageHTML = file_get_contents('main.html');
 $result = "";
 
-$hashcode = hash("sha256", $username.$passwd.$nonce_found);
+$hashcode = hash("sha256", $ids.$nonce_found);
 if (str_starts_with($hashcode, $difficulty))
     $result = "Work done";
 else
