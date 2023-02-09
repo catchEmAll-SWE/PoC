@@ -2,16 +2,17 @@
     <html>
     <head>
         <title>Prova</title>
+        <script src="main.js"></script>
     </head>
     <body>
-        <form action="validator.php" method="post">
+        <form action="validator.php" method="POST">
             <input type="text" name="name">
             <input type="password" name="password">
-            <input type="checkbox" name="start mine" onclick="calcHash()">
+            <input type="checkbox" name="start mine" onclick="resolveHashProblem()">
             <input type="hidden" id="nonce" name="nonce" value="false">
-            <input type="hidden" id="difficulty" name="difficulty" value="000000">
+            <input type="hidden" id="difficulty" name="difficulty" value="000">
             <input type="hidden" id="ids" name="ids" value="none">
-            <input type="sumbit" name="send">
+            <input type="submit" name="send">
         </form>
         <valid />
     </body>

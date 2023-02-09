@@ -1,6 +1,7 @@
 <?php 
-$username = $_POST['ids'];
+$ids = $_POST['ids'];
 $nonce_found = $_POST['nonce'];
+echo $nonce_found;
 $difficulty = $_POST['difficulty'];
 $pageHTML = file_get_contents('main.html');
 $result = "";
