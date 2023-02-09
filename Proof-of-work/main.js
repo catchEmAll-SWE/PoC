@@ -1,6 +1,6 @@
 function calcHash(){
-    staticText = "text";
-    difficulty = "000000"
+    Content = document.getElementById('ids').value;
+    difficulty = document.gerElementById('difficulty').value;
     for (let i=0; i<10; ++i){
         hashcode = crypto.subtle.digest('SHA-256', staticText+str(i));
         if (hashcode.startsWith(difficulty)){
