@@ -5,10 +5,11 @@
     </head>
     <body>
         <form action="validator.php" method="post">
-            <input type="text" name="Name">
-            <input type="password" name="Password">
-            <input type="checkbox" name="Start mine" onclick="calcHash()">
+            <input type="text" name="name">
+            <input type="password" name="password">
+            <input type="checkbox" name="start mine" onclick="calcHash()">
             <input type="hidden" id="nonce" name="nonce" value="false">
+            <input type="hidden" id="difficulty" name="difficulty" value="000000">
             <input type="sumbit" name="send">
         </form>
     </body>
