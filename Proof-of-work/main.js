@@ -14,7 +14,7 @@ function calcHash(){
     }/*/
     var nonce = 0;
     var hash = '';
-    while (!hash.startsWith(difficulty)) {
+    while (true) {
         hash = crypto.subtle.digest('SHA-256', content + nonce);
         if (hash.startsWith(difficulty)) {
             document.getElementById('nonce').value = nonce;
