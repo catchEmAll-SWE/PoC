@@ -1,6 +1,6 @@
 <?php 
 $username = $_POST['name'];
-$passwd = $_POST['passwdord'];
+$passwd = $_POST['password'];
 $nonce_found = $_POST['nonce'];
 $difficulty = $_POST['difficulty'];
 $pageHTML = file_get_contents('main.html');
