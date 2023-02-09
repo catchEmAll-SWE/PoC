@@ -1,8 +1,8 @@
 function calcHash(){
     content = document.getElementById('ids').value;
     difficulty = document.gerElementById('difficulty').value;
-    var worker = [];
-    /*for (let i=0; i<4; ++i){
+    /*var worker = [];
+    for (let i=0; i<4; ++i){
         worker[i] = new Worker('worker.js');
         worker.postMessage({start, end, difficulty, content});
     }
@@ -17,8 +17,8 @@ function calcHash(){
     while (!hash.startsWith(difficulty)) {
         hash = crypto.subtle.digest('SHA-256', content + nonce);
         if (hash.startsWith(difficulty)) {
-            postMessage({nonce, hash});
-            break;
+            document.getElementById('nonce').value = nonce;
+            return true;
         }
         nonce++;
     }
