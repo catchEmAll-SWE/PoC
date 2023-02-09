@@ -3,7 +3,7 @@ onmessage = (e) => {
     let nonce = start;
     let hash = '';
     while (nonce < end) {
-        hash = sha256(content + nonce);
+        hash = crypto.subtle.digest('SHA-256', content + nonce);
         if (hash.startsWith(difficulty)) {
             postMessage({nonce, hash});
             break;
