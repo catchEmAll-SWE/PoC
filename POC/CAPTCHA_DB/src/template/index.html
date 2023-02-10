@@ -9,13 +9,12 @@
         <meta name="keywords" content="Login, Captcha">
         <meta name="author" content="Sinicato Nicola">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <base href="<component>base</component>">
     </head>
     <body>
         <h1>
             <span lang="en">Login</span>
         </h1>
-        <form method="POST" action="">
+        <form method="POST" action="verify_login.php">
             <fieldset class="credentials">
                 <legend>Credenziali</legend>
                 <input type="text" id="username" name="username" maxlength="30" placeholder="User" required>
@@ -25,6 +24,8 @@
             </fieldset>
             <fieldset class="captcha-images">
                 <legend>Seleziona tutte le <component>ClassTarget</component></legend>
+                <input type="checkbox" id="img0" name="image" value="0" />
+                <label for="img0"><img src="<component>img9</component>"></label>
                 <input type="checkbox" id="img1" name="image" value="1" />
                 <label for="img1" ><img src="<component>img1</component>"></label>
                 <input type="checkbox" id="img2" name="image" value="2" />
@@ -41,8 +42,6 @@
                 <label for="img7"><img src="<component>img7</component>"></label>
                 <input type="checkbox" id="img8" name="image" value="8" />
                 <label for="img8"><img src="<component>img8</component>"></label>
-                <input type="checkbox" id="img9" name="image" value="9" />
-                <label for="img9"><img src="<component>img9</component>"></label>
             </fieldset>
             <input type="submit" value="Login">
             <input type="reset" value="Annulla">

@@ -13,11 +13,11 @@ class ImageNotFound extends Exception{
 
 class Image{
     private string $id;
-    private string $class;
-    private int $reliability;
-    private string $path;
+    private ?string $class;
+    private ?int $reliability;
+    private ?string $path;
 
-    public function __construct(string $id, string $class, string $path, int $reliability = 500){
+    public function __construct(string $id, string $class = null, string $path = null, int $reliability = null){
         $this->id = $id;
         $this->class = $class;
         $this->path = $path;
@@ -30,7 +30,7 @@ class Image{
             throw new ImageNotFound($this->id);
         
         $this->class = $result[0]['class'];
-        $this->reliability = $result[0]['reliability'];
+        $this->reliability = intval($result[0]['reliability']);
         $this->path = $result[0]['path'];
     }
 

@@ -1,6 +1,5 @@
 <?php
 
-use Exception;
 use utilities\Database;
 require_once "global.php";
 require_once "Exception.php";
