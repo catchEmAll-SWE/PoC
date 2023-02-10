@@ -28,6 +28,11 @@ foreach($_POST['image'] as $checked){
     $solution_given .= $checked;
 }
 
+if((time()-600) > $captcha->getMoment()){
+    header("location: /CAPTCHA_DB/src/index.php");
+    exit();
+}
+
 $i = 0;
 $ok= true;
 foreach(str_split($captcha->getSolution()) as $char){
