@@ -1,4 +1,4 @@
-
+/*
 async function calcHash(content, nonce){
     hashArrayBuffer = await crypto.subtle.digest('SHA-256', enc.encode(content + nonce));
     hashArray = Array.from(new Uint8Array(hashArrayBuffer));
@@ -18,7 +18,7 @@ async function resolveHashProblem(){
         document.getElementById('nonce').value = nonce;
         print(nonce);
         worker.terminate();
-    }/*/
+    }/
     var nonce = 0;
     var hash = '';
     enc = new TextEncoder()
@@ -33,6 +33,26 @@ async function resolveHashProblem(){
             }    
         })
        return true
+    }
+    return false
+}
+*/
+async function calcHash(){
+    const content = document.getElementById('ids').value;
+    const difficulty = document.getElementById('difficulty').value;
+    var nonce = 0;
+    while (true) {
+        const msg = new TextEncoder().encode(content + nonce);
+        const hashArrayBuffer = await crypto.subtle.digest('SHA-256', msg);
+        const hashHex = Array.from(new Uint8Array(hashArrayBuffer))
+                        .map(b => b.toString(16).padStart(2, '0'))
+                        .join('');
+        if (hashHex.startsWith(difficulty)) {
+            document.getElementById('nonce').value = nonce;
+            console.log('nonce found:: '+nonce);
+            return true;
+        }
+        nonce++;
     }
     return false
 }
