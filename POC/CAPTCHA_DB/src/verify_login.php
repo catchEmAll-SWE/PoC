@@ -33,6 +33,8 @@ if((time()-600) > $captcha->getMoment()){
     exit();
 }
 
+
+
 $i = 0;
 $ok= true;
 foreach(str_split($captcha->getSolution()) as $char){

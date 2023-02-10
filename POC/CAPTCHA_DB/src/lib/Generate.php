@@ -22,7 +22,7 @@ function getClasses(Database $db) : array
 # min 2, max 4 different classes
 function choiceClasses(array $classes): array
 {
-    $number_of_classes = rand(2, 4);
+    $number_of_classes = rand(2, 4); 
     $classes_wanted = [];
     for($i = 0; $i < $number_of_classes; $i++){
         shuffle($classes);
@@ -128,6 +128,7 @@ function solutionCaptcha(array $selected_images, string $class_target){
     }
     return $solution;
 }
+
 function GenerateCaptcha(Database $db): Captcha
 {
     $classes = getClasses($db);
