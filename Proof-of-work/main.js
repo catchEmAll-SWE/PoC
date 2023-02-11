@@ -5,7 +5,8 @@ async function calcHash(content, nonce){
     return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
-async function resolveHashProblem(){
+document.getElementById('pow').onclick = async () =>{
+    console.log('pow')
     content = document.getElementById('ids').value;
     difficulty = document.getElementById('difficulty').value;
     /*var worker = [];
@@ -23,16 +24,17 @@ async function resolveHashProblem(){
     var hash = '';
     enc = new TextEncoder()
     dec = new TextDecoder()
-    while (true) {
-        calcHash(content, nonce).then((str_hash) => {
-            if (str_hash.startsWith(difficulty)) {
-                document.getElementById('nonce').value = nonce;
-                console.log('nonce found:: '+nonce)
-                return true;
-                nonce++
-            }    
-        })
-       return true
+    cicle = true
+    while (cicle) {
+        console.log('cicle')
+        await calcHash(content, nonce).then(
+            function(str_hash) { hash = str_hash; },
+            function(err) { console.log('hash function not available '+err); cicle=false; }
+        );
+        if (hash.startsWith(difficulty)){
+            document.getElementById('nonce').value = nonce;
+            console.log(nonce);
+            break;
+        }
     }
-    return false
 }
