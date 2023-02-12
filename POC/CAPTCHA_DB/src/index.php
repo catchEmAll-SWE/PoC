@@ -8,6 +8,7 @@ require_once "lib/global.php";
 require_once "app/Captcha.php";
 require_once "app/CaptchaImage.php";
 require_once "app/Image.php";
+require_once "lib/Generate.php";
 
 if(!isset($_SESSION)) 
     { 

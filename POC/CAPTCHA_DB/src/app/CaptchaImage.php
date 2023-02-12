@@ -2,10 +2,10 @@
 
 use Exception;
 use utilities\Database;
-require_once "global.php";
-require_once "Exception.php";
-require_once "Captcha.php";
-require_once "Image.php";
+require_once "lib/global.php";
+require_once "app/Exception.php";
+require_once "app/Captcha.php";
+require_once "app/Image.php";
 
 class CaptchaImage{
     private string $captcha;

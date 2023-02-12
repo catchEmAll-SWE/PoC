@@ -3,7 +3,7 @@
 use Exception;
 use utilities\Database;
 
-require_once "global.php";
+require_once "lib/global.php";
 
 class ImageNotFound extends Exception{
     public function __construct($id){

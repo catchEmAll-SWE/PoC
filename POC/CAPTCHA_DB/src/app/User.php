@@ -2,8 +2,8 @@
 
 use Exception;
 use utilities\Database;
-require_once "global.php";
-require_once "Exception.php";
+require_once "lib/global.php";
+require_once "app/Exception.php";
 
 class UserNotFound extends Exception{
     public function __construct($user){

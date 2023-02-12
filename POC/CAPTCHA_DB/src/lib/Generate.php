@@ -1,12 +1,12 @@
 <?php
 
 use utilities\Database;
-require_once "global.php";
-require_once "Exception.php";
-require_once "Captcha.php";
-require_once "Image.php";
-require_once "CatpchaImage.php";
-
+require_once "lib/global.php";
+require_once "app/Exception.php";
+require_once "app/Captcha.php";
+require_once "app/Image.php";
+require_once "app/CaptchaImage.php";
+require_once "lib/Database.php";
 
 function getClasses(Database $db) : array
 {
@@ -46,8 +46,8 @@ function choiceNumberImage($number_of_classes){
 function choiceOfImages(array $classes_wanted, array $images_for_classes, Database $db){
     $selected_images = [];
     for($i = 0; $i < $classes_wanted; $i++){
-        $secureImages = $db->executeStatement("SELECT * from image WHERE reliability >= 100 and class = $classes_wanted[$i]");
-        $notSecureImages = $db->executeStatement("SELECT * from image WHERE reliability < 100 and class = $classes_wanted[$i]");
+        $secureImages = $db->executeStatement("SELECT * from image WHERE 'reliability' >= '100' and 'class' = ?", array($classes_wanted[$i]));
+        $notSecureImages = $db->executeStatement("SELECT * from image WHERE 'reliability' < '100' and 'class' = ?", array($classes_wanted[$i]));
 
         $numberOfSecure = rand(1, $images_for_classes[$i]);
         $numberOfNotSecure = $images_for_classes[$i] - $numberOfSecure;
