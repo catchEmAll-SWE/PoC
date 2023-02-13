@@ -7,7 +7,7 @@ CREATE TABLE captcha(
     id varchar(165) PRIMARY KEY,
     class_target varchar(50) not null,
     solution varchar(9) not null,
-    moment timestamp not null DEFAULT current_timestamp()
+    moment int not null
 );
 
 CREATE TABLE image(

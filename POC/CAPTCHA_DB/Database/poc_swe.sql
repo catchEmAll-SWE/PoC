@@ -31,7 +31,7 @@ CREATE TABLE `captcha` (
   `id` varchar(165) NOT NULL,
   `class_target` varchar(50) NOT NULL,
   `solution` varchar(9) NOT NULL,
-  `moment` timestamp NOT NULL DEFAULT current_timestamp()
+  `moment` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
