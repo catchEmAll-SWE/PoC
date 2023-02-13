@@ -25,7 +25,7 @@ class Image{
     }
 
     public function loadFromDatabase(Database $db): void{
-        $result = $db->executeStatement("SELECT * FROM image WHERE id= $this->id");
+        $result = $db->executeStatement("SELECT * FROM image WHERE id= \"$this->id\"");
         if (count($result) == 0)
             throw new ImageNotFound($this->id);
         
@@ -56,6 +56,6 @@ class Image{
 
     public function updateReliability(Database $db, $value): void{
         $this->reliability += $value;
-        $db->executeStatement("UPDATE image SET reliability = $this->reliability WHERE id = $this->id");
+        $db->executeStatement("UPDATE image SET reliability = \"$this->reliability\" WHERE id = \"$this->id\"");
     }
 }

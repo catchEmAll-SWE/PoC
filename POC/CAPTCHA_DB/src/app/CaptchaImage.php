@@ -17,7 +17,7 @@ class CaptchaImage{
     }
 
     public function loadFromDatabase(Database $db): void{
-        $result = $db->executeStatement("SELECT * FROM captcha_image WHERE captcha = $this->captcha ORDER BY position ASC");
+        $result = $db->executeStatement("SELECT * FROM captcha_image WHERE captcha = \"$this->captcha\" ORDER BY position ASC");
         for($i = 0; $i < count($result); $i++){
             array_push($this->images, $result[$i]['image']);
         }
@@ -25,7 +25,8 @@ class CaptchaImage{
 
     public function insertIntoDatabase(Database $db): void{
         for ($i = 0; $i < count($this->images); $i++){
-            $db->executeStatement("INSERT INTO captcha_image(captcha,image,position) VALUES ($this->captcha, $this->images[$i], $i");
+            $image = strval($this->images[$i]);
+            $db->executeStatement("INSERT INTO captcha_image(captcha,image,position) VALUES (\"$this->captcha\",\"$image\",$i)");
         }
     }
 

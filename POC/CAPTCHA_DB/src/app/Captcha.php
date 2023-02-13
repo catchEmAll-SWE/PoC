@@ -39,7 +39,7 @@ class Captcha{
     public function insertIntoDatabase(Database $db): void{
         if ($this->id == null || $this->class_target == null || $this->solution == null || $this->moment == null)
             throw new UndefinedField();
-        $db->executeStatement("INSERT INTO captcha(id,class_target,solution,moment) VALUES ($this->id,$this->class_target,$this->solution,$this->moment)");
+        $db->executeStatement("INSERT INTO captcha(id,class_target,solution,moment) VALUES (\"$this->id\",\"$this->class_target\",\"$this->solution\",\"$this->moment\")");
     }
 
     public function getId(): string

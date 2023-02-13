@@ -26,7 +26,7 @@ function choiceClasses(array $classes): array
     $classes_wanted = [];
     for($i = 0; $i < $number_of_classes; $i++){
         shuffle($classes);
-        array_push($classes_wanted, array_pop($classes));
+        array_push($classes_wanted,strval(array_pop($classes)));
     }
     return $classes_wanted;
 }
@@ -34,20 +34,22 @@ function choiceClasses(array $classes): array
 function choiceNumberImage($number_of_classes){
     $image_for_classes = [];
     $remained = 9 - intval($number_of_classes);
+
     for($i = 0; $i < $number_of_classes - 1; $i++){
         $image_for_class = rand(1, $remained);
         $remained -= $image_for_class;
-        array_push($image_for_classes, $image_for_class);
+        array_push($image_for_classes, $image_for_class + 1);
     }
     array_push($image_for_classes, $remained + 1);
+
     return $image_for_classes;
 }
 
 function choiceOfImages(array $classes_wanted, array $images_for_classes, Database $db){
     $selected_images = [];
-    for($i = 0; $i < $classes_wanted; $i++){
-        $secureImages = $db->executeStatement("SELECT * from image WHERE 'reliability' >= '100' and 'class' = ?", array($classes_wanted[$i]));
-        $notSecureImages = $db->executeStatement("SELECT * from image WHERE 'reliability' < '100' and 'class' = ?", array($classes_wanted[$i]));
+    for($i = 0; $i < count($classes_wanted); $i++){
+        $secureImages = $db->executeStatement("SELECT * from image WHERE reliability >= 100 and class = \"$classes_wanted[$i]\"");
+        $notSecureImages = $db->executeStatement("SELECT * from image WHERE reliability < 100 and class = \"$classes_wanted[$i]\"");
 
         $numberOfSecure = rand(1, $images_for_classes[$i]);
         $numberOfNotSecure = $images_for_classes[$i] - $numberOfSecure;
@@ -99,7 +101,7 @@ function hashCaptcha(array $selected_images){
 }
 
 function alreadyExisting($id, Database $db): bool{
-    $result = $db->executeStatement("SELECT * FROM captcha WHERE id = $id");
+    $result = $db->executeStatement("SELECT * FROM captcha WHERE id = \"$id\"");
     if (count($result) == 0)
         return false;
     return true;
