@@ -1,7 +1,5 @@
 <?php
 
-use Exception;
-
 class UndefinedField extends Exception{
     public function __construct(){
         parent::__construct("Campi inseriti non correttamente.");

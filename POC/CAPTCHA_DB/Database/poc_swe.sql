@@ -6,7 +6,7 @@
 -- Creato il: Feb 09, 2023 alle 23:58
 -- Versione del server: 10.4.27-MariaDB
 -- Versione PHP: 8.2.0
---DROP TABLE [user], [image], [captcha_image], [captcha]; 
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";

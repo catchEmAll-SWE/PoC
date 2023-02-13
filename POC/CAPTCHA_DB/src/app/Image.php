@@ -1,6 +1,5 @@
 <?php
 
-use Exception;
 use utilities\Database;
 
 require_once "lib/global.php";
