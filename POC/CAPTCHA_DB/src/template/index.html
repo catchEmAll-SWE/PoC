@@ -9,8 +9,14 @@
         <meta name="keywords" content="Login, Captcha">
         <meta name="author" content="Sinicato Nicola">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+      function displayPath() {
+        document.getElementById("currentPath").innerHTML = "Current path: " + window.location.pathname;
+      }
+    </script>
     </head>
-    <body>
+    <body onload="displayPath()">
+	<p id="currentPath"></p>
         <h1>
             <span lang="en">Login</span>
         </h1>
