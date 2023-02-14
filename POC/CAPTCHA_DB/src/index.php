@@ -10,6 +10,7 @@ require_once "app/CaptchaImage.php";
 require_once "app/Image.php";
 require_once "lib/Generate.php";
 
+
 if(!isset($_SESSION)) 
     { 
         session_start(); 
@@ -28,7 +29,6 @@ foreach($captcha_image->getImages() as $image){
     $Image->loadFromDatabase($db);
     array_push($selected_images, $Image);
 }
-
 $index = new Template("template/index.html");
 
 echo $index->build(array(
@@ -43,5 +43,4 @@ echo $index->build(array(
     "img7" => $selected_images[7]->getPath(),
     "img8" => $selected_images[8]->getPath(),
 ));
-
 

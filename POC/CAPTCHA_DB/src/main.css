@@ -1,5 +1,4 @@
 :root {
-
 }
 
 * {
@@ -25,7 +24,7 @@ fieldset {
 
 .captcha-images {
     display: grid;
-    grid: 120px / repeat(3, 1fr);
+    grid: 175px / repeat(3, 1fr);
     width: fit-content;
 }
 
@@ -42,8 +41,8 @@ fieldset {
 .img-container {
     display: block;
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 175px;
+    height: 175px;
     border: 1px solid #ccc;
 }
 
@@ -102,8 +101,8 @@ label::before {
 }
 
 label img {
-  height: 120px;
-  width: 120px;
+  height: 175px;
+  width: 175px;
   transition-duration: 0.2s;
   transform-origin: 50% 50%;
 }
