@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-    $dbconnection = mysqli_connect("localhost","root","root-1234","captcha_db");
+    $dbconnection = mysqli_connect("127.0.0.1","User","Password","poc_swe");
     if(!$dbconnection)
     die("connessione non riuscita".mysqli_connect_error());
     else

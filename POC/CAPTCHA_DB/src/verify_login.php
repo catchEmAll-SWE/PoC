@@ -12,44 +12,48 @@ if(!isset($_SESSION))
     }
 
 if(!isset($_SESSION['captcha']) || !isset($_POST['username']) || !isset($_POST['password']) || !isset($_POST['image']) || empty($_POST['image'])){
-    header("location: /CAPTCHA_DB/src/index.php");
+    header("location: /src/index.php");
     exit();
 }
 
 if($_POST['username'] != "User" || $_POST['password' != "Password"]){
-    header("location: /CAPTCHA_DB/src/index.php");
+    header("location: /src/index.php");
     exit();
 }
 
 $captcha = $_SESSION['captcha'];
 
 $solution_given = "";
-foreach($_POST['image'] as $checked){
+$images = $_POST['image'];
+
+
+foreach($images as $checked){
     $solution_given .= $checked;
 }
 
+
 if((time()-600) > $captcha->getMoment()){
-    header("location: /CAPTCHA_DB/src/index.php");
+    header("location: /src/index.php");
     exit();
 }
-
 
 
 $i = 0;
 $ok= true;
 foreach(str_split($captcha->getSolution()) as $char){
     if($char == "0"){
-        if (!str_contains($solution_given, $i))
+        if (!str_contains($solution_given,strval($i)))
             $ok = false;
     } else if($char == "2"){
-        if (str_contains($solution_given, $i))
+        if (str_contains($solution_given, strval($i)))
             $ok = false;
     }
     $i++;
 }
 
+
 if($ok == false){
-    header("location: /CAPTCHA_DB/src/index.php");
+    header("location: /src/index.php");
     exit();
 }
 
@@ -66,11 +70,11 @@ foreach($captcha_image->getImages() as $image){
 $i = 0;
 foreach(str_split($captcha->getSolution()) as $char){
     if($char == "1"){
-        if (str_contains($solution_given, $i))
+        if (str_contains($solution_given, strval($i)))
             $images[$i]->updateReliability($db, +1);
         else $images[$i]->updateReliability($db, -1);
     } else if($char == "3"){
-        if (str_contains($solution_given, $i))
+        if (str_contains($solution_given, strval($i)))
             $images[$i]->updateReliability($db, -1);
     }
     $i++;
@@ -78,8 +82,7 @@ foreach(str_split($captcha->getSolution()) as $char){
 
 $_SESSION['is_human'] = true;
 
-header("location: /CAPTCHA_DB/src/logged_in.php");
+header("location: /src/logged_in.php");
 exit();
-
 
 
