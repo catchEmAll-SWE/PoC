@@ -6,18 +6,19 @@ require_once "app/Captcha.php";
 require_once "app/CaptchaImage.php";
 require_once "app/Image.php";
 
-if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    }
+
+if(!isset($_SESSION)){ 
+    session_start(); 
+}
+
 
 if(!isset($_SESSION['captcha']) || !isset($_POST['username']) || !isset($_POST['password']) || !isset($_POST['image']) || empty($_POST['image'])){
-    header("location: /src/index.php");
+    header("location: index.php");
     exit();
 }
 
 if($_POST['username'] != "User" || $_POST['password' != "Password"]){
-    header("location: /src/index.php");
+    header("location: index.php");
     exit();
 }
 
@@ -33,7 +34,7 @@ foreach($images as $checked){
 
 
 if((time()-600) > $captcha->getMoment()){
-    header("location: /src/index.php");
+    header("location: index.php");
     exit();
 }
 
@@ -53,7 +54,7 @@ foreach(str_split($captcha->getSolution()) as $char){
 
 
 if($ok == false){
-    header("location: /src/index.php");
+    header("location: index.php");
     exit();
 }
 
@@ -82,7 +83,6 @@ foreach(str_split($captcha->getSolution()) as $char){
 
 $_SESSION['is_human'] = true;
 
-header("location: /src/logged_in.php");
+header("location: logged_in.php");
 exit();
-
 
