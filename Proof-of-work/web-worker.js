@@ -13,7 +13,7 @@ async function sha256Algorithm(content, difficulty){
 }
 
 onmessage = async function (e) {
-    const content = e.data[0]+e.data[2];
+    const content = e.data[0];
     const difficulty = e.data[1];
     let hashcode = await sha256Algorithm(content, difficulty);
     self.postMessage([hashcode, e.data[2]]);
