@@ -29,3 +29,11 @@ function workerDone(e){
         console.log("All workers complete");
     }
 }
+
+/*
+
+hashcode da calcolare = 2 ^ (4 * numero di 0 che vogliamo)
+In quanto hashcode è una stringa esadecimala, ogni carattere rappresenta 4 bit. 
+Per provare tutte le combinazioni al fine di trovare un hashcode < difficulty dobbiamo calcolare 2 ^ (4 * numero di 0 che vogliamo) combinazioni. 
+
+*/
