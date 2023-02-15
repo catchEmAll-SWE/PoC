@@ -1,8 +1,8 @@
-from checks import *
+from modules.checks import *
 from pathlib import Path
 import sys
 import github_action_utils as gha_utils
-from print_error import PrintError
+from modules.print_error import PrintError
 
 
 def main() -> int:

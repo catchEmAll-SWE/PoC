@@ -1,8 +1,8 @@
 from pathlib import *
 import re
 import collections
-import specific_rules as srules
-from print_error import *
+import modules.specific_rules as srules
+from modules.print_error import *
 import github_action_utils as gha_utils
 
 
