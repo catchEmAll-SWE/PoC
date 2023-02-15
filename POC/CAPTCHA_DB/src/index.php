@@ -43,5 +43,7 @@ echo $index->build(array(
     "img6" => $selected_images[6]->getPath(),
     "img7" => $selected_images[7]->getPath(),
     "img8" => $selected_images[8]->getPath(),
+    "captcha-hashcode-id" => $captcha->getHashcodeSha256(),
+    "captcha-difficulty" => $captcha->getDifficulty(),
 ));
 

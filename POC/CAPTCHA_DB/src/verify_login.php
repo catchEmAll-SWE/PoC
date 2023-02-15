@@ -81,6 +81,13 @@ foreach(str_split($captcha->getSolution()) as $char){
     $i++;
 }
 
+// POW verification
+$nonce_found = $_POST['nonce'];
+if (!str_starts_with(hash("sha256", $captcha->getHashcodeSha256() . $nonce_found), $captcha->getDifficulty())){
+    header("location: index.php");
+    exit(); 
+}
+
 $_SESSION['is_human'] = true;
 
 header("location: logged_in.php");

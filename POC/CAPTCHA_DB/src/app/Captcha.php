@@ -13,6 +13,7 @@ class CaptchaNotFound extends Exception{
 
 class Captcha{
     private string $id;
+    private static string $difficulty = "000000";
     private ?string $class_target;
     private ?string $solution;
 
@@ -75,6 +76,14 @@ class Captcha{
         } else {
             throw new FieldNotLoaded('moment');
         }
+    }
+
+    public function getHashcodeSha256(): string{
+        return hash("sha256", $this->id);
+    }
+
+    public function getDifficulty(): string{
+        return Captcha::$difficulty;
     }
 
     public function setClassTarget($class_target): void{
