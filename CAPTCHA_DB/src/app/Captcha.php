@@ -13,7 +13,7 @@ class CaptchaNotFound extends Exception{
 
 class Captcha{
     private string $id;
-    private static string $difficulty = "000000";
+    private static string $difficulty = "00000";
     private ?string $class_target;
     private ?string $solution;
 

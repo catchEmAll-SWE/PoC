@@ -11,7 +11,7 @@ function pow(){
 
         //create 4 workers
         for(let i=0; i<4; ++i){
-            worker = new Worker("web-worker.js");
+            worker = new Worker("../../POW/web-worker.js");
             worker.onmessage = workerDone;
             worker.postMessage([content, difficulty, i]);
             running++;
