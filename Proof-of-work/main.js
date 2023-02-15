@@ -1,61 +1,31 @@
-/*
-async function calcHash(content, nonce){
-    hashArrayBuffer = await crypto.subtle.digest('SHA-256', enc.encode(content + nonce));
-    hashArray = Array.from(new Uint8Array(hashArrayBuffer));
-    return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
+let running = 0;
+
+function pow(){
+    if (typeof(Worker) !== "undefined") {    
+        console.log("Starting pow's workers");
+
+        //get the content and difficulty from the form
+        content = document.getElementById('ids').value;
+        difficulty = document.getElementById('difficulty').value;
+
+        //create 4 workers
+        for(let i=0; i<4; ++i){
+            worker = new Worker("web-worker.js");
+            worker.onmessage = workerDone;
+            worker.postMessage([content, difficulty, i]);
+            running++;
+        }
+
+    } else {
+        // Sorry! No Web Worker support..
+        console.log("No Web Worker support");
+    }
 }
 
-document.getElementById('pow').onclick = async () =>{
-    console.log('pow')
-    content = document.getElementById('ids').value;
-    difficulty = document.getElementById('difficulty').value;
-    /*var worker = [];
-    for (let i=0; i<4; ++i){
-        worker[i] = new Worker('worker.js');
-        worker.postMessage({start, end, difficulty, content});
+function workerDone(e){
+    --running;
+    console.log("Worker "+e.data[1]+" is done, hashcode found: "+e.data[0]);
+    if(running === 0){
+        console.log("All workers complete");
     }
-    /*worker.onmessage = (e) => {
-        const {nonce, hash} = e.data;
-        document.getElementById('nonce').value = nonce;
-        print(nonce);
-        worker.terminate();
-    }/
-    var nonce = 0;
-    var hash = '';
-    enc = new TextEncoder()
-    dec = new TextDecoder()
-    cicle = true
-    while (cicle) {
-        console.log('cicle')
-        await calcHash(content, nonce).then(
-            function(str_hash) { hash = str_hash; },
-            function(err) { console.log('hash function not available '+err); cicle=false; }
-        );
-        if (hash.startsWith(difficulty)){
-            document.getElementById('nonce').value = nonce;
-            console.log(nonce);
-            break;
-        }
-    }
-    return false
-}
-*/
-async function calcHash(){
-    const content = document.getElementById('ids').value;
-    const difficulty = document.getElementById('difficulty').value;
-    var nonce = 0;
-    while (true) {
-        const msg = new TextEncoder().encode(content + nonce);
-        const hashArrayBuffer = await crypto.subtle.digest('SHA-256', msg);
-        const hashHex = Array.from(new Uint8Array(hashArrayBuffer))
-                        .map(b => b.toString(16).padStart(2, '0'))
-                        .join('');
-        if (hashHex.startsWith(difficulty)) {
-            document.getElementById('nonce').value = nonce;
-            console.log('nonce found:: '+nonce);
-            return true;
-        }
-        nonce++;
-    }
-    return false
 }
