@@ -1,6 +1,7 @@
 let running = 0;
 
 function pow(){
+    console.log("Starting pow");
     if (typeof(Worker) !== "undefined") {    
         console.log("Starting pow's workers");
 
