@@ -35,5 +35,7 @@ function workerDone(e){
 hashcode da calcolare = 2 ^ (4 * numero di 0 che vogliamo)
 In quanto hashcode è una stringa esadecimala, ogni carattere rappresenta 4 bit. 
 Per provare tutte le combinazioni al fine di trovare un hashcode < difficulty dobbiamo calcolare 2 ^ (4 * numero di 0 che vogliamo) combinazioni. 
+Per il POC il multitread è implementato (con 4 workers sperimentalmente) i quali cercano di trovare il hashcode in parallelo a partire 
+da una base e un'insime di nonce uguale tra di loro.
 
 */
