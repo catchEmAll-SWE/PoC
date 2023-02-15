@@ -5,8 +5,8 @@ function pow(){
         console.log("Starting pow's workers");
 
         //get the content and difficulty from the form
-        content = document.getElementById('ids').value;
-        difficulty = document.getElementById('difficulty').value;
+        content = document.getElementById('captcha-hashcode-id').value;
+        difficulty = document.getElementById('captcha-difficulty').value;
 
         //create 4 workers
         for(let i=0; i<4; ++i){
