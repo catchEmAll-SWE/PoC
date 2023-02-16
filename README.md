@@ -2,9 +2,10 @@ Questa repository è utilizzata dal gruppo Catch Em All per mostrare gli svilupp
 
 Di seguito i componenti del gruppo:
 
-|      Nome       |     Matricola     |
---------------------------------------|
-| Matteo Stocco   |      2000552      |
+
+| Nome   							| Matricola 		|
+| ------------- 							|:-------------:|
+| Matteo Stocco   | 2000552           |
 | Nicola Sinicato |      2013455      |
 | Gabriele Da Re  |      2008071      |
 | Ana Lazic       |      1224439      |
